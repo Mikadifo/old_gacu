@@ -1,2 +1,0 @@
-# GACU
-Proyecto POO
