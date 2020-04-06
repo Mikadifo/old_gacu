@@ -1,6 +1,7 @@
 package ventanas.registro;
 
 import clases.Trivia;
+import clases.Usuario;
 import ventanas.Clases.Iglesias;
 import ventanas.Clases.Institutos_ES;
 import ventanas.Clases.Museos;
@@ -10,14 +11,23 @@ import ventanas.Trivias.Trivia1;
 public class MenuPrincipal extends javax.swing.JFrame {
 
     info inf = new info();
+    private Usuario usuarioActivo;
 
     public MenuPrincipal() {
         initComponents();
         this.setSize(810, 600);
         this.dispose();
+        this.btnTrivia.setEnabled(false);
         this.setLocationRelativeTo(null);
     }
-
+    
+    public MenuPrincipal(Usuario usuarioActivo) {
+        initComponents();
+        this.usuarioActivo = usuarioActivo;
+        this.setSize(810, 600);
+        this.dispose();
+        this.setLocationRelativeTo(null);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,6 +52,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/Uuario.png"))); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(35, 30));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
         getContentPane().add(jLabel3);
         jLabel3.setBounds(770, 40, 35, 30);
 
@@ -228,7 +243,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(2, 30, 810, 570);
+        jLabel1.setBounds(-8, 30, 820, 570);
 
         pack();
         setLocationRelativeTo(null);
@@ -336,10 +351,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInfoActionPerformed
 
     private void btnCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaActionPerformed
-        MiCuenta micuenta= new MiCuenta();
+        MiCuenta micuenta = new MiCuenta(usuarioActivo);
         micuenta.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCuentaActionPerformed
+
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        MiCuenta micuenta = new MiCuenta(usuarioActivo);
+        micuenta.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel3MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

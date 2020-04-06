@@ -1,12 +1,11 @@
 
 package clases;
 
-import java.io.File;
-
+import java.awt.Image;
 
 public class Imagenes {
     //Atributo
-    private File imagen;
+    private Image imagen;
     private String codigo_imagen;  
     
     //Costructor
@@ -14,18 +13,18 @@ public class Imagenes {
     public Imagenes() {
     }
 
-    public Imagenes(File imagen, String codigo_imagen) {
+    public Imagenes(Image imagen, String codigo_imagen) {
         this.imagen = imagen;
         this.codigo_imagen = codigo_imagen;
     }
     
     //Getters And Setters
 
-    public File getImagen() {
+    public Image getImagen() {
         return imagen;
     }
 
-    public void setImagen(File imagen) {
+    public void setImagen(Image imagen) {
         this.imagen = imagen;
     }
 

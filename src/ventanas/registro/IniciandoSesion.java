@@ -272,6 +272,7 @@ public class IniciandoSesion extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         if (datosValidos()) {
+            Usuario usuarioActivo;
             int estadoSolicitud = base.solicitarIngresoUsuario(txtCedula.getText(), new String(txtContrasena.getPassword()));
             switch (estadoSolicitud) {
                 case -1:
@@ -281,10 +282,10 @@ public class IniciandoSesion extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Cedula incorrecta");
                     break;
                 default:
-                    MenuPrincipal menu = new MenuPrincipal();
+                    usuarioActivo = base.getUsuario(txtCedula.getText());
+                    MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
                     menu.setVisible(true);
                     dispose();
-                    setLocationRelativeTo(null);
                     break;
             }
         }

@@ -105,7 +105,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         pnlHeader.setBounds(0, 0, 400, 35);
 
         lblCedula.setBackground(new java.awt.Color(225, 225, 255));
-        lblCedula.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblCedula.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         lblCedula.setForeground(new java.awt.Color(255, 255, 255));
         lblCedula.setText("Cédula :");
         lblCedula.setMaximumSize(new java.awt.Dimension(101, 26));
@@ -115,7 +115,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         lblCedula.setBounds(32, 72, 101, 26);
 
         lblUsuario.setBackground(new java.awt.Color(225, 225, 255));
-        lblUsuario.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Usuario :");
         lblUsuario.setMaximumSize(new java.awt.Dimension(101, 26));
@@ -125,7 +125,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         lblUsuario.setBounds(32, 118, 101, 26);
 
         lblContrasena.setBackground(new java.awt.Color(225, 225, 255));
-        lblContrasena.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblContrasena.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         lblContrasena.setForeground(new java.awt.Color(255, 255, 255));
         lblContrasena.setText("Contraseña:");
         lblContrasena.setMaximumSize(new java.awt.Dimension(101, 26));
@@ -176,7 +176,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         pnlCreandoCuenta.add(txtCedula);
         txtCedula.setBounds(177, 74, 190, 25);
 
-        cmbxCiudad.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        cmbxCiudad.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         cmbxCiudad.setForeground(new java.awt.Color(76, 84, 84));
         cmbxCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cuenca", "Quito", "Guayaquil", "Ambato", "Manta", "Machalla", "Ibarra", "Loja", "Portoviejo", "Santo Domingo", "Latacunga", "Babahoyo", "Esmeraldas", "Puyo" }));
         cmbxCiudad.setAlignmentX(0.0F);
@@ -266,7 +266,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         btnCrear.setBounds(270, 300, 100, 40);
 
         lblCiudad1.setBackground(new java.awt.Color(225, 225, 255));
-        lblCiudad1.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblCiudad1.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         lblCiudad1.setForeground(new java.awt.Color(255, 255, 255));
         lblCiudad1.setText("Ciudad :");
         lblCiudad1.setMaximumSize(new java.awt.Dimension(101, 26));
@@ -412,7 +412,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
 
     private void txtContrasenaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyTyped
         char con = evt.getKeyChar();
-        String contra = txtUsuario.getText();
+        String contra = new String (txtContrasena.getPassword());
         if (((con < 'a' || con > 'z') && (con < 'A' || con > 'Z') && (con < '0' || con > '9') && (con < ' ')) || (contra.length() > 25)) {
             evt.consume();
         }
