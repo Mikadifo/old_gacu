@@ -14,32 +14,80 @@ public class Trivia4 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pnlCompletar = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        lblEnunciado = new javax.swing.JLabel();
+        pnlRespuestas = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         btnSalirMenu = new javax.swing.JButton();
         btnTerminar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lblTriviaFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        jPanel1.setLayout(null);
+        pnlCompletar.setMinimumSize(new java.awt.Dimension(700, 500));
+        pnlCompletar.setRequestFocusEnabled(false);
+        pnlCompletar.setLayout(null);
+
+        lblTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlCompletar.add(lblTitulo);
+        lblTitulo.setBounds(220, 20, 250, 20);
+
+        lblEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlCompletar.add(lblEnunciado);
+        lblEnunciado.setBounds(70, 70, 570, 140);
+
+        pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.setLayout(null);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox1.setBorder(null);
+        pnlRespuestas.add(jComboBox1);
+        jComboBox1.setBounds(100, 40, 80, 20);
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(220, 20, 250, 20);
+        pnlRespuestas.add(jLabel1);
+        jLabel1.setBounds(370, 40, 80, 20);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(70, 70, 570, 140);
+        pnlRespuestas.add(jLabel2);
+        jLabel2.setBounds(10, 40, 80, 20);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setLayout(null);
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(70, 230, 570, 160);
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.add(jLabel3);
+        jLabel3.setBounds(10, 80, 80, 20);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox2.setBorder(null);
+        jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pnlRespuestas.add(jComboBox2);
+        jComboBox2.setBounds(100, 80, 80, 20);
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox3.setBorder(null);
+        pnlRespuestas.add(jComboBox3);
+        jComboBox3.setBounds(280, 40, 80, 20);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox4.setBorder(null);
+        pnlRespuestas.add(jComboBox4);
+        jComboBox4.setBounds(460, 40, 80, 20);
+
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.add(jLabel4);
+        jLabel4.setBounds(190, 40, 80, 20);
+
+        pnlCompletar.add(pnlRespuestas);
+        pnlRespuestas.setBounds(70, 230, 570, 160);
 
         btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
         btnSalirMenu.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -66,7 +114,7 @@ public class Trivia4 extends javax.swing.JFrame {
                 btnSalirMenuActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalirMenu);
+        pnlCompletar.add(btnSalirMenu);
         btnSalirMenu.setBounds(70, 430, 130, 40);
 
         btnTerminar.setBackground(new java.awt.Color(76, 84, 84));
@@ -94,15 +142,15 @@ public class Trivia4 extends javax.swing.JFrame {
                 btnTerminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTerminar);
+        pnlCompletar.add(btnTerminar);
         btnTerminar.setBounds(330, 430, 100, 40);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/quiz2.PNG"))); // NOI18N
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(0, 0, 700, 500);
+        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/quiz2.PNG"))); // NOI18N
+        pnlCompletar.add(lblTriviaFondo);
+        lblTriviaFondo.setBounds(0, 0, 700, 500);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 810, 600);
+        getContentPane().add(pnlCompletar);
+        pnlCompletar.setBounds(0, 0, 700, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,10 +188,18 @@ public class Trivia4 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JButton btnTerminar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblEnunciado;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTriviaFondo;
+    private javax.swing.JPanel pnlCompletar;
+    private javax.swing.JPanel pnlRespuestas;
     // End of variables declaration//GEN-END:variables
 }
