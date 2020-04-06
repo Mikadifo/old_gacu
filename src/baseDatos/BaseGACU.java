@@ -16,6 +16,8 @@ public class BaseGACU {
     
     private BaseUsuario baseUsuario = new BaseUsuario();
     private BaseCategoria baseCategoria = new BaseCategoria();
+    private BaseLugares baseLugar = new BaseLugares();
+    
     //FIN VARIABLES
     
     //CONSTRUCTORES
@@ -111,6 +113,40 @@ public class BaseGACU {
         return estado;
     }
     //FIN METODOS CATEGORIA
+    
+    
+    //METODOS LUGARES
+    public boolean crearLugar(Lugares lugar) {
+        boolean estado = baseLugar.crearLugar(abrirBase(rutaArchivo), lugar);
+        cerrarBase();
+        return estado;
+    }
+    
+    public Vector<Lugares> getLugares() {
+        Vector<Lugares> lugares = baseLugar.getLugares(abrirBase(rutaArchivo));
+        cerrarBase();
+        return lugares;
+    }
+    
+    public Lugares getLugar(String codigo) {
+        Lugares LugarResultado = baseLugar.getLugar(abrirBase(rutaArchivo), codigo);
+        cerrarBase();
+        return LugarResultado;
+    }
+    
+    public boolean modificarLugar(Lugares lugarNueva) {
+        boolean estado = baseLugar.modificarLugar(abrirBase(rutaArchivo), lugarNueva);
+        cerrarBase();
+        return estado;
+    }
+    
+    public boolean eliminarLugar(String codigo) {
+        boolean estado = baseLugar.eliminarLugar(abrirBase(rutaArchivo), codigo);
+        cerrarBase();
+        return estado;
+    }
+    //FIN METODOS LUGARES
+    
     
     //METODOS TRIVIA(PREGUNTAS-RESPUESTAS)Trivia_PR
     public boolean crearTrivia(Trivia trivia) {
