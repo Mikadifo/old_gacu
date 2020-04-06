@@ -5,7 +5,6 @@ public class GACU {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuRegistro().setVisible(true);
-                System.out.println("hola");
             }
         });
     }   
