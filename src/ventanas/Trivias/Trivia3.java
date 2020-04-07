@@ -27,7 +27,6 @@ public class Trivia3 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -59,36 +58,31 @@ public class Trivia3 extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         pnlRespuestas.add(jComboBox1);
-        jComboBox1.setBounds(100, 40, 80, 27);
+        jComboBox1.setBounds(170, 110, 370, 27);
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.add(jLabel1);
-        jLabel1.setBounds(370, 40, 80, 20);
+        jLabel1.setBounds(360, 30, 170, 20);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.add(jLabel2);
-        jLabel2.setBounds(10, 40, 80, 20);
+        jLabel2.setBounds(10, 30, 210, 20);
 
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.add(jLabel3);
-        jLabel3.setBounds(10, 80, 80, 20);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pnlRespuestas.add(jComboBox2);
-        jComboBox2.setBounds(100, 80, 80, 27);
+        jLabel3.setBounds(10, 70, 400, 20);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         pnlRespuestas.add(jComboBox3);
-        jComboBox3.setBounds(280, 40, 80, 27);
+        jComboBox3.setBounds(230, 30, 120, 27);
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         pnlRespuestas.add(jComboBox4);
-        jComboBox4.setBounds(460, 40, 80, 27);
+        jComboBox4.setBounds(430, 70, 110, 27);
 
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.add(jLabel4);
-        jLabel4.setBounds(190, 40, 80, 20);
+        jLabel4.setBounds(10, 110, 140, 20);
 
         pnlCompletar.add(pnlRespuestas);
         pnlRespuestas.setBounds(70, 230, 560, 160);
@@ -192,7 +186,6 @@ public class Trivia3 extends javax.swing.JFrame {
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JButton btnTerminar;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;

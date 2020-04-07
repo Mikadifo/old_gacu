@@ -23,10 +23,10 @@ public class Trivia2 extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblEnunciado = new javax.swing.JLabel();
         pnlRespuestas = new javax.swing.JPanel();
-        btn4 = new javax.swing.JButton();
         btn1 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
         btnSalirMenu = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
         lblTriviaFondo = new javax.swing.JLabel();
@@ -34,7 +34,6 @@ public class Trivia2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 810, 600));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 500));
         setSize(new java.awt.Dimension(700, 500));
         getContentPane().setLayout(null);
 
@@ -56,14 +55,14 @@ public class Trivia2 extends javax.swing.JFrame {
         pnlRespuestas.setLocation(new java.awt.Point(70, 230));
         pnlRespuestas.setSize(new java.awt.Dimension(560, 160));
         pnlRespuestas.setLayout(null);
-        pnlRespuestas.add(btn4);
-        btn4.setBounds(450, 120, 100, 30);
         pnlRespuestas.add(btn1);
-        btn1.setBounds(30, 120, 100, 30);
-        pnlRespuestas.add(btn2);
-        btn2.setBounds(170, 120, 100, 30);
+        btn1.setBounds(0, 0, 180, 160);
+        pnlRespuestas.add(btn4);
+        btn4.setBounds(420, 0, 140, 160);
         pnlRespuestas.add(btn3);
-        btn3.setBounds(320, 120, 100, 30);
+        btn3.setBounds(280, 0, 140, 160);
+        pnlRespuestas.add(btn2);
+        btn2.setBounds(130, 0, 170, 160);
 
         pnlRespuestasCorrectas.add(pnlRespuestas);
         pnlRespuestas.setBounds(70, 230, 560, 160);
@@ -105,7 +104,6 @@ public class Trivia2 extends javax.swing.JFrame {
         btnSiguiente.setBorderPainted(false);
         btnSiguiente.setContentAreaFilled(false);
         btnSiguiente.setFocusPainted(false);
-        btnSiguiente.setLocation(new java.awt.Point(530, 430));
         btnSiguiente.setMaximumSize(new java.awt.Dimension(100, 40));
         btnSiguiente.setMinimumSize(new java.awt.Dimension(100, 40));
         btnSiguiente.setOpaque(true);
