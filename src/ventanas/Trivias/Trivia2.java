@@ -6,8 +6,10 @@ public class Trivia2 extends javax.swing.JFrame {
 
     public Trivia2() {
         initComponents();
-        this.setSize(810, 600);
-        setResizable(false);
+        initComponents();
+        this.setSize(700, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
 
     }
 
@@ -30,6 +32,8 @@ public class Trivia2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 810, 600));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(700, 500));
+        setSize(new java.awt.Dimension(700, 500));
         getContentPane().setLayout(null);
 
         pnlRespuestasCorrectas.setPreferredSize(new java.awt.Dimension(700, 500));
@@ -40,10 +44,15 @@ public class Trivia2 extends javax.swing.JFrame {
         lblTitulo.setBounds(220, 20, 250, 20);
 
         lblEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblEnunciado.setLocation(new java.awt.Point(70, 70));
+        lblEnunciado.setPreferredSize(new java.awt.Dimension(560, 140));
+        lblEnunciado.setSize(new java.awt.Dimension(560, 140));
         pnlRespuestasCorrectas.add(lblEnunciado);
-        lblEnunciado.setBounds(50, 70, 580, 140);
+        lblEnunciado.setBounds(70, 70, 560, 140);
 
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.setLocation(new java.awt.Point(70, 230));
+        pnlRespuestas.setSize(new java.awt.Dimension(560, 160));
         pnlRespuestas.setLayout(null);
         pnlRespuestas.add(btn4);
         btn4.setBounds(450, 120, 100, 30);
@@ -55,7 +64,7 @@ public class Trivia2 extends javax.swing.JFrame {
         btn3.setBounds(320, 120, 100, 30);
 
         pnlRespuestasCorrectas.add(pnlRespuestas);
-        pnlRespuestas.setBounds(50, 230, 580, 160);
+        pnlRespuestas.setBounds(70, 230, 560, 160);
 
         btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
         btnSalirMenu.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -65,6 +74,7 @@ public class Trivia2 extends javax.swing.JFrame {
         btnSalirMenu.setBorderPainted(false);
         btnSalirMenu.setContentAreaFilled(false);
         btnSalirMenu.setFocusPainted(false);
+        btnSalirMenu.setLocation(new java.awt.Point(70, 430));
         btnSalirMenu.setMaximumSize(new java.awt.Dimension(100, 40));
         btnSalirMenu.setMinimumSize(new java.awt.Dimension(100, 40));
         btnSalirMenu.setOpaque(true);
@@ -83,7 +93,7 @@ public class Trivia2 extends javax.swing.JFrame {
             }
         });
         pnlRespuestasCorrectas.add(btnSalirMenu);
-        btnSalirMenu.setBounds(50, 430, 130, 40);
+        btnSalirMenu.setBounds(70, 430, 130, 40);
 
         btnSiguiente.setBackground(new java.awt.Color(76, 84, 84));
         btnSiguiente.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -149,7 +159,6 @@ public class Trivia2 extends javax.swing.JFrame {
         Trivia3 trivia3 = new Trivia3();
         trivia3.setVisible(true);
         dispose();
-        trivia3.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
 

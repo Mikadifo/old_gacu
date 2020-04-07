@@ -6,56 +6,89 @@ public class Trivia3 extends javax.swing.JFrame {
 
     public Trivia3() {
         initComponents();
-        this.setSize(810, 600);
-        setResizable(false);
-
+        initComponents();
+        this.setSize(700, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlImagenCorrecta = new javax.swing.JPanel();
+        pnlCompletar = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblEnunciado = new javax.swing.JLabel();
         pnlRespuestas = new javax.swing.JPanel();
-        btn1 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
-        btn3 = new javax.swing.JButton();
-        btn4 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         btnSalirMenu = new javax.swing.JButton();
-        btnSiguiente = new javax.swing.JButton();
+        btnTerminar = new javax.swing.JButton();
         lblTriviaFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        pnlImagenCorrecta.setMinimumSize(new java.awt.Dimension(700, 500));
-        pnlImagenCorrecta.setPreferredSize(new java.awt.Dimension(700, 500));
-        pnlImagenCorrecta.setLayout(null);
+        pnlCompletar.setMinimumSize(new java.awt.Dimension(700, 500));
+        pnlCompletar.setRequestFocusEnabled(false);
+        pnlCompletar.setLayout(null);
 
         lblTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlImagenCorrecta.add(lblTitulo);
+        pnlCompletar.add(lblTitulo);
         lblTitulo.setBounds(220, 20, 250, 20);
 
         lblEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlImagenCorrecta.add(lblEnunciado);
-        lblEnunciado.setBounds(70, 70, 570, 140);
+        lblEnunciado.setPreferredSize(new java.awt.Dimension(560, 140));
+        lblEnunciado.setSize(new java.awt.Dimension(560, 140));
+        pnlCompletar.add(lblEnunciado);
+        lblEnunciado.setBounds(70, 70, 560, 140);
 
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.setSize(new java.awt.Dimension(560, 160));
         pnlRespuestas.setLayout(null);
-        pnlRespuestas.add(btn1);
-        btn1.setBounds(20, 120, 100, 30);
-        pnlRespuestas.add(btn2);
-        btn2.setBounds(170, 120, 100, 30);
-        pnlRespuestas.add(btn3);
-        btn3.setBounds(310, 120, 100, 30);
-        pnlRespuestas.add(btn4);
-        btn4.setBounds(450, 120, 100, 30);
 
-        pnlImagenCorrecta.add(pnlRespuestas);
-        pnlRespuestas.setBounds(70, 230, 570, 160);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        pnlRespuestas.add(jComboBox1);
+        jComboBox1.setBounds(100, 40, 80, 27);
+
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.add(jLabel1);
+        jLabel1.setBounds(370, 40, 80, 20);
+
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.add(jLabel2);
+        jLabel2.setBounds(10, 40, 80, 20);
+
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.add(jLabel3);
+        jLabel3.setBounds(10, 80, 80, 20);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pnlRespuestas.add(jComboBox2);
+        jComboBox2.setBounds(100, 80, 80, 27);
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        pnlRespuestas.add(jComboBox3);
+        jComboBox3.setBounds(280, 40, 80, 27);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        pnlRespuestas.add(jComboBox4);
+        jComboBox4.setBounds(460, 40, 80, 27);
+
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlRespuestas.add(jLabel4);
+        jLabel4.setBounds(190, 40, 80, 20);
+
+        pnlCompletar.add(pnlRespuestas);
+        pnlRespuestas.setBounds(70, 230, 560, 160);
 
         btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
         btnSalirMenu.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -82,43 +115,43 @@ public class Trivia3 extends javax.swing.JFrame {
                 btnSalirMenuActionPerformed(evt);
             }
         });
-        pnlImagenCorrecta.add(btnSalirMenu);
+        pnlCompletar.add(btnSalirMenu);
         btnSalirMenu.setBounds(70, 430, 130, 40);
 
-        btnSiguiente.setBackground(new java.awt.Color(76, 84, 84));
-        btnSiguiente.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
-        btnSiguiente.setForeground(new java.awt.Color(255, 255, 255));
-        btnSiguiente.setText("Siguiente");
-        btnSiguiente.setBorder(null);
-        btnSiguiente.setBorderPainted(false);
-        btnSiguiente.setContentAreaFilled(false);
-        btnSiguiente.setFocusPainted(false);
-        btnSiguiente.setMaximumSize(new java.awt.Dimension(100, 40));
-        btnSiguiente.setMinimumSize(new java.awt.Dimension(100, 40));
-        btnSiguiente.setOpaque(true);
-        btnSiguiente.setPreferredSize(new java.awt.Dimension(100, 40));
-        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnTerminar.setBackground(new java.awt.Color(76, 84, 84));
+        btnTerminar.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnTerminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnTerminar.setText("Terminar");
+        btnTerminar.setBorder(null);
+        btnTerminar.setBorderPainted(false);
+        btnTerminar.setContentAreaFilled(false);
+        btnTerminar.setFocusPainted(false);
+        btnTerminar.setMaximumSize(new java.awt.Dimension(100, 40));
+        btnTerminar.setMinimumSize(new java.awt.Dimension(100, 40));
+        btnTerminar.setOpaque(true);
+        btnTerminar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnTerminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSiguienteMouseEntered(evt);
+                btnTerminarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSiguienteMouseExited(evt);
+                btnTerminarMouseExited(evt);
             }
         });
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        btnTerminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
+                btnTerminarActionPerformed(evt);
             }
         });
-        pnlImagenCorrecta.add(btnSiguiente);
-        btnSiguiente.setBounds(540, 430, 100, 40);
+        pnlCompletar.add(btnTerminar);
+        btnTerminar.setBounds(330, 430, 100, 40);
 
         lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/quiz2.PNG"))); // NOI18N
-        pnlImagenCorrecta.add(lblTriviaFondo);
+        pnlCompletar.add(lblTriviaFondo);
         lblTriviaFondo.setBounds(0, 0, 700, 500);
 
-        getContentPane().add(pnlImagenCorrecta);
-        pnlImagenCorrecta.setBounds(0, 0, 700, 500);
+        getContentPane().add(pnlCompletar);
+        pnlCompletar.setBounds(0, 0, 700, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,33 +170,36 @@ public class Trivia3 extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSalirMenuActionPerformed
 
-    private void btnSiguienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseEntered
-        btnSiguiente.setBackground(new java.awt.Color(30, 168, 150));
-    }//GEN-LAST:event_btnSiguienteMouseEntered
+    private void btnTerminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTerminarMouseEntered
+        btnTerminar.setBackground(new java.awt.Color(30, 168, 150));
+    }//GEN-LAST:event_btnTerminarMouseEntered
 
-    private void btnSiguienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseExited
-        btnSiguiente.setBackground(new java.awt.Color(76, 84, 84));
-    }//GEN-LAST:event_btnSiguienteMouseExited
+    private void btnTerminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTerminarMouseExited
+        btnTerminar.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnTerminarMouseExited
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        Trivia4 trivia4 = new Trivia4();
-        trivia4.setVisible(true);
+    private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
+        TriviaResultados triviaResul = new TriviaResultados();
+        triviaResul.setVisible(true);
         dispose();
-        trivia4.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnSiguienteActionPerformed
+    }//GEN-LAST:event_btnTerminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn1;
-    private javax.swing.JButton btn2;
-    private javax.swing.JButton btn3;
-    private javax.swing.JButton btn4;
     private javax.swing.JButton btnSalirMenu;
-    private javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnTerminar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblEnunciado;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTriviaFondo;
-    private javax.swing.JPanel pnlImagenCorrecta;
+    private javax.swing.JPanel pnlCompletar;
     private javax.swing.JPanel pnlRespuestas;
     // End of variables declaration//GEN-END:variables
 }

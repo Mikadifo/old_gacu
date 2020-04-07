@@ -6,8 +6,9 @@ public class Trivia1 extends javax.swing.JFrame {
 
     public Trivia1() {
         initComponents();
-        this.setSize(810, 600);
-        setResizable(false);
+        this.setSize(700, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -28,7 +29,7 @@ public class Trivia1 extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(0, 0, 810, 600));
         setMinimumSize(new java.awt.Dimension(700, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 500));
+        setSize(new java.awt.Dimension(700, 500));
         getContentPane().setLayout(null);
 
         pnlVoF.setPreferredSize(new java.awt.Dimension(700, 500));
@@ -39,19 +40,24 @@ public class Trivia1 extends javax.swing.JFrame {
         lblTitulo.setBounds(220, 20, 250, 20);
 
         lblEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblEnunciado.setPreferredSize(new java.awt.Dimension(560, 140));
         pnlVoF.add(lblEnunciado);
         lblEnunciado.setBounds(70, 70, 560, 140);
 
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.setLayout(null);
 
-        btnFalso.setText("Falso");
+        btnFalso.setText("FALSO");
+        btnFalso.setPreferredSize(new java.awt.Dimension(280, 170));
+        btnFalso.setSize(new java.awt.Dimension(280, 120));
         pnlRespuestas.add(btnFalso);
-        btnFalso.setBounds(360, 110, 110, 30);
+        btnFalso.setBounds(280, 0, 280, 160);
 
-        btnVerdadero.setText("Verdadero");
+        btnVerdadero.setText("VERDADERO");
+        btnVerdadero.setPreferredSize(new java.awt.Dimension(280, 177));
+        btnVerdadero.setSize(new java.awt.Dimension(280, 120));
         pnlRespuestas.add(btnVerdadero);
-        btnVerdadero.setBounds(90, 110, 110, 30);
+        btnVerdadero.setBounds(0, 0, 280, 160);
 
         pnlVoF.add(pnlRespuestas);
         pnlRespuestas.setBounds(70, 230, 560, 160);
@@ -151,7 +157,6 @@ public class Trivia1 extends javax.swing.JFrame {
         Trivia2 trivia2 = new Trivia2();
         trivia2.setVisible(true);
         dispose();
-        trivia2.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
 

@@ -8,6 +8,7 @@ public class TriviaResultados extends javax.swing.JFrame {
 
         initComponents();
         this.setSize(290, 420);
+        this.setResizable(false);
         lblimgX1.setVisible(false);
         lblimgV1.setVisible(false);
         lblimgX2.setVisible(false);
@@ -54,35 +55,35 @@ public class TriviaResultados extends javax.swing.JFrame {
         pnlTriviaResultados.add(lblPregunta4);
         lblPregunta4.setBounds(30, 310, 110, 19);
 
-        lblimgV2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/comprobado.png"))); // NOI18N
+        lblimgV2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/comprobado.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgV2);
         lblimgV2.setBounds(190, 140, 40, 40);
 
-        lblimgX3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/eliminar.png"))); // NOI18N
+        lblimgX3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/eliminar.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgX3);
         lblimgX3.setBounds(190, 220, 40, 40);
 
-        lblimgV4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/comprobado.png"))); // NOI18N
+        lblimgV4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/comprobado.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgV4);
         lblimgV4.setBounds(190, 290, 40, 40);
 
-        lblimgX1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/eliminar.png"))); // NOI18N
+        lblimgX1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/eliminar.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgX1);
         lblimgX1.setBounds(190, 60, 40, 40);
 
-        lblimgV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/comprobado.png"))); // NOI18N
+        lblimgV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/comprobado.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgV1);
         lblimgV1.setBounds(190, 60, 40, 40);
 
-        lblimgX2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/eliminar.png"))); // NOI18N
+        lblimgX2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/eliminar.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgX2);
         lblimgX2.setBounds(190, 140, 40, 40);
 
-        lblimgV3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/comprobado.png"))); // NOI18N
+        lblimgV3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/comprobado.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgV3);
         lblimgV3.setBounds(190, 220, 40, 40);
 
-        lblimgX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/eliminar.png"))); // NOI18N
+        lblimgX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/eliminar.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgX4);
         lblimgX4.setBounds(190, 290, 40, 40);
 

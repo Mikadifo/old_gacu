@@ -70,7 +70,7 @@
         <Component class="javax.swing.JLabel" name="lblimgV2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_Usuario/comprobado.png"/>
+              <Image iconType="3" name="/Imagenes_Trivia/comprobado.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -82,7 +82,7 @@
         <Component class="javax.swing.JLabel" name="lblimgX3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_Usuario/eliminar.png"/>
+              <Image iconType="3" name="/Imagenes_Trivia/eliminar.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -94,7 +94,7 @@
         <Component class="javax.swing.JLabel" name="lblimgV4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_Usuario/comprobado.png"/>
+              <Image iconType="3" name="/Imagenes_Trivia/comprobado.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -106,7 +106,7 @@
         <Component class="javax.swing.JLabel" name="lblimgX1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_Usuario/eliminar.png"/>
+              <Image iconType="3" name="/Imagenes_Trivia/eliminar.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -118,7 +118,7 @@
         <Component class="javax.swing.JLabel" name="lblimgV1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_Usuario/comprobado.png"/>
+              <Image iconType="3" name="/Imagenes_Trivia/comprobado.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -130,7 +130,7 @@
         <Component class="javax.swing.JLabel" name="lblimgX2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_Usuario/eliminar.png"/>
+              <Image iconType="3" name="/Imagenes_Trivia/eliminar.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -142,7 +142,7 @@
         <Component class="javax.swing.JLabel" name="lblimgV3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_Usuario/comprobado.png"/>
+              <Image iconType="3" name="/Imagenes_Trivia/comprobado.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -154,7 +154,7 @@
         <Component class="javax.swing.JLabel" name="lblimgX4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_Usuario/eliminar.png"/>
+              <Image iconType="3" name="/Imagenes_Trivia/eliminar.png"/>
             </Property>
           </Properties>
           <Constraints>
