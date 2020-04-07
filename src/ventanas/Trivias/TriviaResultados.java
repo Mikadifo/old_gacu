@@ -1,14 +1,18 @@
 package ventanas.Trivias;
 
+import clases.Usuario;
 import ventanas.registro.MenuPrincipal;
 
 public class TriviaResultados extends javax.swing.JFrame {
 
-    public TriviaResultados() {
-
+    private Usuario usuarioActivo;
+    
+    public TriviaResultados(Usuario usuarioActivo) {
         initComponents();
+        this.usuarioActivo = usuarioActivo;
         this.setSize(290, 420);
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
         lblimgX1.setVisible(false);
         lblimgV1.setVisible(false);
         lblimgX2.setVisible(false);
@@ -149,7 +153,7 @@ public class TriviaResultados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        MenuPrincipal menu = new MenuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAceptarActionPerformed

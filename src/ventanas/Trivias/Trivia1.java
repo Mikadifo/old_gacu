@@ -1,14 +1,17 @@
 package ventanas.Trivias;
 
+import clases.Usuario;
 import ventanas.registro.MenuPrincipal;
 
 public class Trivia1 extends javax.swing.JFrame {
 
-    public Trivia1() {
+    private Usuario usuarioActivo;
+    
+    public Trivia1(Usuario usuarioActivo) {
         initComponents();
+        this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setResizable(false);
-        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -47,15 +50,41 @@ public class Trivia1 extends javax.swing.JFrame {
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.setLayout(null);
 
+        btnFalso.setBackground(new java.awt.Color(76, 84, 84));
+        btnFalso.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnFalso.setForeground(new java.awt.Color(255, 255, 255));
         btnFalso.setText("FALSO");
+        btnFalso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 113, 91), 5));
+        btnFalso.setOpaque(true);
         btnFalso.setPreferredSize(new java.awt.Dimension(280, 170));
         btnFalso.setSize(new java.awt.Dimension(280, 120));
+        btnFalso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFalsoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFalsoMouseExited(evt);
+            }
+        });
         pnlRespuestas.add(btnFalso);
         btnFalso.setBounds(280, 0, 280, 160);
 
+        btnVerdadero.setBackground(new java.awt.Color(76, 84, 84));
+        btnVerdadero.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnVerdadero.setForeground(new java.awt.Color(255, 255, 255));
         btnVerdadero.setText("VERDADERO");
+        btnVerdadero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(30, 168, 150), 5));
+        btnVerdadero.setOpaque(true);
         btnVerdadero.setPreferredSize(new java.awt.Dimension(280, 177));
         btnVerdadero.setSize(new java.awt.Dimension(280, 120));
+        btnVerdadero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVerdaderoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVerdaderoMouseExited(evt);
+            }
+        });
         pnlRespuestas.add(btnVerdadero);
         btnVerdadero.setBounds(0, 0, 280, 160);
 
@@ -140,7 +169,7 @@ public class Trivia1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMenuMouseExited
 
     private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
-        MenuPrincipal menu = new MenuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSalirMenuActionPerformed
@@ -154,10 +183,26 @@ public class Trivia1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiguienteMouseExited
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        Trivia2 trivia2 = new Trivia2();
+        Trivia2 trivia2 = new Trivia2(usuarioActivo);
         trivia2.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSiguienteActionPerformed
+
+    private void btnVerdaderoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerdaderoMouseEntered
+        btnVerdadero.setBackground(new java.awt.Color(30, 168, 150));
+    }//GEN-LAST:event_btnVerdaderoMouseEntered
+
+    private void btnVerdaderoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerdaderoMouseExited
+        btnVerdadero.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnVerdaderoMouseExited
+
+    private void btnFalsoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFalsoMouseEntered
+        btnFalso.setBackground(new java.awt.Color(255,113,91));
+    }//GEN-LAST:event_btnFalsoMouseEntered
+
+    private void btnFalsoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFalsoMouseExited
+        btnFalso.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnFalsoMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

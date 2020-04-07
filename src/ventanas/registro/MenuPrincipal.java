@@ -2,6 +2,7 @@ package ventanas.registro;
 
 //import clases.Trivia;
 import clases.Usuario;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import ventanas.Clases.Iglesias;
 import ventanas.Clases.Institutos_ES;
@@ -13,9 +14,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     info inf = new info();
     private Usuario usuarioActivo;
+    MenuPrincipal thisVentana;
 
     public MenuPrincipal() {
         initComponents();
+        thisVentana = this;
         usuarioActivo = null;
         this.setSize(810, 600);
         this.dispose();
@@ -24,6 +27,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal(Usuario usuarioActivo) {
         initComponents();
+        thisVentana = this;
         this.usuarioActivo = usuarioActivo;
         this.setSize(810, 600);
         this.dispose();
@@ -33,6 +37,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlGeneral = new javax.swing.JPanel();
         iconImagen = new javax.swing.JLabel();
         btnInfo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -51,6 +56,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
 
+        pnlGeneral.setLayout(null);
+
         iconImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/Uuario.png"))); // NOI18N
         iconImagen.setPreferredSize(new java.awt.Dimension(35, 30));
         iconImagen.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -58,7 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 iconImagenMousePressed(evt);
             }
         });
-        getContentPane().add(iconImagen);
+        pnlGeneral.add(iconImagen);
         iconImagen.setBounds(770, 40, 35, 30);
 
         btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/Informacion.png"))); // NOI18N
@@ -79,7 +86,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnInfoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnInfo);
+        pnlGeneral.add(btnInfo);
         btnInfo.setBounds(760, 560, 35, 30);
 
         jPanel1.setBackground(new java.awt.Color(76, 84, 84));
@@ -125,7 +132,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1.add(lbinfo);
         lbinfo.setBounds(40, 530, 740, 50);
 
-        getContentPane().add(jPanel1);
+        pnlGeneral.add(jPanel1);
         jPanel1.setBounds(0, 0, 810, 35);
 
         btnCuenta.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -139,10 +146,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnCuentaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCuenta);
+        pnlGeneral.add(btnCuenta);
         btnCuenta.setBounds(760, 70, 50, 23);
 
         btnIglesias.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnIglesias.setOpaque(true);
         btnIglesias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnIglesiasMouseEntered(evt);
@@ -156,7 +164,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnIglesiasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIglesias);
+        pnlGeneral.add(btnIglesias);
         btnIglesias.setBounds(440, 70, 240, 170);
 
         btnTrivia.setBackground(new java.awt.Color(76, 84, 84));
@@ -184,10 +192,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnTriviaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTrivia);
+        pnlGeneral.add(btnTrivia);
         btnTrivia.setBounds(300, 540, 210, 50);
 
         btnInstitutos.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnInstitutos.setOpaque(true);
         btnInstitutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnInstitutosMouseEntered(evt);
@@ -201,10 +210,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnInstitutosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnInstitutos);
+        pnlGeneral.add(btnInstitutos);
         btnInstitutos.setBounds(440, 290, 240, 180);
 
         btnParques.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnParques.setOpaque(true);
         btnParques.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnParquesMouseEntered(evt);
@@ -218,10 +228,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnParquesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnParques);
+        pnlGeneral.add(btnParques);
         btnParques.setBounds(130, 70, 240, 170);
 
         btnMuseos.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnMuseos.setOpaque(true);
         btnMuseos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMuseosMouseEntered(evt);
@@ -235,12 +246,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnMuseosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMuseos);
+        pnlGeneral.add(btnMuseos);
         btnMuseos.setBounds(130, 290, 240, 180);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
+        pnlGeneral.add(jLabel1);
         jLabel1.setBounds(-8, 30, 820, 570);
+
+        getContentPane().add(pnlGeneral);
+        pnlGeneral.setBounds(0, 0, 810, 600);
 
         pack();
         setLocationRelativeTo(null);
@@ -255,7 +269,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btXMouseExited
 
     private void btXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXActionPerformed
-        System.exit(0);
+        if (JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir de GACU?") == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btXActionPerformed
 
     private void btnTriviaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTriviaMouseEntered
@@ -290,7 +306,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnTriviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTriviaActionPerformed
         if (usuarioActivo != null) {
-            Trivia1 trivia1 = new Trivia1();
+            Trivia1 trivia1 = new Trivia1(usuarioActivo);
             trivia1.setVisible(true);
             trivia1.setLocationRelativeTo(null);
             dispose();
@@ -337,38 +353,53 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInfoMouseExited
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnInfoActionPerformed
 
+    public void habilitarPanelPrincipal() {
+        for (Component componente : pnlGeneral.getComponents()) {
+            componente.setEnabled(true);
+        }
+        btX.setEnabled(true);
+        btnInfo.setEnabled(true);
+        btnInfo.setVisible(true);
+    }
+
+    public void deshabilitarPanelPrincipal() {
+        for (Component componente : pnlGeneral.getComponents()) {
+            componente.setEnabled(false);
+        }
+        btX.setEnabled(false);
+        btnInfo.setVisible(false);
+    }
+
     private void btnCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaActionPerformed
-        if (usuarioActivo != null) {
-            if (usuarioActivo != null) {
-                if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
-                    MenuRegistro ventanaMenu = new MenuRegistro();
-                    dispose();
-                    ventanaMenu.setVisible(true);
-                }
+        if (usuarioActivo == null) {
+            if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
+                MenuRegistro ventanaMenu = new MenuRegistro();
+                dispose();
+                ventanaMenu.setVisible(true);
             }
         } else {
-            MiCuenta micuenta = new MiCuenta(usuarioActivo);
+            MiCuenta micuenta = new MiCuenta(usuarioActivo, thisVentana);
+            micuenta.setAlwaysOnTop(true);
             micuenta.setVisible(true);
-            dispose();
+            deshabilitarPanelPrincipal();
         }
     }//GEN-LAST:event_btnCuentaActionPerformed
 
     private void iconImagenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconImagenMousePressed
-        if (usuarioActivo != null) {
-            if (usuarioActivo != null) {
-                if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
-                    MenuRegistro ventanaMenu = new MenuRegistro();
-                    dispose();
-                    ventanaMenu.setVisible(true);
-                }
+        if (usuarioActivo == null) {
+            if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
+                MenuRegistro ventanaMenu = new MenuRegistro();
+                dispose();
+                ventanaMenu.setVisible(true);
             }
         } else {
-            MiCuenta micuenta = new MiCuenta(usuarioActivo);
+            MiCuenta micuenta = new MiCuenta(usuarioActivo, thisVentana);
+            micuenta.setAlwaysOnTop(true);
             micuenta.setVisible(true);
-            dispose();
+            deshabilitarPanelPrincipal();
         }
     }//GEN-LAST:event_iconImagenMousePressed
 
@@ -402,5 +433,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbinfo;
+    private javax.swing.JPanel pnlGeneral;
     // End of variables declaration//GEN-END:variables
 }

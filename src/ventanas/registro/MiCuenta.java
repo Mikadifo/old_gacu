@@ -8,9 +8,12 @@ public class MiCuenta extends javax.swing.JFrame {
 
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
+    MenuPrincipal ventanaAtras;
+    MiCuenta thisVentana;
 
     public MiCuenta() {
         initComponents();
+        thisVentana = this;
         this.setSize(411, 453);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
@@ -22,11 +25,13 @@ public class MiCuenta extends javax.swing.JFrame {
         deshabilitarCampos();
     }
 
-    public MiCuenta(Usuario usuarioActivo) {
+    public MiCuenta(Usuario usuarioActivo, MenuPrincipal ventanaAtras) {
         initComponents();
         this.setSize(411, 453);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        thisVentana = this;
+        this.ventanaAtras = ventanaAtras;
         this.usuarioActivo = usuarioActivo;
         btnGuardarCambios.setVisible(false);
         lblContra.setVisible(false);
@@ -401,11 +406,11 @@ public class MiCuenta extends javax.swing.JFrame {
 
     private boolean datosValidos() {
         if (!validarCedula(txtCedula.getText())) {
-            JOptionPane.showMessageDialog(null, "Cedula incorrecta");
+            JOptionPane.showMessageDialog(thisVentana, "Cedula incorrecta");
             txtCedula.grabFocus();
             return false;
         } else if (!validarUsuario(txtNombreU.getText())) {
-            JOptionPane.showMessageDialog(null, "El nombre de usuario no es el correcto");
+            JOptionPane.showMessageDialog(thisVentana, "El nombre de usuario no es el correcto");
             txtNombreU.grabFocus();
             return false;
         }
@@ -414,7 +419,7 @@ public class MiCuenta extends javax.swing.JFrame {
 
     private boolean contrasenaNuevaValida() {
         if (!validarContrasena(new String(txtContrasenaN.getPassword()))) {
-            JOptionPane.showMessageDialog(null, "La contraseña nueva es incorrecta");
+            JOptionPane.showMessageDialog(thisVentana, "La contraseña nueva es incorrecta");
             txtContrasenaN.grabFocus();
             return false;
         }
@@ -479,7 +484,8 @@ public class MiCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btXMouseExited
 
     private void btXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXActionPerformed
-        System.exit(0);
+        dispose();
+        ventanaAtras.habilitarPanelPrincipal();
     }//GEN-LAST:event_btXActionPerformed
 
     private void btnGuardarCambiosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarCambiosMouseEntered
@@ -503,15 +509,15 @@ public class MiCuenta extends javax.swing.JFrame {
             if (new String(txtContrasenaA.getPassword()).isEmpty() && new String(txtContrasenaN.getPassword()).isEmpty()) {
                 usuarioNuevo.setContrasenaUsuario(usuarioActivo.getContrasenaUsuario());
                 base.modificarUsuario(usuarioNuevo);
-                JOptionPane.showMessageDialog(null, "Los cambios se han guardado con exito");
+                JOptionPane.showMessageDialog(thisVentana, "Los cambios se han guardado con exito");
             } else if (new String(txtContrasenaA.getPassword()).equals(usuarioActivo.getContrasenaUsuario())) {
                 if (contrasenaNuevaValida()) {
                     usuarioNuevo.setContrasenaUsuario(new String(txtContrasenaN.getPassword()));
                     base.modificarUsuario(usuarioNuevo);
-                    JOptionPane.showMessageDialog(null, "Los cambios se han guardado con exito");
+                    JOptionPane.showMessageDialog(thisVentana, "Los cambios se han guardado con exito");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Contrasena Actual Incorrecta");
+                JOptionPane.showMessageDialog(thisVentana, "Contrasena Actual Incorrecta");
             }
         }
     }//GEN-LAST:event_btnGuardarCambiosActionPerformed
@@ -538,7 +544,18 @@ public class MiCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarCuentaMouseExited
 
     private void btnEliminarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCuentaActionPerformed
-
+        if (JOptionPane.showConfirmDialog(thisVentana, "¿Esta seguro que desea eliminar esta cuenta?") == JOptionPane.YES_OPTION) {
+            if (base.eliminarUsuario(usuarioActivo.getCedulaUsuario())) {
+                JOptionPane.showMessageDialog(thisVentana, "El usuario ha sido eliminado!!\nLe enviaremos al menu de registro");
+                dispose();
+                ventanaAtras.dispose();
+                MenuRegistro ventanaMenu = new MenuRegistro();
+                ventanaMenu.setVisible(true);
+                setLocationRelativeTo(null);
+            } else {
+                JOptionPane.showMessageDialog(thisVentana, "No se ha podido eliminar el usuario");
+            }
+        }
     }//GEN-LAST:event_btnEliminarCuentaActionPerformed
 
     private void btnCerrarSeccionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSeccionMouseEntered
@@ -550,10 +567,13 @@ public class MiCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarSeccionMouseExited
 
     private void btnCerrarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSeccionActionPerformed
-        MenuRegistro ventanaMenu = new MenuRegistro();
-        ventanaMenu.setVisible(true);
-        dispose();
-        setLocationRelativeTo(null);
+        if (JOptionPane.showConfirmDialog(thisVentana, "¿Esta seguro de cerrar la sesion actual?") == JOptionPane.YES_OPTION) {
+            dispose();
+            ventanaAtras.dispose();
+            MenuRegistro ventanaMenu = new MenuRegistro();
+            ventanaMenu.setVisible(true);
+            setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_btnCerrarSeccionActionPerformed
 
     private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped

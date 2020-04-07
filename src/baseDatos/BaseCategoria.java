@@ -37,8 +37,8 @@ public class BaseCategoria {
     }
     
     public boolean modificarCategoria(ObjectContainer base, Categoria categoriaNueva) {
-        Categoria usuarioBuscar = new Categoria(categoriaNueva.getCodigo_categoria(), null);
-        ObjectSet respuesta = base.queryByExample(usuarioBuscar); 
+        Categoria categoriaBuscar = new Categoria(categoriaNueva.getCodigo_categoria(), null);
+        ObjectSet respuesta = base.queryByExample(categoriaBuscar); 
         if (respuesta.size() > 0) { 
             Categoria categoriaModificar = (Categoria)respuesta.next(); 
             categoriaModificar.setCodigo_categoria(categoriaNueva.getCodigo_categoria());

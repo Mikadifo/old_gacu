@@ -1,16 +1,18 @@
 package ventanas.Trivias;
 
+import clases.Usuario;
 import ventanas.registro.MenuPrincipal;
 
 public class Trivia2 extends javax.swing.JFrame {
 
-    public Trivia2() {
+    private Usuario usuarioActivo;
+    
+    public Trivia2(Usuario usuarioActivo) {
         initComponents();
-        initComponents();
+        this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -103,6 +105,7 @@ public class Trivia2 extends javax.swing.JFrame {
         btnSiguiente.setBorderPainted(false);
         btnSiguiente.setContentAreaFilled(false);
         btnSiguiente.setFocusPainted(false);
+        btnSiguiente.setLocation(new java.awt.Point(530, 430));
         btnSiguiente.setMaximumSize(new java.awt.Dimension(100, 40));
         btnSiguiente.setMinimumSize(new java.awt.Dimension(100, 40));
         btnSiguiente.setOpaque(true);
@@ -142,7 +145,7 @@ public class Trivia2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMenuMouseExited
 
     private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
-        MenuPrincipal menu = new MenuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSalirMenuActionPerformed
@@ -156,7 +159,7 @@ public class Trivia2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiguienteMouseExited
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        Trivia3 trivia3 = new Trivia3();
+        Trivia3 trivia3 = new Trivia3(usuarioActivo);
         trivia3.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSiguienteActionPerformed

@@ -2,6 +2,7 @@ package ventanas.registro;
 
 import clases.Usuario;
 import baseDatos.BaseGACU;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class CreandoCuenta extends javax.swing.JFrame {
@@ -14,8 +15,8 @@ public class CreandoCuenta extends javax.swing.JFrame {
         initComponents();
         this.setSize(400, 372);
         this.setLocationRelativeTo(null);
+        this.txtCedula.grabFocus();
         btnCrear.setEnabled(false);
-
     }
 
     public void asteriscoYboton() {
@@ -150,6 +151,9 @@ public class CreandoCuenta extends javax.swing.JFrame {
         txtUsuario.setPreferredSize(new java.awt.Dimension(200, 25));
         txtUsuario.setVerifyInputWhenFocusTarget(false);
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyReleased(evt);
             }
@@ -166,6 +170,9 @@ public class CreandoCuenta extends javax.swing.JFrame {
         txtCedula.setMinimumSize(new java.awt.Dimension(200, 26));
         txtCedula.setPreferredSize(new java.awt.Dimension(200, 25));
         txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCedulaKeyReleased(evt);
             }
@@ -189,6 +196,11 @@ public class CreandoCuenta extends javax.swing.JFrame {
                 cmbxCiudadItemStateChanged(evt);
             }
         });
+        cmbxCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbxCiudadKeyPressed(evt);
+            }
+        });
         pnlCreandoCuenta.add(cmbxCiudad);
         cmbxCiudad.setBounds(177, 215, 190, 25);
 
@@ -200,6 +212,9 @@ public class CreandoCuenta extends javax.swing.JFrame {
         txtContrasena.setMinimumSize(new java.awt.Dimension(200, 26));
         txtContrasena.setPreferredSize(new java.awt.Dimension(200, 25));
         txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContrasenaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtContrasenaKeyReleased(evt);
             }
@@ -293,6 +308,10 @@ public class CreandoCuenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La contraseña es incorrecta");
             txtContrasena.grabFocus();
             return false;
+        } else if (cmbxCiudad.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una ciudad");
+            cmbxCiudad.grabFocus();
+            return false;
         }
         return true;
     }
@@ -354,9 +373,9 @@ public class CreandoCuenta extends javax.swing.JFrame {
         usuario.setNombreUsuario(txtUsuario.getText());
         usuario.setContrasenaUsuario(new String(txtContrasena.getPassword()));
         usuario.setCiudadUsuario((String) cmbxCiudad.getSelectedItem());
-
     }
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+    
+    private void accionarBotonCrear() {
         if (datosValidos()) {
             usuario = new Usuario();
             datos(usuario);
@@ -375,7 +394,10 @@ public class CreandoCuenta extends javax.swing.JFrame {
                 }
             }
         }
-
+    }
+    
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        accionarBotonCrear();
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void txtCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyReleased
@@ -421,6 +443,30 @@ public class CreandoCuenta extends javax.swing.JFrame {
     private void cmbxCiudadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbxCiudadItemStateChanged
         asteriscoYboton();
     }//GEN-LAST:event_cmbxCiudadItemStateChanged
+
+    private void txtCedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            accionarBotonCrear();
+        }
+    }//GEN-LAST:event_txtCedulaKeyPressed
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            accionarBotonCrear();
+        }
+    }//GEN-LAST:event_txtUsuarioKeyPressed
+
+    private void txtContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            accionarBotonCrear();
+        }
+    }//GEN-LAST:event_txtContrasenaKeyPressed
+
+    private void cmbxCiudadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbxCiudadKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            accionarBotonCrear();
+        }
+    }//GEN-LAST:event_cmbxCiudadKeyPressed
     private boolean validarCedula(String cedula) {
         int digitos[] = new int[10];
         int digitoVerificador = 0;

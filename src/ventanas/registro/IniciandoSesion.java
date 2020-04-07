@@ -2,6 +2,7 @@ package ventanas.registro;
 
 import baseDatos.BaseGACU;
 import clases.Usuario;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class IniciandoSesion extends javax.swing.JFrame {
@@ -16,6 +17,7 @@ public class IniciandoSesion extends javax.swing.JFrame {
         initComponents();
         this.setSize(400, 372);
         this.setLocationRelativeTo(null);
+        this.txtCedula.grabFocus();
         btnIngresar.setEnabled(false);
     }
 
@@ -70,6 +72,11 @@ public class IniciandoSesion extends javax.swing.JFrame {
         pnlniciandoSesion.setToolTipText("");
         pnlniciandoSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pnlniciandoSesion.setPreferredSize(new java.awt.Dimension(400, 372));
+        pnlniciandoSesion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pnlniciandoSesionKeyPressed(evt);
+            }
+        });
         pnlniciandoSesion.setLayout(null);
 
         lblContrasena.setBackground(new java.awt.Color(255, 255, 255));
@@ -100,6 +107,9 @@ public class IniciandoSesion extends javax.swing.JFrame {
             }
         });
         txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCedulaKeyReleased(evt);
             }
@@ -120,6 +130,9 @@ public class IniciandoSesion extends javax.swing.JFrame {
             }
         });
         txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContrasenaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtContrasenaKeyReleased(evt);
             }
@@ -271,25 +284,7 @@ public class IniciandoSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXMouseExited
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        if (datosValidos()) {
-            Usuario usuarioActivo;
-            int estadoSolicitud = base.solicitarIngresoUsuario(txtCedula.getText(), new String(txtContrasena.getPassword()));
-            switch (estadoSolicitud) {
-                case -1:
-                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
-                    break;
-                case 0:
-                    JOptionPane.showMessageDialog(null, "Cedula incorrecta");
-                    break;
-                default:
-                    usuarioActivo = base.getUsuario(txtCedula.getText());
-                    MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
-                    menu.setVisible(true);
-                    dispose();
-                    break;
-            }
-        }
-
+        accionarBotonIngresar();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
@@ -319,6 +314,44 @@ public class IniciandoSesion extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtContrasenaKeyTyped
+
+    private void txtCedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            accionarBotonIngresar();
+        }
+    }//GEN-LAST:event_txtCedulaKeyPressed
+
+    private void txtContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyPressed
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            accionarBotonIngresar();
+        }
+    }//GEN-LAST:event_txtContrasenaKeyPressed
+
+    private void pnlniciandoSesionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pnlniciandoSesionKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlniciandoSesionKeyPressed
+    
+    private void accionarBotonIngresar() {
+        if (datosValidos()) {
+            Usuario usuarioActivo;
+            int estadoSolicitud = base.solicitarIngresoUsuario(txtCedula.getText(), new String(txtContrasena.getPassword()));
+            switch (estadoSolicitud) {
+                case -1:
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+                    break;
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Cedula incorrecta");
+                    break;
+                default:
+                    usuarioActivo = base.getUsuario(txtCedula.getText());
+                    MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
+                    menu.setVisible(true);
+                    dispose();
+                    break;
+            }
+        }
+    }
+    
     private boolean datosValidos() {
         if (!validarCedula(txtCedula.getText())) {
             JOptionPane.showMessageDialog(null, "Cedula incorrecta");
