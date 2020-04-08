@@ -18,13 +18,13 @@ public class BaseImagenes {
     }
     
     public Vector<Imagenes> getImagenes(ObjectContainer base) {
-        Vector<Imagenes> categorias = new Vector<>();
+        Vector<Imagenes> imagenes = new Vector<>();
         Imagenes imagenBuscar = new Imagenes(null, null);
         ObjectSet resultado = base.queryByExample(imagenBuscar);
         while (resultado.hasNext()) {
-            categorias.add((Imagenes)resultado.next());
+            imagenes.add((Imagenes)resultado.next());
         }
-        return categorias; //Retorna todas las imagenes de la base
+        return imagenes; //Retorna todas las imagenes de la base
     }
     
     public Imagenes getImagen(ObjectContainer base, String codigo_imagen) {

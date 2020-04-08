@@ -1,19 +1,31 @@
 package ventanas.registro;
 
 //import clases.Trivia;
+import clases.Imagenes;
 import clases.Usuario;
 import java.awt.Component;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import ventanas.Clases.Iglesias;
 import ventanas.Clases.Institutos_ES;
 import ventanas.Clases.Museos;
 import ventanas.Clases.Parques;
+import baseDatos.BaseGACU;
 import ventanas.Trivias.Trivia1;//cambiar
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
     info inf = new info();
     private Usuario usuarioActivo;
+    private BaseGACU base = new BaseGACU();
+    ImageIcon imagenIglesia = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgIglesia.PNG"));
+    Imagenes iconIglesia = new Imagenes();
+    ImageIcon imagenParque = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgParque.PNG"));
+    Imagenes iconParque = new Imagenes();
+    ImageIcon imagenMuseo = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgMuseo.PNG"));
+    Imagenes iconMuseo = new Imagenes();
+    ImageIcon imagenUniversidad = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgUniversidad.PNG"));
+    Imagenes iconUniversidad = new Imagenes();
     MenuPrincipal thisVentana;
 
     public MenuPrincipal() {
@@ -21,8 +33,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         thisVentana = this;
         usuarioActivo = null;
         this.setSize(810, 600);
-        this.dispose();
         this.setLocationRelativeTo(null);
+        //guardarImagenesBase();
+        //setImagenesBotones();
     }
 
     public MenuPrincipal(Usuario usuarioActivo) {
@@ -30,8 +43,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         thisVentana = this;
         this.usuarioActivo = usuarioActivo;
         this.setSize(810, 600);
-        this.dispose();
         this.setLocationRelativeTo(null);
+        //guardarImagenesBase();
+        //setImagenesBotones();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -259,6 +273,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void guardarImagenesBase() {
+        iconIglesia.setImagen(imagenIglesia);
+        iconIglesia.setCodigo_imagen("img01");
+        iconParque.setImagen(imagenParque);
+        iconParque.setCodigo_imagen("img02");
+        iconMuseo.setImagen(imagenMuseo);
+        iconMuseo.setCodigo_imagen("img03");
+        iconUniversidad.setImagen(imagenUniversidad);
+        iconUniversidad.setCodigo_imagen("img04");
+        base.crearImagen(iconIglesia);
+        base.crearImagen(iconParque);
+        base.crearImagen(iconMuseo);
+        base.crearImagen(iconUniversidad);
+    }
+
+    private void setImagenesBotones() {
+        ImageIcon img1 = base.getImagen("img01").getImagen();
+        btnIglesias.setIcon(img1);
+        System.out.println("img1 = " + img1);
+        System.out.println("imagenIglesia = " + imagenIglesia);
+        btnMuseos.setIcon(base.getImagen("img03").getImagen());
+        btnParques.setIcon(base.getImagen("img02").getImagen());
+        btnInstitutos.setIcon(base.getImagen("img04").getImagen());
+    }
 
     private void btXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btXMouseEntered
         btX.setForeground(new java.awt.Color(255, 255, 255));

@@ -124,7 +124,7 @@ public class Trivia2 extends javax.swing.JFrame {
         pnlRespuestasCorrectas.add(btnSiguiente);
         btnSiguiente.setBounds(530, 440, 100, 40);
 
-        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/quiz2.PNG"))); // NOI18N
+        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/fondoTrivia2.jpeg"))); // NOI18N
         pnlRespuestasCorrectas.add(lblTriviaFondo);
         lblTriviaFondo.setBounds(0, 0, 700, 500);
 

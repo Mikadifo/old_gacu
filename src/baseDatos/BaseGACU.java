@@ -21,6 +21,11 @@ public class BaseGACU {
     private BaseTrivia baseTrivia = new BaseTrivia();
     private BaseRespuestas baseRespuestas = new BaseRespuestas();
     private BasePreguntas basePreguntas = new BasePreguntas();
+    private BaseCategoria_Lugar baseCategoria_Lugar = new BaseCategoria_Lugar();
+    private BaseLugar_Imagen baseLugar_Imagen = new BaseLugar_Imagen();
+    private BaseRealiza baseRealiza = new BaseRealiza();
+    private BaseTrivia_PR baseTrivia_PR = new BaseTrivia_PR();
+    private BaseVisualiza baseVisualiza = new BaseVisualiza();
 
     //FIN VARIABLES
     //CONSTRUCTORES
@@ -213,10 +218,8 @@ public class BaseGACU {
     }
 
     //FIN METODOS TRIVIA
-    
     //INICIO METODOS PREGUNTAS
-    
-    public boolean crearPreguntas(Preguntas pregunta) {
+    public boolean crearPregunta(Preguntas pregunta) {
         boolean estado = basePreguntas.crearPregunta(abrirBase(rutaArchivo), pregunta);
         cerrarBase();
         return estado;
@@ -245,12 +248,9 @@ public class BaseGACU {
         cerrarBase();
         return estado;
     }
-    
-    
+
     //FIN METODOS PREGUNTAS
-    
     //INICIO METODOS RESPUESTAS
-    
     public boolean crearRespuesta(Respuestas respuesta) {
         boolean estado = baseRespuestas.crearRespuesta(abrirBase(rutaArchivo), respuesta);
         cerrarBase();
@@ -280,8 +280,120 @@ public class BaseGACU {
         cerrarBase();
         return estado;
     }
-    
+
     //FIN METODOS RESPUESTAS
+    //INICIO METODOS CATEGORIA_LUGAR
+    public boolean crearCategoria_Lugar(Categoria_Lugar respuesta) {
+        boolean estado = baseCategoria_Lugar.crearCategoria_Lugar(abrirBase(rutaArchivo), respuesta);
+        cerrarBase();
+        return estado;
+    }
+
+    public Vector<Categoria_Lugar> getCategorias_Lugares() {
+        Vector<Categoria_Lugar> categorias_lugares = baseCategoria_Lugar.getCategorias_Lugares(abrirBase(rutaArchivo));
+        cerrarBase();
+        return categorias_lugares;
+    }
+
+    public Categoria_Lugar getCategoria_Lugar(String codigo) {
+        Categoria_Lugar categoria_lugar_Resultado = baseCategoria_Lugar.getCategoria_Lugar(abrirBase(rutaArchivo), codigo);
+        cerrarBase();
+        return categoria_lugar_Resultado;
+    }
+
+    public boolean modificarCategoria_Lugar(Categoria_Lugar categoria_lugar_Nueva) {
+        boolean estado = baseCategoria_Lugar.modificarCategoria_Lugar(abrirBase(rutaArchivo), categoria_lugar_Nueva);
+        cerrarBase();
+        return estado;
+    }
+
+    public boolean eliminarCategoria_Lugar(String codigo) {
+        boolean estado = baseCategoria_Lugar.eliminarCategoria_Lugar(abrirBase(rutaArchivo), codigo);
+        cerrarBase();
+        return estado;
+    }
+
+    //FIN METODOS CATEGORIA_LUGAR
+    //INICIO METODOS LUGAR_IMG
+    public boolean crearLugar_img(Lugar_img respuesta) {
+        boolean estado = baseLugar_Imagen.crearLugar_Imagen(abrirBase(rutaArchivo), respuesta);
+        cerrarBase();
+        return estado;
+    }
+
+    public Vector<Lugar_img> getLugares_Imgs() {
+        Vector<Lugar_img> lugares_imgs = baseLugar_Imagen.getLugares_Imgs(abrirBase(rutaArchivo));
+        cerrarBase();
+        return lugares_imgs;
+    }
+
+    public Lugar_img getLugar_img(String codigo) {
+        Lugar_img lugar_imgResultado = baseLugar_Imagen.getlugar_img(abrirBase(rutaArchivo), codigo);
+        cerrarBase();
+        return lugar_imgResultado;
+    }
+
+    public boolean modificarLugar_img(Lugar_img lugar_imgNueva) {
+        boolean estado = baseLugar_Imagen.modificarLugar_img(abrirBase(rutaArchivo), lugar_imgNueva);
+        cerrarBase();
+        return estado;
+    }
+
+    public boolean eliminarLugar_img(String codigo) {
+        boolean estado = baseLugar_Imagen.eliminarLugar_img(abrirBase(rutaArchivo), codigo);
+        cerrarBase();
+        return estado;
+    }
+
+    //FIN METODOS LUGAR_IMG
+    
+    //INICIO METODOS REALIZA
+    
+    public boolean crearRealiza(Realiza respuesta) {
+        boolean estado = baseRealiza.crearRealiza(abrirBase(rutaArchivo), respuesta);
+        cerrarBase();
+        return estado;
+    }
+
+    public Vector<Realiza> getRealizas() {
+        Vector<Realiza> lugares_imgs = baseRealiza.getRealizas(abrirBase(rutaArchivo));
+        cerrarBase();
+        return lugares_imgs;
+    }
+    
+    //FIN METODOS REALIZA
+    
+    //INICIO METODOS VISUALIZA
+    
+    public boolean crearVisualiza(Visualiza respuesta) {
+        boolean estado = baseVisualiza.crearVisualiza(abrirBase(rutaArchivo), respuesta);
+        cerrarBase();
+        return estado;
+    }
+
+    public Vector<Visualiza> getVisualiza() {
+        Vector<Visualiza> lugares_imgs = baseVisualiza.getVisualizas(abrirBase(rutaArchivo));
+        cerrarBase();
+        return lugares_imgs;
+    }
+    
+    //FIN METODOS VISUALIZA
+    
+    //INICIO METODOS TRIVIA_PR
+    
+    public boolean crearTRIVIA_PR(Trivia_PR respuesta) {
+        boolean estado = baseTrivia_PR.crearTrivia_PR(abrirBase(rutaArchivo), respuesta);
+        cerrarBase();
+        return estado;
+    }
+
+    public Vector<Trivia_PR> getTRIVIA_PR() {
+        Vector<Trivia_PR> trivias_PRs = baseTrivia_PR.getTrivias_PRS(abrirBase(rutaArchivo));
+        cerrarBase();
+        return trivias_PRs;
+    }
+    
+    //FIN METODOS TRIVIA_PR
     //METODOS TRIVIA(PREGUNTAS-RESPUESTAS)Trivia_PR
     public boolean crearTriviaAunNoSeHace(Trivia trivia) {
         //Trivia triviaBuscar = getTrivia(trivia.getCodigo_trivia()); falta hacer metodo getTrivia(SOBREESCRITO)

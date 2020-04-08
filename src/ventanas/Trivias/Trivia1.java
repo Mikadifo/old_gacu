@@ -57,7 +57,6 @@ public class Trivia1 extends javax.swing.JFrame {
         btnFalso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 113, 91), 5));
         btnFalso.setOpaque(true);
         btnFalso.setPreferredSize(new java.awt.Dimension(280, 170));
-        btnFalso.setSize(new java.awt.Dimension(280, 120));
         btnFalso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnFalsoMouseEntered(evt);
@@ -76,7 +75,6 @@ public class Trivia1 extends javax.swing.JFrame {
         btnVerdadero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(30, 168, 150), 5));
         btnVerdadero.setOpaque(true);
         btnVerdadero.setPreferredSize(new java.awt.Dimension(280, 177));
-        btnVerdadero.setSize(new java.awt.Dimension(280, 120));
         btnVerdadero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnVerdaderoMouseEntered(evt);
@@ -147,7 +145,7 @@ public class Trivia1 extends javax.swing.JFrame {
         pnlVoF.add(btnSiguiente);
         btnSiguiente.setBounds(530, 430, 100, 40);
 
-        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/quiz2.PNG"))); // NOI18N
+        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/fondoTrivia.jpeg"))); // NOI18N
         lblTriviaFondo.setMaximumSize(new java.awt.Dimension(700, 500));
         lblTriviaFondo.setMinimumSize(new java.awt.Dimension(700, 500));
         lblTriviaFondo.setPreferredSize(new java.awt.Dimension(700, 500));

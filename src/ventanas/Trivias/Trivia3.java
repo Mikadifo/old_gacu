@@ -143,7 +143,7 @@ public class Trivia3 extends javax.swing.JFrame {
         pnlCompletar.add(btnTerminar);
         btnTerminar.setBounds(330, 430, 100, 40);
 
-        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/quiz2.PNG"))); // NOI18N
+        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/fondoTrivia.jpeg"))); // NOI18N
         pnlCompletar.add(lblTriviaFondo);
         lblTriviaFondo.setBounds(0, 0, 700, 500);
 
