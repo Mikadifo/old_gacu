@@ -11,6 +11,7 @@ import ventanas.Clases.Institutos_ES;
 import ventanas.Clases.Museos;
 import ventanas.Clases.Parques;
 import baseDatos.BaseGACU;
+import java.awt.Image;
 import ventanas.Trivias.Trivia1;//cambiar
 
 public class MenuPrincipal extends javax.swing.JFrame {
@@ -19,6 +20,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     ImageIcon imagenIglesia = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgIglesia.PNG"));
+    Image imgIgl = imagenIglesia.getImage();
     Imagenes iconIglesia = new Imagenes();
     ImageIcon imagenParque = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgParque.PNG"));
     Imagenes iconParque = new Imagenes();
@@ -275,28 +277,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarImagenesBase() {
-        iconIglesia.setImagen(imagenIglesia);
+        iconIglesia.setImagen(imgIgl);
         iconIglesia.setCodigo_imagen("img01");
-        iconParque.setImagen(imagenParque);
-        iconParque.setCodigo_imagen("img02");
-        iconMuseo.setImagen(imagenMuseo);
-        iconMuseo.setCodigo_imagen("img03");
-        iconUniversidad.setImagen(imagenUniversidad);
-        iconUniversidad.setCodigo_imagen("img04");
+//        iconParque.setImagen(imagenParque);
+//        iconParque.setCodigo_imagen("img02");
+//        iconMuseo.setImagen(imagenMuseo);
+//        iconMuseo.setCodigo_imagen("img03");
+//        iconUniversidad.setImagen(imagenUniversidad);
+//        iconUniversidad.setCodigo_imagen("img04");
         base.crearImagen(iconIglesia);
-        base.crearImagen(iconParque);
-        base.crearImagen(iconMuseo);
-        base.crearImagen(iconUniversidad);
+//        base.crearImagen(iconParque);
+//        base.crearImagen(iconMuseo);
+//        base.crearImagen(iconUniversidad);
     }
 
     private void setImagenesBotones() {
-        ImageIcon img1 = base.getImagen("img01").getImagen();
-        btnIglesias.setIcon(img1);
-        System.out.println("img1 = " + img1);
-        System.out.println("imagenIglesia = " + imagenIglesia);
-        btnMuseos.setIcon(base.getImagen("img03").getImagen());
-        btnParques.setIcon(base.getImagen("img02").getImagen());
-        btnInstitutos.setIcon(base.getImagen("img04").getImagen());
+        //ImageIcon img1 = base.getImagen("img01").getImagen();
+        btnIglesias.setIcon(new ImageIcon(base.getImagen("img01").getImagen()));
+//        System.out.println("img1 = " + img1);
+//        System.out.println("imagenIglesia = " + imagenIglesia);
+//        btnMuseos.setIcon(base.getImagen("img03").getImagen());
+//        btnParques.setIcon(base.getImagen("img02").getImagen());
+//        btnInstitutos.setIcon(base.getImagen("img04").getImagen());
     }
 
     private void btXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btXMouseEntered
