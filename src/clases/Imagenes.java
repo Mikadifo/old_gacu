@@ -1,11 +1,10 @@
 
 package clases;
 
-import java.awt.Image;
 public class Imagenes {
     
     //Atributo
-    private Image imagen;
+    private byte[] imagen;
     private String codigo_imagen;  
     
     //Costructor
@@ -13,18 +12,18 @@ public class Imagenes {
     public Imagenes() {
     }
 
-    public Imagenes(Image imagen, String codigo_imagen) {
+    public Imagenes(byte[] imagen, String codigo_imagen) {
         this.imagen = imagen;
         this.codigo_imagen = codigo_imagen;
     }
     
     //Getters And Setters
 
-    public Image getImagen() {
+    public byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(Image imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
 

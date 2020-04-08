@@ -11,7 +11,12 @@ import ventanas.Clases.Institutos_ES;
 import ventanas.Clases.Museos;
 import ventanas.Clases.Parques;
 import baseDatos.BaseGACU;
-import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
 import ventanas.Trivias.Trivia1;//cambiar
 
 public class MenuPrincipal extends javax.swing.JFrame {
@@ -19,15 +24,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     info inf = new info();
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
-    ImageIcon imagenIglesia = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgIglesia.PNG"));
-    Image imgIgl = imagenIglesia.getImage();
-    Imagenes iconIglesia = new Imagenes();
-    ImageIcon imagenParque = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgParque.PNG"));
-    Imagenes iconParque = new Imagenes();
-    ImageIcon imagenMuseo = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgMuseo.PNG"));
-    Imagenes iconMuseo = new Imagenes();
-    ImageIcon imagenUniversidad = new ImageIcon(getClass().getResource("/Imagenes_Principal/imgUniversidad.PNG"));
-    Imagenes iconUniversidad = new Imagenes();
+    private Imagenes imagenes = new Imagenes();
+    private File carpetaImg = new File("Imagenes_Principal");
+    private String rutaCarpeta = carpetaImg.getAbsolutePath();
+    private String signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
+    private File ruta = new File(rutaCarpeta + signoRuta + "imgIglesia.PNG");
+    byte[] icono;
     MenuPrincipal thisVentana;
 
     public MenuPrincipal() {
@@ -277,28 +279,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarImagenesBase() {
-        iconIglesia.setImagen(imgIgl);
-        iconIglesia.setCodigo_imagen("img01");
-//        iconParque.setImagen(imagenParque);
-//        iconParque.setCodigo_imagen("img02");
-//        iconMuseo.setImagen(imagenMuseo);
-//        iconMuseo.setCodigo_imagen("img03");
-//        iconUniversidad.setImagen(imagenUniversidad);
-//        iconUniversidad.setCodigo_imagen("img04");
-        base.crearImagen(iconIglesia);
-//        base.crearImagen(iconParque);
-//        base.crearImagen(iconMuseo);
-//        base.crearImagen(iconUniversidad);
+        imagenes.setCodigo_imagen("img01");
+        try {
+            icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+            imagenes.setImagen(icono);
+        } catch (Exception ex) {
+            imagenes.setImagen(null);
+        }
+        if (!base.crearImagen(imagenes)) {
+            System.err.println("Esta imagen ya existe");
+        }
     }
 
     private void setImagenesBotones() {
-        //ImageIcon img1 = base.getImagen("img01").getImagen();
-        btnIglesias.setIcon(new ImageIcon(base.getImagen("img01").getImagen()));
-//        System.out.println("img1 = " + img1);
-//        System.out.println("imagenIglesia = " + imagenIglesia);
-//        btnMuseos.setIcon(base.getImagen("img03").getImagen());
-//        btnParques.setIcon(base.getImagen("img02").getImagen());
-//        btnInstitutos.setIcon(base.getImagen("img04").getImagen());
+        try {
+            byte[] bi = base.getImagen("img01").getImagen();
+            BufferedImage image = null;
+            InputStream in = new ByteArrayInputStream(bi);
+            image = ImageIO.read(in);
+            ImageIcon imgi = new ImageIcon(image);
+            btnIglesias.setIcon(imgi);
+        } catch (Exception ex) {
+            btnIglesias.setText("NO IMAGE");
+        }
     }
 
     private void btXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btXMouseEntered
