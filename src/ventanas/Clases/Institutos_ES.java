@@ -1,24 +1,36 @@
-
 package ventanas.Clases;
 
-import ventanas.Informacion.Informacion_UAzuay;
-import ventanas.Informacion.Informacion_UCatolica_Cuenca;
-import ventanas.Informacion.Informacion_UCuenca;
-import ventanas.Informacion.Informacion_UIsta;
-import ventanas.Informacion.Informacion_UUps;
+import baseDatos.BaseGACU;
+import clases.Categoria_Lugar;
+import clases.Lugares;
+import clases.Usuario;
+import java.util.Vector;
+import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
-
 
 public class Institutos_ES extends javax.swing.JFrame {
 
-   
+    private Usuario usuarioActivo;
+    private BaseGACU base = new BaseGACU();
+    private Categoria_Lugar categoriaLugar;
+    private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
+    private Lugares lugar;
+    private Vector<Lugares> lugares = new Vector<>();
+
     public Institutos_ES() {
         initComponents();
+        usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
     }
 
-   
+    public Institutos_ES(Usuario usuarioActivo) {
+        initComponents();
+        this.usuarioActivo = usuarioActivo;
+        this.setSize(700, 500);
+        this.setLocationRelativeTo(null);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -124,47 +136,45 @@ public class Institutos_ES extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuPrincipal menu= new MenuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCuencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuencaActionPerformed
-        Informacion_UCuenca cuenca= new Informacion_UCuenca();
+        Informacion_UCuenca cuenca = new Informacion_UCuenca();
         cuenca.setVisible(true);
         cuenca.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnCuencaActionPerformed
 
     private void btnAzuayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAzuayActionPerformed
-        Informacion_UAzuay azuay= new Informacion_UAzuay();
+        Informacion_UAzuay azuay = new Informacion_UAzuay();
         azuay.setVisible(true);
         azuay.setLocationRelativeTo(null);
         dispose();    }//GEN-LAST:event_btnAzuayActionPerformed
 
     private void btnCatolicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatolicaActionPerformed
-        Informacion_UCatolica_Cuenca catolica= new Informacion_UCatolica_Cuenca();
+        Informacion_UCatolica_Cuenca catolica = new Informacion_UCatolica_Cuenca();
         catolica.setVisible(true);
         catolica.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnCatolicaActionPerformed
 
     private void btnUpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpsActionPerformed
-        Informacion_UUps ups= new Informacion_UUps();
+        Informacion_UUps ups = new Informacion_UUps();
         ups.setVisible(true);
         ups.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnUpsActionPerformed
 
     private void btnIstaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIstaActionPerformed
-        Informacion_UIsta ista= new Informacion_UIsta();
+        Informacion_UIsta ista = new Informacion_UIsta();
         ista.setVisible(true);
         ista.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnIstaActionPerformed
 
-   
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAzuay;

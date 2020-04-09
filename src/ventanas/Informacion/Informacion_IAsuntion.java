@@ -6,6 +6,8 @@ public class Informacion_IAsuntion extends javax.swing.JFrame {
 
     public Informacion_IAsuntion() {
         initComponents();
+        this.setSize(800, 500);
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
 

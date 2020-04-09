@@ -1,31 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ventanas.Clases;
 
-import ventanas.Informacion.Informacion_PCalderon;
-import ventanas.Informacion.Informacion_PMadre;
-import ventanas.Informacion.Informacion_PParaiso;
-import ventanas.Informacion.Informacion_PSanblas;
-import ventanas.Informacion.Informacion_PSebastian;
-import ventanas.Informacion.Informacion_UCuenca;
+import clases.*;
+import baseDatos.BaseGACU;
+import java.util.Vector;
+import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
+import Interfaces.Categoria_Lugares;
 
-/**
- *
- * @author Steve
- */
-public class Parques extends javax.swing.JFrame {
+public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
 
-    /**
-     * Creates new form Parques
-     */
+    private BaseGACU base = new BaseGACU();
+    private Usuario usuarioActivo;
+    private Categoria_Lugar categoriaLugar;
+    private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
+    private Lugares lugar;
+    private Vector<Lugares> lugares = new Vector<>();
+    
     public Parques() {
         initComponents();
+        usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
+        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarLugares();
+        setLugarBotones();
+    }
+    
+    public Parques(Usuario usuarioActivo) {
+        initComponents();
+        this.usuarioActivo = usuarioActivo;
+        this.setSize(700, 500);
+        this.setLocationRelativeTo(null);
+        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarLugares();
+        setLugarBotones();
     }
 
     @SuppressWarnings("unchecked")
@@ -69,7 +77,7 @@ public class Parques extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnParaiso);
-        btnParaiso.setBounds(50, 110, 590, 40);
+        btnParaiso.setBounds(60, 110, 590, 40);
 
         btnMadre.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
         btnMadre.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +131,84 @@ public class Parques extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void crearGuardarCategoriasLugares() {
+        crearCategoriasLugares();
+        guardarCategoriasLugaresBase(categoriasLugares);
+    }
+    
+    public void guardarCategoriasLugaresBase(Vector<Categoria_Lugar> categoriasLugares) {
+        categoriasLugares.forEach((elemento) -> guardarCategoriaLugarBase(elemento));
+    }
+    
+    public void crearCategoriasLugares() {
+        setCategoriaLugar("C1P", "P01");
+        setCategoriaLugar("C1P", "P02");
+        setCategoriaLugar("C1P", "P03");
+        setCategoriaLugar("C1P", "P04");
+        setCategoriaLugar("C1P", "P05");
+    }
+    
+    public void setCategoriaLugar(String codigoCategoria, String codigoLugar) {
+        categoriaLugar = new Categoria_Lugar(codigoCategoria, codigoLugar);
+        categoriasLugares.addElement(categoriaLugar);
+    }
+    
+    public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
+        if (base.crearCategoria_Lugar(categoriaLugar)) {
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
+        } else {
+            System.err.println("Categoria Lugar ya existe");
+        }
+    }
+    
+    public void setLugarBotones() { //Si la base existira mas de 5 lugares se usaria metodo getLugares y se asiganiar con una vector
+        setLugarBoton(btnCalderon, base.getLugar("P01")); //getCatLugar con una TUPLA cambiar base
+        setLugarBoton(btnMadre, base.getLugar("P02"));
+        setLugarBoton(btnParaiso, base.getLugar("P03"));
+        setLugarBoton(btnBlas, base.getLugar("P04"));
+        setLugarBoton(btnSebastian, base.getLugar("P05"));
+    }
+    
+    public void setLugarBoton(javax.swing.JButton boton, Lugares lugarMostrar) {
+        boton.setText(lugarMostrar.getNombre_lugar());
+    }
+    
+    public void crearGuardarLugares() { //temporal
+        crearLugares();
+        guardarLugaresBase(lugares);
+    }
+    
+    public void crearLugares() {
+        String info = "Este parque es ..."; //Terminar
+        setLugar("P01", "Parque Calderon", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("P02", "Parque de la Madre", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("P03", "Parque Paraiso", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("P04", "Parque San Blas", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("P05", "Parque San Sebastian", info);
+    }    
+    
+    public void setLugar(String codigo, String nombre, String info) {
+        lugar = new Lugares(codigo, nombre, info);
+        lugares.addElement(lugar);
+    }
+    
+    public void guardarLugaresBase(Vector<Lugares> lugaresGuardar) {
+        lugaresGuardar.forEach((elemento) -> guardarLugarBase(elemento));
+    }
+    
+    public void guardarLugarBase(Lugares lugarGuardar) {
+        if (base.crearLugar(lugarGuardar)) {
+            System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " creado");
+        } else {
+            System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " ya existe");
+        }
+    }
+    
     private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
         btnVolver.setBackground(new java.awt.Color(30, 168, 150));
     }//GEN-LAST:event_btnVolverMouseEntered
@@ -133,7 +218,7 @@ public class Parques extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuPrincipal menu = new MenuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed

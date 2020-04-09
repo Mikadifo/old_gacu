@@ -1,31 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ventanas.Clases;
 
-import ventanas.Informacion.Informacion_IAsuntion;
-import ventanas.Informacion.Informacion_ICatedral;
-import ventanas.Informacion.Informacion_IFrancisco;
-import ventanas.Informacion.Informacion_ISantos;
-import ventanas.Informacion.Informacion_I_Inmaculada;
-import ventanas.Informacion.Informacion_UCuenca;
+import Interfaces.Categoria_Lugares;
+import baseDatos.BaseGACU;
+import clases.Categoria_Lugar;
+import clases.Lugares;
+import clases.Usuario;
+import java.util.Vector;
+import javax.swing.JButton;
+import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
 
+public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
 
-public class Iglesias extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Iglesias
-     */
+    private Usuario usuarioActivo;
+    private BaseGACU base = new BaseGACU();
+    private Categoria_Lugar categoriaLugar;
+    private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
+    private Lugares lugar;
+    private Vector<Lugares> lugares = new Vector<>();
+    
     public Iglesias() {
         initComponents();
+        usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
     }
 
-  
+    public Iglesias(Usuario usuarioActivo) {
+        initComponents();
+        this.usuarioActivo = usuarioActivo;
+        this.setSize(700, 500);
+        this.setLocationRelativeTo(null);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -135,47 +142,45 @@ public class Iglesias extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuPrincipal menu= new MenuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnSagrarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSagrarioActionPerformed
-        Informacion_ICatedral sagrario= new Informacion_ICatedral();
+        Informacion_ICatedral sagrario = new Informacion_ICatedral();
         sagrario.setVisible(true);
         sagrario.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnSagrarioActionPerformed
 
     private void btnInmaculadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInmaculadaActionPerformed
-        Informacion_I_Inmaculada inmaculada= new Informacion_I_Inmaculada();
+        Informacion_I_Inmaculada inmaculada = new Informacion_I_Inmaculada();
         inmaculada.setVisible(true);
         inmaculada.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnInmaculadaActionPerformed
 
     private void btnAsuncionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsuncionActionPerformed
-        Informacion_IAsuntion asuncion= new Informacion_IAsuntion();
+        Informacion_IAsuntion asuncion = new Informacion_IAsuntion();
         asuncion.setVisible(true);
         asuncion.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnAsuncionActionPerformed
 
     private void btnFranciscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFranciscoActionPerformed
-        Informacion_IFrancisco francisco= new Informacion_IFrancisco();
+        Informacion_IFrancisco francisco = new Informacion_IFrancisco();
         francisco.setVisible(true);
         francisco.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnFranciscoActionPerformed
 
     private void btnSantosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSantosActionPerformed
-        Informacion_ISantos santos= new Informacion_ISantos();
+        Informacion_ISantos santos = new Informacion_ISantos();
         santos.setVisible(true);
         santos.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnSantosActionPerformed
-
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsuncion;
@@ -186,4 +191,64 @@ public class Iglesias extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void crearGuardarCategoriasLugares() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void crearCategoriasLugares() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCategoriaLugar(String codigoCategoria, String codigoLugar) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void guardarCategoriasLugaresBase(Vector<Categoria_Lugar> categoriasLugares) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLugarBoton(JButton boton, Lugares lugarMostrar) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void crearGuardarLugares() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void crearLugares() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLugar(String codigo, String nombre, String info) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void guardarLugaresBase(Vector<Lugares> lugaresGuardar) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void guardarLugarBase(Lugares lugarGuardar) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLugarBotones() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -19,7 +19,7 @@ public class BaseLugares {
 
         public Vector<Lugares> getLugares(ObjectContainer base) {
             Vector<Lugares> lugares = new Vector<>();
-            Lugares lugarBuscar = new Lugares(null, null,null,null);
+            Lugares lugarBuscar = new Lugares(null, null,null);
             ObjectSet resultado = base.queryByExample(lugarBuscar);
             while (resultado.hasNext()) {
                 lugares.add((Lugares) resultado.next());
@@ -28,7 +28,7 @@ public class BaseLugares {
         }
 
         public Lugares getLugar(ObjectContainer base, String codigo_lugar) {
-            Lugares lugarBuscar = new Lugares(codigo_lugar, null,null,null);
+            Lugares lugarBuscar = new Lugares(codigo_lugar, null,null);
             ObjectSet resultado = base.queryByExample(lugarBuscar);
             if (resultado.size() > 0) {
                 Lugares categoriaResultado = (Lugares) resultado.next();
@@ -38,14 +38,13 @@ public class BaseLugares {
         }
 
         public boolean modificarLugar(ObjectContainer base, Lugares lugarNueva) {
-            Lugares lugarBuscar = new Lugares(lugarNueva.getCodigo_lugar(), null, null , null);
+            Lugares lugarBuscar = new Lugares(lugarNueva.getCodigo_lugar(), null, null);
             ObjectSet respuesta = base.queryByExample(lugarBuscar);
             if (respuesta.size() > 0) {
                 Lugares lugarModificar = (Lugares) respuesta.next();
                 lugarModificar.setCodigo_lugar(lugarNueva.getCodigo_lugar());
                 lugarModificar.setNombre_lugar(lugarNueva.getNombre_lugar());
                 lugarModificar.setInformacion_lugar(lugarNueva.getInformacion_lugar());
-                lugarModificar.setCodigo_imagen(lugarNueva.getCodigo_imagen());
                 base.store(lugarModificar);
                 return true; //Se modifica el lugar
             }
@@ -53,7 +52,7 @@ public class BaseLugares {
         }
 
         public boolean eliminarLugar(ObjectContainer base, String codigo_lugar) {
-            Lugares lugarBuscar = new Lugares(codigo_lugar, null, null, null);
+            Lugares lugarBuscar = new Lugares(codigo_lugar, null, null);
             ObjectSet respuesta = base.queryByExample(lugarBuscar);
             if (respuesta.size() > 0) {
                 Lugares lugarEliminar = (Lugares) respuesta.next();

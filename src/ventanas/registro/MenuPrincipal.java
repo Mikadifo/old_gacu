@@ -1,15 +1,11 @@
 package ventanas.registro;
 
 //import clases.Trivia;
-import clases.Imagenes;
-import clases.Usuario;
+import clases.*;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import ventanas.Clases.Iglesias;
-import ventanas.Clases.Institutos_ES;
-import ventanas.Clases.Museos;
-import ventanas.Clases.Parques;
+import ventanas.Clases.*;
 import baseDatos.BaseGACU;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -25,10 +21,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Imagenes imagenes = new Imagenes();
+    private Categoria categorias = new Categoria();
     private File carpetaImg = new File("Imagenes_Principal");
     private String rutaCarpeta = carpetaImg.getAbsolutePath();
     private String signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
-    private File ruta = new File(rutaCarpeta + signoRuta + "imgIglesia.PNG");
+    private File ruta;
     byte[] icono;
     MenuPrincipal thisVentana;
 
@@ -38,8 +35,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         usuarioActivo = null;
         this.setSize(810, 600);
         this.setLocationRelativeTo(null);
-        //guardarImagenesBase();
-        //setImagenesBotones();
+        cargarImagenes();
+        guardarCategorias();
     }
 
     public MenuPrincipal(Usuario usuarioActivo) {
@@ -48,8 +45,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.usuarioActivo = usuarioActivo;
         this.setSize(810, 600);
         this.setLocationRelativeTo(null);
-        //guardarImagenesBase();
-        //setImagenesBotones();
+        cargarImagenes();
+        guardarCategorias();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -278,31 +275,68 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void guardarImagenesBase() {
-        imagenes.setCodigo_imagen("img01");
+    private void cargarImagenes() {
+        cargarImagen("img01", "imgIglesia.PNG", btnIglesias);
+        cargarImagen("img02", "imgParque.PNG", btnParques);
+        cargarImagen("img03", "imgMuseo.PNG", btnMuseos);
+        cargarImagen("img04", "imgUniversidad.PNG", btnInstitutos);
+    }
+
+    private void guardarCategorias() {
+        categorias.setCodigo_categoria("C1P");
+        categorias.setNombre_categoria("Parques");
+        guardarCategoriaBase(categorias);
+        categorias.setCodigo_categoria("C2I");
+        categorias.setNombre_categoria("Iglesias");
+        guardarCategoriaBase(categorias);
+        categorias.setCodigo_categoria("C3M");
+        categorias.setNombre_categoria("Museos");
+        guardarCategoriaBase (categorias);
+        categorias.setCodigo_categoria("C4E");
+        categorias.setNombre_categoria("Educacion Superior");// o solo intitutos?
+        guardarCategoriaBase(categorias);
+    }
+
+    private void guardarCategoriaBase(Categoria categoria) {
+        if (base.crearCategoria(categoria)) {
+            System.err.println("Categoria " + categoria + "creada");
+        } else {
+            System.err.println("Categoria ya existe");
+        }
+    }
+
+    private void cargarImagen(String codigo, String nombre, javax.swing.JButton boton) {
+        ruta = new File(rutaCarpeta + signoRuta + nombre);
+        guardarImagenBase(codigo, ruta);
+        setImagenBoton(boton, base.getImagen(codigo).getImagen());
+    }
+
+    private void guardarImagenBase(String codigo, File rutaImg) {
+        imagenes.setCodigo_imagen(codigo);
         try {
-            icono = new byte[(int) ruta.length()];
-            InputStream input = new FileInputStream(ruta);
+            icono = new byte[(int) rutaImg.length()];
+            InputStream input = new FileInputStream(rutaImg);
             input.read(icono);
             imagenes.setImagen(icono);
         } catch (Exception ex) {
             imagenes.setImagen(null);
         }
-        if (!base.crearImagen(imagenes)) {
-            System.err.println("Esta imagen ya existe");
+        if (base.crearImagen(imagenes)) {
+            System.err.println("Imagen " + imagenes.getCodigo_imagen() + "creada");
+        } else {
+            System.err.println("Imagen ya existe");
         }
     }
 
-    private void setImagenesBotones() {
+    private void setImagenBoton(javax.swing.JButton boton, byte[] imagen) {
         try {
-            byte[] bi = base.getImagen("img01").getImagen();
             BufferedImage image = null;
-            InputStream in = new ByteArrayInputStream(bi);
+            InputStream in = new ByteArrayInputStream(imagen);
             image = ImageIO.read(in);
-            ImageIcon imgi = new ImageIcon(image);
-            btnIglesias.setIcon(imgi);
+            ImageIcon imgI = new ImageIcon(image);
+            boton.setIcon(imgI);
         } catch (Exception ex) {
-            btnIglesias.setText("NO IMAGE");
+            boton.setText("NO IMAGE:" + boton.getName());
         }
     }
 
@@ -329,7 +363,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTriviaMouseExited
 
     private void btnIglesiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIglesiasActionPerformed
-        Iglesias iglesias = new Iglesias();
+        Iglesias iglesias = new Iglesias(usuarioActivo);
         iglesias.setVisible(true);
         iglesias.setLocationRelativeTo(null);
         dispose();
@@ -337,14 +371,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIglesiasActionPerformed
 
     private void btnInstitutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstitutosActionPerformed
-        Institutos_ES institutos = new Institutos_ES();
+        Institutos_ES institutos = new Institutos_ES(usuarioActivo);
         institutos.setVisible(true);
         institutos.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnInstitutosActionPerformed
 
     private void btnMuseosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMuseosActionPerformed
-        Museos museos = new Museos();
+        Museos museos = new Museos(usuarioActivo);
         museos.setVisible(true);
         museos.setLocationRelativeTo(null);
         dispose();
@@ -450,7 +484,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_iconImagenMousePressed
 
     private void btnParquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParquesActionPerformed
-        Parques parques = new Parques();
+        Parques parques = new Parques(usuarioActivo);
         parques.setVisible(true);
         parques.setLocationRelativeTo(null);
         dispose();

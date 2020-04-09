@@ -1,23 +1,36 @@
 
 package ventanas.Clases;
 
-import ventanas.Informacion.Informacion_MAborigenes;
-import ventanas.Informacion.Informacion_MSEsqueletologia;
-import ventanas.Informacion.Informacion_MSModerno;
-import ventanas.Informacion.Informacion_MSPumapungo;
-import ventanas.Informacion.Informacion_MSRuinas;
-import ventanas.Informacion.Informacion_UCuenca;
+import baseDatos.BaseGACU;
+import clases.Categoria_Lugar;
+import clases.Lugares;
+import clases.Usuario;
+import java.util.Vector;
+import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
 
 public class Museos extends javax.swing.JFrame {
 
+    private Usuario usuarioActivo;
+    private BaseGACU base = new BaseGACU();
+    private Categoria_Lugar categoriaLugar;
+    private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
+    private Lugares lugar;
+    private Vector<Lugares> lugares = new Vector<>();
    
     public Museos() {
         initComponents();
+        usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
     }
 
+    public Museos(Usuario usuarioActivo) {
+        initComponents();
+        this.usuarioActivo = usuarioActivo;
+        this.setSize(700, 500);
+        this.setLocationRelativeTo(null);
+    }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -125,7 +138,7 @@ public class Museos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuPrincipal menu= new MenuPrincipal();
+        MenuPrincipal menu= new MenuPrincipal(usuarioActivo);
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
