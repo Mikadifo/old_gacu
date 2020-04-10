@@ -15,7 +15,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
-    Info_Iglesias ventanaInfo;
+    private Info_Iglesias ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();

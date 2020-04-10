@@ -1,4 +1,3 @@
-
 package ventanas.Clases;
 
 import Interfaces.Categoria_Lugares;
@@ -16,10 +15,11 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
+    private Info_Museos ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
-   
+
     public Museos() {
         initComponents();
         usuarioActivo = null;
@@ -39,7 +39,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
         crearGuardarLugares();
         setLugarBotones();
     }
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -146,46 +146,36 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuPrincipal menu= new MenuPrincipal(usuarioActivo);
+        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnPumapungoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPumapungoActionPerformed
-        Informacion_MSPumapungo puma= new Informacion_MSPumapungo();
-        puma.setVisible(true);
-        puma.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnPumapungoActionPerformed
 
     private void btnAborigenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAborigenesActionPerformed
-        Info_Museos aborigen= new Info_Museos();
-        aborigen.setVisible(true);
-        aborigen.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnAborigenesActionPerformed
 
     private void btnModernoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModernoActionPerformed
-        Informacion_MSModerno moderno= new Informacion_MSModerno();
-        moderno.setVisible(true);
-        moderno.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnModernoActionPerformed
 
     private void btnEsqueletologiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueletologiaActionPerformed
-        Informacion_MSEsqueletologia esqueleto= new Informacion_MSEsqueletologia();
-        esqueleto.setVisible(true);
-        esqueleto.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnEsqueletologiaActionPerformed
 
     private void btnSantosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSantosActionPerformed
-        Informacion_MSRuinas ruinas= new Informacion_MSRuinas();
-        ruinas.setVisible(true);
-        ruinas.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnSantosActionPerformed
-
+    
+    private void mostarVentanaInfo() {
+        ventanaInfo = new Info_Museos();//Usuario usuarioActivo
+        ventanaInfo.setVisible(true);
+        dispose();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAborigenes;

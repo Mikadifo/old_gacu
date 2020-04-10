@@ -12,6 +12,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
     private BaseGACU base = new BaseGACU();
     private Usuario usuarioActivo;
     private Categoria_Lugar categoriaLugar;
+    private Info_Parques ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
@@ -236,40 +237,30 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCalderonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalderonActionPerformed
-        Info_Parques calderon = new Info_Parques();
-        calderon.setVisible(true);
-        calderon.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnCalderonActionPerformed
 
     private void btnParaisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParaisoActionPerformed
-        Informacion_PParaiso paraiso = new Informacion_PParaiso();
-        paraiso.setVisible(true);
-        paraiso.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnParaisoActionPerformed
 
     private void btnMadreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMadreActionPerformed
-        Informacion_PMadre madre = new Informacion_PMadre();
-        madre.setVisible(true);
-        madre.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnMadreActionPerformed
 
     private void btnBlasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBlasActionPerformed
-        Informacion_PSanblas blas = new Informacion_PSanblas();
-        blas.setVisible(true);
-        blas.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnBlasActionPerformed
 
     private void btnSebastianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSebastianActionPerformed
-        Informacion_PSebastian sebastian= new Informacion_PSebastian();
-        sebastian.setVisible(true);
-        sebastian.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnSebastianActionPerformed
 
+    private void mostarVentanaInfo() {
+        ventanaInfo = new Info_Parques();//Usuario usuarioActivo
+        ventanaInfo.setVisible(true);
+        dispose();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBlas;

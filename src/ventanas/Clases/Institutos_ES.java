@@ -15,6 +15,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
+    private Info_Eduacion ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
@@ -150,40 +151,31 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCuencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuencaActionPerformed
-        Informacion_UCuenca cuenca = new Informacion_UCuenca();
-        cuenca.setVisible(true);
-        cuenca.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnCuencaActionPerformed
 
     private void btnAzuayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAzuayActionPerformed
-        Info_Eduacion azuay = new Info_Eduacion();
-        azuay.setVisible(true);
-        azuay.setLocationRelativeTo(null);
+        mostarVentanaInfo();//revisar
         dispose();    }//GEN-LAST:event_btnAzuayActionPerformed
 
     private void btnCatolicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatolicaActionPerformed
-        Informacion_UCatolica_Cuenca catolica = new Informacion_UCatolica_Cuenca();
-        catolica.setVisible(true);
-        catolica.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnCatolicaActionPerformed
 
     private void btnUpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpsActionPerformed
-        Informacion_UUps ups = new Informacion_UUps();
-        ups.setVisible(true);
-        ups.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnUpsActionPerformed
 
     private void btnIstaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIstaActionPerformed
-        Informacion_UIsta ista = new Informacion_UIsta();
-        ista.setVisible(true);
-        ista.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnIstaActionPerformed
 
-
+    private void mostarVentanaInfo() {
+        ventanaInfo = new Info_Eduacion();//Usuario usuarioActivo
+        ventanaInfo.setVisible(true);
+        dispose();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAzuay;
     private javax.swing.JButton btnCatolica;
