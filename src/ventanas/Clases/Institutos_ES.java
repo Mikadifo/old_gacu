@@ -157,7 +157,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     }//GEN-LAST:event_btnCuencaActionPerformed
 
     private void btnAzuayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAzuayActionPerformed
-        Informacion_UAzuay azuay = new Informacion_UAzuay();
+        Info_Eduacion azuay = new Info_Eduacion();
         azuay.setVisible(true);
         azuay.setLocationRelativeTo(null);
         dispose();    }//GEN-LAST:event_btnAzuayActionPerformed

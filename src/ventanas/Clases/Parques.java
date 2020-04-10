@@ -236,7 +236,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCalderonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalderonActionPerformed
-        Informacion_PCalderon calderon = new Informacion_PCalderon();
+        Info_Parques calderon = new Info_Parques();
         calderon.setVisible(true);
         calderon.setLocationRelativeTo(null);
         dispose();

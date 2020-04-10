@@ -2,12 +2,11 @@ package ventanas.Informacion;
 
 import ventanas.Clases.Institutos_ES;
 
-public class Informacion_UUps extends javax.swing.JFrame {
+public class Info_Eduacion extends javax.swing.JFrame {
 
-    public Informacion_UUps() {
+    public Info_Eduacion() {
         initComponents();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -20,6 +19,7 @@ public class Informacion_UUps extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -65,7 +65,7 @@ public class Informacion_UUps extends javax.swing.JFrame {
 
         jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jLabel22);
-        jLabel22.setBounds(460, 40, 270, 120);
+        jLabel22.setBounds(470, 40, 270, 120);
 
         jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jLabel23);
@@ -73,11 +73,15 @@ public class Informacion_UUps extends javax.swing.JFrame {
 
         jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jLabel24);
-        jLabel24.setBounds(460, 170, 270, 120);
+        jLabel24.setBounds(470, 170, 270, 120);
 
         jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jLabel25);
         jLabel25.setBounds(80, 40, 270, 120);
+
+        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel26);
+        jLabel26.setBounds(80, 40, 270, 120);
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jLabel1);
@@ -88,7 +92,7 @@ public class Informacion_UUps extends javax.swing.JFrame {
         jLabel2.setBounds(0, 0, 800, 500);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 800, 500);
+        jPanel1.setBounds(-3, -1, 800, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,12 +106,12 @@ public class Informacion_UUps extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Institutos_ES institutosEs= new Institutos_ES();
-        institutosEs.setVisible(true);
+        Institutos_ES institutos= new Institutos_ES();
+        institutos.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-  
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
@@ -117,6 +121,7 @@ public class Informacion_UUps extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;

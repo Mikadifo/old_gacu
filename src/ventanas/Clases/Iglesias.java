@@ -15,6 +15,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
+    Info_Iglesias ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
@@ -154,40 +155,31 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnSagrarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSagrarioActionPerformed
-        Informacion_ICatedral sagrario = new Informacion_ICatedral();
-        sagrario.setVisible(true);
-        sagrario.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnSagrarioActionPerformed
 
     private void btnInmaculadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInmaculadaActionPerformed
-        Informacion_I_Inmaculada inmaculada = new Informacion_I_Inmaculada();
-        inmaculada.setVisible(true);
-        inmaculada.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnInmaculadaActionPerformed
 
     private void btnAsuncionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsuncionActionPerformed
-        Informacion_IAsuntion asuncion = new Informacion_IAsuntion();
-        asuncion.setVisible(true);
-        asuncion.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnAsuncionActionPerformed
 
     private void btnFranciscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFranciscoActionPerformed
-        Informacion_IFrancisco francisco = new Informacion_IFrancisco();
-        francisco.setVisible(true);
-        francisco.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnFranciscoActionPerformed
 
     private void btnSantosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSantosActionPerformed
-        Informacion_ISantos santos = new Informacion_ISantos();
-        santos.setVisible(true);
-        santos.setLocationRelativeTo(null);
-        dispose();
+        mostarVentanaInfo();
     }//GEN-LAST:event_btnSantosActionPerformed
 
+    private void mostarVentanaInfo() {
+        ventanaInfo = new Info_Iglesias();//Usuario usuarioActivo
+        ventanaInfo.setVisible(true);
+        dispose();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsuncion;
     private javax.swing.JButton btnFrancisco;

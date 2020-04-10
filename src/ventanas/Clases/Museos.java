@@ -159,7 +159,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     }//GEN-LAST:event_btnPumapungoActionPerformed
 
     private void btnAborigenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAborigenesActionPerformed
-        Informacion_MAborigenes aborigen= new Informacion_MAborigenes();
+        Info_Museos aborigen= new Info_Museos();
         aborigen.setVisible(true);
         aborigen.setLocationRelativeTo(null);
         dispose();
