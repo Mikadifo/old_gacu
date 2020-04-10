@@ -25,7 +25,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
         usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarCategoriasLugares();
         crearGuardarLugares();
         setLugarBotones();
     }
@@ -35,7 +35,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarCategoriasLugares();
         crearGuardarLugares();
         setLugarBotones();
     }
@@ -226,7 +226,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
         if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + "" + categoriaLugar.getCodigo_lugar() + "correctamente");
         } else {
             System.err.println("Categoria Lugar ya existe");
         }
@@ -279,10 +279,10 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
 
     @Override
     public void setLugarBotones() {
-        setLugarBoton(btnPumapungo, base.getLugar("M01")); //getCatLugar con una TUPLA cambiar base
-        setLugarBoton(btnAborigenes, base.getLugar("M02"));
-        setLugarBoton(btnModerno, base.getLugar("M03"));
-        setLugarBoton(btnEsqueletologia, base.getLugar("M04"));
-        setLugarBoton(btnSantos, base.getLugar("M05"));
+        setLugarBoton(btnPumapungo, base.getLugar(base.getCategoria_Lugar("C4M", "M01").getCodigo_lugar()));
+        setLugarBoton(btnAborigenes, base.getLugar(base.getCategoria_Lugar("C4M", "M02").getCodigo_lugar()));
+        setLugarBoton(btnModerno, base.getLugar(base.getCategoria_Lugar("C4M", "M03").getCodigo_lugar()));
+        setLugarBoton(btnEsqueletologia, base.getLugar(base.getCategoria_Lugar("C4M", "M04").getCodigo_lugar()));
+        setLugarBoton(btnSantos, base.getLugar(base.getCategoria_Lugar("C4M", "M05").getCodigo_lugar()));
     }
 }

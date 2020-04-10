@@ -21,7 +21,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
         usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarCategoriasLugares();
         crearGuardarLugares();
         setLugarBotones();
     }
@@ -31,7 +31,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarCategoriasLugares();
         crearGuardarLugares();
         setLugarBotones();
     }
@@ -132,15 +132,18 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    @Override
     public void crearGuardarCategoriasLugares() {
         crearCategoriasLugares();
         guardarCategoriasLugaresBase(categoriasLugares);
     }
     
+    @Override
     public void guardarCategoriasLugaresBase(Vector<Categoria_Lugar> categoriasLugares) {
         categoriasLugares.forEach((elemento) -> guardarCategoriaLugarBase(elemento));
     }
     
+    @Override
     public void crearCategoriasLugares() {
         setCategoriaLugar("C1P", "P01");
         setCategoriaLugar("C1P", "P02");
@@ -149,6 +152,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
         setCategoriaLugar("C1P", "P05");
     }
     
+    @Override
     public void setCategoriaLugar(String codigoCategoria, String codigoLugar) {
         categoriaLugar = new Categoria_Lugar(codigoCategoria, codigoLugar);
         categoriasLugares.addElement(categoriaLugar);
@@ -157,7 +161,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
         if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + "" + categoriaLugar.getCodigo_lugar() + "correctamente");
         } else {
             System.err.println("Categoria Lugar ya existe");
         }
@@ -165,11 +169,11 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
     
     @Override
     public void setLugarBotones() { //Si la base existira mas de 5 lugares se usaria metodo getLugares y se asiganiar con una vector
-        setLugarBoton(btnCalderon, base.getLugar("P01")); //getCatLugar con una TUPLA cambiar base
-        setLugarBoton(btnMadre, base.getLugar("P02"));
-        setLugarBoton(btnParaiso, base.getLugar("P03"));
-        setLugarBoton(btnBlas, base.getLugar("P04"));
-        setLugarBoton(btnSebastian, base.getLugar("P05"));
+        setLugarBoton(btnCalderon, base.getLugar(base.getCategoria_Lugar("C1P", "P01").getCodigo_lugar()));
+        setLugarBoton(btnMadre, base.getLugar(base.getCategoria_Lugar("C1P", "P02").getCodigo_lugar()));
+        setLugarBoton(btnParaiso, base.getLugar(base.getCategoria_Lugar("C1P", "P03").getCodigo_lugar()));
+        setLugarBoton(btnBlas, base.getLugar(base.getCategoria_Lugar("C1P", "P04").getCodigo_lugar()));
+        setLugarBoton(btnSebastian, base.getLugar(base.getCategoria_Lugar("C1P", "P05").getCodigo_lugar()));
     }
     
     @Override
@@ -197,15 +201,18 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
         setLugar("P05", "Parque San Sebastian", info);
     }    
     
+    @Override
     public void setLugar(String codigo, String nombre, String info) {
         lugar = new Lugares(codigo, nombre, info);
         lugares.addElement(lugar);
     }
     
+    @Override
     public void guardarLugaresBase(Vector<Lugares> lugaresGuardar) {
         lugaresGuardar.forEach((elemento) -> guardarLugarBase(elemento));
     }
     
+    @Override
     public void guardarLugarBase(Lugares lugarGuardar) {
         if (base.crearLugar(lugarGuardar)) {
             System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " creado");

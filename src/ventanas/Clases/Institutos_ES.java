@@ -223,7 +223,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
         if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + "" + categoriaLugar.getCodigo_lugar() + "correctamente");
         } else {
             System.err.println("Categoria Lugar ya existe");
         }
@@ -276,10 +276,10 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
 
     @Override
     public void setLugarBotones() {
-        setLugarBoton(btnCuenca, base.getLugar("E01")); //getCatLugar con una TUPLA cambiar base
-        setLugarBoton(btnAzuay, base.getLugar("E02"));
-        setLugarBoton(btnCatolica, base.getLugar("E03"));
-        setLugarBoton(btnUps, base.getLugar("E04"));
-        setLugarBoton(btnIsta, base.getLugar("E05"));
+        setLugarBoton(btnCuenca, base.getLugar(base.getCategoria_Lugar("C3E", "E01").getCodigo_lugar()));
+        setLugarBoton(btnAzuay, base.getLugar(base.getCategoria_Lugar("C3E", "E02").getCodigo_lugar()));
+        setLugarBoton(btnCatolica, base.getLugar(base.getCategoria_Lugar("C3E", "E03").getCodigo_lugar()));
+        setLugarBoton(btnUps, base.getLugar(base.getCategoria_Lugar("C3E", "E04").getCodigo_lugar()));
+        setLugarBoton(btnIsta, base.getLugar(base.getCategoria_Lugar("C3E", "E05").getCodigo_lugar()));
     }
 }

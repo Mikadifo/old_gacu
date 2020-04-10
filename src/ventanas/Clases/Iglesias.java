@@ -24,7 +24,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
         usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarCategoriasLugares();
         crearGuardarLugares();
         setLugarBotones();
     }
@@ -34,7 +34,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarCategoriasLugares();
         crearGuardarLugares();
         setLugarBotones();
     }
@@ -280,10 +280,10 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
 
     @Override
     public void setLugarBotones() {
-        setLugarBoton(btnAsuncion, base.getLugar("I01")); //getCatLugar con una TUPLA cambiar base
-        setLugarBoton(btnSagrario, base.getLugar("I02"));
-        setLugarBoton(btnFrancisco, base.getLugar("I03"));
-        setLugarBoton(btnSantos, base.getLugar("I04"));
-        setLugarBoton(btnInmaculada, base.getLugar("I05"));
+        setLugarBoton(btnAsuncion, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
+        setLugarBoton(btnSagrario, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
+        setLugarBoton(btnFrancisco, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
+        setLugarBoton(btnSantos, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
+        setLugarBoton(btnInmaculada, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
     }
 }
