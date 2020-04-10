@@ -8,7 +8,7 @@ import java.util.Vector;
 
 public class BaseCategoria_Lugar {
     public boolean crearCategoria_Lugar(ObjectContainer base, Categoria_Lugar categoria_lugar) {
-        Categoria_Lugar categoria_lugarBuscar = getCategoria_Lugar(base, categoria_lugar.getCodigo_lugar());
+        Categoria_Lugar categoria_lugarBuscar = getCategoria_Lugar(base, categoria_lugar.getCodigo_categoria(), categoria_lugar.getCodigo_lugar());
         if (categoria_lugarBuscar == null) {
             base.store(categoria_lugar);
             return true; //Se agrega la categoria_lugar a la base
@@ -26,8 +26,8 @@ public class BaseCategoria_Lugar {
         return categorias_lugares; //Retorna todas las categoria_lugar de la base
     }
     
-    public Categoria_Lugar getCategoria_Lugar(ObjectContainer base, String codigo_lugar) {
-        Categoria_Lugar categoria_lugarBuscar = new Categoria_Lugar(null, codigo_lugar);
+    public Categoria_Lugar getCategoria_Lugar(ObjectContainer base, String codigo_categoria, String codigo_lugar) {
+        Categoria_Lugar categoria_lugarBuscar = new Categoria_Lugar(codigo_categoria, codigo_lugar);
         ObjectSet resultado = base.queryByExample(categoria_lugarBuscar);
         if (resultado.size() > 0) {
             Categoria_Lugar categoria_lugarResultado = (Categoria_Lugar)resultado.next();
@@ -36,21 +36,8 @@ public class BaseCategoria_Lugar {
         return null; //No encontro la categoria_lugar
     }
     
-    public boolean modificarCategoria_Lugar(ObjectContainer base, Categoria_Lugar categoria_lugar_Nueva) {
-        Categoria_Lugar categoria_lugar_Buscar = new Categoria_Lugar(categoria_lugar_Nueva.getCodigo_lugar(), null);
-        ObjectSet respuesta = base.queryByExample(categoria_lugar_Buscar); 
-        if (respuesta.size() > 0) { 
-            Categoria_Lugar categoria_lugar_Modificar = (Categoria_Lugar)respuesta.next(); 
-            categoria_lugar_Modificar.setCodigo_categoria(categoria_lugar_Nueva.getCodigo_categoria());
-            categoria_lugar_Modificar.setCodigo_lugar(categoria_lugar_Nueva.getCodigo_lugar());
-            base.store(categoria_lugar_Modificar);
-            return true; //Se modifica la Categoria_Lugar
-        } 
-        return false; //No encontro la Categoria_Lugar
-    }
-    
-    public boolean eliminarCategoria_Lugar(ObjectContainer base, String codigo_lugar) {
-        Categoria_Lugar categoria_lugar_Buscar = new Categoria_Lugar(null, codigo_lugar);
+    public boolean eliminarCategoria_Lugar(ObjectContainer base, String codigo_categoria, String codigo_lugar) {
+        Categoria_Lugar categoria_lugar_Buscar = new Categoria_Lugar(codigo_categoria, codigo_lugar);
         ObjectSet respuesta = base.queryByExample(categoria_lugar_Buscar);
         if (respuesta.size() > 0) { 
             Categoria_Lugar categoria_lugar_Eliminar = (Categoria_Lugar)respuesta.next(); 

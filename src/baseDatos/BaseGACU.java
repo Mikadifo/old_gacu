@@ -184,8 +184,8 @@ public class BaseGACU {
         cerrarBase();
         return estado;
     }
-
     //FIN METODOS IMAGEN
+    
     //INICIO METODOS TRIVIA
     public boolean crearTrivia(Trivia trivia) {
         boolean estado = baseTrivia.crearTrivia(abrirBase(rutaArchivo), trivia);
@@ -216,8 +216,8 @@ public class BaseGACU {
         cerrarBase();
         return estado;
     }
-
     //FIN METODOS TRIVIA
+    
     //INICIO METODOS PREGUNTAS
     public boolean crearPregunta(Preguntas pregunta) {
         boolean estado = basePreguntas.crearPregunta(abrirBase(rutaArchivo), pregunta);
@@ -248,8 +248,8 @@ public class BaseGACU {
         cerrarBase();
         return estado;
     }
-
     //FIN METODOS PREGUNTAS
+    
     //INICIO METODOS RESPUESTAS
     public boolean crearRespuesta(Respuestas respuesta) {
         boolean estado = baseRespuestas.crearRespuesta(abrirBase(rutaArchivo), respuesta);
@@ -280,8 +280,8 @@ public class BaseGACU {
         cerrarBase();
         return estado;
     }
-
     //FIN METODOS RESPUESTAS
+    
     //INICIO METODOS CATEGORIA_LUGAR
     public boolean crearCategoria_Lugar(Categoria_Lugar respuesta) {
         boolean estado = baseCategoria_Lugar.crearCategoria_Lugar(abrirBase(rutaArchivo), respuesta);
@@ -295,25 +295,20 @@ public class BaseGACU {
         return categorias_lugares;
     }
 
-    public Categoria_Lugar getCategoria_Lugar(String codigo) {
-        Categoria_Lugar categoria_lugar_Resultado = baseCategoria_Lugar.getCategoria_Lugar(abrirBase(rutaArchivo), codigo);
+    public Categoria_Lugar getCategoria_Lugar(String codigo_categoria, String codigo_lugar) {
+        Categoria_Lugar categoria_lugar_Resultado = baseCategoria_Lugar.getCategoria_Lugar(abrirBase(rutaArchivo), codigo_categoria, codigo_lugar);
         cerrarBase();
         return categoria_lugar_Resultado;
     }
 
-    public boolean modificarCategoria_Lugar(Categoria_Lugar categoria_lugar_Nueva) {
-        boolean estado = baseCategoria_Lugar.modificarCategoria_Lugar(abrirBase(rutaArchivo), categoria_lugar_Nueva);
-        cerrarBase();
-        return estado;
-    }
-
-    public boolean eliminarCategoria_Lugar(String codigo) {
-        boolean estado = baseCategoria_Lugar.eliminarCategoria_Lugar(abrirBase(rutaArchivo), codigo);
+    public boolean eliminarCategoria_Lugar(String codigo_categoria, String codigo_lugar) {
+        boolean estado = baseCategoria_Lugar.eliminarCategoria_Lugar(abrirBase(rutaArchivo), codigo_categoria, codigo_lugar);
         cerrarBase();
         return estado;
     }
 
     //FIN METODOS CATEGORIA_LUGAR
+    
     //INICIO METODOS LUGAR_IMG
     public boolean crearLugar_img(Lugar_img respuesta) {
         boolean estado = baseLugar_Imagen.crearLugar_Imagen(abrirBase(rutaArchivo), respuesta);
@@ -327,28 +322,20 @@ public class BaseGACU {
         return lugares_imgs;
     }
 
-    public Lugar_img getLugar_img(String codigo) {
-        Lugar_img lugar_imgResultado = baseLugar_Imagen.getlugar_img(abrirBase(rutaArchivo), codigo);
+    public Lugar_img getLugar_img(String codigo_lugar, String codigo_imagen) {
+        Lugar_img lugar_imgResultado = baseLugar_Imagen.getlugar_img(abrirBase(rutaArchivo), codigo_lugar, codigo_imagen);
         cerrarBase();
         return lugar_imgResultado;
     }
 
-    public boolean modificarLugar_img(Lugar_img lugar_imgNueva) {
-        boolean estado = baseLugar_Imagen.modificarLugar_img(abrirBase(rutaArchivo), lugar_imgNueva);
+    public boolean eliminarLugar_img(String codigo_lugar, String codigo_imagen) {
+        boolean estado = baseLugar_Imagen.eliminarLugar_img(abrirBase(rutaArchivo), codigo_lugar, codigo_imagen);
         cerrarBase();
         return estado;
     }
-
-    public boolean eliminarLugar_img(String codigo) {
-        boolean estado = baseLugar_Imagen.eliminarLugar_img(abrirBase(rutaArchivo), codigo);
-        cerrarBase();
-        return estado;
-    }
-
     //FIN METODOS LUGAR_IMG
-    
-    //INICIO METODOS REALIZA
-    
+
+    //INICIO METODOS REALIZA    
     public boolean crearRealiza(Realiza respuesta) {
         boolean estado = baseRealiza.crearRealiza(abrirBase(rutaArchivo), respuesta);
         cerrarBase();
@@ -361,26 +348,46 @@ public class BaseGACU {
         return lugares_imgs;
     }
     
+    public Realiza getRealiza(String codigo_trivia, String codigo_usuario) {
+        Realiza realizaResultado = baseRealiza.getRealiza(abrirBase(rutaArchivo), codigo_trivia, codigo_usuario);
+        cerrarBase();
+        return realizaResultado;
+    }
+
+    public boolean eliminarRealiza(String codigo_trivia, String codigo_usuario) {
+        boolean estado = baseRealiza.eliminarRealiza(abrirBase(rutaArchivo), codigo_trivia, codigo_usuario);
+        cerrarBase();
+        return estado;
+    } 
     //FIN METODOS REALIZA
     
     //INICIO METODOS VISUALIZA
-    
     public boolean crearVisualiza(Visualiza respuesta) {
         boolean estado = baseVisualiza.crearVisualiza(abrirBase(rutaArchivo), respuesta);
         cerrarBase();
         return estado;
     }
 
-    public Vector<Visualiza> getVisualiza() {
+    public Vector<Visualiza> getVisualizas() {
         Vector<Visualiza> lugares_imgs = baseVisualiza.getVisualizas(abrirBase(rutaArchivo));
         cerrarBase();
         return lugares_imgs;
     }
     
+    public Visualiza getVisualiza(String codigo_usuario, String codigo_lugar) {
+        Visualiza visualizaResultado = baseVisualiza.getVisualiza(abrirBase(rutaArchivo), codigo_usuario, codigo_lugar);
+        cerrarBase();
+        return visualizaResultado;
+    }
+
+    public boolean eliminarVisualiza(String codigo_usuario, String codigo_lugar) {
+        boolean estado = baseVisualiza.eliminarVisualiza(abrirBase(rutaArchivo), codigo_usuario, codigo_lugar);
+        cerrarBase();
+        return estado;
+    } 
     //FIN METODOS VISUALIZA
     
     //INICIO METODOS TRIVIA_PR
-    
     public boolean crearTRIVIA_PR(Trivia_PR respuesta) {
         boolean estado = baseTrivia_PR.crearTrivia_PR(abrirBase(rutaArchivo), respuesta);
         cerrarBase();
@@ -393,21 +400,17 @@ public class BaseGACU {
         return trivias_PRs;
     }
     
-    //FIN METODOS TRIVIA_PR
-    //METODOS TRIVIA(PREGUNTAS-RESPUESTAS)Trivia_PR
-    public boolean crearTriviaAunNoSeHace(Trivia trivia) {
-        //Trivia triviaBuscar = getTrivia(trivia.getCodigo_trivia()); falta hacer metodo getTrivia(SOBREESCRITO)
-        abrirBase(rutaArchivo);
-        /*
-        if (triviaBuscar == null) {
-            base.store(trivia);
-            cerrarBase();
-            return true; //Se agrega la trivia a la base
-        }
-         */
+    public Trivia_PR getTrivia_PR(String codigo_trivia, String codigo_pregunta, String codigo_respuesta) {
+        Trivia_PR trivia_PRResultado = baseTrivia_PR.getTrivia_PR(abrirBase(rutaArchivo), codigo_trivia, codigo_pregunta, codigo_respuesta);
         cerrarBase();
-        return false; //Ya existe la trivia
+        return trivia_PRResultado;
     }
-    //FIN METODOS TRIVIA(PREGUNTAS-RESPUESTAS)Trivia_PR
 
+    public boolean eliminarTrivia_PR(String codigo_trivia, String codigo_pregunta, String codigo_respuesta) {
+        boolean estado = baseTrivia_PR.eliminarTrivia_PR(abrirBase(rutaArchivo), codigo_trivia, codigo_pregunta, codigo_respuesta);
+        cerrarBase();
+        return estado;
+    } 
+    //FIN METODOS TRIVIA_PR
+    
 }

@@ -24,6 +24,9 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
         usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
+        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarLugares();
+        setLugarBotones();
     }
 
     public Iglesias(Usuario usuarioActivo) {
@@ -31,6 +34,9 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
+        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarLugares();
+        setLugarBotones();
     }
 
     @SuppressWarnings("unchecked")
@@ -194,61 +200,90 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
 
     @Override
     public void crearGuardarCategoriasLugares() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        crearCategoriasLugares();
+        guardarCategoriasLugaresBase(categoriasLugares);
     }
 
     @Override
     public void crearCategoriasLugares() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setCategoriaLugar("C2I", "I01");
+        setCategoriaLugar("C2I", "I02");
+        setCategoriaLugar("C2I", "I03");
+        setCategoriaLugar("C2I", "I04");
+        setCategoriaLugar("C2I", "I05");
     }
 
     @Override
     public void setCategoriaLugar(String codigoCategoria, String codigoLugar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        categoriaLugar = new Categoria_Lugar(codigoCategoria, codigoLugar);
+        categoriasLugares.addElement(categoriaLugar);
     }
 
     @Override
     public void guardarCategoriasLugaresBase(Vector<Categoria_Lugar> categoriasLugares) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        categoriasLugares.forEach((elemento) -> guardarCategoriaLugarBase(elemento));
     }
 
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (base.crearCategoria_Lugar(categoriaLugar)) {
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
+        } else {
+            System.err.println("Categoria Lugar ya existe");
+        }
     }
 
     @Override
     public void setLugarBoton(JButton boton, Lugares lugarMostrar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boton.setText(lugarMostrar.getNombre_lugar());
     }
 
     @Override
     public void crearGuardarLugares() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        crearLugares();
+        guardarLugaresBase(lugares);
     }
 
     @Override
     public void crearLugares() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String info = "Esta iglesia es ..."; //Terminar
+        setLugar("I01", "Asuncion", info);
+        info = "Esta iglesia no necesita..."; //Terminar
+        setLugar("I02", "El Sagrario", info);
+        info = "Esta iglesia no necesita..."; //Terminar
+        setLugar("I03", "San Francisco", info);
+        info = "Esta iglesia no necesita..."; //Terminar
+        setLugar("I04", "Todos Santos", info);
+        info = "Esta iglesia no necesita..."; //Terminar
+        setLugar("I05", "La Inmaculada", info);
     }
 
     @Override
     public void setLugar(String codigo, String nombre, String info) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        lugar = new Lugares(codigo, nombre, info);
+        lugares.addElement(lugar);
     }
 
     @Override
     public void guardarLugaresBase(Vector<Lugares> lugaresGuardar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        lugaresGuardar.forEach((elemento) -> guardarLugarBase(elemento));
     }
 
     @Override
     public void guardarLugarBase(Lugares lugarGuardar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (base.crearLugar(lugarGuardar)) {
+            System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " creado");
+        } else {
+            System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " ya existe");
+        }
     }
 
     @Override
     public void setLugarBotones() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setLugarBoton(btnAsuncion, base.getLugar("I01")); //getCatLugar con una TUPLA cambiar base
+        setLugarBoton(btnSagrario, base.getLugar("I02"));
+        setLugarBoton(btnFrancisco, base.getLugar("I03"));
+        setLugarBoton(btnSantos, base.getLugar("I04"));
+        setLugarBoton(btnInmaculada, base.getLugar("I05"));
     }
 }

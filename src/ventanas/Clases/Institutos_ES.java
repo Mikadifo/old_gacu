@@ -1,14 +1,16 @@
 package ventanas.Clases;
 
+import Interfaces.Categoria_Lugares;
 import baseDatos.BaseGACU;
 import clases.Categoria_Lugar;
 import clases.Lugares;
 import clases.Usuario;
 import java.util.Vector;
+import javax.swing.JButton;
 import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
 
-public class Institutos_ES extends javax.swing.JFrame {
+public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugares {
 
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
@@ -22,6 +24,9 @@ public class Institutos_ES extends javax.swing.JFrame {
         usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
+        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarLugares();
+        setLugarBotones();
     }
 
     public Institutos_ES(Usuario usuarioActivo) {
@@ -29,6 +34,9 @@ public class Institutos_ES extends javax.swing.JFrame {
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
+        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarLugares();
+        setLugarBotones();
     }
 
     @SuppressWarnings("unchecked")
@@ -185,4 +193,93 @@ public class Institutos_ES extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void crearGuardarCategoriasLugares() {
+        crearCategoriasLugares();
+        guardarCategoriasLugaresBase(categoriasLugares);
+    }
+
+    @Override
+    public void crearCategoriasLugares() {
+        setCategoriaLugar("C3E", "E01");
+        setCategoriaLugar("C3E", "E02");
+        setCategoriaLugar("C3E", "E03");
+        setCategoriaLugar("C3E", "E04");
+        setCategoriaLugar("C3E", "E05");
+    }
+
+    @Override
+    public void setCategoriaLugar(String codigoCategoria, String codigoLugar) {
+        categoriaLugar = new Categoria_Lugar(codigoCategoria, codigoLugar);
+        categoriasLugares.addElement(categoriaLugar);
+    }
+
+    @Override
+    public void guardarCategoriasLugaresBase(Vector<Categoria_Lugar> categoriasLugares) {
+        categoriasLugares.forEach((elemento) -> guardarCategoriaLugarBase(elemento));
+    }
+
+    @Override
+    public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
+        if (base.crearCategoria_Lugar(categoriaLugar)) {
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
+        } else {
+            System.err.println("Categoria Lugar ya existe");
+        }
+    }
+
+    @Override
+    public void setLugarBoton(JButton boton, Lugares lugarMostrar) {
+        boton.setText(lugarMostrar.getNombre_lugar());
+    }
+
+    @Override
+    public void crearGuardarLugares() {
+        crearLugares();
+        guardarLugaresBase(lugares);
+    }
+
+    @Override
+    public void crearLugares() {
+        String info = "Este parque es ..."; //Terminar
+        setLugar("E01", "Universidad de Cuenca", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("E02", "Universidad del Azuay", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("E03", "Universidad Catolica", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("E04", "Universidad Politectica Salesianas", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("E05", "Instituto Superior Tecnologico del Azuay", info);
+    }
+
+    @Override
+    public void setLugar(String codigo, String nombre, String info) {
+        lugar = new Lugares(codigo, nombre, info);
+        lugares.addElement(lugar);
+    }
+
+    @Override
+    public void guardarLugaresBase(Vector<Lugares> lugaresGuardar) {
+        lugaresGuardar.forEach((elemento) -> guardarLugarBase(elemento));
+    }
+
+    @Override
+    public void guardarLugarBase(Lugares lugarGuardar) {
+        if (base.crearLugar(lugarGuardar)) {
+            System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " creado");
+        } else {
+            System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " ya existe");
+        }
+    }
+
+    @Override
+    public void setLugarBotones() {
+        setLugarBoton(btnCuenca, base.getLugar("E01")); //getCatLugar con una TUPLA cambiar base
+        setLugarBoton(btnAzuay, base.getLugar("E02"));
+        setLugarBoton(btnCatolica, base.getLugar("E03"));
+        setLugarBoton(btnUps, base.getLugar("E04"));
+        setLugarBoton(btnIsta, base.getLugar("E05"));
+    }
 }

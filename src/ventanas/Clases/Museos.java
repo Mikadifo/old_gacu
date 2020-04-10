@@ -1,15 +1,17 @@
 
 package ventanas.Clases;
 
+import Interfaces.Categoria_Lugares;
 import baseDatos.BaseGACU;
 import clases.Categoria_Lugar;
 import clases.Lugares;
 import clases.Usuario;
 import java.util.Vector;
+import javax.swing.JButton;
 import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
 
-public class Museos extends javax.swing.JFrame {
+public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
 
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
@@ -23,6 +25,9 @@ public class Museos extends javax.swing.JFrame {
         usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
+        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarLugares();
+        setLugarBotones();
     }
 
     public Museos(Usuario usuarioActivo) {
@@ -30,6 +35,9 @@ public class Museos extends javax.swing.JFrame {
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
+        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarLugares();
+        setLugarBotones();
     }
    
     @SuppressWarnings("unchecked")
@@ -188,4 +196,93 @@ public class Museos extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void crearGuardarCategoriasLugares() {
+        crearCategoriasLugares();
+        guardarCategoriasLugaresBase(categoriasLugares);
+    }
+
+    @Override
+    public void crearCategoriasLugares() {
+        setCategoriaLugar("C4M", "M01");
+        setCategoriaLugar("C4M", "M02");
+        setCategoriaLugar("C4M", "M03");
+        setCategoriaLugar("C4M", "M04");
+        setCategoriaLugar("C4M", "M05");
+    }
+
+    @Override
+    public void setCategoriaLugar(String codigoCategoria, String codigoLugar) {
+        categoriaLugar = new Categoria_Lugar(codigoCategoria, codigoLugar);
+        categoriasLugares.addElement(categoriaLugar);
+    }
+
+    @Override
+    public void guardarCategoriasLugaresBase(Vector<Categoria_Lugar> categoriasLugares) {
+        categoriasLugares.forEach((elemento) -> guardarCategoriaLugarBase(elemento));
+    }
+
+    @Override
+    public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
+        if (base.crearCategoria_Lugar(categoriaLugar)) {
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
+        } else {
+            System.err.println("Categoria Lugar ya existe");
+        }
+    }
+
+    @Override
+    public void setLugarBoton(JButton boton, Lugares lugarMostrar) {
+        boton.setText(lugarMostrar.getNombre_lugar());
+    }
+
+    @Override
+    public void crearGuardarLugares() {
+        crearLugares();
+        guardarLugaresBase(lugares);
+    }
+
+    @Override
+    public void crearLugares() {
+        String info = "Este parque es ..."; //Terminar
+        setLugar("M01", "Pumapungo", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("M02", "Aborigenes", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("M03", "Museo Moderno", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("M04", "Museo de Esqueletologia", info);
+        info = "Este parque no necesita..."; //Terminar
+        setLugar("M05", "Todos Santos", info);
+    }
+
+    @Override
+    public void setLugar(String codigo, String nombre, String info) {
+        lugar = new Lugares(codigo, nombre, info);
+        lugares.addElement(lugar);
+    }
+
+    @Override
+    public void guardarLugaresBase(Vector<Lugares> lugaresGuardar) {
+        lugaresGuardar.forEach((elemento) -> guardarLugarBase(elemento));
+    }
+
+    @Override
+    public void guardarLugarBase(Lugares lugarGuardar) {
+        if (base.crearLugar(lugarGuardar)) {
+            System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " creado");
+        } else {
+            System.err.println("Lugar " + lugarGuardar.getNombre_lugar() + " ya existe");
+        }
+    }
+
+    @Override
+    public void setLugarBotones() {
+        setLugarBoton(btnPumapungo, base.getLugar("M01")); //getCatLugar con una TUPLA cambiar base
+        setLugarBoton(btnAborigenes, base.getLugar("M02"));
+        setLugarBoton(btnModerno, base.getLugar("M03"));
+        setLugarBoton(btnEsqueletologia, base.getLugar("M04"));
+        setLugarBoton(btnSantos, base.getLugar("M05"));
+    }
 }

@@ -154,6 +154,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
         categoriasLugares.addElement(categoriaLugar);
     }
     
+    @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
         if (base.crearCategoria_Lugar(categoriaLugar)) {
             System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
@@ -162,6 +163,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
         }
     }
     
+    @Override
     public void setLugarBotones() { //Si la base existira mas de 5 lugares se usaria metodo getLugares y se asiganiar con una vector
         setLugarBoton(btnCalderon, base.getLugar("P01")); //getCatLugar con una TUPLA cambiar base
         setLugarBoton(btnMadre, base.getLugar("P02"));
@@ -170,15 +172,18 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
         setLugarBoton(btnSebastian, base.getLugar("P05"));
     }
     
+    @Override
     public void setLugarBoton(javax.swing.JButton boton, Lugares lugarMostrar) {
         boton.setText(lugarMostrar.getNombre_lugar());
     }
     
+    @Override
     public void crearGuardarLugares() { //temporal
         crearLugares();
         guardarLugaresBase(lugares);
     }
     
+    @Override
     public void crearLugares() {
         String info = "Este parque es ..."; //Terminar
         setLugar("P01", "Parque Calderon", info);

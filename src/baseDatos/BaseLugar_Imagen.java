@@ -9,7 +9,7 @@ import java.util.Vector;
 public class BaseLugar_Imagen {
     
     public boolean crearLugar_Imagen(ObjectContainer base, Lugar_img lugar_img) {
-        Lugar_img lugar_imgBuscar = getlugar_img(base, lugar_img.getCodigo_imagen());
+        Lugar_img lugar_imgBuscar = getlugar_img(base, lugar_img.getCodigo_lugar(), lugar_img.getCodigo_imagen());
         if (lugar_imgBuscar == null) {
             base.store(lugar_img);
             return true; //Se agrega el lugar_img a la base
@@ -27,8 +27,8 @@ public class BaseLugar_Imagen {
         return lugares_imgs; //Retorna todas los lugar_img de la base
     }
     
-    public Lugar_img getlugar_img(ObjectContainer base, String codigo_imagen) {
-        Lugar_img lugar_imgBuscar = new Lugar_img(null, codigo_imagen);
+    public Lugar_img getlugar_img(ObjectContainer base, String codigo_lugar, String codigo_imagen) {
+        Lugar_img lugar_imgBuscar = new Lugar_img(codigo_lugar, codigo_imagen);
         ObjectSet resultado = base.queryByExample(lugar_imgBuscar);
         if (resultado.size() > 0) {
             Lugar_img lugar_imgResultado = (Lugar_img)resultado.next();
@@ -37,21 +37,8 @@ public class BaseLugar_Imagen {
         return null; //No encontro el Lugar_img
     }
     
-    public boolean modificarLugar_img(ObjectContainer base, Lugar_img lugar_imgNueva) {
-        Lugar_img imagenBuscar = new Lugar_img(null, lugar_imgNueva.getCodigo_imagen());
-        ObjectSet respuesta = base.queryByExample(imagenBuscar); 
-        if (respuesta.size() > 0) { 
-            Lugar_img lugar_imgModificar = (Lugar_img)respuesta.next(); 
-            lugar_imgModificar.setCodigo_imagen(lugar_imgNueva.getCodigo_imagen());
-            lugar_imgModificar.setCodigo_lugar(lugar_imgNueva.getCodigo_lugar());
-            base.store(lugar_imgModificar);
-            return true; //Se modifica el lugar_img
-        } 
-        return false; //No encontro el lugar_img
-    }
-    
-    public boolean eliminarLugar_img(ObjectContainer base, String codigo_imagen) {
-        Lugar_img lugar_imgBuscar = new Lugar_img(null,codigo_imagen);
+    public boolean eliminarLugar_img(ObjectContainer base, String codigo_lugar, String codigo_imagen) {
+        Lugar_img lugar_imgBuscar = new Lugar_img(codigo_lugar, codigo_imagen);
         ObjectSet respuesta = base.queryByExample(lugar_imgBuscar);
         if (respuesta.size() > 0) { 
             Lugar_img lugar_imgEliminar = (Lugar_img)respuesta.next(); 
