@@ -12,7 +12,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
     private BaseGACU base = new BaseGACU();
     private Usuario usuarioActivo;
     private Categoria_Lugar categoriaLugar;
-    private Info_Parques ventanaInfo;
+    private Info_Lugar ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
@@ -162,7 +162,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
         if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + "" + categoriaLugar.getCodigo_lugar() + "correctamente");
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + " " + categoriaLugar.getCodigo_lugar() + "correctamente");
         } else {
             System.err.println("Categoria Lugar ya existe");
         }
@@ -257,7 +257,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares{
     }//GEN-LAST:event_btnSebastianActionPerformed
 
     private void mostarVentanaInfo() {
-        ventanaInfo = new Info_Parques();//Usuario usuarioActivo
+        ventanaInfo = new Info_Lugar(usuarioActivo, "Parques");
         ventanaInfo.setVisible(true);
         dispose();
     }

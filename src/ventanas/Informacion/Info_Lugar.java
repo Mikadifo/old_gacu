@@ -1,11 +1,35 @@
 package ventanas.Informacion;
 
-import ventanas.Clases.Museos;
+import baseDatos.BaseGACU;
+import clases.Usuario;
+import ventanas.Clases.*;
 
-public class Info_Museos extends javax.swing.JFrame {
+public class Info_Lugar extends javax.swing.JFrame {
 
-    public Info_Museos() {
+    private Usuario usuarioActivo;
+    private Iglesias ventanaAtrasI;
+    private Museos ventanaAtrasM;
+    private Institutos_ES ventanaAtrasES;
+    private Parques ventanaAtrasP;
+    private String claseAnterior;
+    private BaseGACU base = new BaseGACU();
+
+    public Info_Lugar(String claseAnterior) {
         initComponents();
+        usuarioActivo = null;
+        this.claseAnterior = claseAnterior;
+        this.setSize(800, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+    }
+
+    public Info_Lugar(Usuario usuarioActivo, String claseAnterior) {
+        initComponents();
+        this.usuarioActivo = usuarioActivo;
+        this.claseAnterior = claseAnterior;
+        this.setSize(800, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -16,25 +40,26 @@ public class Info_Museos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         btnVolver = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
 
-        jTextPane1.setBackground(new java.awt.Color(204, 255, 255));
+        jTextPane1.setBackground(new java.awt.Color(153, 153, 153));
         jTextPane1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jTextPane1.setText("\n");
         jScrollPane1.setViewportView(jTextPane1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(80, 300, 680, 148);
+        jScrollPane1.setBounds(70, 300, 680, 148);
 
         btnVolver.setBackground(new java.awt.Color(76, 84, 84));
         btnVolver.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -64,33 +89,34 @@ public class Info_Museos extends javax.swing.JFrame {
         jPanel1.add(btnVolver);
         btnVolver.setBounds(360, 460, 100, 40);
 
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(80, 170, 270, 120);
+        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel22);
+        jLabel22.setBounds(470, 40, 270, 120);
 
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(480, 40, 270, 120);
+        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel23);
+        jLabel23.setBounds(80, 170, 270, 120);
 
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(480, 170, 270, 120);
+        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel24);
+        jLabel24.setBounds(470, 170, 270, 120);
 
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(80, 40, 270, 120);
+        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel25);
+        jLabel25.setBounds(80, 40, 270, 120);
+
+        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel26);
+        jLabel26.setBounds(80, 40, 270, 120);
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(320, 10, 190, 20);
-
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Museo/MuseoFondo.jpg"))); // NOI18N
+        jLabel1.setBounds(300, 10, 190, 20);
         jPanel1.add(jLabel2);
         jLabel2.setBounds(0, 0, 800, 500);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, -1, 800, 500);
+        jPanel1.setBounds(-3, -1, 800, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,20 +130,42 @@ public class Info_Museos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Museos mus= new Museos();
-        mus.setVisible(true);
+        mostarVentanaAnterior(claseAnterior);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void mostarVentanaAnterior(String clase) {
+        switch (clase) {
+            case "Iglesias":
+                ventanaAtrasI = new Iglesias(usuarioActivo);
+                ventanaAtrasI.setVisible(true);
+                break;
+            case "Museos":
+                ventanaAtrasM = new Museos(usuarioActivo);
+                ventanaAtrasM.setVisible(true);
+                break;
+            case "Institutos_ES":
+                ventanaAtrasES = new Institutos_ES(usuarioActivo);
+                ventanaAtrasES.setVisible(true);
+                break;
+            case "Parques":
+                ventanaAtrasP = new Parques(usuarioActivo);
+                ventanaAtrasP.setVisible(true);
+                break;
+            default:
+                System.err.println("Clase " + clase + " no encontrada!!!");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;

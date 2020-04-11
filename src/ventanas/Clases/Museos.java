@@ -15,7 +15,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
-    private Info_Museos ventanaInfo;
+    private Info_Lugar ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
@@ -172,7 +172,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     }//GEN-LAST:event_btnSantosActionPerformed
     
     private void mostarVentanaInfo() {
-        ventanaInfo = new Info_Museos();//Usuario usuarioActivo
+        ventanaInfo = new Info_Lugar(usuarioActivo, "Museos");
         ventanaInfo.setVisible(true);
         dispose();
     }
@@ -216,7 +216,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
         if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + "" + categoriaLugar.getCodigo_lugar() + "correctamente");
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + " " + categoriaLugar.getCodigo_lugar() + "correctamente");
         } else {
             System.err.println("Categoria Lugar ya existe");
         }

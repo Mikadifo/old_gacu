@@ -15,7 +15,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
-    private Info_Iglesias ventanaInfo;
+    private Info_Lugar ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
@@ -175,7 +175,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     }//GEN-LAST:event_btnSantosActionPerformed
 
     private void mostarVentanaInfo() {
-        ventanaInfo = new Info_Iglesias();//Usuario usuarioActivo
+        ventanaInfo = new Info_Lugar(usuarioActivo, "Iglesias");
         ventanaInfo.setVisible(true);
         dispose();
     }
@@ -219,7 +219,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
         if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + categoriaLugar.getCodigo_lugar() + "correctamente");
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + " " + categoriaLugar.getCodigo_lugar() + "correctamente");
         } else {
             System.err.println("Categoria Lugar ya existe");
         }
@@ -273,9 +273,9 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     @Override
     public void setLugarBotones() {
         setLugarBoton(btnAsuncion, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
-        setLugarBoton(btnSagrario, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
-        setLugarBoton(btnFrancisco, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
-        setLugarBoton(btnSantos, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
-        setLugarBoton(btnInmaculada, base.getLugar(base.getCategoria_Lugar("C2I", "I01").getCodigo_lugar()));
+        setLugarBoton(btnSagrario, base.getLugar(base.getCategoria_Lugar("C2I", "I02").getCodigo_lugar()));
+        setLugarBoton(btnFrancisco, base.getLugar(base.getCategoria_Lugar("C2I", "I03").getCodigo_lugar()));
+        setLugarBoton(btnSantos, base.getLugar(base.getCategoria_Lugar("C2I", "I04").getCodigo_lugar()));
+        setLugarBoton(btnInmaculada, base.getLugar(base.getCategoria_Lugar("C2I", "I05").getCodigo_lugar()));
     }
 }

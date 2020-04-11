@@ -15,7 +15,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
-    private Info_Eduacion ventanaInfo;
+    private Info_Lugar ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
@@ -25,7 +25,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
         usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarCategoriasLugares();
         crearGuardarLugares();
         setLugarBotones();
     }
@@ -35,7 +35,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();//se usa la tupla de aqui
+        crearGuardarCategoriasLugares();
         crearGuardarLugares();
         setLugarBotones();
     }
@@ -171,7 +171,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     }//GEN-LAST:event_btnIstaActionPerformed
 
     private void mostarVentanaInfo() {
-        ventanaInfo = new Info_Eduacion();//Usuario usuarioActivo
+        ventanaInfo = new Info_Lugar(usuarioActivo, "Institutos_ES");
         ventanaInfo.setVisible(true);
         dispose();
     }
@@ -215,7 +215,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
         if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + "" + categoriaLugar.getCodigo_lugar() + "correctamente");
+            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + " " + categoriaLugar.getCodigo_lugar() + "correctamente");
         } else {
             System.err.println("Categoria Lugar ya existe");
         }
