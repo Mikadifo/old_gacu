@@ -5,6 +5,7 @@ import baseDatos.BaseGACU;
 import clases.Categoria_Lugar;
 import clases.Lugares;
 import clases.Usuario;
+import clases.Visualiza;
 import java.util.Vector;
 import javax.swing.JButton;
 import ventanas.Informacion.*;
@@ -151,31 +152,47 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCuencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuencaActionPerformed
-        mostarVentanaInfo();
+        accionLugares("E01");
     }//GEN-LAST:event_btnCuencaActionPerformed
 
     private void btnAzuayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAzuayActionPerformed
-        mostarVentanaInfo();//revisar
+        accionLugares("E02");
         dispose();    }//GEN-LAST:event_btnAzuayActionPerformed
 
     private void btnCatolicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatolicaActionPerformed
-        mostarVentanaInfo();
+        accionLugares("E03");
     }//GEN-LAST:event_btnCatolicaActionPerformed
 
     private void btnUpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpsActionPerformed
-        mostarVentanaInfo();
+        accionLugares("E04");
     }//GEN-LAST:event_btnUpsActionPerformed
 
     private void btnIstaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIstaActionPerformed
-        mostarVentanaInfo();
+        accionLugares("E05");
     }//GEN-LAST:event_btnIstaActionPerformed
 
-    private void mostarVentanaInfo() {
-        ventanaInfo = new Info_Lugar(usuarioActivo, "Institutos_ES");
+    private void accionLugares(String codigoLugar) {
+        if (usuarioActivo != null) {
+            Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C3E", codigoLugar).getCodigo_lugar());
+            guadarVisualizaBase(visualiza);
+        }
+        mostarVentanaInfo(codigoLugar);
+    }
+
+    private void guadarVisualizaBase(Visualiza visualiza) {
+        if (base.crearVisualiza(visualiza)) {
+            System.err.println("Visualiza " + visualiza + " creado");
+        } else {
+            System.err.println("Visualiza ya creado");
+        }
+    }
+    
+    private void mostarVentanaInfo(String codigoLugar) {
+        ventanaInfo = new Info_Lugar(usuarioActivo, "Institutos_ES", "C3E", codigoLugar);
         ventanaInfo.setVisible(true);
         dispose();
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAzuay;
     private javax.swing.JButton btnCatolica;
@@ -234,15 +251,27 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
 
     @Override
     public void crearLugares() {
-        String info = "Este parque es ..."; //Terminar
+        String info = "Es una universidad pública ecuatoriana. Creada oficialmente por decreto legislativo en el año 1867, fue la primera universidad en la ciudad de Cuenca, así como la primera en la región del Austro del Ecuador. Actualmente es considerada como una de las mejores universidades del país, además de ser muy reconocida a nivel de Latinoamérica.\n"
+                + "Creada por decreto legislativo del 15 de octubre de 1867 bajo la presidencia de Jerónimo Carrión y Palacio, la Universidad de Cuenca se denominó inicialmente Corporación Universitaria del Azuay con las facultades de Jurisprudencia, de Medicina y Farmacia, de Filosofía y Literatura y de Teología. Su primer rector fue el abogado y político ecuatoriano Benigno Malo Valdivieso. Hoy en día cuenta con las facultades de Arquitectura y Urbanismo, Artes, Ciencias Agropecuarias, de Hospitalidad, Económicas y Administrativas, Médicas, Químicas, Filosofía, Ingenierías, Jurisprudencia, Odontología y Psicología.\n"
+                + "Su misión es formar profesionales y científicos comprometidos con el mejoramiento de la calidad de vida, en el contexto de la interculturalidad y en armonía con la naturaleza. La Universidad fundamenta en la calidad académica, en la creatividad y en la innovación, su capacidad para responder a los retos científicos y humanos de la época y sociedad regional, nacional e internacional equitativa, solidaria y eficiente.\n"
+                + "Dirección: Av. 12 de abril";
         setLugar("E01", "Universidad de Cuenca", info);
-        info = "Este parque no necesita..."; //Terminar
+        info = "También conocida como UDA. Nació en el año 1968 como una institución filial de la Universidad Católica Santiago de Guayaquil en la ciudad de Cuenca bajo el nombre de Instituto de Filosofía de la Universidad Católica Santiago de Guayaquil en Cuenca y con la autorización de la Santa Sede, sin embargo, la inauguración oficial de la institución se llevó a cabo el 2 de mayo de 1969.\n"
+                + "El Instituto comenzó sus actividades en el curso lectivo 1968-1969, con los profesores Francisco Olmedo Llorente, Claudio Malo González, Carlos Pérez Agustí, Rafael Galiana, José Castellví Queralt y Nelson Yánez Ortega. \"Parece que el primer curso contó con sesenta y ocho alumnos, treinta de ellos, seminaristas\". El primer director del Instituto fue el sacerdote Agustín López Conesa, por delegación del arzobispo de Cuenca. Al inicio del curso 1969-1970, la dirección del Instituto pasó al sacerdote Alonso Montero, cuyo nombramiento oficial se realizó el 11 de noviembre de 1969.\n"
+                + "El 3 de diciembre de 1970, con la creación de la Escuela de Contabilidad Superior pasó a llamarse Universidad Católica Santiago de Guayaquil en Cuenca. El 11 de diciembre de 1970, Claudio Malo se posesionó como Director Académico de la Universidad Católica de Santiago de Guayaquil en Cuenca, nombrado por la Junta General de Profesores el 10 de diciembre de 1970.\n"
+                + "Más tarde, las dos unidades académicas de la Universidad Católica de Santiago de Guayaquil en Cuenca (el Instituto Superior de Filosofía y la Escuela de Contabilidad Superior y Administración de Empresas) solicitaron su anexión a la Pontificia Universidad Católica del Ecuador, lo que se concretó el 19 de noviembre de 1976 y con ello las unidades se convirtieron en las Facultades de Filosofía, Letras y Ciencias de la Educación así como la de Contabilidad Superior y Ciencias de la Administración. Tiempo después cambió su nombre al de Universidad del Azuay con el cual se mantiene hasta la actualidad. Poco a poco fue incorporando nuevas carreras y con ello la creación de las demás Facultades que componen la Universidad.\n"
+                + "Dirección: Av. 24 de mayo 7-77";
         setLugar("E02", "Universidad del Azuay", info);
-        info = "Este parque no necesita..."; //Terminar
+        info = "La Universidad Católica de Cuenca fue creada por gestiones personales del sacerdote César Cordero Moscoso, quien había creado en 1955 la escuela arzobispo Serrano, en 1962 el colegio normal católico Miguel Cordero Crespo y después otros centros educativos.\n"
+                + "Para la empresa de fundar la Universidad recibió el apoyo del primer arzobispo de Cuenca, Manuel Serrano Abad, y el respaldo de ciudadanos encabezados por Enrique Arizaga Toral, Manuel María Palacios Bravo, el exalcalde de Cuenca Luis Cordero Crespo, designado primer rector poco después, el padre José Fidel Hidalgo, redentorista, y cerca de 3.000 firmantes más. El presidente José María Velasco Ibarra firmó el decreto de creación de la universidad el 7 de septiembre de 1970. Con el apoyo de los obispos José Félix Pintado y Raúl Vela Chiriboga se abrieron las extensiones universitarias de Morona Santiago en 1973 y de Azogues en 1980, y las extensiones de La Troncal y Cañar en 1990.\n"
+                + "Dirección: Av. Américas &, Humboldt, Cuenca.";
         setLugar("E03", "Universidad Catolica", info);
-        info = "Este parque no necesita..."; //Terminar
+        info = "Universidad Politécnica Salesiana del Ecuador es una obra de la Congregación Salesiana. La UPS fue fundada el 5 de agosto de 1994 en la ciudad de Cuenca y tiene sedes en Quito y Guayaquil. Se caracteriza por la educación técnica y cristiana que imparte a sus estudiantes. En 2016 registra 25.545 estudiantes en todo el Ecuador.\n"
+                + "En 1887 el gobierno de Ecuador firmó un convenio con Don Bosco para que los salesianos tomaran bajo su responsabilidad el Protectorado Católico de Artes y Oficios en Quito. Ecuador llegó a ser uno de los primeros países no-europeos en recibir las obras del santo educador de Turín (el primero fue Argentina en 1877 y pronto el carisma salesiano se estableció en el país andino de la Suramérica septentrional).\n"
+                + "Es una institución de estudios superiores, inspiración cristiana con carácter católico, de índole salesiana, que promueve el desarrollo de la persona y el patrimonio cultural de la sociedad mediante la docencia, la investigación, la formación continua y los diversos servicios ofrecidos a la comunidad local, nacional e internacional.\n"
+                + "Dirección: Calle Turuhuayco 3-69 y Calle Vieja; Calle Vieja 12-30 y Elia Liut.";
         setLugar("E04", "Universidad Politectica Salesianas", info);
-        info = "Este parque no necesita..."; //Terminar
+        info = "El Instituto Superior Tecnológico del Azuay es una institución de Educación Superior a nivel técnico y tecnológico, dedicada a formar profesionales comprometidos éticamente con la sociedad, desde una preparación basada en entornos de aprendizaje académicos y experienciales que contribuyan al desarrollo de la matriz productiva de la región y sustentada en principios de igualdad, inclusión, solidaridad, interculturalidad y comprensión de la diversidad."; //Terminar
         setLugar("E05", "Instituto Superior Tecnologico del Azuay", info);
     }
 

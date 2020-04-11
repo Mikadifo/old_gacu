@@ -1,6 +1,7 @@
 package ventanas.Informacion;
 
 import baseDatos.BaseGACU;
+import clases.Categoria_Lugar;
 import clases.Usuario;
 import ventanas.Clases.*;
 
@@ -14,52 +15,53 @@ public class Info_Lugar extends javax.swing.JFrame {
     private String claseAnterior;
     private BaseGACU base = new BaseGACU();
 
-    public Info_Lugar(String claseAnterior) {
+    public Info_Lugar(String claseAnterior, String codigo_Categoria, String codigo_Lugar) {
         initComponents();
         usuarioActivo = null;
         this.claseAnterior = claseAnterior;
         this.setSize(800, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        mostarInfoLugar(codigo_Categoria, codigo_Lugar);
     }
 
-    public Info_Lugar(Usuario usuarioActivo, String claseAnterior) {
+    public Info_Lugar(Usuario usuarioActivo, String claseAnterior, String codigo_Categoria, String codigo_Lugar) {
         initComponents();
         this.usuarioActivo = usuarioActivo;
         this.claseAnterior = claseAnterior;
         this.setSize(800, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        mostarInfoLugar(codigo_Categoria, codigo_Lugar);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        Info_pn = new javax.swing.JPanel();
+        Info_spn = new javax.swing.JScrollPane();
+        jtextInfo = new javax.swing.JTextPane();
         btnVolver = new javax.swing.JButton();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblImagen2 = new javax.swing.JLabel();
+        lblImagen3 = new javax.swing.JLabel();
+        lblImagen4 = new javax.swing.JLabel();
+        lblImagen1 = new javax.swing.JLabel();
+        jlTitulo = new javax.swing.JLabel();
+        jlFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        jPanel1.setLayout(null);
+        Info_pn.setLayout(null);
 
-        jTextPane1.setBackground(new java.awt.Color(153, 153, 153));
-        jTextPane1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jScrollPane1.setViewportView(jTextPane1);
+        jtextInfo.setBackground(new java.awt.Color(153, 153, 153));
+        jtextInfo.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        Info_spn.setViewportView(jtextInfo);
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(70, 300, 680, 148);
+        Info_pn.add(Info_spn);
+        Info_spn.setBounds(70, 300, 680, 148);
 
         btnVolver.setBackground(new java.awt.Color(76, 84, 84));
         btnVolver.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -86,37 +88,33 @@ public class Info_Lugar extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolver);
+        Info_pn.add(btnVolver);
         btnVolver.setBounds(360, 460, 100, 40);
 
-        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel22);
-        jLabel22.setBounds(470, 40, 270, 120);
+        lblImagen2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Info_pn.add(lblImagen2);
+        lblImagen2.setBounds(470, 40, 270, 120);
 
-        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel23);
-        jLabel23.setBounds(80, 170, 270, 120);
+        lblImagen3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Info_pn.add(lblImagen3);
+        lblImagen3.setBounds(80, 170, 270, 120);
 
-        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel24);
-        jLabel24.setBounds(470, 170, 270, 120);
+        lblImagen4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Info_pn.add(lblImagen4);
+        lblImagen4.setBounds(470, 170, 270, 120);
 
-        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel25);
-        jLabel25.setBounds(80, 40, 270, 120);
+        lblImagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Info_pn.add(lblImagen1);
+        lblImagen1.setBounds(80, 40, 270, 120);
 
-        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel26);
-        jLabel26.setBounds(80, 40, 270, 120);
+        jlTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Info_pn.add(jlTitulo);
+        jlTitulo.setBounds(300, 10, 190, 20);
+        Info_pn.add(jlFondo);
+        jlFondo.setBounds(0, 0, 800, 500);
 
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(300, 10, 190, 20);
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, 0, 800, 500);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(-3, -1, 800, 500);
+        getContentPane().add(Info_pn);
+        Info_pn.setBounds(0, 0, 800, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,18 +154,23 @@ public class Info_Lugar extends javax.swing.JFrame {
                 System.err.println("Clase " + clase + " no encontrada!!!");
         }
     }
+    
+    private void mostarInfoLugar(String codigocategoria, String codigoLugar) { //falta img
+        Categoria_Lugar resultado = base.getCategoria_Lugar(codigocategoria, codigoLugar);
+        jlTitulo.setText(base.getLugar(resultado.getCodigo_lugar()).getNombre_lugar());
+        jtextInfo.setText(base.getLugar(resultado.getCodigo_lugar()).getInformacion_lugar());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Info_pn;
+    private javax.swing.JScrollPane Info_spn;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JLabel jlFondo;
+    private javax.swing.JLabel jlTitulo;
+    private javax.swing.JTextPane jtextInfo;
+    private javax.swing.JLabel lblImagen1;
+    private javax.swing.JLabel lblImagen2;
+    private javax.swing.JLabel lblImagen3;
+    private javax.swing.JLabel lblImagen4;
     // End of variables declaration//GEN-END:variables
 }
