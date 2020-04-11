@@ -11,6 +11,8 @@ import ventanas.registro.MenuPrincipal;
 
 public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
 
+    private String[] codigosImagenes = new String[5];
+    private String[] nombresImagenes = new String[5];
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
@@ -24,8 +26,8 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
         usuarioActivo = null;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();
         crearGuardarLugares();
+        crearGuardarCategoriasLugares();
         setLugarBotones();
     }
 
@@ -34,8 +36,8 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setLocationRelativeTo(null);
-        crearGuardarCategoriasLugares();
         crearGuardarLugares();
+        crearGuardarCategoriasLugares();
         setLugarBotones();
     }
 
@@ -153,26 +155,48 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnSagrarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSagrarioActionPerformed
+        codigosImagenes[0] = "imgIS01";codigosImagenes[1] = "imgIS02";
+        codigosImagenes[2] = "imgIS03";codigosImagenes[3] = "imgIS04";
+        nombresImagenes[0] = "sagrario1.jpg";nombresImagenes[1] = "sagrario2.jpg";
+        nombresImagenes[2] = "sagrario3.jpg";nombresImagenes[3] = "sagrario4.jpg";
         accionLugares("I02");
     }//GEN-LAST:event_btnSagrarioActionPerformed
 
     private void btnInmaculadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInmaculadaActionPerformed
+        codigosImagenes[0] = "imgII01";codigosImagenes[1] = "imgII02";
+        codigosImagenes[2] = "imgII03";codigosImagenes[3] = "imgII04";
+        nombresImagenes[0] = "inmaculada1.jpg";nombresImagenes[1] = "inmaculada2.png";
+        nombresImagenes[2] = "inmaculada3.jpg";nombresImagenes[3] = "inmaculada4.jpg";
         accionLugares("I05");
     }//GEN-LAST:event_btnInmaculadaActionPerformed
 
     private void btnAsuncionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsuncionActionPerformed
+        codigosImagenes[0] = "imgIA01";codigosImagenes[1] = "imgIA02";
+        codigosImagenes[2] = "imgIA03";codigosImagenes[3] = "imgIA04";
+        nombresImagenes[0] = "asuncion1.jpg";nombresImagenes[1] = "asuncion2.jpg";
+        nombresImagenes[2] = "asuncion3.jpg";nombresImagenes[3] = "asuncion4.jpg";
         accionLugares("I01");
     }//GEN-LAST:event_btnAsuncionActionPerformed
 
     private void btnBlasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBlasActionPerformed
+        codigosImagenes[0] = "imgIB01";codigosImagenes[1] = "imgIB02";
+        codigosImagenes[2] = "imgIB03";codigosImagenes[3] = "imgIB04";
+        nombresImagenes[0] = "blas1.jpg";nombresImagenes[1] = "blas2.jpg";
+        nombresImagenes[2] = "blas3.jpg";nombresImagenes[3] = "blas4.jpg";
         accionLugares("I03");
     }//GEN-LAST:event_btnBlasActionPerformed
 
     private void btnSantosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSantosActionPerformed
+        codigosImagenes[0] = "imgIT01";codigosImagenes[1] = "imgIT02";
+        codigosImagenes[2] = "imgIT03";codigosImagenes[3] = "imgIT04";
+        nombresImagenes[0] = "santos1.jpg";nombresImagenes[1] = "santos2.jpg";
+        nombresImagenes[2] = "santos3.jpg";nombresImagenes[3] = "santos4.jpg";
         accionLugares("I04");
     }//GEN-LAST:event_btnSantosActionPerformed
 
     private void accionLugares(String codigoLugar) {
+        codigosImagenes[4] = "imgI05"; //temporal
+        nombresImagenes[4] = "fondoiglesia.png"; //temporal
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C2I", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
@@ -189,7 +213,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
     }
 
     private void mostarVentanaInfo(String codigoLugar) {
-        ventanaInfo = new Info_Lugar(usuarioActivo, "Iglesias", "C2I", codigoLugar);
+        ventanaInfo = new Info_Lugar(usuarioActivo, "C2I", codigoLugar, codigosImagenes, nombresImagenes);
         ventanaInfo.setVisible(true);
         dispose();
     }

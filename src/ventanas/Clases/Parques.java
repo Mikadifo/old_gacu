@@ -9,6 +9,8 @@ import Interfaces.Categoria_Lugares;
 
 public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
 
+    private String[] codigosImagenes = new String[5];
+    private String[] nombresImagenes = new String[5];
     private BaseGACU base = new BaseGACU();
     private Usuario usuarioActivo;
     private Categoria_Lugar categoriaLugar;
@@ -249,26 +251,48 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCalderonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalderonActionPerformed
+        codigosImagenes[0] = "imgPC01";codigosImagenes[1] = "imgPC02";
+        codigosImagenes[2] = "imgPC03";codigosImagenes[3] = "imgPC04";
+        nombresImagenes[0] = "calderon1.jpg";nombresImagenes[1] = "calderon2.jpg";
+        nombresImagenes[2] = "calderon3.jpg";nombresImagenes[3] = "calderon4.jpg";
         accionLugares("P01");
     }//GEN-LAST:event_btnCalderonActionPerformed
 
     private void btnParaisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParaisoActionPerformed
+        codigosImagenes[0] = "imgPP01";codigosImagenes[1] = "imgPP02";
+        codigosImagenes[2] = "imgPP03";codigosImagenes[3] = "imgPP04";
+        nombresImagenes[0] = "paraiso1.jpg";nombresImagenes[1] = "paraiso2.jpg";
+        nombresImagenes[2] = "paraiso3.jpg";nombresImagenes[3] = "paraiso4.jpg";
         accionLugares("P02");
     }//GEN-LAST:event_btnParaisoActionPerformed
 
     private void btnMadreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMadreActionPerformed
+        codigosImagenes[0] = "imgPM01";codigosImagenes[1] = "imgPM02";
+        codigosImagenes[2] = "imgPM03";codigosImagenes[3] = "imgPM04";
+        nombresImagenes[0] = "madre1.jpg";nombresImagenes[1] = "madre2.jpg";
+        nombresImagenes[2] = "madre3.jpg";nombresImagenes[3] = "madre4.jpg";
         accionLugares("P03");
     }//GEN-LAST:event_btnMadreActionPerformed
 
     private void btnBlasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBlasActionPerformed
+        codigosImagenes[0] = "imgPB01";codigosImagenes[1] = "imgPB02";
+        codigosImagenes[2] = "imgPB03";codigosImagenes[3] = "imgPB04";
+        nombresImagenes[0] = "blas1.jpg";nombresImagenes[1] = "blas2.jpg";
+        nombresImagenes[2] = "blas3.jpg";nombresImagenes[3] = "blas4.jpg";
         accionLugares("P04");
     }//GEN-LAST:event_btnBlasActionPerformed
 
     private void btnSebastianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSebastianActionPerformed
+        codigosImagenes[0] = "imgPS01";codigosImagenes[1] = "imgPS02";
+        codigosImagenes[2] = "imgPS03";codigosImagenes[3] = "imgPS04";
+        nombresImagenes[0] = "sebastian1.jpg";nombresImagenes[1] = "sebastian2.jpg";
+        nombresImagenes[2] = "sebastian3.jpg";nombresImagenes[3] = "sebastian4.jpg";
         accionLugares("P05");
     }//GEN-LAST:event_btnSebastianActionPerformed
 
     private void accionLugares(String codigoLugar) {
+        codigosImagenes[4] = "imgP05"; //temporal
+        nombresImagenes[4] = "fondoParques.png"; //temporal
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C1P", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
@@ -285,7 +309,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
     }
     
     private void mostarVentanaInfo(String codigoLugar) {
-        ventanaInfo = new Info_Lugar(usuarioActivo, "Parques", "C1P", codigoLugar);
+        ventanaInfo = new Info_Lugar(usuarioActivo, "C1P", codigoLugar, codigosImagenes, nombresImagenes);
         ventanaInfo.setVisible(true);
         dispose();
     }

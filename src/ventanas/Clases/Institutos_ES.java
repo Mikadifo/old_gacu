@@ -3,9 +3,7 @@ package ventanas.Clases;
 import Interfaces.Categoria_Lugares;
 import baseDatos.BaseGACU;
 import clases.Categoria_Lugar;
-import clases.Lugares;
-import clases.Usuario;
-import clases.Visualiza;
+import clases.*;
 import java.util.Vector;
 import javax.swing.JButton;
 import ventanas.Informacion.*;
@@ -13,6 +11,8 @@ import ventanas.registro.MenuPrincipal;
 
 public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugares {
 
+    private String[] codigosImagenes = new String[5];
+    private String[] nombresImagenes = new String[5];
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
@@ -152,26 +152,48 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCuencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuencaActionPerformed
+        codigosImagenes[0] = "imgEC01";codigosImagenes[1] = "imgEC02";
+        codigosImagenes[2] = "imgEC03";codigosImagenes[3] = "imgEC04";
+        nombresImagenes[0] = "estatal1.jpg";nombresImagenes[1] = "estatal2.jpg";
+        nombresImagenes[2] = "estatal3.jpg";nombresImagenes[3] = "estatal4.jpg";
         accionLugares("E01");
     }//GEN-LAST:event_btnCuencaActionPerformed
 
     private void btnAzuayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAzuayActionPerformed
+        codigosImagenes[0] = "imgEA01";codigosImagenes[1] = "imgEA02";
+        codigosImagenes[2] = "imgEA03";codigosImagenes[3] = "imgEA04";
+        nombresImagenes[0] = "uda1.jpg";nombresImagenes[1] = "uda2.jpg";
+        nombresImagenes[2] = "uda3.jpg";nombresImagenes[3] = "uda4.jpg";
         accionLugares("E02");
         dispose();    }//GEN-LAST:event_btnAzuayActionPerformed
 
     private void btnCatolicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatolicaActionPerformed
+        codigosImagenes[0] = "imgET01";codigosImagenes[1] = "imgET02";
+        codigosImagenes[2] = "imgET03";codigosImagenes[3] = "imgET04";
+        nombresImagenes[0] = "catolica1.jpg";nombresImagenes[1] = "catolica2.jpg";
+        nombresImagenes[2] = "catolica3.jpg";nombresImagenes[3] = "catolica4.PNG";
         accionLugares("E03");
     }//GEN-LAST:event_btnCatolicaActionPerformed
 
     private void btnUpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpsActionPerformed
+        codigosImagenes[0] = "imgEU01";codigosImagenes[1] = "imgEU02";
+        codigosImagenes[2] = "imgEU03";codigosImagenes[3] = "imgEU04";
+        nombresImagenes[0] = "ups1.jpg";nombresImagenes[1] = "ups2.jpg";
+        nombresImagenes[2] = "ups3.jpg";nombresImagenes[3] = "ups4.jpg";
         accionLugares("E04");
     }//GEN-LAST:event_btnUpsActionPerformed
 
     private void btnIstaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIstaActionPerformed
+        codigosImagenes[0] = "imgEI01";codigosImagenes[1] = "imgEI02";
+        codigosImagenes[2] = "imgEI03";codigosImagenes[3] = "imgEI04";
+        nombresImagenes[0] = "ista1.jpg";nombresImagenes[1] = "ista2.PNG";
+        nombresImagenes[2] = "ista3.PNG";nombresImagenes[3] = "ista4.PNG";
         accionLugares("E05");
     }//GEN-LAST:event_btnIstaActionPerformed
 
     private void accionLugares(String codigoLugar) {
+        codigosImagenes[4] = "imgE05"; //temporal
+        nombresImagenes[4] = "fondoES.png"; //temporal
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C3E", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
@@ -188,7 +210,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     }
     
     private void mostarVentanaInfo(String codigoLugar) {
-        ventanaInfo = new Info_Lugar(usuarioActivo, "Institutos_ES", "C3E", codigoLugar);
+        ventanaInfo = new Info_Lugar(usuarioActivo, "C3E", codigoLugar, codigosImagenes, nombresImagenes);
         ventanaInfo.setVisible(true);
         dispose();
     }

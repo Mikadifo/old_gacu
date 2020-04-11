@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
 import ventanas.Trivias.Trivia1;//cambiar
@@ -318,7 +319,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             InputStream input = new FileInputStream(rutaImg);
             input.read(icono);
             imagenes.setImagen(icono);
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             imagenes.setImagen(null);
         }
         if (base.crearImagen(imagenes)) {

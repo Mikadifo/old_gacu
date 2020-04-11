@@ -3,9 +3,7 @@ package ventanas.Clases;
 import Interfaces.Categoria_Lugares;
 import baseDatos.BaseGACU;
 import clases.Categoria_Lugar;
-import clases.Lugares;
-import clases.Usuario;
-import clases.Visualiza;
+import clases.*;
 import java.util.Vector;
 import javax.swing.JButton;
 import ventanas.Informacion.*;
@@ -13,6 +11,8 @@ import ventanas.registro.MenuPrincipal;
 
 public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
 
+    private String[] codigosImagenes = new String[5];
+    private String[] nombresImagenes = new String[5];
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
@@ -153,26 +153,48 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnPumapungoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPumapungoActionPerformed
+        codigosImagenes[0] = "imgMP01";codigosImagenes[1] = "imgMP02";
+        codigosImagenes[2] = "imgMP03";codigosImagenes[3] = "imgMP04";
+        nombresImagenes[0] = "pumapungo1.jpg";nombresImagenes[1] = "pumapungo2.jpg";
+        nombresImagenes[2] = "pumapungo3.jpg";nombresImagenes[3] = "pumapungo4.jpg";
         accionLugares("M01");
     }//GEN-LAST:event_btnPumapungoActionPerformed
 
     private void btnAborigenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAborigenesActionPerformed
+        codigosImagenes[0] = "imgMA01";codigosImagenes[1] = "imgMA02";
+        codigosImagenes[2] = "imgMA03";codigosImagenes[3] = "imgMA04";
+        nombresImagenes[0] = "aborigen1.jpg";nombresImagenes[1] = "aborigen2.jpg";
+        nombresImagenes[2] = "aborigen3.jpg";nombresImagenes[3] = "aborigen4.jpg";
         accionLugares("M02");
     }//GEN-LAST:event_btnAborigenesActionPerformed
 
     private void btnModernoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModernoActionPerformed
+        codigosImagenes[0] = "imgMM01";codigosImagenes[1] = "imgMM02";
+        codigosImagenes[2] = "imgMM03";codigosImagenes[3] = "imgMM04";
+        nombresImagenes[0] = "moderno1.jpg";nombresImagenes[1] = "moderno2.jpg";
+        nombresImagenes[2] = "moderno3.jpg";nombresImagenes[3] = "moderno4.jpg";
         accionLugares("M03");
     }//GEN-LAST:event_btnModernoActionPerformed
 
     private void btnEsqueletologiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueletologiaActionPerformed
+        codigosImagenes[0] = "imgME01";codigosImagenes[1] = "imgME02";
+        codigosImagenes[2] = "imgME03";codigosImagenes[3] = "imgME04";
+        nombresImagenes[0] = "esqueleto1.jpg";nombresImagenes[1] = "esqueleto2.jpg";
+        nombresImagenes[2] = "esqueleto3.jpg";nombresImagenes[3] = "esqueleto4.jpg";
         accionLugares("M04");
     }//GEN-LAST:event_btnEsqueletologiaActionPerformed
 
     private void btnSantosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSantosActionPerformed
+        codigosImagenes[0] = "imgMS01";codigosImagenes[1] = "imgMS02";
+        codigosImagenes[2] = "imgMS03";codigosImagenes[3] = "imgMS04";
+        nombresImagenes[0] = "santos1.jpg";nombresImagenes[1] = "santos2.jpg";
+        nombresImagenes[2] = "santos3.jpg";nombresImagenes[3] = "santos4.jpg";
         accionLugares("M05");
     }//GEN-LAST:event_btnSantosActionPerformed
 
     private void accionLugares(String codigoLugar) {
+        codigosImagenes[4] = "imgM05"; //temporal
+        nombresImagenes[4] = "fondoMuseo.png"; //temporal
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C4M", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
@@ -189,7 +211,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     }
     
     private void mostarVentanaInfo(String codigoLugar) {
-        ventanaInfo = new Info_Lugar(usuarioActivo, "Museos", "C4M", codigoLugar);
+        ventanaInfo = new Info_Lugar(usuarioActivo, "C4M", codigoLugar, codigosImagenes, nombresImagenes);
         ventanaInfo.setVisible(true);
         dispose();
     }

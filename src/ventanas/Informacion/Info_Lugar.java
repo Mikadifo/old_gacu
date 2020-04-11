@@ -1,8 +1,13 @@
 package ventanas.Informacion;
 
 import baseDatos.BaseGACU;
-import clases.Categoria_Lugar;
-import clases.Usuario;
+import clases.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.*;
+import java.util.Vector;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import ventanas.Clases.*;
 
 public class Info_Lugar extends javax.swing.JFrame {
@@ -12,27 +17,58 @@ public class Info_Lugar extends javax.swing.JFrame {
     private Museos ventanaAtrasM;
     private Institutos_ES ventanaAtrasES;
     private Parques ventanaAtrasP;
-    private String claseAnterior;
+    private String codigo_Categoria;
+    private Imagenes imagenes = new Imagenes();
+    private Lugar_img LugarImagen;
+    private Vector<Lugar_img> lugaresImagenes = new Vector<>();
     private BaseGACU base = new BaseGACU();
+    private File carpetaImg;
+    private String rutaCarpeta;
+    private String signoRuta;
+    private File ruta;
+    byte[] icono;
 
-    public Info_Lugar(String claseAnterior, String codigo_Categoria, String codigo_Lugar) {
+    public Info_Lugar(String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes, String[] nombreImagenes) {
         initComponents();
         usuarioActivo = null;
-        this.claseAnterior = claseAnterior;
+        this.codigo_Categoria = codigo_Categoria;
+        initRutas(codigo_Categoria);
         this.setSize(800, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        mostarInfoLugar(codigo_Categoria, codigo_Lugar);
+        mostarInfoLugar(codigo_Lugar, codigoImagenes, nombreImagenes);
     }
 
-    public Info_Lugar(Usuario usuarioActivo, String claseAnterior, String codigo_Categoria, String codigo_Lugar) {
+    public Info_Lugar(Usuario usuarioActivo, String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes, String[] nombreImagenes) {
         initComponents();
         this.usuarioActivo = usuarioActivo;
-        this.claseAnterior = claseAnterior;
+        this.codigo_Categoria = codigo_Categoria;
+        initRutas(codigo_Categoria);
         this.setSize(800, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        mostarInfoLugar(codigo_Categoria, codigo_Lugar);
+        mostarInfoLugar(codigo_Lugar, codigoImagenes, nombreImagenes);
+    }
+
+    private void initRutas(String codigo_Categoria) {
+        switch (codigo_Categoria) {
+            case "C2I":
+                carpetaImg = new File("Imagenes_Iglesias");
+                break;
+            case "C4M":
+                carpetaImg = new File("Imagenes_Museo");
+                break;
+            case "C3E":
+                carpetaImg = new File("Imagenes_Institutos");
+                break;
+            case "C1P":
+                carpetaImg = new File("Imagenes_Parques");
+                break;
+            default:
+                System.out.println("Clase " + codigo_Categoria + " no encontrada!!!");
+        }
+        rutaCarpeta = carpetaImg.getAbsolutePath();
+        signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
     }
 
     @SuppressWarnings("unchecked")
@@ -128,37 +164,112 @@ public class Info_Lugar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        mostarVentanaAnterior(claseAnterior);
+        mostarVentanaAnterior(codigo_Categoria);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void mostarVentanaAnterior(String clase) {
-        switch (clase) {
-            case "Iglesias":
+    private void mostarVentanaAnterior(String codigo_Categoria) {
+        switch (codigo_Categoria) {
+            case "C2I":
                 ventanaAtrasI = new Iglesias(usuarioActivo);
                 ventanaAtrasI.setVisible(true);
                 break;
-            case "Museos":
+            case "C4M":
                 ventanaAtrasM = new Museos(usuarioActivo);
                 ventanaAtrasM.setVisible(true);
                 break;
-            case "Institutos_ES":
+            case "C3E":
                 ventanaAtrasES = new Institutos_ES(usuarioActivo);
                 ventanaAtrasES.setVisible(true);
                 break;
-            case "Parques":
+            case "C1P":
                 ventanaAtrasP = new Parques(usuarioActivo);
                 ventanaAtrasP.setVisible(true);
                 break;
             default:
-                System.err.println("Clase " + clase + " no encontrada!!!");
+                System.err.println("Clase " + codigo_Categoria + " no encontrada!!!");
         }
     }
-    
-    private void mostarInfoLugar(String codigocategoria, String codigoLugar) { //falta img
-        Categoria_Lugar resultado = base.getCategoria_Lugar(codigocategoria, codigoLugar);
+
+    private void mostarInfoLugar(String codigoLugar, String[] codigoImagenes, String[] nombreImagenes) { //falta img
+        Categoria_Lugar resultado = base.getCategoria_Lugar(codigo_Categoria, codigoLugar);
         jlTitulo.setText(base.getLugar(resultado.getCodigo_lugar()).getNombre_lugar());
+        cargarImagenes(codigoImagenes, nombreImagenes);
+        crearGuardarLugaresImagenes(codigoLugar, codigoImagenes);
         jtextInfo.setText(base.getLugar(resultado.getCodigo_lugar()).getInformacion_lugar());
+    }
+
+    private void cargarImagenes(String[] codigoImagenes, String[] nombres) {
+        cargarImagen(codigoImagenes[0], nombres[0], lblImagen1);//nombre con extension
+        cargarImagen(codigoImagenes[1], nombres[1], lblImagen2);
+        cargarImagen(codigoImagenes[2], nombres[2], lblImagen3);
+        cargarImagen(codigoImagenes[3], nombres[3], lblImagen4);
+        cargarImagen(codigoImagenes[4], nombres[4], jlFondo);
+    }
+
+    private void cargarImagen(String codigo, String nombre, javax.swing.JLabel label) {
+        ruta = new File(rutaCarpeta + signoRuta + nombre);
+        guardarImagenBase(codigo, ruta);
+        setImagenLabel(label, base.getImagen(codigo).getImagen());
+    }
+
+    private void guardarImagenBase(String codigo, File rutaImg) {
+        imagenes.setCodigo_imagen(codigo);
+        try {
+            icono = new byte[(int) rutaImg.length()];
+            InputStream input = new FileInputStream(rutaImg);
+            input.read(icono);
+            imagenes.setImagen(icono);
+        } catch (IOException ex) {
+            imagenes.setImagen(null);
+        }
+        if (base.crearImagen(imagenes)) {
+            System.err.println("Imagen " + imagenes.getCodigo_imagen() + "creada");
+        } else {
+            System.err.println("Imagen ya existe");
+        }
+    }
+
+    private void setImagenLabel(javax.swing.JLabel label, byte[] imagen) {
+        try {
+            BufferedImage image = null;
+            InputStream in = new ByteArrayInputStream(imagen);
+            image = ImageIO.read(in);
+            ImageIcon imgI = new ImageIcon(image);
+            label.setIcon(imgI);
+        } catch (IOException ex) {
+            label.setText("NO IMAGE:" + label.getName());
+        }
+    }
+
+    public void crearGuardarLugaresImagenes(String codigoLugar, String[] codigoImagenes) {
+        crearLugaresImagenes(codigoLugar, codigoImagenes);
+        guardarLugaresImagenesBase(lugaresImagenes);
+    }
+    
+    public void crearLugaresImagenes(String codigoLugar, String[] codigoImagenes) {
+        setLugarImagen(codigoLugar, codigoImagenes[0]);
+        setLugarImagen(codigoLugar, codigoImagenes[1]);
+        setLugarImagen(codigoLugar, codigoImagenes[2]);
+        setLugarImagen(codigoLugar, codigoImagenes[3]);
+        setLugarImagen(codigoLugar, codigoImagenes[4]);
+    }
+    
+    public void setLugarImagen(String codigoLugar, String codigoImagen) {
+        LugarImagen = new Lugar_img(codigoLugar, codigoImagen);
+        lugaresImagenes.addElement(LugarImagen);
+    }
+    
+    public void guardarLugaresImagenesBase(Vector<Lugar_img> LugaresImagenes) {
+        LugaresImagenes.forEach((elemento) -> guardarLugarImagenBase(elemento));
+    }
+    
+    public void guardarLugarImagenBase(Lugar_img lugarImagen) {
+        if (base.crearLugar_img(lugarImagen)) {
+            System.err.println("Se ha creado lugar imagen " + lugarImagen.getCodigo_lugar() + " " + lugarImagen.getCodigo_imagen() + " correctamente");
+        } else {
+            System.err.println("Lugar Imagen ya existe");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
