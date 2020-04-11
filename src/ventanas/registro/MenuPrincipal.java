@@ -8,11 +8,7 @@ import javax.swing.JOptionPane;
 import ventanas.Clases.*;
 import baseDatos.BaseGACU;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import javax.imageio.ImageIO;
 import ventanas.Trivias.Trivia1;//cambiar
 
@@ -331,12 +327,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void setImagenBoton(javax.swing.JButton boton, byte[] imagen) {
         try {
-            BufferedImage image = null;
+            BufferedImage image;
             InputStream in = new ByteArrayInputStream(imagen);
             image = ImageIO.read(in);
             ImageIcon imgI = new ImageIcon(image);
+            //Icon imgBtn = new ImageIcon(imgI.getImage().getScaledInstance(boton.getWidth(), boton.getHeight(), Image.SCALE_DEFAULT));
             boton.setIcon(imgI);
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             boton.setText("NO IMAGE:" + boton.getName());
         }
     }

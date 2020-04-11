@@ -2,11 +2,13 @@ package ventanas.Informacion;
 
 import baseDatos.BaseGACU;
 import clases.*;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.*;
 import java.util.Vector;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import ventanas.Clases.*;
 
@@ -36,7 +38,7 @@ public class Info_Lugar extends javax.swing.JFrame {
         this.setSize(800, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        mostarInfoLugar(codigo_Lugar, codigoImagenes, nombreImagenes);
+        mostrarInfoLugar(codigo_Lugar, codigoImagenes, nombreImagenes);
     }
 
     public Info_Lugar(Usuario usuarioActivo, String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes, String[] nombreImagenes) {
@@ -47,7 +49,7 @@ public class Info_Lugar extends javax.swing.JFrame {
         this.setSize(800, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        mostarInfoLugar(codigo_Lugar, codigoImagenes, nombreImagenes);
+        mostrarInfoLugar(codigo_Lugar, codigoImagenes, nombreImagenes);
     }
 
     private void initRutas(String codigo_Categoria) {
@@ -164,11 +166,11 @@ public class Info_Lugar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMouseExited
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        mostarVentanaAnterior(codigo_Categoria);
+        mostrarVentanaAnterior(codigo_Categoria);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void mostarVentanaAnterior(String codigo_Categoria) {
+    private void mostrarVentanaAnterior(String codigo_Categoria) {
         switch (codigo_Categoria) {
             case "C2I":
                 ventanaAtrasI = new Iglesias(usuarioActivo);
@@ -191,26 +193,34 @@ public class Info_Lugar extends javax.swing.JFrame {
         }
     }
 
-    private void mostarInfoLugar(String codigoLugar, String[] codigoImagenes, String[] nombreImagenes) { //falta img
+    private void mostrarInfoLugar(String codigoLugar, String[] codigoImagenes, String[] nombreImagenes) { //falta img
         Categoria_Lugar resultado = base.getCategoria_Lugar(codigo_Categoria, codigoLugar);
         jlTitulo.setText(base.getLugar(resultado.getCodigo_lugar()).getNombre_lugar());
         cargarImagenes(codigoImagenes, nombreImagenes);
         crearGuardarLugaresImagenes(codigoLugar, codigoImagenes);
+        mostrarImagenesLabels(codigoLugar, codigoImagenes);
         jtextInfo.setText(base.getLugar(resultado.getCodigo_lugar()).getInformacion_lugar());
     }
 
     private void cargarImagenes(String[] codigoImagenes, String[] nombres) {
-        cargarImagen(codigoImagenes[0], nombres[0], lblImagen1);//nombre con extension
-        cargarImagen(codigoImagenes[1], nombres[1], lblImagen2);
-        cargarImagen(codigoImagenes[2], nombres[2], lblImagen3);
-        cargarImagen(codigoImagenes[3], nombres[3], lblImagen4);
-        cargarImagen(codigoImagenes[4], nombres[4], jlFondo);
+        cargarImagen(codigoImagenes[0], nombres[0]);
+        cargarImagen(codigoImagenes[1], nombres[1]);
+        cargarImagen(codigoImagenes[2], nombres[2]);
+        cargarImagen(codigoImagenes[3], nombres[3]);
+        cargarImagen(codigoImagenes[4], nombres[4]);
+    }
+    
+    private void mostrarImagenesLabels(String codigoLugar, String[] codigoImagenes) {
+        setImagenLabel(lblImagen1, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[0]).getCodigo_imagen()).getImagen());
+        setImagenLabel(lblImagen2, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[1]).getCodigo_imagen()).getImagen());
+        setImagenLabel(lblImagen3, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[2]).getCodigo_imagen()).getImagen());
+        setImagenLabel(lblImagen4, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[3]).getCodigo_imagen()).getImagen());
+        setImagenLabel(jlFondo, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[4]).getCodigo_imagen()).getImagen());
     }
 
-    private void cargarImagen(String codigo, String nombre, javax.swing.JLabel label) {
+    private void cargarImagen(String codigoImagen, String nombre) {
         ruta = new File(rutaCarpeta + signoRuta + nombre);
-        guardarImagenBase(codigo, ruta);
-        setImagenLabel(label, base.getImagen(codigo).getImagen());
+        guardarImagenBase(codigoImagen, ruta);
     }
 
     private void guardarImagenBase(String codigo, File rutaImg) {
@@ -232,11 +242,12 @@ public class Info_Lugar extends javax.swing.JFrame {
 
     private void setImagenLabel(javax.swing.JLabel label, byte[] imagen) {
         try {
-            BufferedImage image = null;
+            BufferedImage image;
             InputStream in = new ByteArrayInputStream(imagen);
             image = ImageIO.read(in);
             ImageIcon imgI = new ImageIcon(image);
-            label.setIcon(imgI);
+            Icon imgBtn  = new ImageIcon(imgI.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+            label.setIcon(imgBtn);
         } catch (IOException ex) {
             label.setText("NO IMAGE:" + label.getName());
         }
