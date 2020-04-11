@@ -283,8 +283,8 @@ public class BaseGACU {
     //FIN METODOS RESPUESTAS
     
     //INICIO METODOS CATEGORIA_LUGAR
-    public boolean crearCategoria_Lugar(Categoria_Lugar respuesta) {
-        boolean estado = baseCategoria_Lugar.crearCategoria_Lugar(abrirBase(rutaArchivo), respuesta);
+    public boolean crearCategoria_Lugar(Categoria_Lugar categoria_Lugar) {
+        boolean estado = baseCategoria_Lugar.crearCategoria_Lugar(abrirBase(rutaArchivo), categoria_Lugar);
         cerrarBase();
         return estado;
     }
@@ -306,12 +306,11 @@ public class BaseGACU {
         cerrarBase();
         return estado;
     }
-
     //FIN METODOS CATEGORIA_LUGAR
     
     //INICIO METODOS LUGAR_IMG
-    public boolean crearLugar_img(Lugar_img respuesta) {
-        boolean estado = baseLugar_Imagen.crearLugar_Imagen(abrirBase(rutaArchivo), respuesta);
+    public boolean crearLugar_img(Lugar_img lugar_img) {
+        boolean estado = baseLugar_Imagen.crearLugar_Imagen(abrirBase(rutaArchivo), lugar_img);
         cerrarBase();
         return estado;
     }
@@ -336,8 +335,8 @@ public class BaseGACU {
     //FIN METODOS LUGAR_IMG
 
     //INICIO METODOS REALIZA    
-    public boolean crearRealiza(Realiza respuesta) {
-        boolean estado = baseRealiza.crearRealiza(abrirBase(rutaArchivo), respuesta);
+    public boolean crearRealiza(Realiza realiza) {
+        boolean estado = baseRealiza.crearRealiza(abrirBase(rutaArchivo), realiza);
         cerrarBase();
         return estado;
     }
@@ -362,8 +361,8 @@ public class BaseGACU {
     //FIN METODOS REALIZA
     
     //INICIO METODOS VISUALIZA
-    public boolean crearVisualiza(Visualiza respuesta) {
-        boolean estado = baseVisualiza.crearVisualiza(abrirBase(rutaArchivo), respuesta);
+    public boolean crearVisualiza(Visualiza visualiza) {
+        boolean estado = baseVisualiza.crearVisualiza(abrirBase(rutaArchivo), visualiza);
         cerrarBase();
         return estado;
     }
@@ -388,8 +387,8 @@ public class BaseGACU {
     //FIN METODOS VISUALIZA
     
     //INICIO METODOS TRIVIA_PR
-    public boolean crearTRIVIA_PR(Trivia_PR respuesta) {
-        boolean estado = baseTrivia_PR.crearTrivia_PR(abrirBase(rutaArchivo), respuesta);
+    public boolean crearTRIVIA_PR(Trivia_PR trivia_PR) {
+        boolean estado = baseTrivia_PR.crearTrivia_PR(abrirBase(rutaArchivo), trivia_PR);
         cerrarBase();
         return estado;
     }

@@ -10,7 +10,7 @@ public class BaseVisualiza {
     public boolean crearVisualiza(ObjectContainer base, Visualiza visualiza) {
         Visualiza visualizaBuscar = getVisualiza(base, visualiza.getCedula_usuario(), visualiza.getCodigo_lugar());
         if (visualizaBuscar == null) {
-            base.store(visualizaBuscar);
+            base.store(visualiza);
             return true; //Se agrega el visualiza a la base
         }
         return false; //Ya existe el codigo del visualiza

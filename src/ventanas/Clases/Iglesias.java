@@ -3,14 +3,13 @@ package ventanas.Clases;
 import Interfaces.Categoria_Lugares;
 import baseDatos.BaseGACU;
 import clases.Categoria_Lugar;
-import clases.Lugares;
-import clases.Usuario;
+import clases.*;
 import java.util.Vector;
 import javax.swing.JButton;
 import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
 
-public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
+public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
 
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
@@ -19,7 +18,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
     private Lugares lugar;
     private Vector<Lugares> lugares = new Vector<>();
-    
+
     public Iglesias() {
         initComponents();
         usuarioActivo = null;
@@ -155,6 +154,15 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnSagrarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSagrarioActionPerformed
+        accionBoton
+        if (usuarioActivo != null) {
+            Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C2I", "I02").getCodigo_lugar());
+            if (base.crearVisualiza(visualiza)) {
+                System.err.println("Visualiza " + visualiza + " creado");
+            } else {
+                System.err.println("Visualiza ya creado");
+            }
+        }
         mostarVentanaInfo();
     }//GEN-LAST:event_btnSagrarioActionPerformed
 
@@ -179,7 +187,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares{
         ventanaInfo.setVisible(true);
         dispose();
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsuncion;
     private javax.swing.JButton btnFrancisco;

@@ -7,7 +7,6 @@ public class Visualiza {
     private String codigo_lugar;
     
     //Costructores
-
     public Visualiza() {
     }
 
@@ -17,7 +16,6 @@ public class Visualiza {
     }
     
     //Getters and Setters
-
     public String getCedula_usuario() {
         return cedula_usuario;
     }
