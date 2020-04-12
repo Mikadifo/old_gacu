@@ -241,7 +241,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PES01", "La Universidad de Cuenca se denominó inicialmente como Corporación Universitaria del Azuay"));
                 respuestas.addElement(new Respuestas("RES01", "Verdadero"));
 
-                preguntas.addElement(new Preguntas("PES02", "La mision de la Universidad de Cuenca"));
+                preguntas.addElement(new Preguntas("PES02", "La mision de la Universidad de Cuenca es:"));
                 respuestas.addElement(new Respuestas("RES02", "Formar profesionales y científicos"));
                 
                 preguntas.addElement(new Preguntas("PES03", "La universidad de-fue creada oficialmente por el decreto-en el año-además de ser muy reconocida a nivel de Latinoamérica"));

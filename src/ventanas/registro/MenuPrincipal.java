@@ -501,15 +501,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void mostrarVentanaRandom() {
         switch (generarNumeroRandom(1, 3)) {
             case 1:
-                Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, 1, "MENU", getTriviasPR());
+                Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, 1, "MENU", getTriviasPR(), new boolean[3]);
                 ventanaTrivia1.setVisible(true);
                 break;
             case 2:
-                Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, 1, "MENU", getTriviasPR());
+                Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, 1, "MENU", getTriviasPR(), new boolean[3]);
                 ventanaTrivia2.setVisible(true);
                 break;
             case 3:
-                Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, 1, "MENU", getTriviasPR());
+                Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, 1, "MENU", getTriviasPR(), new boolean[3]);
                 ventanaTrivia3.setVisible(true);
                 break;
             default:

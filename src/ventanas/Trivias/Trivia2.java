@@ -1,6 +1,7 @@
 package ventanas.Trivias;
 
 import baseDatos.BaseGACU;
+import clases.Realiza;
 import clases.Trivia_PR;
 import clases.Usuario;
 import ventanas.registro.MenuPrincipal;
@@ -9,15 +10,17 @@ public class Trivia2 extends javax.swing.JFrame {
 
     private BaseGACU base = new BaseGACU();
     private Trivia_PR[] triviaPRS;
+    private boolean[] respuestasTrivias;
     private Usuario usuarioActivo;
     private String ventanaAnterior;
-    private int numeroVentana;
-    
-    public Trivia2(Usuario usuarioActivo, int numeroVentana, String ventanaAnterior, Trivia_PR[] triviaPRS) {
+    int numeroVentana;
+
+    public Trivia2(Usuario usuarioActivo, int numeroVentana, String ventanaAnterior, Trivia_PR[] triviaPRS, boolean[] respuestasTrivias) {
         initComponents();
         this.numeroVentana = numeroVentana;
         this.ventanaAnterior = ventanaAnterior;
         this.triviaPRS = triviaPRS;
+        this.respuestasTrivias = respuestasTrivias;
         setBotonPosicion();
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
@@ -150,17 +153,18 @@ public class Trivia2 extends javax.swing.JFrame {
         lblEnunciado.setText(base.getPregunta(triviaPRS[1].getCodigo_pregunta()).getPregunta());
         btn1.setText(base.getRespuesta(triviaPRS[1].getCodigo_respuesta()).getRespuesta());//Mezcalar opciones
     }
-    
+
     private void setBotonPosicion() {
         switch (numeroVentana) {
-            case 1: case 2:
+            case 1:
+            case 2:
                 btnPrincipal.setText("Siguiente");
                 break;
             default:
                 btnPrincipal.setText("Terminar");
         }
     }
-    
+
     private void btnSalirMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMenuMouseEntered
         btnSalirMenu.setBackground(new java.awt.Color(30, 168, 150));
     }//GEN-LAST:event_btnSalirMenuMouseEntered
@@ -184,34 +188,40 @@ public class Trivia2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrincipalMouseExited
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
+        //if (botonSeleccionado) {
         if (btnPrincipal.getText().equals("Siguiente")) {
+            //respuestasTrivias[1] = (getRespuesta().equals(base.getRespuesta(triviaPRS[1].getCodigo_respuesta()).getRespuesta()));
             mostrarVentanaRandom();
         } else {
             TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo);
             ventanaResultados.setVisible(true);
         }
+        base.crearRealiza(new Realiza(triviaPRS[1].getCodigo_trivia(), usuarioActivo.getCedulaUsuario()));
         dispose();
+        //} else {
+            //JOptionPane.showMessageDialog(null, "Primer debe seleccionar una opcion");
+        //}
     }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void mostrarVentanaRandom() {
         if (ventanaAnterior.equals("MENU")) {
             switch (generarNumeroRandom(1, 2)) {
                 case 1:
-                    Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T2", triviaPRS);
+                    Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
                     ventanaTrivia1.setVisible(true);
                     break;
                 case 2:
-                    Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T2", triviaPRS);
+                    Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
                     ventanaTrivia3.setVisible(true);
                     break;
                 default:
                     System.err.println("Numero fuera de rango (1-2)");
             }
         } else if (ventanaAnterior.equals("T1")) {
-            Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T2", triviaPRS);
+            Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
             ventanaTrivia3.setVisible(true);
         } else {
-            Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T2", triviaPRS);
+            Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
             ventanaTrivia1.setVisible(true);
         }
     }
@@ -219,6 +229,10 @@ public class Trivia2 extends javax.swing.JFrame {
     private int generarNumeroRandom(int min, int max) {
         return (int) (Math.random() * ((max - min) + 1) + min);
     }
+    
+//    private String getRespuesta() {//validar y regresar que opcion esta seleccionada
+//        return btnVerdadero.getBackground().equals(new java.awt.Color(30, 168, 150))?"Verdadero":"Falso";
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
