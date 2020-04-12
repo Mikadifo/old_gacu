@@ -6,11 +6,13 @@ import java.util.Vector;
 import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
 import Interfaces.Categoria_Lugares;
+import baseDatos.DefaultBase;
 
 public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
 
     private String[] codigosImagenes = new String[5];
     private String[] nombresImagenes = new String[5];
+    private DefaultBase baseTrivias = new DefaultBase();
     private BaseGACU base = new BaseGACU();
     private Usuario usuarioActivo;
     private Categoria_Lugar categoriaLugar;
@@ -127,8 +129,6 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
         });
         getContentPane().add(btnVolver);
         btnVolver.setBounds(310, 430, 100, 40);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Parques/ParqueFondo.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 800, 500);
 
@@ -296,6 +296,11 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C1P", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
+            if (baseTrivias.crearGuardarTriviaPRParques(codigoLugar)) {
+                System.err.println("TriviaPR de lugar " + codigoLugar + " creado");
+            } else {
+                System.err.println("TriviaPR de lugar " + codigoLugar + " ya existente");
+            }
         }
         mostarVentanaInfo(codigoLugar);
     }

@@ -384,8 +384,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnTriviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTriviaActionPerformed
         if (usuarioActivo != null) {
-            mostrarVentanaRandom();
-            dispose();
+            if (base.getTrivia_PRs().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El sistema no pudo generar las trivias debido a que\nno ha visitado ningun lugar todavia.");
+            } else {
+                mostrarVentanaRandom();
+                dispose();
+            }
         } else {
             if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
                 MenuRegistro ventanaMenu = new MenuRegistro();
@@ -508,7 +512,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, 1, "MENU");
                 ventanaTrivia3.setVisible(true);
                 break;
-            default:System.err.println("Numero fuera de rango (1-3)");
+            default:
+                System.err.println("Numero fuera de rango (1-3)");
         }
     }
 

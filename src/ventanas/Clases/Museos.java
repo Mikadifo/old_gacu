@@ -2,6 +2,7 @@ package ventanas.Clases;
 
 import Interfaces.Categoria_Lugares;
 import baseDatos.BaseGACU;
+import baseDatos.DefaultBase;
 import clases.Categoria_Lugar;
 import clases.*;
 import java.util.Vector;
@@ -14,6 +15,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
     private String[] codigosImagenes = new String[5];
     private String[] nombresImagenes = new String[5];
     private Usuario usuarioActivo;
+    private DefaultBase baseTrivias = new DefaultBase();
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
     private Info_Lugar ventanaInfo;
@@ -55,7 +57,6 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 500));
         getContentPane().setLayout(null);
 
         btnSantos.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
@@ -130,8 +131,6 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
         });
         getContentPane().add(btnVolver);
         btnVolver.setBounds(310, 420, 100, 40);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Museo/MuseoFondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 800, 500);
 
@@ -198,6 +197,11 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C4M", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
+            if (baseTrivias.crearGuardarTriviaPRMuseos(codigoLugar)) {
+                System.err.println("TriviaPR de lugar " + codigoLugar + " creado");
+            } else {
+                System.err.println("TriviaPR de lugar " + codigoLugar + " ya existente");
+            }
         }
         mostarVentanaInfo(codigoLugar);
     }

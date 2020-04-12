@@ -132,7 +132,6 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
         getContentPane().add(btnVolver);
         btnVolver.setBounds(300, 420, 100, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Iglesias/iglesiaFondo.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(800, 500));
         jLabel2.setMinimumSize(new java.awt.Dimension(800, 500));
         jLabel2.setPreferredSize(new java.awt.Dimension(800, 500));
@@ -202,7 +201,11 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C2I", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
-            baseTrivias.crea
+            if (baseTrivias.crearGuardarTriviaPRIglesias(codigoLugar)) {
+                System.err.println("TriviaPR de lugar " + codigoLugar + " creado");
+            } else {
+                System.err.println("TriviaPR de lugar " + codigoLugar + " ya existente");
+            }
         }
         mostarVentanaInfo(codigoLugar);
     }

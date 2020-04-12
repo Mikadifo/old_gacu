@@ -2,6 +2,7 @@ package ventanas.Clases;
 
 import Interfaces.Categoria_Lugares;
 import baseDatos.BaseGACU;
+import baseDatos.DefaultBase;
 import clases.Categoria_Lugar;
 import clases.*;
 import java.util.Vector;
@@ -14,6 +15,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
     private String[] codigosImagenes = new String[5];
     private String[] nombresImagenes = new String[5];
     private Usuario usuarioActivo;
+    private DefaultBase baseTrivias = new DefaultBase();
     private BaseGACU base = new BaseGACU();
     private Categoria_Lugar categoriaLugar;
     private Info_Lugar ventanaInfo;
@@ -129,8 +131,6 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
         });
         getContentPane().add(btnVolver);
         btnVolver.setBounds(300, 420, 100, 40);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Institutos/InstitutoFondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 700, 500);
 
@@ -197,6 +197,11 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C3E", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
+            if (baseTrivias.crearGuardarTriviaPRESuperior(codigoLugar)) {
+                System.err.println("TriviaPR de lugar " + codigoLugar + " creado");
+            } else {
+                System.err.println("TriviaPR de lugar " + codigoLugar + " ya existente");
+            }
         }
         mostarVentanaInfo(codigoLugar);
     }
