@@ -45,6 +45,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PP03", "El parque Calderon fue bautizado y rediseñado por-,nació en-el 31 de Julio de 1804 y muere en Mayo de-"));
                 respuestas.addElement(new Respuestas("RP03", "Octavio Cordero Palacios,Cuenca,1882"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP01", "RP01") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP02", "RP02") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP03", "RP03");
             case "P02":
                 preguntas.addElement(new Preguntas("PP04", "La estatua de la Madre simboliza la lucha y libertad de las mujeres"));
@@ -56,6 +57,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PP06", "Este parque destinado al deporte tuvo como primer campeón olimpico a-y se le a honrado con un/una-dentro el parque, tambien se puede acceder a:"));
                 respuestas.addElement(new Respuestas("RP06", "Jefferson Pérez,Estatua,Planetario"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP04", "RP04") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP05", "RP05") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP06", "RP06");
             case "P03":
                 preguntas.addElement(new Preguntas("PP07", "Un parque atractivo que cuenta con una laguna donde se puede rentar ciclonautas"));
@@ -67,6 +69,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PP09", "El parque mas grande de Cuenca, fue inagurado el-de-se puede acceder de manera gratuita los-"));
                 respuestas.addElement(new Respuestas("RP09", "19 de marzo,2003,Lunes a Domingo"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP07", "RP07") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP08", "RP08") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP09", "RP09");
             case "P04":
                 preguntas.addElement(new Preguntas("PP10", "En este parque se pueden realizar desfiles civicos, politicos y folkloricos, por lo tanto es ideal para las actividades culturales"));
@@ -78,6 +81,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PP12", "El parque San Blas es un parque-de Cuenca, adornado por hermosos-y una pileta de agua, cuyo centro se levanta el busto de-"));
                 respuestas.addElement(new Respuestas("RP12", "Tradicional,Jardines,Manuel J.Calle"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP10", "RP10") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP11", "RP11") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP12", "RP12");
             case "P05":
                 preguntas.addElement(new Preguntas("PP13", "Este parque cuenca con juegos infantiles e instalaciones para deportistas"));
@@ -89,6 +93,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PP15", "Posee una encantadora-y se levanta el busto del poeta-y al frente se encuentra el museo de-"));
                 respuestas.addElement(new Respuestas("RP15", "Pileta,Miguel Moreno,Arte Moderno"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP13", "RP13") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP14", "RP14") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PP15", "RP15");
             default:
                 System.err.println("Parque no encontrado!!!");
@@ -108,6 +113,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PI03", "Al pie de la plaza de las-un lugar turistico bastante-ubicado en el-de la ciudad"));
                 respuestas.addElement(new Respuestas("RI03", "Flores,Visitado,Centro"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI01", "RI01") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI02", "RI02") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI03", "RI03");
             case "I02":
                 preguntas.addElement(new Preguntas("PI04", "La catedral vieja es la mas anigua de Cuenca"));
@@ -119,6 +125,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PI06", "La iglesia mas antigua es-como hoy es conocida, piedras labradas traidas de la incasia-sirvieron para las bases de-"));
                 respuestas.addElement(new Respuestas("RI06", "Catedral Vieja,Tomebamba,Muros"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI04", "RI04") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI05", "RI05") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI06", "RI06");
             case "I03":
                 preguntas.addElement(new Preguntas("PI07", "Representa el limite occidental de la ciudad"));
@@ -130,6 +137,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PI09", "La construccion de este templo fue dedicado a-y se remonta al ultimo tercio del siglo-,se utilizaron piedras de los edificios destruidos de-para su edificación"));
                 respuestas.addElement(new Respuestas("RI09", "San Blas,XVI,Tomebamba"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI07", "RI07") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI08", "RI08") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI09", "RI09");
             case "I04":
                 preguntas.addElement(new Preguntas("PI10", "El templo continua con sus caracteristicas principales de su origen"));
@@ -141,6 +149,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PI12", "Segun los historiadores esta fue la primera-de Cuenca y llevaba el nombre de-la primera misa fue realizada por-"));
                 respuestas.addElement(new Respuestas("RI12", "Ermita,Usno,Fray Alonso"));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI10", "RI10") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI11", "RI11") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI12", "RI12");
             case "I05":
                 preguntas.addElement(new Preguntas("PI13", "Se puede visitar la cupula y cripta de la catedral solo los dias martes y jueves"));
@@ -152,6 +161,7 @@ public class DefaultBase {
                 preguntas.addElement(new Preguntas("PI15", "La catedral nueva es el simbolo-mas representativo de cuenca, su volumen,-y color, se divisan desde todos los angulos de-"));
                 respuestas.addElement(new Respuestas("RI15", ""));
                 
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI13", "RI13") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI14", "RI14") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PI15", "RI15");
             default:
                 System.err.println("Iglesia no encontrada!!!");
@@ -170,6 +180,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PM03", ""));
                 respuestas.addElement(new Respuestas("RM03", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM01", "RM01") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM02", "RM02") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM03", "RM03");
             case "M02":
                 preguntas.addElement(new Preguntas("PM04", ""));
@@ -180,6 +192,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PM06", ""));
                 respuestas.addElement(new Respuestas("RM06", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM04", "RM04") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM05", "RM05") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM06", "RM06");
             case "M03":
                 preguntas.addElement(new Preguntas("PM07", ""));
@@ -190,6 +204,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PM09", ""));
                 respuestas.addElement(new Respuestas("RM09", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM07", "RM07") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM08", "RM08") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM09", "RM09");
             case "M04":
                 preguntas.addElement(new Preguntas("PM10", ""));
@@ -200,6 +216,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PM12", ""));
                 respuestas.addElement(new Respuestas("RM12", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM10", "RM10") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM11", "RM11") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM12", "RM12");
             case "M05":
                 preguntas.addElement(new Preguntas("PM13", ""));
@@ -210,6 +228,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PM15", ""));
                 respuestas.addElement(new Respuestas("RM15", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM13", "RM13") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM14", "RM14") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PM15", "RM15");
             default:
                 System.err.println("Museo no encontrado!!!");
@@ -228,6 +248,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PES03", ""));
                 respuestas.addElement(new Respuestas("RES03", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES01", "RES01") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES02", "RES02") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES03", "RES03");
             case "E02":
                 preguntas.addElement(new Preguntas("PES04", ""));
@@ -238,6 +260,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PES06", ""));
                 respuestas.addElement(new Respuestas("RES06", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES04", "RES04") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES05", "RES05") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES06", "RES06");
             case "E03":
                 preguntas.addElement(new Preguntas("PES07", ""));
@@ -248,6 +272,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PES09", ""));
                 respuestas.addElement(new Respuestas("RES09", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES07", "RES07") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES08", "RES08") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES09", "RES09");
             case "E04":
                 preguntas.addElement(new Preguntas("PES10", ""));
@@ -258,6 +284,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PES12", ""));
                 respuestas.addElement(new Respuestas("RES12", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES10", "RES10") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES11", "RES11") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES12", "RES12");
             case "E05":
                 preguntas.addElement(new Preguntas("PES13", ""));
@@ -268,6 +296,8 @@ public class DefaultBase {
                 
                 preguntas.addElement(new Preguntas("PES15", ""));
                 respuestas.addElement(new Respuestas("RES15", ""));
+                
+                guardarPreguntasRespuestas();
                 return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES13", "RES13") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES14", "RES14") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar).getCodigo_trivia(), "PES15", "RES15");
             default:
                 System.err.println("Instituto/Universidad no encontrada/o!!!");
@@ -276,8 +306,20 @@ public class DefaultBase {
     }
     
     public void guardarPreguntasRespuestas() {
-        preguntas.forEach((elemento) -> base.crearPregunta(elemento));
-        respuestas.forEach((elemento) -> base.crearRespuesta(elemento));
+        preguntas.forEach((elemento) -> {
+            if (base.crearPregunta(elemento)) {
+                System.err.println("Pregunta " + elemento.getCodigo_pregunta() + " creada");
+            } else {
+                System.err.println("Pregunta " + elemento.getCodigo_pregunta() + " ya existe");
+            }
+        });
+        respuestas.forEach((elemento) -> {
+            if (base.crearRespuesta(elemento)) {
+                System.err.println("Respuesta " + elemento.getCodigo_respuesta()+ " creada");
+            } else {
+                System.err.println("Respuesta " + elemento.getCodigo_respuesta() + " ya existe");
+            }
+        });
     }
     //Fin Metodos preguntas y respuestas
     
