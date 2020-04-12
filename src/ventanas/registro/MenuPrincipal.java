@@ -10,7 +10,7 @@ import baseDatos.BaseGACU;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.ImageIO;
-import ventanas.Trivias.Trivia1;//cambiar
+import ventanas.Trivias.*;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -288,7 +288,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         guardarCategoriaBase(categorias);
         categorias.setCodigo_categoria("C3M");
         categorias.setNombre_categoria("Museos");
-        guardarCategoriaBase (categorias);
+        guardarCategoriaBase(categorias);
         categorias.setCodigo_categoria("C4E");
         categorias.setNombre_categoria("Educacion Superior");// o solo intitutos?
         guardarCategoriaBase(categorias);
@@ -384,9 +384,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnTriviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTriviaActionPerformed
         if (usuarioActivo != null) {
-            Trivia1 trivia1 = new Trivia1(usuarioActivo);
-            trivia1.setVisible(true);
-            trivia1.setLocationRelativeTo(null);
+            mostrarVentanaRandom();
             dispose();
         } else {
             if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
@@ -496,6 +494,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnParques.setBackground(new java.awt.Color(30, 168, 150));
     }//GEN-LAST:event_btnParquesMouseEntered
 
+    private void mostrarVentanaRandom() {
+        switch (generarNumeroRandom(1, 3)) {
+            case 1:
+                Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, 1, "MENU");
+                ventanaTrivia1.setVisible(true);
+                break;
+            case 2:
+                Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, 1, "MENU");
+                ventanaTrivia2.setVisible(true);
+                break;
+            case 3:
+                Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, 1, "MENU");
+                ventanaTrivia3.setVisible(true);
+                break;
+            default:System.err.println("Numero fuera de rango (1-3)");
+        }
+    }
+
+    private int generarNumeroRandom(int min, int max) {
+        return (int) (Math.random() * ((max - min) + 1) + min);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btX;

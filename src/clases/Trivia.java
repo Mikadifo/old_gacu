@@ -1,6 +1,4 @@
-
 package clases;
-
 
 public class Trivia {
     //Atributos

@@ -6,12 +6,18 @@ import ventanas.registro.MenuPrincipal;
 public class Trivia1 extends javax.swing.JFrame {
 
     private Usuario usuarioActivo;
-    
-    public Trivia1(Usuario usuarioActivo) {
+    private String ventanaAnterior;
+    private int numeroVentana;
+
+    public Trivia1(Usuario usuarioActivo, int numeroVentana, String ventanaAnterior) {
         initComponents();
+        this.numeroVentana = numeroVentana;
+        this.ventanaAnterior = ventanaAnterior;
+        setBotonPosicion();
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -25,7 +31,7 @@ public class Trivia1 extends javax.swing.JFrame {
         btnFalso = new javax.swing.JButton();
         btnVerdadero = new javax.swing.JButton();
         btnSalirMenu = new javax.swing.JButton();
-        btnSiguiente = new javax.swing.JButton();
+        btnPrincipal = new javax.swing.JButton();
         lblTriviaFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,33 +123,34 @@ public class Trivia1 extends javax.swing.JFrame {
         pnlVoF.add(btnSalirMenu);
         btnSalirMenu.setBounds(70, 430, 130, 40);
 
-        btnSiguiente.setBackground(new java.awt.Color(76, 84, 84));
-        btnSiguiente.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
-        btnSiguiente.setForeground(new java.awt.Color(255, 255, 255));
-        btnSiguiente.setText("Siguiente");
-        btnSiguiente.setBorder(null);
-        btnSiguiente.setBorderPainted(false);
-        btnSiguiente.setContentAreaFilled(false);
-        btnSiguiente.setFocusPainted(false);
-        btnSiguiente.setMaximumSize(new java.awt.Dimension(100, 40));
-        btnSiguiente.setMinimumSize(new java.awt.Dimension(100, 40));
-        btnSiguiente.setOpaque(true);
-        btnSiguiente.setPreferredSize(new java.awt.Dimension(100, 40));
-        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPrincipal.setBackground(new java.awt.Color(76, 84, 84));
+        btnPrincipal.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        btnPrincipal.setText("Siguiente");
+        btnPrincipal.setBorder(null);
+        btnPrincipal.setBorderPainted(false);
+        btnPrincipal.setContentAreaFilled(false);
+        btnPrincipal.setFocusPainted(false);
+        btnPrincipal.setMaximumSize(new java.awt.Dimension(100, 40));
+        btnPrincipal.setMinimumSize(new java.awt.Dimension(100, 40));
+        btnPrincipal.setOpaque(true);
+        btnPrincipal.setPreferredSize(new java.awt.Dimension(130, 40));
+        btnPrincipal.setSize(new java.awt.Dimension(130, 40));
+        btnPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSiguienteMouseEntered(evt);
+                btnPrincipalMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSiguienteMouseExited(evt);
+                btnPrincipalMouseExited(evt);
             }
         });
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        btnPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
+                btnPrincipalActionPerformed(evt);
             }
         });
-        pnlVoF.add(btnSiguiente);
-        btnSiguiente.setBounds(530, 430, 100, 40);
+        pnlVoF.add(btnPrincipal);
+        btnPrincipal.setBounds(500, 430, 130, 40);
 
         lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/fondoTrivia.jpeg"))); // NOI18N
         lblTriviaFondo.setMaximumSize(new java.awt.Dimension(700, 500));
@@ -157,6 +164,16 @@ public class Trivia1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void setBotonPosicion() {
+        switch (numeroVentana) {
+            case 1: case 2:
+                btnPrincipal.setText("Siguiente");
+                break;
+            default:
+                btnPrincipal.setText("Terminar");
+        }
+    }
 
     private void btnSalirMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMenuMouseEntered
         btnSalirMenu.setBackground(new java.awt.Color(30, 168, 150));
@@ -172,19 +189,23 @@ public class Trivia1 extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSalirMenuActionPerformed
 
-    private void btnSiguienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseEntered
-        btnSiguiente.setBackground(new java.awt.Color(30, 168, 150));
-    }//GEN-LAST:event_btnSiguienteMouseEntered
+    private void btnPrincipalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrincipalMouseEntered
+        btnPrincipal.setBackground(new java.awt.Color(30, 168, 150));
+    }//GEN-LAST:event_btnPrincipalMouseEntered
 
-    private void btnSiguienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseExited
-        btnSiguiente.setBackground(new java.awt.Color(76, 84, 84));
-    }//GEN-LAST:event_btnSiguienteMouseExited
+    private void btnPrincipalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrincipalMouseExited
+        btnPrincipal.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnPrincipalMouseExited
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        Trivia2 trivia2 = new Trivia2(usuarioActivo);
-        trivia2.setVisible(true);
+    private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
+        if (btnPrincipal.getText().equals("Siguiente")) {
+            mostrarVentanaRandom();
+        } else {
+            TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo);
+            ventanaResultados.setVisible(true);
+        }
         dispose();
-    }//GEN-LAST:event_btnSiguienteActionPerformed
+    }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void btnVerdaderoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerdaderoMouseEntered
         btnVerdadero.setBackground(new java.awt.Color(30, 168, 150));
@@ -195,18 +216,44 @@ public class Trivia1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerdaderoMouseExited
 
     private void btnFalsoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFalsoMouseEntered
-        btnFalso.setBackground(new java.awt.Color(255,113,91));
+        btnFalso.setBackground(new java.awt.Color(255, 113, 91));
     }//GEN-LAST:event_btnFalsoMouseEntered
 
     private void btnFalsoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFalsoMouseExited
         btnFalso.setBackground(new java.awt.Color(76, 84, 84));
     }//GEN-LAST:event_btnFalsoMouseExited
 
+    private void mostrarVentanaRandom() {
+        if (ventanaAnterior.equals("MENU")) {
+            switch (generarNumeroRandom(1, 2)) {
+                case 1:
+                    Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T1");
+                    ventanaTrivia2.setVisible(true);
+                    break;
+                case 2:
+                    Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T1");
+                    ventanaTrivia3.setVisible(true);
+                    break;
+                default:
+                    System.err.println("Numero fuera de rango (1-2)");
+            }
+        } else if (ventanaAnterior.equals("T2")) {
+            Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T1");
+            ventanaTrivia3.setVisible(true);
+        } else {
+            Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T1");
+            ventanaTrivia2.setVisible(true);
+        }
+    }
+
+    private int generarNumeroRandom(int min, int max) {
+        return (int) (Math.random() * ((max - min) + 1) + min);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFalso;
+    private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnSalirMenu;
-    private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVerdadero;
     private javax.swing.JLabel lblEnunciado;
     private javax.swing.JLabel lblTitulo;

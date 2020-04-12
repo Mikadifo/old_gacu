@@ -387,13 +387,13 @@ public class BaseGACU {
     //FIN METODOS VISUALIZA
     
     //INICIO METODOS TRIVIA_PR
-    public boolean crearTRIVIA_PR(Trivia_PR trivia_PR) {
+    public boolean crearTrivia_PR(Trivia_PR trivia_PR) {
         boolean estado = baseTrivia_PR.crearTrivia_PR(abrirBase(rutaArchivo), trivia_PR);
         cerrarBase();
         return estado;
     }
 
-    public Vector<Trivia_PR> getTRIVIA_PR() {
+    public Vector<Trivia_PR> getTrivia_PRs() {
         Vector<Trivia_PR> trivias_PRs = baseTrivia_PR.getTrivias_PRS(abrirBase(rutaArchivo));
         cerrarBase();
         return trivias_PRs;
