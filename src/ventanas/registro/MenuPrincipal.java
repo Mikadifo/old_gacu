@@ -290,7 +290,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         categorias.setNombre_categoria("Museos");
         guardarCategoriaBase(categorias);
         categorias.setCodigo_categoria("C4E");
-        categorias.setNombre_categoria("Educacion Superior");// o solo intitutos?
+        categorias.setNombre_categoria("Educacion Superior");
         guardarCategoriaBase(categorias);
     }
 
