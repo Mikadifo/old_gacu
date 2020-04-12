@@ -1,6 +1,5 @@
 package ventanas.registro;
 
-//import clases.Trivia;
 import clases.*;
 import java.awt.Component;
 import javax.swing.ImageIcon;
@@ -9,6 +8,7 @@ import ventanas.Clases.*;
 import baseDatos.BaseGACU;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.Vector;
 import javax.imageio.ImageIO;
 import ventanas.Trivias.*;
 
@@ -501,15 +501,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void mostrarVentanaRandom() {
         switch (generarNumeroRandom(1, 3)) {
             case 1:
-                Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, 1, "MENU");
+                Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, 1, "MENU", getTriviasPR());
                 ventanaTrivia1.setVisible(true);
                 break;
             case 2:
-                Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, 1, "MENU");
+                Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, 1, "MENU", getTriviasPR());
                 ventanaTrivia2.setVisible(true);
                 break;
             case 3:
-                Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, 1, "MENU");
+                Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, 1, "MENU", getTriviasPR());
                 ventanaTrivia3.setVisible(true);
                 break;
             default:
@@ -519,6 +519,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private int generarNumeroRandom(int min, int max) {
         return (int) (Math.random() * ((max - min) + 1) + min);
+    }
+
+    private Trivia_PR[] getTriviasPR() {
+        Trivia_PR[] trivias = new Trivia_PR[3];
+        Vector<Trivia_PR> trivias_PR = base.getTrivia_PRs();
+        String respuestaActual;
+        do {
+            Trivia_PR triviaActual = trivias_PR.get(generarNumeroRandom(0, (trivias_PR.size()) - 1));
+            respuestaActual = base.getRespuesta(triviaActual.getCodigo_respuesta()).getRespuesta();
+            if (trivias[2] == null) {
+                trivias[2] = (respuestaActual.contains(",")) ? triviaActual : null;
+            } 
+            if (trivias[1] == null) {
+                trivias[1] = (!respuestaActual.contains(",") && !(respuestaActual.equalsIgnoreCase("verdadero") || respuestaActual.equalsIgnoreCase("falso")))?triviaActual:null; //completar
+            }
+            if (trivias[0] == null) {
+                trivias[0] = (respuestaActual.equalsIgnoreCase("verdadero") || respuestaActual.equalsIgnoreCase("falso"))?triviaActual:null; //opc correcta
+            }
+        } while (trivias[0] == null || trivias[1] == null || trivias[2] == null); //v o f
+        return trivias;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

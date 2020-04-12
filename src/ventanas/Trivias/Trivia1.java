@@ -1,23 +1,29 @@
 package ventanas.Trivias;
 
 import clases.Usuario;
+import clases.Trivia_PR;
+import baseDatos.BaseGACU;
 import ventanas.registro.MenuPrincipal;
 
 public class Trivia1 extends javax.swing.JFrame {
 
+    private BaseGACU base = new BaseGACU();
+    private Trivia_PR[] triviaPRS;
     private Usuario usuarioActivo;
     private String ventanaAnterior;
     private int numeroVentana;
 
-    public Trivia1(Usuario usuarioActivo, int numeroVentana, String ventanaAnterior) {
+    public Trivia1(Usuario usuarioActivo, int numeroVentana, String ventanaAnterior, Trivia_PR[] triviaPRS) {
         initComponents();
         this.numeroVentana = numeroVentana;
         this.ventanaAnterior = ventanaAnterior;
+        this.triviaPRS = triviaPRS;
         setBotonPosicion();
         this.usuarioActivo = usuarioActivo;
         this.setSize(700, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        cargarPreguntaRespuesta();
     }
 
     @SuppressWarnings("unchecked")
@@ -165,6 +171,11 @@ public class Trivia1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cargarPreguntaRespuesta() {
+        lblTitulo.setText(base.getTrivia(triviaPRS[0].getCodigo_trivia()).getNombre_trivia());
+        lblEnunciado.setText(base.getPregunta(triviaPRS[0].getCodigo_pregunta()).getPregunta());
+    }
+    
     private void setBotonPosicion() {
         switch (numeroVentana) {
             case 1: case 2:
@@ -227,21 +238,21 @@ public class Trivia1 extends javax.swing.JFrame {
         if (ventanaAnterior.equals("MENU")) {
             switch (generarNumeroRandom(1, 2)) {
                 case 1:
-                    Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T1");
+                    Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T1", triviaPRS);
                     ventanaTrivia2.setVisible(true);
                     break;
                 case 2:
-                    Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T1");
+                    Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T1", triviaPRS);
                     ventanaTrivia3.setVisible(true);
                     break;
                 default:
                     System.err.println("Numero fuera de rango (1-2)");
             }
         } else if (ventanaAnterior.equals("T2")) {
-            Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T1");
+            Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T1", triviaPRS);
             ventanaTrivia3.setVisible(true);
         } else {
-            Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T1");
+            Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T1", triviaPRS);
             ventanaTrivia2.setVisible(true);
         }
     }

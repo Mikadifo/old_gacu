@@ -248,7 +248,7 @@ public class DefaultBase {
                 respuestas.addElement(new Respuestas("RES03", "Cuenca,Legislativo,1867"));
                 
                 guardarPreguntasRespuestas();
-                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES01", "RES01") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES02", "RES02") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES03", "RES03");
+                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES01", "RES01") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE02").getCodigo_trivia(), "PES02", "RES02") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE03").getCodigo_trivia(), "PES03", "RES03");
             case "E02":
                 preguntas.addElement(new Preguntas("PES04", "Las dos unidades académicas que solicitaron su anexión a la Pontificia Universidad Católica del Ecuador fueron la Universidad de Cuenca y la Universidad Politecnica"));
                 respuestas.addElement(new Respuestas("RES04", "Falso"));
@@ -260,7 +260,7 @@ public class DefaultBase {
                 respuestas.addElement(new Respuestas("RES06", "1968,Filial,Santa Sede"));
                 
                 guardarPreguntasRespuestas();
-                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES04", "RES04") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES05", "RES05") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES06", "RES06");
+                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE04").getCodigo_trivia(), "PES04", "RES04") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE05").getCodigo_trivia(), "PES05", "RES05") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE06").getCodigo_trivia(), "PES06", "RES06");
             case "E03":
                 preguntas.addElement(new Preguntas("PES07", "El presidente José María Velasco Ibarra firmó el decreto de creación de la universidad el 17 de octubre de 1970."));
                 respuestas.addElement(new Respuestas("RES07", "Falso"));
@@ -272,7 +272,7 @@ public class DefaultBase {
                 respuestas.addElement(new Respuestas("RES09", "César Cordero Moscoso,1955,Miguel Cordero Crespo"));
                 
                 guardarPreguntasRespuestas();
-                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES07", "RES07") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES08", "RES08") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES09", "RES09");
+                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE07").getCodigo_trivia(), "PES07", "RES07") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE08").getCodigo_trivia(), "PES08", "RES08") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE09").getCodigo_trivia(), "PES09", "RES09");
             case "E04":
                 preguntas.addElement(new Preguntas("PES10", "En 1897 el gobierno de Ecuador firmó un convenio con Don Bosco para que los salesianos tomaran bajo su responsabilidad el Protectorado Católico de Artes y Oficios en Quito"));
                 respuestas.addElement(new Respuestas("RES10", "Falso"));
@@ -284,7 +284,7 @@ public class DefaultBase {
                 respuestas.addElement(new Respuestas("RES12", "Congregación Salesiana,5,Quito"));
                 
                 guardarPreguntasRespuestas();
-                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES10", "RES10") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES11", "RES11") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES12", "RES12");
+                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE10").getCodigo_trivia(), "PES10", "RES10") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE11").getCodigo_trivia(), "PES11", "RES11") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE12").getCodigo_trivia(), "PES12", "RES12");
             case "E05":
                 preguntas.addElement(new Preguntas("PES13", "Las siglas ISTA significan Instituto Superior Trabajador Ambiental"));
                 respuestas.addElement(new Respuestas("RES13", "Falso"));
@@ -296,7 +296,7 @@ public class DefaultBase {
                 respuestas.addElement(new Respuestas("RES15", "Educación Superior,Técnico y tecnológico,Profesionales"));
                 
                 guardarPreguntasRespuestas();
-                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES13", "RES13") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES14", "RES14") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE01").getCodigo_trivia(), "PES15", "RES15");
+                return crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE13").getCodigo_trivia(), "PES13", "RES13") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE14").getCodigo_trivia(), "PES14", "RES14") && crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE15").getCodigo_trivia(), "PES15", "RES15");
             default:
                 System.err.println("Instituto/Universidad no encontrada/o!!!");
                 return false;
