@@ -129,8 +129,10 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
         });
         getContentPane().add(btnVolver);
         btnVolver.setBounds(310, 420, 100, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoMuseos.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 500);
+        jLabel1.setBounds(0, 0, 700, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,7 +193,7 @@ public class Museos extends javax.swing.JFrame implements Categoria_Lugares {
 
     private void accionLugares(String codigoLugar) {
         codigosImagenes[4] = "imgM05"; //temporal
-        nombresImagenes[4] = "fondoMuseo.png"; //temporal
+        nombresImagenes[4] = "fondoMuseo.jpg"; //temporal
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C4M", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);

@@ -172,7 +172,7 @@ public class Trivia1 extends javax.swing.JFrame {
         pnlVoF.add(btnPrincipal);
         btnPrincipal.setBounds(500, 430, 130, 40);
 
-        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/fondoTrivia.jpeg"))); // NOI18N
+        lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/trivia1.jpg"))); // NOI18N
         lblTriviaFondo.setMaximumSize(new java.awt.Dimension(700, 500));
         lblTriviaFondo.setMinimumSize(new java.awt.Dimension(700, 500));
         lblTriviaFondo.setPreferredSize(new java.awt.Dimension(700, 500));

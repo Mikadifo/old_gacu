@@ -295,11 +295,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     private void guardarCategoriaBase(Categoria categoria) {
-        if (base.crearCategoria(categoria)) {
-            System.err.println("Categoria " + categoria + "creada");
-        } else {
-            System.err.println("Categoria ya existe");
-        }
+        base.crearCategoria(categoria);
     }
 
     private void cargarImagen(String codigo, String nombre, javax.swing.JButton boton) {
@@ -318,11 +314,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } catch (IOException ex) {
             imagenes.setImagen(null);
         }
-        if (base.crearImagen(imagenes)) {
-            System.err.println("Imagen " + imagenes.getCodigo_imagen() + "creada");
-        } else {
-            System.err.println("Imagen ya existe");
-        }
+        base.crearImagen(imagenes);
     }
 
     private void setImagenBoton(javax.swing.JButton boton, byte[] imagen) {
@@ -524,7 +516,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private Trivia_PR[] getTriviasPR() {
         Trivia_PR[] trivias = new Trivia_PR[3];
         Vector<Trivia_PR> trivias_PR = base.getTrivia_PRs(base.getVisualizas(usuarioActivo.getCedulaUsuario()));
-        //trivias_PR.forEach((e) -> {System.out.println("eeeee " + e);});
         String respuestaActual;
         do {
             Trivia_PR triviaActual = trivias_PR.get(generarNumeroRandom(0, (trivias_PR.size()) - 1));

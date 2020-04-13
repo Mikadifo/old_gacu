@@ -6,6 +6,8 @@ import java.util.Vector;
 import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
 import Interfaces.Categoria_Lugares;
+import java.awt.Image;
+import javax.swing.Icon;
 
 public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
 
@@ -49,7 +51,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
         btnMadre = new javax.swing.JButton();
         btnBlas = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -127,8 +129,10 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
         });
         getContentPane().add(btnVolver);
         btnVolver.setBounds(310, 430, 100, 40);
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 800, 500);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondosParques.jpg"))); // NOI18N
+        getContentPane().add(lblFondo);
+        lblFondo.setBounds(0, 0, 700, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -286,7 +290,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
 
     private void accionLugares(String codigoLugar) {
         codigosImagenes[4] = "imgP05"; //temporal
-        nombresImagenes[4] = "fondoParques.png"; //temporal
+        nombresImagenes[4] = "fondoParques.jpg"; //temporal
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C1P", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
@@ -315,6 +319,6 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
     private javax.swing.JButton btnParaiso;
     private javax.swing.JButton btnSebastian;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblFondo;
     // End of variables declaration//GEN-END:variables
 }

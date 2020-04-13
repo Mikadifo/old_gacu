@@ -28,28 +28,31 @@ public class Info_Lugar extends javax.swing.JFrame {
     private String rutaCarpeta;
     private String signoRuta;
     private File ruta;
+    private String[] codigoImagenes;
     byte[] icono;
 
     public Info_Lugar(String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes, String[] nombreImagenes) {
         initComponents();
         usuarioActivo = null;
         this.codigo_Categoria = codigo_Categoria;
+        this.codigoImagenes = codigoImagenes;
         initRutas(codigo_Categoria);
-        this.setSize(800, 500);
+        this.setSize(810, 600);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        mostrarInfoLugar(codigo_Lugar, codigoImagenes, nombreImagenes);
+        mostrarInfoLugar(codigo_Lugar, nombreImagenes);
     }
 
     public Info_Lugar(Usuario usuarioActivo, String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes, String[] nombreImagenes) {
         initComponents();
         this.usuarioActivo = usuarioActivo;
         this.codigo_Categoria = codigo_Categoria;
+        this.codigoImagenes = codigoImagenes;
         initRutas(codigo_Categoria);
-        this.setSize(800, 500);
+        this.setSize(810, 600);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        mostrarInfoLugar(codigo_Lugar, codigoImagenes, nombreImagenes);
+        mostrarInfoLugar(codigo_Lugar, nombreImagenes);
     }
 
     private void initRutas(String codigo_Categoria) {
@@ -78,6 +81,7 @@ public class Info_Lugar extends javax.swing.JFrame {
     private void initComponents() {
 
         Info_pn = new javax.swing.JPanel();
+        central = new javax.swing.JLabel();
         Info_spn = new javax.swing.JScrollPane();
         jtextInfo = new javax.swing.JTextPane();
         btnVolver = new javax.swing.JButton();
@@ -89,17 +93,28 @@ public class Info_Lugar extends javax.swing.JFrame {
         jlFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 810, 600));
+        setMinimumSize(new java.awt.Dimension(810, 600));
         setUndecorated(true);
+        setResizable(false);
+        setSize(new java.awt.Dimension(810, 600));
         getContentPane().setLayout(null);
 
+        Info_pn.setMaximumSize(new java.awt.Dimension(810, 600));
+        Info_pn.setMinimumSize(new java.awt.Dimension(810, 600));
         Info_pn.setLayout(null);
 
+        central.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        Info_pn.add(central);
+        central.setBounds(160, 50, 630, 330);
+
+        jtextInfo.setEditable(false);
         jtextInfo.setBackground(new java.awt.Color(153, 153, 153));
-        jtextInfo.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jtextInfo.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         Info_spn.setViewportView(jtextInfo);
 
         Info_pn.add(Info_spn);
-        Info_spn.setBounds(70, 300, 680, 148);
+        Info_spn.setBounds(160, 390, 630, 190);
 
         btnVolver.setBackground(new java.awt.Color(76, 84, 84));
         btnVolver.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -127,32 +142,56 @@ public class Info_Lugar extends javax.swing.JFrame {
             }
         });
         Info_pn.add(btnVolver);
-        btnVolver.setBounds(360, 460, 100, 40);
+        btnVolver.setBounds(20, 530, 120, 50);
 
-        lblImagen2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblImagen2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        lblImagen2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen2MouseClicked(evt);
+            }
+        });
         Info_pn.add(lblImagen2);
-        lblImagen2.setBounds(470, 40, 270, 120);
+        lblImagen2.setBounds(20, 50, 120, 90);
 
-        lblImagen3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblImagen3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        lblImagen3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen3MouseClicked(evt);
+            }
+        });
         Info_pn.add(lblImagen3);
-        lblImagen3.setBounds(80, 170, 270, 120);
+        lblImagen3.setBounds(20, 170, 120, 90);
 
-        lblImagen4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblImagen4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        lblImagen4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen4MouseClicked(evt);
+            }
+        });
         Info_pn.add(lblImagen4);
-        lblImagen4.setBounds(470, 170, 270, 120);
+        lblImagen4.setBounds(20, 290, 120, 90);
 
-        lblImagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblImagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        lblImagen1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen1MouseClicked(evt);
+            }
+        });
         Info_pn.add(lblImagen1);
-        lblImagen1.setBounds(80, 40, 270, 120);
+        lblImagen1.setBounds(20, 410, 120, 90);
 
         jlTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Info_pn.add(jlTitulo);
         jlTitulo.setBounds(300, 10, 190, 20);
+
+        jlFondo.setMaximumSize(new java.awt.Dimension(810, 600));
+        jlFondo.setMinimumSize(new java.awt.Dimension(810, 600));
+        jlFondo.setPreferredSize(new java.awt.Dimension(810, 600));
         Info_pn.add(jlFondo);
-        jlFondo.setBounds(0, 0, 800, 500);
+        jlFondo.setBounds(0, 0, 810, 600);
 
         getContentPane().add(Info_pn);
-        Info_pn.setBounds(0, 0, 800, 500);
+        Info_pn.setBounds(0, 0, 810, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -170,6 +209,22 @@ public class Info_Lugar extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void lblImagen2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen2MouseClicked
+        setImagenLabel(central, base.getImagen(codigoImagenes[1]).getImagen());
+    }//GEN-LAST:event_lblImagen2MouseClicked
+
+    private void lblImagen3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen3MouseClicked
+        setImagenLabel(central, base.getImagen(codigoImagenes[2]).getImagen());
+    }//GEN-LAST:event_lblImagen3MouseClicked
+
+    private void lblImagen4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen4MouseClicked
+        setImagenLabel(central, base.getImagen(codigoImagenes[3]).getImagen());
+    }//GEN-LAST:event_lblImagen4MouseClicked
+
+    private void lblImagen1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen1MouseClicked
+        setImagenLabel(central, base.getImagen(codigoImagenes[0]).getImagen());
+    }//GEN-LAST:event_lblImagen1MouseClicked
+    
     private void mostrarVentanaAnterior(String codigo_Categoria) {
         switch (codigo_Categoria) {
             case "C2I":
@@ -193,7 +248,7 @@ public class Info_Lugar extends javax.swing.JFrame {
         }
     }
 
-    private void mostrarInfoLugar(String codigoLugar, String[] codigoImagenes, String[] nombreImagenes) { //falta img
+    private void mostrarInfoLugar(String codigoLugar, String[] nombreImagenes) { //falta img
         Categoria_Lugar resultado = base.getCategoria_Lugar(codigo_Categoria, codigoLugar);
         jlTitulo.setText(base.getLugar(resultado.getCodigo_lugar()).getNombre_lugar());
         cargarImagenes(codigoImagenes, nombreImagenes);
@@ -209,12 +264,13 @@ public class Info_Lugar extends javax.swing.JFrame {
         cargarImagen(codigoImagenes[3], nombres[3]);
         cargarImagen(codigoImagenes[4], nombres[4]);
     }
-    
+
     private void mostrarImagenesLabels(String codigoLugar, String[] codigoImagenes) {
         setImagenLabel(lblImagen1, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[0]).getCodigo_imagen()).getImagen());
         setImagenLabel(lblImagen2, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[1]).getCodigo_imagen()).getImagen());
         setImagenLabel(lblImagen3, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[2]).getCodigo_imagen()).getImagen());
         setImagenLabel(lblImagen4, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[3]).getCodigo_imagen()).getImagen());
+        setImagenLabel(central, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[0]).getCodigo_imagen()).getImagen());
         setImagenLabel(jlFondo, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[4]).getCodigo_imagen()).getImagen());
     }
 
@@ -233,11 +289,7 @@ public class Info_Lugar extends javax.swing.JFrame {
         } catch (IOException ex) {
             imagenes.setImagen(null);
         }
-        if (base.crearImagen(imagenes)) {
-            System.err.println("Imagen " + imagenes.getCodigo_imagen() + "creada");
-        } else {
-            System.err.println("Imagen ya existe");
-        }
+        base.crearImagen(imagenes);
     }
 
     private void setImagenLabel(javax.swing.JLabel label, byte[] imagen) {
@@ -246,7 +298,7 @@ public class Info_Lugar extends javax.swing.JFrame {
             InputStream in = new ByteArrayInputStream(imagen);
             image = ImageIO.read(in);
             ImageIcon imgI = new ImageIcon(image);
-            Icon imgBtn  = new ImageIcon(imgI.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+            Icon imgBtn = new ImageIcon(imgI.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
             label.setIcon(imgBtn);
         } catch (IOException ex) {
             label.setText("NO IMAGE:" + label.getName());
@@ -257,7 +309,7 @@ public class Info_Lugar extends javax.swing.JFrame {
         crearLugaresImagenes(codigoLugar, codigoImagenes);
         guardarLugaresImagenesBase(lugaresImagenes);
     }
-    
+
     public void crearLugaresImagenes(String codigoLugar, String[] codigoImagenes) {
         setLugarImagen(codigoLugar, codigoImagenes[0]);
         setLugarImagen(codigoLugar, codigoImagenes[1]);
@@ -265,28 +317,25 @@ public class Info_Lugar extends javax.swing.JFrame {
         setLugarImagen(codigoLugar, codigoImagenes[3]);
         setLugarImagen(codigoLugar, codigoImagenes[4]);
     }
-    
+
     public void setLugarImagen(String codigoLugar, String codigoImagen) {
         LugarImagen = new Lugar_img(codigoLugar, codigoImagen);
         lugaresImagenes.addElement(LugarImagen);
     }
-    
+
     public void guardarLugaresImagenesBase(Vector<Lugar_img> LugaresImagenes) {
         LugaresImagenes.forEach((elemento) -> guardarLugarImagenBase(elemento));
     }
-    
+
     public void guardarLugarImagenBase(Lugar_img lugarImagen) {
-        if (base.crearLugar_img(lugarImagen)) {
-            System.err.println("Se ha creado lugar imagen " + lugarImagen.getCodigo_lugar() + " " + lugarImagen.getCodigo_imagen() + " correctamente");
-        } else {
-            System.err.println("Lugar Imagen ya existe");
-        }
+        base.crearLugar_img(lugarImagen);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Info_pn;
     private javax.swing.JScrollPane Info_spn;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel central;
     private javax.swing.JLabel jlFondo;
     private javax.swing.JLabel jlTitulo;
     private javax.swing.JTextPane jtextInfo;

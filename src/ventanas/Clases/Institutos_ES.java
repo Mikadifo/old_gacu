@@ -129,6 +129,8 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
         });
         getContentPane().add(btnVolver);
         btnVolver.setBounds(300, 420, 100, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoESuperior.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 700, 500);
 
@@ -191,7 +193,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
 
     private void accionLugares(String codigoLugar) {
         codigosImagenes[4] = "imgE05"; //temporal
-        nombresImagenes[4] = "fondoES.png"; //temporal
+        nombresImagenes[4] = "fondoES.jpg"; //temporal
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C3E", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
