@@ -2,7 +2,6 @@ package ventanas.Clases;
 
 import Interfaces.Categoria_Lugares;
 import baseDatos.BaseGACU;
-import baseDatos.DefaultBase;
 import clases.Categoria_Lugar;
 import clases.*;
 import java.util.Vector;
@@ -16,7 +15,6 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
     private String[] nombresImagenes = new String[5];
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
-    private DefaultBase baseTrivias = new DefaultBase();
     private Categoria_Lugar categoriaLugar;
     private Info_Lugar ventanaInfo;
     private Vector<Categoria_Lugar> categoriasLugares = new Vector<>();
@@ -201,7 +199,6 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C2I", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
-            baseTrivias.crearGuardarTriviaPRIglesias(codigoLugar);
         }
         mostarVentanaInfo(codigoLugar);
     }

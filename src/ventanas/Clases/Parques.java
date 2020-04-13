@@ -6,13 +6,11 @@ import java.util.Vector;
 import ventanas.Informacion.*;
 import ventanas.registro.MenuPrincipal;
 import Interfaces.Categoria_Lugares;
-import baseDatos.DefaultBase;
 
 public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
 
     private String[] codigosImagenes = new String[5];
     private String[] nombresImagenes = new String[5];
-    private DefaultBase baseTrivias = new DefaultBase();
     private BaseGACU base = new BaseGACU();
     private Usuario usuarioActivo;
     private Categoria_Lugar categoriaLugar;
@@ -292,7 +290,6 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C1P", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
-            baseTrivias.crearGuardarTriviaPRParques(codigoLugar);
         }
         mostarVentanaInfo(codigoLugar);
     }

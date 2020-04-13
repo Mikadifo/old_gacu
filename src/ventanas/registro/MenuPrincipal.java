@@ -19,9 +19,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private BaseGACU base = new BaseGACU();
     private Imagenes imagenes = new Imagenes();
     private Categoria categorias = new Categoria();
-    private File carpetaImg = new File("Imagenes_Principal");
-    private String rutaCarpeta = carpetaImg.getAbsolutePath();
-    private String signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
+    File carpetaImg = new File("Imagenes_Principal");
+    private final String rutaCarpeta = carpetaImg.getAbsolutePath();
+    private final String signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
     private File ruta;
     byte[] icono;
     MenuPrincipal thisVentana;
@@ -523,7 +523,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private Trivia_PR[] getTriviasPR() {
         Trivia_PR[] trivias = new Trivia_PR[3];
-        Vector<Trivia_PR> trivias_PR = base.getTrivia_PRs();//revisar
+        Vector<Trivia_PR> trivias_PR = base.getTrivia_PRs(base.getVisualizas(usuarioActivo.getCedulaUsuario()));
+        //trivias_PR.forEach((e) -> {System.out.println("eeeee " + e);});
         String respuestaActual;
         do {
             Trivia_PR triviaActual = trivias_PR.get(generarNumeroRandom(0, (trivias_PR.size()) - 1));

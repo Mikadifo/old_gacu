@@ -1,6 +1,7 @@
 package baseDatos;
 
 import clases.Trivia_PR;
+import clases.Visualiza;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import java.util.Vector;
@@ -24,6 +25,16 @@ public class BaseTrivia_PR {
             trivias_prs.add((Trivia_PR)resultado.next());
         }
         return trivias_prs; //Retorna todas las trivias_prs de la base
+    }
+    
+    public Vector<Trivia_PR> getTrivia_PRs(Vector<Visualiza> visualiza) {
+        BaseGeneracionTRIVIAPR baseGeneracionTRIVIAPR = new BaseGeneracionTRIVIAPR();
+        Vector<Trivia_PR> trivias_PRs = new Vector<>();
+        visualiza.forEach((elemento) -> {
+            baseGeneracionTRIVIAPR.crearGuardarTriviasPR(elemento.getCodigo_lugar());
+            trivias_PRs.addAll(baseGeneracionTRIVIAPR.getTriviasPR_Lugares());
+        });
+        return trivias_PRs; //Retorna todas las trivias_prs de la base de los lugares que el usuario a visitado
     }
     
     public Trivia_PR getTrivia_PR(ObjectContainer base, String codigo_trivia, String codigo_pregunta, String codigo_respuesta) {

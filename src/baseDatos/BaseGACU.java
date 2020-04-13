@@ -405,8 +405,8 @@ public class BaseGACU {
         return trivias_PRs;
     }
     
-    public Vector<Trivia_PR> getTrivia_PRs(Vector<Visualiza> visualiza) { //fase
-        Vector<Trivia_PR> trivias_PRs = baseTrivia_PR.getTrivia_PRs(abrirBase(rutaArchivo));
+    public Vector<Trivia_PR> getTrivia_PRs(Vector<Visualiza> visualiza) {
+        Vector<Trivia_PR> trivias_PRs = baseTrivia_PR.getTrivia_PRs(visualiza);
         cerrarBase();
         return trivias_PRs;
     }
