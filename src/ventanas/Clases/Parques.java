@@ -163,11 +163,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
 
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
-        if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + " " + categoriaLugar.getCodigo_lugar() + "correctamente");
-        } else {
-            System.err.println("Categoria Lugar ya existe");
-        }
+        base.crearCategoria_Lugar(categoriaLugar);
     }
 
     @Override
@@ -296,11 +292,7 @@ public class Parques extends javax.swing.JFrame implements Categoria_Lugares {
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C1P", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
-            if (baseTrivias.crearGuardarTriviaPRParques(codigoLugar)) {
-                System.err.println("TriviaPR de lugar " + codigoLugar + " creado");
-            } else {
-                System.err.println("TriviaPR de lugar " + codigoLugar + " ya existente");
-            }
+            baseTrivias.crearGuardarTriviaPRParques(codigoLugar);
         }
         mostarVentanaInfo(codigoLugar);
     }

@@ -384,7 +384,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnTriviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTriviaActionPerformed
         if (usuarioActivo != null) {
-            if (base.getTrivia_PRs().isEmpty()) {
+            if (base.getVisualizas(usuarioActivo.getCedulaUsuario()).isEmpty()) {
                 JOptionPane.showMessageDialog(null, "El sistema no pudo generar las trivias debido a que\nno ha visitado ningun lugar todavia.");
             } else {
                 mostrarVentanaRandom();
@@ -523,7 +523,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private Trivia_PR[] getTriviasPR() {
         Trivia_PR[] trivias = new Trivia_PR[3];
-        Vector<Trivia_PR> trivias_PR = base.getTrivia_PRs();
+        Vector<Trivia_PR> trivias_PR = base.getTrivia_PRs();//revisar
         String respuestaActual;
         do {
             Trivia_PR triviaActual = trivias_PR.get(generarNumeroRandom(0, (trivias_PR.size()) - 1));

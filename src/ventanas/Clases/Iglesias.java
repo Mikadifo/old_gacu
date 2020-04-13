@@ -201,11 +201,7 @@ public class Iglesias extends javax.swing.JFrame implements Categoria_Lugares {
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C2I", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
-            if (baseTrivias.crearGuardarTriviaPRIglesias(codigoLugar)) {
-                System.err.println("TriviaPR de lugar " + codigoLugar + " creado");
-            } else {
-                System.err.println("TriviaPR de lugar " + codigoLugar + " ya existente");
-            }
+            baseTrivias.crearGuardarTriviaPRIglesias(codigoLugar);
         }
         mostarVentanaInfo(codigoLugar);
     }

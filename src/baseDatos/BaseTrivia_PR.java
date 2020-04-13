@@ -16,7 +16,7 @@ public class BaseTrivia_PR {
         return false; //Ya existe el codigo de la trivia_pr
     }
     
-    public Vector<Trivia_PR> getTrivias_PRS(ObjectContainer base) {
+    public Vector<Trivia_PR> getTrivia_PRs(ObjectContainer base) {
         Vector<Trivia_PR> trivias_prs = new Vector<>();
         Trivia_PR trivias_prsBuscar = new Trivia_PR(null, null,null);
         ObjectSet resultado = base.queryByExample(trivias_prsBuscar);

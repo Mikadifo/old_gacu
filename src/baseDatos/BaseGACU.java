@@ -368,9 +368,15 @@ public class BaseGACU {
     }
 
     public Vector<Visualiza> getVisualizas() {
-        Vector<Visualiza> lugares_imgs = baseVisualiza.getVisualizas(abrirBase(rutaArchivo));
+        Vector<Visualiza> visualizas = baseVisualiza.getVisualizas(abrirBase(rutaArchivo));
         cerrarBase();
-        return lugares_imgs;
+        return visualizas;
+    }
+    
+    public Vector<Visualiza> getVisualizas(String cedulausuario) {
+        Vector<Visualiza> visualizas = baseVisualiza.getVisualizas(abrirBase(rutaArchivo), cedulausuario);
+        cerrarBase();
+        return visualizas;
     }
     
     public Visualiza getVisualiza(String codigo_usuario, String codigo_lugar) {
@@ -394,7 +400,13 @@ public class BaseGACU {
     }
 
     public Vector<Trivia_PR> getTrivia_PRs() {
-        Vector<Trivia_PR> trivias_PRs = baseTrivia_PR.getTrivias_PRS(abrirBase(rutaArchivo));
+        Vector<Trivia_PR> trivias_PRs = baseTrivia_PR.getTrivia_PRs(abrirBase(rutaArchivo));
+        cerrarBase();
+        return trivias_PRs;
+    }
+    
+    public Vector<Trivia_PR> getTrivia_PRs(Vector<Visualiza> visualiza) { //fase
+        Vector<Trivia_PR> trivias_PRs = baseTrivia_PR.getTrivia_PRs(abrirBase(rutaArchivo));
         cerrarBase();
         return trivias_PRs;
     }

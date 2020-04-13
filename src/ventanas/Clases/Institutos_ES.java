@@ -197,11 +197,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
         if (usuarioActivo != null) {
             Visualiza visualiza = new Visualiza(usuarioActivo.getCedulaUsuario(), base.getCategoria_Lugar("C3E", codigoLugar).getCodigo_lugar());
             guadarVisualizaBase(visualiza);
-            if (baseTrivias.crearGuardarTriviaPRESuperior(codigoLugar)) {
-                System.err.println("TriviaPR de lugar " + codigoLugar + " creado");
-            } else {
-                System.err.println("TriviaPR de lugar " + codigoLugar + " ya existente");
-            }
+            baseTrivias.crearGuardarTriviaPRESuperior(codigoLugar);
         }
         mostarVentanaInfo(codigoLugar);
     }
@@ -258,11 +254,7 @@ public class Institutos_ES extends javax.swing.JFrame implements Categoria_Lugar
 
     @Override
     public void guardarCategoriaLugarBase(Categoria_Lugar categoriaLugar) {
-        if (base.crearCategoria_Lugar(categoriaLugar)) {
-            System.err.println("Se ha creado categoria lugar " + categoriaLugar.getCodigo_categoria() + " " + categoriaLugar.getCodigo_lugar() + "correctamente");
-        } else {
-            System.err.println("Categoria Lugar ya existe");
-        }
+        base.crearCategoria_Lugar(categoriaLugar);
     }
 
     @Override

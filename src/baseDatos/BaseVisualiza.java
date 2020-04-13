@@ -26,6 +26,16 @@ public class BaseVisualiza {
         return visualizas; //Retorna todas las visualizas de la base
     }
     
+    public Vector<Visualiza> getVisualizas(ObjectContainer base, String cedulaUsuario) {
+        Vector<Visualiza> visualizas = new Vector<>();
+        Visualiza visualizasBuscar = new Visualiza(cedulaUsuario, null);
+        ObjectSet resultado = base.queryByExample(visualizasBuscar);
+        while (resultado.hasNext()) {
+            visualizas.add((Visualiza) resultado.next());
+        }
+        return visualizas; //Retorna todas las visualizas de la base del usuario indicado
+    }
+    
     public Visualiza getVisualiza(ObjectContainer base, String cedula_usuario, String codigo_lugar) {
         Visualiza visualizaBuscar = new Visualiza(cedula_usuario, codigo_lugar);
         ObjectSet resultado = base.queryByExample(visualizaBuscar);
