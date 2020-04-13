@@ -1,6 +1,7 @@
 package ventanas.Trivias;
 
 import baseDatos.BaseGACU;
+import clases.OpcionesTrivia2;
 import clases.Realiza;
 import clases.Trivia_PR;
 import clases.Usuario;
@@ -8,6 +9,7 @@ import ventanas.registro.MenuPrincipal;
 
 public class Trivia2 extends javax.swing.JFrame {
 
+    private OpcionesTrivia2 opciones = new OpcionesTrivia2();
     private BaseGACU base = new BaseGACU();
     private Trivia_PR[] triviaPRS;
     private boolean[] respuestasTrivias;
@@ -151,7 +153,24 @@ public class Trivia2 extends javax.swing.JFrame {
     private void cargarPreguntaRespuesta() {
         lblTitulo.setText(base.getTrivia(triviaPRS[1].getCodigo_trivia()).getNombre_trivia());
         lblEnunciado.setText(base.getPregunta(triviaPRS[1].getCodigo_pregunta()).getPregunta());
-        btn1.setText(base.getRespuesta(triviaPRS[1].getCodigo_respuesta()).getRespuesta());//Mezcalar opciones
+        mezlcarOpcionesBotones();
+    }
+
+    private void mezlcarOpcionesBotones() {
+        String respuesta = base.getRespuesta(triviaPRS[1].getCodigo_respuesta()).getRespuesta();
+        String[] opcionesRespuesta = copiarArray(respuesta);
+        int[] posicionesRadnom = generarNumerosRandom(0, (opcionesRespuesta.length -1));
+        btn1.setText(opcionesRespuesta[posicionesRadnom[0]]);
+        btn2.setText(opcionesRespuesta[posicionesRadnom[1]]);
+        btn3.setText(opcionesRespuesta[posicionesRadnom[2]]);
+        btn4.setText(opcionesRespuesta[posicionesRadnom[3]]);
+    }
+
+    private String[] copiarArray(String respuesta) {
+        String[] arrayOpc = new String[4];
+        System.arraycopy(opciones.getOpcionesTrivia(respuesta), 0, arrayOpc, 0, (arrayOpc.length - 1));
+        arrayOpc[3] = respuesta;
+        return arrayOpc;
     }
 
     private void setBotonPosicion() {
@@ -199,7 +218,7 @@ public class Trivia2 extends javax.swing.JFrame {
         base.crearRealiza(new Realiza(triviaPRS[1].getCodigo_trivia(), usuarioActivo.getCedulaUsuario()));
         dispose();
         //} else {
-            //JOptionPane.showMessageDialog(null, "Primer debe seleccionar una opcion");
+        //JOptionPane.showMessageDialog(null, "Primer debe seleccionar una opcion");
         //}
     }//GEN-LAST:event_btnPrincipalActionPerformed
 
@@ -229,7 +248,31 @@ public class Trivia2 extends javax.swing.JFrame {
     private int generarNumeroRandom(int min, int max) {
         return (int) (Math.random() * ((max - min) + 1) + min);
     }
+
+    private int[] generarNumerosRandom(int min, int max) {
+        String nums = String.valueOf(generarNumeroRandom(min, max));
+        String[] numsArray = new String[4];
+        for (int i = 1; i < numsArray.length; i++) {
+            do {
+                String num = String.valueOf(generarNumeroRandom(min, max));
+                if (!nums.contains(num)) {
+                    nums += ("," + num);
+                    break;
+                }
+            } while (true);
+        }
+        numsArray = nums.split(",");
+        return toIntArray(numsArray);
+    }
     
+    private int[] toIntArray(String[] stringArray) {
+        int[] intArray = new int[stringArray.length];
+        for (int i = 0; i < intArray.length; i++) {
+            intArray[i] = Integer.valueOf(stringArray[i]);
+        }
+        return intArray;
+    }
+
 //    private String getRespuesta() {//validar y regresar que opcion esta seleccionada
 //        return btnVerdadero.getBackground().equals(new java.awt.Color(30, 168, 150))?"Verdadero":"Falso";
 //    }
