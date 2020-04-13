@@ -17,13 +17,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     info inf = new info();
     private Usuario usuarioActivo;
     private BaseGACU base = new BaseGACU();
-    private Imagenes imagenes = new Imagenes();
-    private Categoria categorias = new Categoria();
-    File carpetaImg = new File("Imagenes_Principal");
-    private final String rutaCarpeta = carpetaImg.getAbsolutePath();
-    private final String signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
-    private File ruta;
-    byte[] icono;
     MenuPrincipal thisVentana;
 
     public MenuPrincipal() {
@@ -32,8 +25,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         usuarioActivo = null;
         this.setSize(810, 600);
         this.setLocationRelativeTo(null);
-        cargarImagenes();
-        guardarCategorias();
+        setImagenesBotones();
     }
 
     public MenuPrincipal(Usuario usuarioActivo) {
@@ -42,8 +34,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.usuarioActivo = usuarioActivo;
         this.setSize(810, 600);
         this.setLocationRelativeTo(null);
-        cargarImagenes();
-        guardarCategorias();
+        setImagenesBotones();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -272,51 +263,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cargarImagenes() {
-        cargarImagen("img01", "imgIglesia.PNG", btnIglesias);
-        cargarImagen("img02", "imgParque.PNG", btnParques);
-        cargarImagen("img03", "imgMuseo.PNG", btnMuseos);
-        cargarImagen("img04", "imgUniversidad.PNG", btnInstitutos);
+    public void setImagenesBotones() {
+        setImagenBoton(btnIglesias, base.getImagen("img01").getImagen());
+        setImagenBoton(btnParques, base.getImagen("img02").getImagen());
+        setImagenBoton(btnMuseos, base.getImagen("img03").getImagen());
+        setImagenBoton(btnInstitutos, base.getImagen("img04").getImagen());
     }
-
-    private void guardarCategorias() {
-        categorias.setCodigo_categoria("C1P");
-        categorias.setNombre_categoria("Parques");
-        guardarCategoriaBase(categorias);
-        categorias.setCodigo_categoria("C2I");
-        categorias.setNombre_categoria("Iglesias");
-        guardarCategoriaBase(categorias);
-        categorias.setCodigo_categoria("C3M");
-        categorias.setNombre_categoria("Museos");
-        guardarCategoriaBase(categorias);
-        categorias.setCodigo_categoria("C4E");
-        categorias.setNombre_categoria("Educacion Superior");
-        guardarCategoriaBase(categorias);
-    }
-
-    private void guardarCategoriaBase(Categoria categoria) {
-        base.crearCategoria(categoria);
-    }
-
-    private void cargarImagen(String codigo, String nombre, javax.swing.JButton boton) {
-        ruta = new File(rutaCarpeta + signoRuta + nombre);
-        guardarImagenBase(codigo, ruta);
-        setImagenBoton(boton, base.getImagen(codigo).getImagen());
-    }
-
-    private void guardarImagenBase(String codigo, File rutaImg) {
-        imagenes.setCodigo_imagen(codigo);
-        try {
-            icono = new byte[(int) rutaImg.length()];
-            InputStream input = new FileInputStream(rutaImg);
-            input.read(icono);
-            imagenes.setImagen(icono);
-        } catch (IOException ex) {
-            imagenes.setImagen(null);
-        }
-        base.crearImagen(imagenes);
-    }
-
+    
     private void setImagenBoton(javax.swing.JButton boton, byte[] imagen) {
         try {
             BufferedImage image;

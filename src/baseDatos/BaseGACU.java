@@ -9,23 +9,23 @@ public class BaseGACU {
 
     //VARIABLES
     private final File carpetaBase = new File("baseDatos"); //carpeta de la base
-    private String rutaCarpeta = carpetaBase.getAbsolutePath();
-    private String signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
+    private final String rutaCarpeta = carpetaBase.getAbsolutePath();
+    private final String signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
     private ObjectContainer base;
     private final String rutaArchivo = rutaCarpeta + signoRuta + "gacuBD.yap"; //archivo de la base de datos
 
-    private BaseUsuario baseUsuario = new BaseUsuario();
-    private BaseCategoria baseCategoria = new BaseCategoria();
-    private BaseLugares baseLugar = new BaseLugares();
-    private BaseImagenes baseImagen = new BaseImagenes();
-    private BaseTrivia baseTrivia = new BaseTrivia();
-    private BaseRespuestas baseRespuestas = new BaseRespuestas();
-    private BasePreguntas basePreguntas = new BasePreguntas();
-    private BaseCategoria_Lugar baseCategoria_Lugar = new BaseCategoria_Lugar();
-    private BaseLugar_Imagen baseLugar_Imagen = new BaseLugar_Imagen();
-    private BaseRealiza baseRealiza = new BaseRealiza();
-    private BaseTrivia_PR baseTrivia_PR = new BaseTrivia_PR();
-    private BaseVisualiza baseVisualiza = new BaseVisualiza();
+    private final BaseUsuario baseUsuario = new BaseUsuario();
+    private final BaseCategoria baseCategoria = new BaseCategoria();
+    private final BaseLugares baseLugar = new BaseLugares();
+    private final BaseImagenes baseImagen = new BaseImagenes();
+    private final BaseTrivia baseTrivia = new BaseTrivia();
+    private final BaseRespuestas baseRespuestas = new BaseRespuestas();
+    private final BasePreguntas basePreguntas = new BasePreguntas();
+    private final BaseCategoria_Lugar baseCategoria_Lugar = new BaseCategoria_Lugar();
+    private final BaseLugar_Imagen baseLugar_Imagen = new BaseLugar_Imagen();
+    private final BaseRealiza baseRealiza = new BaseRealiza();
+    private final BaseTrivia_PR baseTrivia_PR = new BaseTrivia_PR();
+    private final BaseVisualiza baseVisualiza = new BaseVisualiza();
 
     //FIN VARIABLES
     //CONSTRUCTORES
