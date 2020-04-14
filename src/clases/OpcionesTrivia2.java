@@ -18,22 +18,23 @@ public final class OpcionesTrivia2 {
     }
     
     protected void llenarVectorSiglos() {
-        String siglos = "";//ejemplo,ejemplo2,ejemploe,...
+        String siglos = "X,Xll,XX,XV,Xl,XlX,V,Vll,Vlll,XlV ";
         opcionesTriviaSiglos = siglos.split(",");
     }
     
     protected void llenarVectorAnyos() {
-        String anyos = "1999,2001,2002,1998";//ejemplo,ejemplo2,ejemploe,...
+        String anyos = "1800,1910,1920,1975,1971,1990,1885,1883,1790";
         opcionesTriviaAnyos = anyos.split(",");
     }
     
     protected void llenarVectorPalabras() {
-        String palabras = "Juan de Dios,Pedro,Pilatea";//ejemplo,ejemplo2,ejemploe,...
+        String palabras = "Una estatua,Un altar,Sillas,Moderno,Coloquial,Vulgar,San Martín,San Blas,San Pedro,Zoológico,Sala arquitectónica,Baños,Naturaleza,Vegetación,Religión,Picaso,Van Gogh,Da Vinci,Monay,Sayausi,Miraflores,Jefferson Pérez,Pista de atletismo,Cancha de basket,San Sebastián,San José,Sagrados corazones,Gil Ramírez Dávalos,Francisco Calderon,Octavio Cordero Palacios,Ing. William Trelles,Ing. Jessica Pinos,Ing. Jessica Herrera,José Félix Pintado,Raúl Vela Chiriboga,Juan Francisco Peláez,Pedro José Álvarez,Claudio Malo Gonzales,Carlos Pérez Agustino,Ganar dinero,Ganar prestigio,Ganar fama,Arte moderno,Arte contemporáneo,Actividades culturales";
         opcionesTriviaPalabras = palabras.split(",");
     }
+    //generar numeros en lista{}
     
     protected String[] getOpcionesSiglos() {
-        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaPalabras.length - 1), opcionesTriviaPalabras.length);
+        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaPalabras.length - 1), 4);
         for (int i = 0; i < opcionesTrivia.length; i++) {
             opcionesTrivia[i] = opcionesTriviaSiglos[posiciones[i]];
         }
@@ -41,7 +42,7 @@ public final class OpcionesTrivia2 {
     }
     
     protected String[] getOpcionesAnyos() {
-        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaPalabras.length - 1), opcionesTriviaPalabras.length);
+        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaPalabras.length - 1), 4);
         for (int i = 0; i < opcionesTrivia.length; i++) {
             opcionesTrivia[i] = opcionesTriviaAnyos[posiciones[i]];
         }
@@ -49,7 +50,7 @@ public final class OpcionesTrivia2 {
     }
     
     protected String[] getOpcionesPalabras() {
-        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaPalabras.length - 1), opcionesTriviaPalabras.length);
+        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaPalabras.length - 1), 4);
         for (int i = 0; i < opcionesTrivia.length; i++) {
             opcionesTrivia[i] = opcionesTriviaPalabras[posiciones[i]];
         }
