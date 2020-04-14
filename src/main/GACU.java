@@ -9,10 +9,17 @@ public class GACU {
             @Override
             public void run() {
                 BaseDefault basePorDefecto = new BaseDefault();
+                
                 //MENU
                 basePorDefecto.guardarCategorias();
                 basePorDefecto.cargarImagenes();
-                //MENU
+                //FIN MENU
+                
+                //LUGARES
+                basePorDefecto.crearGuardarCategoriasLugares();
+                basePorDefecto.crearGuardarLugares();
+                //FIN LUGARES
+                
                 new MenuRegistro().setVisible(true);
             }
         });

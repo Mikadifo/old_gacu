@@ -26,54 +26,28 @@ public class Info_Lugar extends javax.swing.JFrame {
     private BaseGACU base = new BaseGACU();
     private File carpetaImg;
     private String rutaCarpeta;
-    private String signoRuta;
-    private File ruta;
     private String[] codigoImagenes;
-    byte[] icono;
 
-    public Info_Lugar(String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes, String[] nombreImagenes) {
+    public Info_Lugar(String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes) {
         initComponents();
         usuarioActivo = null;
         this.codigo_Categoria = codigo_Categoria;
         this.codigoImagenes = codigoImagenes;
-        initRutas(codigo_Categoria);
         this.setSize(810, 600);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        mostrarInfoLugar(codigo_Lugar, nombreImagenes);
+        mostrarInfoLugar(codigo_Lugar);
     }
 
-    public Info_Lugar(Usuario usuarioActivo, String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes, String[] nombreImagenes) {
+    public Info_Lugar(Usuario usuarioActivo, String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes) {
         initComponents();
         this.usuarioActivo = usuarioActivo;
         this.codigo_Categoria = codigo_Categoria;
         this.codigoImagenes = codigoImagenes;
-        initRutas(codigo_Categoria);
         this.setSize(810, 600);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        mostrarInfoLugar(codigo_Lugar, nombreImagenes);
-    }
-
-    private void initRutas(String codigo_Categoria) {
-        switch (codigo_Categoria) {
-            case "C2I":
-                carpetaImg = new File("Imagenes_Iglesias");
-                break;
-            case "C4M":
-                carpetaImg = new File("Imagenes_Museo");
-                break;
-            case "C3E":
-                carpetaImg = new File("Imagenes_Institutos");
-                break;
-            case "C1P":
-                carpetaImg = new File("Imagenes_Parques");
-                break;
-            default:
-                System.out.println("Clase " + codigo_Categoria + " no encontrada!!!");
-        }
-        rutaCarpeta = carpetaImg.getAbsolutePath();
-        signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
+        mostrarInfoLugar(codigo_Lugar);
     }
 
     @SuppressWarnings("unchecked")
@@ -248,21 +222,12 @@ public class Info_Lugar extends javax.swing.JFrame {
         }
     }
 
-    private void mostrarInfoLugar(String codigoLugar, String[] nombreImagenes) { //falta img
+    private void mostrarInfoLugar(String codigoLugar) {
         Categoria_Lugar resultado = base.getCategoria_Lugar(codigo_Categoria, codigoLugar);
         jlTitulo.setText(base.getLugar(resultado.getCodigo_lugar()).getNombre_lugar());
-        cargarImagenes(codigoImagenes, nombreImagenes);
         crearGuardarLugaresImagenes(codigoLugar, codigoImagenes);
         mostrarImagenesLabels(codigoLugar, codigoImagenes);
         jtextInfo.setText(base.getLugar(resultado.getCodigo_lugar()).getInformacion_lugar());
-    }
-
-    private void cargarImagenes(String[] codigoImagenes, String[] nombres) {
-        cargarImagen(codigoImagenes[0], nombres[0]);
-        cargarImagen(codigoImagenes[1], nombres[1]);
-        cargarImagen(codigoImagenes[2], nombres[2]);
-        cargarImagen(codigoImagenes[3], nombres[3]);
-        cargarImagen(codigoImagenes[4], nombres[4]);
     }
 
     private void mostrarImagenesLabels(String codigoLugar, String[] codigoImagenes) {
@@ -270,26 +235,8 @@ public class Info_Lugar extends javax.swing.JFrame {
         setImagenLabel(lblImagen2, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[1]).getCodigo_imagen()).getImagen());
         setImagenLabel(lblImagen3, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[2]).getCodigo_imagen()).getImagen());
         setImagenLabel(lblImagen4, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[3]).getCodigo_imagen()).getImagen());
-        setImagenLabel(central, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[0]).getCodigo_imagen()).getImagen());
         setImagenLabel(jlFondo, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[4]).getCodigo_imagen()).getImagen());
-    }
-
-    private void cargarImagen(String codigoImagen, String nombre) {
-        ruta = new File(rutaCarpeta + signoRuta + nombre);
-        guardarImagenBase(codigoImagen, ruta);
-    }
-
-    private void guardarImagenBase(String codigo, File rutaImg) {
-        imagenes.setCodigo_imagen(codigo);
-        try {
-            icono = new byte[(int) rutaImg.length()];
-            InputStream input = new FileInputStream(rutaImg);
-            input.read(icono);
-            imagenes.setImagen(icono);
-        } catch (IOException ex) {
-            imagenes.setImagen(null);
-        }
-        base.crearImagen(imagenes);
+        setImagenLabel(central, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[0]).getCodigo_imagen()).getImagen());
     }
 
     private void setImagenLabel(javax.swing.JLabel label, byte[] imagen) {
@@ -307,15 +254,13 @@ public class Info_Lugar extends javax.swing.JFrame {
 
     public void crearGuardarLugaresImagenes(String codigoLugar, String[] codigoImagenes) {
         crearLugaresImagenes(codigoLugar, codigoImagenes);
-        guardarLugaresImagenesBase(lugaresImagenes);
+        guardarLugaresImagenesBase();
     }
 
     public void crearLugaresImagenes(String codigoLugar, String[] codigoImagenes) {
-        setLugarImagen(codigoLugar, codigoImagenes[0]);
-        setLugarImagen(codigoLugar, codigoImagenes[1]);
-        setLugarImagen(codigoLugar, codigoImagenes[2]);
-        setLugarImagen(codigoLugar, codigoImagenes[3]);
-        setLugarImagen(codigoLugar, codigoImagenes[4]);
+        for (String codigoImagen : codigoImagenes) {
+            setLugarImagen(codigoLugar, codigoImagen);
+        }
     }
 
     public void setLugarImagen(String codigoLugar, String codigoImagen) {
@@ -323,8 +268,8 @@ public class Info_Lugar extends javax.swing.JFrame {
         lugaresImagenes.addElement(LugarImagen);
     }
 
-    public void guardarLugaresImagenesBase(Vector<Lugar_img> LugaresImagenes) {
-        LugaresImagenes.forEach((elemento) -> guardarLugarImagenBase(elemento));
+    public void guardarLugaresImagenesBase() {
+        lugaresImagenes.forEach((elemento) -> guardarLugarImagenBase(elemento));
     }
 
     public void guardarLugarImagenBase(Lugar_img lugarImagen) {

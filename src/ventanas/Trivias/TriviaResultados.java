@@ -19,8 +19,6 @@ public class TriviaResultados extends javax.swing.JFrame {
         lblimgV2.setVisible(false);
         lblimgX3.setVisible(false);
         lblimgV3.setVisible(false);
-        lblimgX4.setVisible(false);
-        lblimgV4.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -29,15 +27,12 @@ public class TriviaResultados extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         pnlTriviaResultados = new javax.swing.JPanel();
-        lblPregunta4 = new javax.swing.JLabel();
         lblimgV2 = new javax.swing.JLabel();
         lblimgX3 = new javax.swing.JLabel();
-        lblimgV4 = new javax.swing.JLabel();
         lblimgX1 = new javax.swing.JLabel();
         lblimgV1 = new javax.swing.JLabel();
         lblimgX2 = new javax.swing.JLabel();
         lblimgV3 = new javax.swing.JLabel();
-        lblimgX4 = new javax.swing.JLabel();
         lblPregunta1 = new javax.swing.JLabel();
         lblPregunta2 = new javax.swing.JLabel();
         lblPregunta3 = new javax.swing.JLabel();
@@ -53,12 +48,6 @@ public class TriviaResultados extends javax.swing.JFrame {
         pnlTriviaResultados.setBackground(new java.awt.Color(0, 129, 175));
         pnlTriviaResultados.setLayout(null);
 
-        lblPregunta4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        lblPregunta4.setForeground(new java.awt.Color(255, 255, 255));
-        lblPregunta4.setText("Pregunta 4");
-        pnlTriviaResultados.add(lblPregunta4);
-        lblPregunta4.setBounds(30, 310, 110, 19);
-
         lblimgV2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/comprobado.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgV2);
         lblimgV2.setBounds(190, 140, 40, 40);
@@ -66,10 +55,6 @@ public class TriviaResultados extends javax.swing.JFrame {
         lblimgX3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/eliminar.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgX3);
         lblimgX3.setBounds(190, 220, 40, 40);
-
-        lblimgV4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/comprobado.png"))); // NOI18N
-        pnlTriviaResultados.add(lblimgV4);
-        lblimgV4.setBounds(190, 290, 40, 40);
 
         lblimgX1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/eliminar.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgX1);
@@ -86,10 +71,6 @@ public class TriviaResultados extends javax.swing.JFrame {
         lblimgV3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/comprobado.png"))); // NOI18N
         pnlTriviaResultados.add(lblimgV3);
         lblimgV3.setBounds(190, 220, 40, 40);
-
-        lblimgX4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/eliminar.png"))); // NOI18N
-        pnlTriviaResultados.add(lblimgX4);
-        lblimgX4.setBounds(190, 290, 40, 40);
 
         lblPregunta1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         lblPregunta1.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,16 +154,13 @@ public class TriviaResultados extends javax.swing.JFrame {
     private javax.swing.JLabel lblPregunta1;
     private javax.swing.JLabel lblPregunta2;
     private javax.swing.JLabel lblPregunta3;
-    private javax.swing.JLabel lblPregunta4;
     private javax.swing.JLabel lblTriviaResultados;
     private javax.swing.JLabel lblimgV1;
     private javax.swing.JLabel lblimgV2;
     private javax.swing.JLabel lblimgV3;
-    private javax.swing.JLabel lblimgV4;
     private javax.swing.JLabel lblimgX1;
     private javax.swing.JLabel lblimgX2;
     private javax.swing.JLabel lblimgX3;
-    private javax.swing.JLabel lblimgX4;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlTriviaResultados;
     // End of variables declaration//GEN-END:variables
