@@ -24,7 +24,7 @@ public class Trivia1 extends javax.swing.JFrame {
         this.respuestasTrivias = respuestasTrivias;
         setBotonPosicion();
         this.usuarioActivo = usuarioActivo;
-        this.setSize(700, 500);
+        this.setSize(810, 600);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         cargarPreguntaRespuesta();
@@ -35,13 +35,15 @@ public class Trivia1 extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlVoF = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
-        lblEnunciado = new javax.swing.JLabel();
         pnlRespuestas = new javax.swing.JPanel();
         btnFalso = new javax.swing.JButton();
         btnVerdadero = new javax.swing.JButton();
         btnSalirMenu = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
+        pnlEnunciado = new javax.swing.JPanel();
+        lblEnunciado = new javax.swing.JLabel();
+        header = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
         lblTriviaFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,15 +55,6 @@ public class Trivia1 extends javax.swing.JFrame {
 
         pnlVoF.setPreferredSize(new java.awt.Dimension(700, 500));
         pnlVoF.setLayout(null);
-
-        lblTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlVoF.add(lblTitulo);
-        lblTitulo.setBounds(220, 20, 250, 20);
-
-        lblEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lblEnunciado.setPreferredSize(new java.awt.Dimension(560, 140));
-        pnlVoF.add(lblEnunciado);
-        lblEnunciado.setBounds(70, 70, 560, 140);
 
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.setLayout(null);
@@ -87,7 +80,7 @@ public class Trivia1 extends javax.swing.JFrame {
             }
         });
         pnlRespuestas.add(btnFalso);
-        btnFalso.setBounds(280, 0, 280, 160);
+        btnFalso.setBounds(0, 90, 730, 90);
 
         btnVerdadero.setBackground(new java.awt.Color(76, 84, 84));
         btnVerdadero.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -110,10 +103,10 @@ public class Trivia1 extends javax.swing.JFrame {
             }
         });
         pnlRespuestas.add(btnVerdadero);
-        btnVerdadero.setBounds(0, 0, 280, 160);
+        btnVerdadero.setBounds(0, 0, 730, 90);
 
         pnlVoF.add(pnlRespuestas);
-        pnlRespuestas.setBounds(70, 230, 560, 160);
+        pnlRespuestas.setBounds(40, 280, 730, 180);
 
         btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
         btnSalirMenu.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -141,7 +134,7 @@ public class Trivia1 extends javax.swing.JFrame {
             }
         });
         pnlVoF.add(btnSalirMenu);
-        btnSalirMenu.setBounds(70, 430, 130, 40);
+        btnSalirMenu.setBounds(40, 510, 260, 80);
 
         btnPrincipal.setBackground(new java.awt.Color(76, 84, 84));
         btnPrincipal.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -155,7 +148,6 @@ public class Trivia1 extends javax.swing.JFrame {
         btnPrincipal.setMinimumSize(new java.awt.Dimension(100, 40));
         btnPrincipal.setOpaque(true);
         btnPrincipal.setPreferredSize(new java.awt.Dimension(130, 40));
-        btnPrincipal.setSize(new java.awt.Dimension(130, 40));
         btnPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnPrincipalMouseEntered(evt);
@@ -170,17 +162,37 @@ public class Trivia1 extends javax.swing.JFrame {
             }
         });
         pnlVoF.add(btnPrincipal);
-        btnPrincipal.setBounds(500, 430, 130, 40);
+        btnPrincipal.setBounds(510, 500, 260, 80);
+
+        pnlEnunciado.setBackground(new java.awt.Color(76, 84, 84));
+        pnlEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlEnunciado.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        pnlEnunciado.setLayout(null);
+        pnlEnunciado.add(lblEnunciado);
+        lblEnunciado.setBounds(0, 0, 650, 190);
+
+        pnlVoF.add(pnlEnunciado);
+        pnlEnunciado.setBounds(80, 70, 650, 190);
+
+        header.setBackground(new java.awt.Color(76, 84, 84));
+        header.setLayout(null);
+
+        lblTitulo.setPreferredSize(new java.awt.Dimension(250, 35));
+        header.add(lblTitulo);
+        lblTitulo.setBounds(0, 0, 250, 35);
+
+        pnlVoF.add(header);
+        header.setBounds(0, 0, 810, 40);
 
         lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/trivia1.jpg"))); // NOI18N
         lblTriviaFondo.setMaximumSize(new java.awt.Dimension(700, 500));
         lblTriviaFondo.setMinimumSize(new java.awt.Dimension(700, 500));
         lblTriviaFondo.setPreferredSize(new java.awt.Dimension(700, 500));
         pnlVoF.add(lblTriviaFondo);
-        lblTriviaFondo.setBounds(0, 0, 700, 500);
+        lblTriviaFondo.setBounds(0, 0, 810, 600);
 
         getContentPane().add(pnlVoF);
-        pnlVoF.setBounds(0, 0, 700, 500);
+        pnlVoF.setBounds(0, 0, 810, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,20 +212,6 @@ public class Trivia1 extends javax.swing.JFrame {
                 btnPrincipal.setText("Terminar");
         }
     }
-
-    private void btnSalirMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMenuMouseEntered
-        btnSalirMenu.setBackground(new java.awt.Color(30, 168, 150));
-    }//GEN-LAST:event_btnSalirMenuMouseEntered
-
-    private void btnSalirMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMenuMouseExited
-        btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
-    }//GEN-LAST:event_btnSalirMenuMouseExited
-
-    private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
-        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
-        menu.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnSalirMenuActionPerformed
 
     private void btnPrincipalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrincipalMouseEntered
         btnPrincipal.setBackground(new java.awt.Color(30, 168, 150));
@@ -239,28 +237,19 @@ public class Trivia1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPrincipalActionPerformed
 
-    private String getRespuesta() {
-        return btnVerdadero.getBackground().equals(new java.awt.Color(30, 168, 150))?"Verdadero":"Falso";
-    }
-    
-    private void btnVerdaderoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerdaderoMouseEntered
-    }//GEN-LAST:event_btnVerdaderoMouseEntered
+    private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
+        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
+        menu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnSalirMenuActionPerformed
 
-    private void btnVerdaderoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerdaderoMouseExited
-    }//GEN-LAST:event_btnVerdaderoMouseExited
+    private void btnSalirMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMenuMouseExited
+        btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnSalirMenuMouseExited
 
-    private void btnFalsoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFalsoMouseEntered
-    }//GEN-LAST:event_btnFalsoMouseEntered
-
-    private void btnFalsoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFalsoMouseExited
-    }//GEN-LAST:event_btnFalsoMouseExited
-
-    private void btnVerdaderoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerdaderoActionPerformed
-        if (btnFalso.getBackground().equals(new java.awt.Color(255, 113, 91))) {
-            btnFalso.setBackground(new java.awt.Color(76, 84, 84));
-        }
-        btnVerdadero.setBackground(new java.awt.Color(30, 168, 150));
-    }//GEN-LAST:event_btnVerdaderoActionPerformed
+    private void btnSalirMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMenuMouseEntered
+        btnSalirMenu.setBackground(new java.awt.Color(30, 168, 150));
+    }//GEN-LAST:event_btnSalirMenuMouseEntered
 
     private void btnFalsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFalsoActionPerformed
         if (btnVerdadero.getBackground().equals((new java.awt.Color(30, 168, 150)))) {
@@ -269,6 +258,33 @@ public class Trivia1 extends javax.swing.JFrame {
         btnFalso.setBackground(new java.awt.Color(255, 113, 91));
     }//GEN-LAST:event_btnFalsoActionPerformed
 
+    private void btnFalsoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFalsoMouseExited
+
+    }//GEN-LAST:event_btnFalsoMouseExited
+
+    private void btnFalsoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFalsoMouseEntered
+
+    }//GEN-LAST:event_btnFalsoMouseEntered
+
+    private void btnVerdaderoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerdaderoActionPerformed
+        if (btnFalso.getBackground().equals(new java.awt.Color(255, 113, 91))) {
+            btnFalso.setBackground(new java.awt.Color(76, 84, 84));
+        }
+        btnVerdadero.setBackground(new java.awt.Color(30, 168, 150));
+    }//GEN-LAST:event_btnVerdaderoActionPerformed
+
+    private void btnVerdaderoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerdaderoMouseExited
+
+    }//GEN-LAST:event_btnVerdaderoMouseExited
+
+    private void btnVerdaderoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerdaderoMouseEntered
+
+    }//GEN-LAST:event_btnVerdaderoMouseEntered
+
+    private String getRespuesta() {
+        return btnVerdadero.getBackground().equals(new java.awt.Color(30, 168, 150))?"Verdadero":"Falso";
+    }
+    
     private void mostrarVentanaRandom() {
         if (ventanaAnterior.equals("MENU")) {
             switch (generarNumeroRandom(1, 2)) {
@@ -301,9 +317,11 @@ public class Trivia1 extends javax.swing.JFrame {
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JButton btnVerdadero;
+    private javax.swing.JPanel header;
     private javax.swing.JLabel lblEnunciado;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTriviaFondo;
+    private javax.swing.JPanel pnlEnunciado;
     private javax.swing.JPanel pnlRespuestas;
     private javax.swing.JPanel pnlVoF;
     // End of variables declaration//GEN-END:variables

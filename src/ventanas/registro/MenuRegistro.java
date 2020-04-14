@@ -48,6 +48,7 @@ public class MenuRegistro extends javax.swing.JFrame {
         btnInvitado.setForeground(new java.awt.Color(255, 255, 255));
         btnInvitado.setText("INVITADO");
         btnInvitado.setBorderPainted(false);
+        btnInvitado.setOpaque(true);
         btnInvitado.setPreferredSize(new java.awt.Dimension(257, 40));
         btnInvitado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -68,6 +69,7 @@ public class MenuRegistro extends javax.swing.JFrame {
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("SALIR");
         btnSalir.setBorderPainted(false);
+        btnSalir.setOpaque(true);
         btnSalir.setPreferredSize(new java.awt.Dimension(257, 40));
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -89,6 +91,7 @@ public class MenuRegistro extends javax.swing.JFrame {
         btnCrearCuenta.setText("CREAR CUENTA");
         btnCrearCuenta.setBorder(null);
         btnCrearCuenta.setBorderPainted(false);
+        btnCrearCuenta.setOpaque(true);
         btnCrearCuenta.setPreferredSize(new java.awt.Dimension(257, 40));
         btnCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -110,6 +113,7 @@ public class MenuRegistro extends javax.swing.JFrame {
         btnIniciarSesion.setText("INICIAR SESION");
         btnIniciarSesion.setBorder(null);
         btnIniciarSesion.setBorderPainted(false);
+        btnIniciarSesion.setOpaque(true);
         btnIniciarSesion.setPreferredSize(new java.awt.Dimension(257, 40));
         btnIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

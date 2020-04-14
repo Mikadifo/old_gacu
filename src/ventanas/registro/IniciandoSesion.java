@@ -193,6 +193,7 @@ public class IniciandoSesion extends javax.swing.JFrame {
         btnIngresar.setText("INGRESAR");
         btnIngresar.setBorder(null);
         btnIngresar.setBorderPainted(false);
+        btnIngresar.setOpaque(true);
         btnIngresar.setPreferredSize(new java.awt.Dimension(100, 40));
         btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -288,7 +289,9 @@ public class IniciandoSesion extends javax.swing.JFrame {
         panelDerecha.setLayout(panelDerechaLayout);
         panelDerechaLayout.setHorizontalGroup(
             panelDerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelDerechaLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
         panelDerechaLayout.setVerticalGroup(
             panelDerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

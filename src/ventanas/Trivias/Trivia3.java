@@ -23,7 +23,7 @@ public class Trivia3 extends javax.swing.JFrame {
         this.respuestasTrivias = respuestasTrivias;
         setBotonPosicion();
         this.usuarioActivo = usuarioActivo;
-        this.setSize(700, 500);
+        this.setSize(810, 600);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         cargarPreguntaRespuesta();
@@ -34,8 +34,6 @@ public class Trivia3 extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlCompletar = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
-        lblEnunciado = new javax.swing.JLabel();
         pnlRespuestas = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -46,6 +44,10 @@ public class Trivia3 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnSalirMenu = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
+        pnlEnunciado = new javax.swing.JPanel();
+        lblEnunciado = new javax.swing.JLabel();
+        header = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
         lblTriviaFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,50 +58,44 @@ public class Trivia3 extends javax.swing.JFrame {
         pnlCompletar.setRequestFocusEnabled(false);
         pnlCompletar.setLayout(null);
 
-        lblTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlCompletar.add(lblTitulo);
-        lblTitulo.setBounds(220, 20, 250, 20);
-
-        lblEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lblEnunciado.setPreferredSize(new java.awt.Dimension(560, 140));
-        lblEnunciado.setSize(new java.awt.Dimension(560, 140));
-        pnlCompletar.add(lblEnunciado);
-        lblEnunciado.setBounds(70, 70, 560, 140);
-
+        pnlRespuestas.setBackground(new java.awt.Color(102, 102, 102));
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlRespuestas.setSize(new java.awt.Dimension(560, 160));
         pnlRespuestas.setLayout(null);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         pnlRespuestas.add(jComboBox1);
-        jComboBox1.setBounds(170, 110, 370, 27);
+        jComboBox1.setBounds(320, 110, 370, 30);
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel1.setOpaque(true);
         pnlRespuestas.add(jLabel1);
-        jLabel1.setBounds(360, 30, 170, 20);
+        jLabel1.setBounds(440, 30, 250, 30);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel2.setOpaque(true);
         pnlRespuestas.add(jLabel2);
-        jLabel2.setBounds(10, 30, 210, 20);
+        jLabel2.setBounds(10, 30, 210, 30);
 
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel3.setOpaque(true);
         pnlRespuestas.add(jLabel3);
-        jLabel3.setBounds(10, 70, 400, 20);
+        jLabel3.setBounds(10, 70, 400, 30);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         pnlRespuestas.add(jComboBox3);
-        jComboBox3.setBounds(230, 30, 120, 27);
+        jComboBox3.setBounds(230, 30, 200, 30);
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         pnlRespuestas.add(jComboBox4);
-        jComboBox4.setBounds(430, 70, 110, 27);
+        jComboBox4.setBounds(420, 70, 270, 30);
 
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel4.setOpaque(true);
         pnlRespuestas.add(jLabel4);
-        jLabel4.setBounds(10, 110, 140, 20);
+        jLabel4.setBounds(10, 110, 300, 30);
 
         pnlCompletar.add(pnlRespuestas);
-        pnlRespuestas.setBounds(70, 230, 560, 160);
+        pnlRespuestas.setBounds(50, 140, 710, 340);
 
         btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
         btnSalirMenu.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -127,7 +123,7 @@ public class Trivia3 extends javax.swing.JFrame {
             }
         });
         pnlCompletar.add(btnSalirMenu);
-        btnSalirMenu.setBounds(70, 430, 130, 40);
+        btnSalirMenu.setBounds(50, 500, 260, 80);
 
         btnPrincipal.setBackground(new java.awt.Color(76, 84, 84));
         btnPrincipal.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -155,14 +151,43 @@ public class Trivia3 extends javax.swing.JFrame {
             }
         });
         pnlCompletar.add(btnPrincipal);
-        btnPrincipal.setBounds(500, 430, 130, 40);
+        btnPrincipal.setBounds(500, 500, 260, 80);
+
+        pnlEnunciado.setBackground(new java.awt.Color(76, 84, 84));
+        pnlEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlEnunciado.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        pnlEnunciado.setPreferredSize(new java.awt.Dimension(710, 70));
+
+        javax.swing.GroupLayout pnlEnunciadoLayout = new javax.swing.GroupLayout(pnlEnunciado);
+        pnlEnunciado.setLayout(pnlEnunciadoLayout);
+        pnlEnunciadoLayout.setHorizontalGroup(
+            pnlEnunciadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblEnunciado, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+        );
+        pnlEnunciadoLayout.setVerticalGroup(
+            pnlEnunciadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblEnunciado, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+        );
+
+        pnlCompletar.add(pnlEnunciado);
+        pnlEnunciado.setBounds(50, 60, 710, 70);
+
+        header.setBackground(new java.awt.Color(76, 84, 84));
+        header.setLayout(null);
+
+        lblTitulo.setPreferredSize(new java.awt.Dimension(250, 35));
+        header.add(lblTitulo);
+        lblTitulo.setBounds(0, 0, 250, 35);
+
+        pnlCompletar.add(header);
+        header.setBounds(0, 0, 810, 40);
 
         lblTriviaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Trivia/trivia3.jpg"))); // NOI18N
         pnlCompletar.add(lblTriviaFondo);
-        lblTriviaFondo.setBounds(0, 0, 700, 500);
+        lblTriviaFondo.setBounds(0, 0, 810, 600);
 
         getContentPane().add(pnlCompletar);
-        pnlCompletar.setBounds(0, 0, 700, 500);
+        pnlCompletar.setBounds(0, 0, 810, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,6 +280,7 @@ public class Trivia3 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnSalirMenu;
+    private javax.swing.JPanel header;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -266,6 +292,7 @@ public class Trivia3 extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTriviaFondo;
     private javax.swing.JPanel pnlCompletar;
+    private javax.swing.JPanel pnlEnunciado;
     private javax.swing.JPanel pnlRespuestas;
     // End of variables declaration//GEN-END:variables
 }
