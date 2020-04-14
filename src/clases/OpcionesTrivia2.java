@@ -18,7 +18,7 @@ public final class OpcionesTrivia2 {
     }
     
     protected void llenarVectorSiglos() {
-        String siglos = "XXX,VVV,III";//ejemplo,ejemplo2,ejemploe,...
+        String siglos = "";//ejemplo,ejemplo2,ejemploe,...
         opcionesTriviaSiglos = siglos.split(",");
     }
     
