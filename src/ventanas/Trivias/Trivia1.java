@@ -1,15 +1,13 @@
 package ventanas.Trivias;
 
-import clases.Usuario;
-import clases.Trivia_PR;
+import clases.*;
 import baseDatos.BaseGACU;
-import clases.Realiza;
 import javax.swing.JOptionPane;
 import ventanas.registro.MenuPrincipal;
 
 public class Trivia1 extends javax.swing.JFrame {
 
-    private BaseGACU base = new BaseGACU();
+    private final BaseGACU base = new BaseGACU();
     private Trivia_PR[] triviaPRS;
     private boolean[] respuestasTrivias;
     private Usuario usuarioActivo;
@@ -200,6 +198,7 @@ public class Trivia1 extends javax.swing.JFrame {
     private void cargarPreguntaRespuesta() {
         lblTitulo.setText(base.getTrivia(triviaPRS[0].getCodigo_trivia()).getNombre_trivia());
         lblEnunciado.setText(base.getPregunta(triviaPRS[0].getCodigo_pregunta()).getPregunta());
+        System.out.println("RT1 = " + base.getRespuesta(triviaPRS[0].getCodigo_respuesta()).getRespuesta());
     }
 
     private void setBotonPosicion() {
@@ -227,7 +226,7 @@ public class Trivia1 extends javax.swing.JFrame {
                 respuestasTrivias[0] = (getRespuesta().equals(base.getRespuesta(triviaPRS[0].getCodigo_respuesta()).getRespuesta()));
                 mostrarVentanaRandom();
             } else {
-                TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo);
+                TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo, respuestasTrivias, triviaPRS);
                 ventanaResultados.setVisible(true);
             }
             base.crearRealiza(new Realiza(triviaPRS[0].getCodigo_trivia(), usuarioActivo.getCedulaUsuario()));
@@ -252,9 +251,7 @@ public class Trivia1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMenuMouseEntered
 
     private void btnFalsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFalsoActionPerformed
-        if (btnVerdadero.getBackground().equals((new java.awt.Color(30, 168, 150)))) {
-            btnVerdadero.setBackground(new java.awt.Color(76, 84, 84));
-        }
+        btnVerdadero.setBackground(new java.awt.Color(76, 84, 84));
         btnFalso.setBackground(new java.awt.Color(255, 113, 91));
     }//GEN-LAST:event_btnFalsoActionPerformed
 
@@ -267,9 +264,7 @@ public class Trivia1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFalsoMouseEntered
 
     private void btnVerdaderoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerdaderoActionPerformed
-        if (btnFalso.getBackground().equals(new java.awt.Color(255, 113, 91))) {
-            btnFalso.setBackground(new java.awt.Color(76, 84, 84));
-        }
+        btnFalso.setBackground(new java.awt.Color(76, 84, 84));
         btnVerdadero.setBackground(new java.awt.Color(30, 168, 150));
     }//GEN-LAST:event_btnVerdaderoActionPerformed
 
@@ -282,9 +277,9 @@ public class Trivia1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerdaderoMouseEntered
 
     private String getRespuesta() {
-        return btnVerdadero.getBackground().equals(new java.awt.Color(30, 168, 150))?"Verdadero":"Falso";
+        return btnVerdadero.getBackground().equals(new java.awt.Color(30, 168, 150)) ? "Verdadero" : "Falso";
     }
-    
+
     private void mostrarVentanaRandom() {
         if (ventanaAnterior.equals("MENU")) {
             switch (generarNumeroRandom(1, 2)) {

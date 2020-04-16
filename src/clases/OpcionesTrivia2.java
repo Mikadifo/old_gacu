@@ -6,6 +6,7 @@ public final class OpcionesTrivia2 {
     private String[] opcionesTriviaSiglos;
     private String[] opcionesTriviaAnyos;
     private String[] opcionesTriviaPalabras;
+    private String[] opcionesTriviaNumeros;
 
     public OpcionesTrivia2() {
         llenarVectores();
@@ -31,10 +32,15 @@ public final class OpcionesTrivia2 {
         String palabras = "Una estatua,Un altar,Sillas,Moderno,Coloquial,Vulgar,San Martín,San Blas,San Pedro,Zoológico,Sala arquitectónica,Baños,Naturaleza,Vegetación,Religión,Picaso,Van Gogh,Da Vinci,Monay,Sayausi,Miraflores,Jefferson Pérez,Pista de atletismo,Cancha de basket,San Sebastián,San José,Sagrados corazones,Gil Ramírez Dávalos,Francisco Calderon,Octavio Cordero Palacios,Ing. William Trelles,Ing. Jessica Pinos,Ing. Jessica Herrera,José Félix Pintado,Raúl Vela Chiriboga,Juan Francisco Peláez,Pedro José Álvarez,Claudio Malo Gonzales,Carlos Pérez Agustino,Ganar dinero,Ganar prestigio,Ganar fama,Arte moderno,Arte contemporáneo,Actividades culturales";
         opcionesTriviaPalabras = palabras.split(",");
     }
+    
+    protected void llenarVectorNumeros() {
+        String numeros = "24448,25290,90313,63945,61230,23056,68234,12095,25834,29675,26790";
+        opcionesTriviaNumeros = numeros.split(",");
+    }
     //generar numeros en lista{}
     
     protected String[] getOpcionesSiglos() {
-        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaPalabras.length - 1), 4);
+        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaSiglos.length - 1), 4);
         for (int i = 0; i < opcionesTrivia.length; i++) {
             opcionesTrivia[i] = opcionesTriviaSiglos[posiciones[i]];
         }
@@ -42,7 +48,7 @@ public final class OpcionesTrivia2 {
     }
     
     protected String[] getOpcionesAnyos() {
-        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaPalabras.length - 1), 4);
+        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaAnyos.length - 1), 4);
         for (int i = 0; i < opcionesTrivia.length; i++) {
             opcionesTrivia[i] = opcionesTriviaAnyos[posiciones[i]];
         }
@@ -57,11 +63,21 @@ public final class OpcionesTrivia2 {
         return opcionesTrivia;
     }
     
+    protected String[] getOpcionesNumeros() {
+        int[] posiciones = generarNumerosRandom(0, (opcionesTriviaNumeros.length - 1), 4);
+        for (int i = 0; i < opcionesTrivia.length; i++) {
+            opcionesTrivia[i] = opcionesTriviaNumeros[posiciones[i]];
+        }
+        return opcionesTrivia;
+    }
+    
     public String[] getOpcionesTrivia(String respuesta) {
         if (respuesta.matches("\\d{4}")) { //anyos
             opcionesTrivia = getOpcionesAnyos();
         } else if (respuesta.matches("^(V|I|X)+(V|I|X)+(V|I|X)+$")) { //siglos revisar regex
             opcionesTrivia = getOpcionesSiglos();
+        } else if (respuesta.matches("\\d{5}")) {
+            opcionesTrivia = getOpcionesNumeros();
         } else {
             opcionesTrivia = getOpcionesPalabras();
         }

@@ -1,9 +1,8 @@
 package ventanas.Trivias;
 
 import baseDatos.BaseGACU;
-import clases.Realiza;
-import clases.Trivia_PR;
-import clases.Usuario;
+import clases.*;
+import javax.swing.JOptionPane;
 import ventanas.registro.MenuPrincipal;
 
 public class Trivia3 extends javax.swing.JFrame {
@@ -35,13 +34,12 @@ public class Trivia3 extends javax.swing.JFrame {
 
         pnlCompletar = new javax.swing.JPanel();
         pnlRespuestas = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        lblR1 = new javax.swing.JLabel();
+        lblR2 = new javax.swing.JLabel();
+        lblR3 = new javax.swing.JLabel();
+        txtR3 = new javax.swing.JTextField();
+        txtR2 = new javax.swing.JTextField();
+        txtR1 = new javax.swing.JTextField();
         btnSalirMenu = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
         pnlEnunciado = new javax.swing.JPanel();
@@ -62,40 +60,35 @@ public class Trivia3 extends javax.swing.JFrame {
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.setLayout(null);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        pnlRespuestas.add(jComboBox1);
-        jComboBox1.setBounds(320, 110, 370, 30);
+        lblR1.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 15)); // NOI18N
+        lblR1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblR1.setText("1.-");
+        lblR1.setOpaque(true);
+        pnlRespuestas.add(lblR1);
+        lblR1.setBounds(10, 50, 40, 30);
 
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel1.setOpaque(true);
-        pnlRespuestas.add(jLabel1);
-        jLabel1.setBounds(440, 30, 250, 30);
+        lblR2.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 15)); // NOI18N
+        lblR2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblR2.setText("2.-");
+        lblR2.setOpaque(true);
+        pnlRespuestas.add(lblR2);
+        lblR2.setBounds(10, 130, 40, 30);
 
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel2.setOpaque(true);
-        pnlRespuestas.add(jLabel2);
-        jLabel2.setBounds(10, 30, 210, 30);
-
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel3.setOpaque(true);
-        pnlRespuestas.add(jLabel3);
-        jLabel3.setBounds(10, 70, 400, 30);
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        pnlRespuestas.add(jComboBox3);
-        jComboBox3.setBounds(230, 30, 200, 30);
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        pnlRespuestas.add(jComboBox4);
-        jComboBox4.setBounds(420, 70, 270, 30);
-
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel4.setOpaque(true);
-        pnlRespuestas.add(jLabel4);
-        jLabel4.setBounds(10, 110, 300, 30);
+        lblR3.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 15)); // NOI18N
+        lblR3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblR3.setText("3.-");
+        lblR3.setOpaque(true);
+        pnlRespuestas.add(lblR3);
+        lblR3.setBounds(10, 210, 40, 30);
+        pnlRespuestas.add(txtR3);
+        txtR3.setBounds(70, 210, 590, 26);
+        pnlRespuestas.add(txtR2);
+        txtR2.setBounds(70, 130, 590, 26);
+        pnlRespuestas.add(txtR1);
+        txtR1.setBounds(70, 50, 590, 26);
 
         pnlCompletar.add(pnlRespuestas);
-        pnlRespuestas.setBounds(50, 140, 710, 340);
+        pnlRespuestas.setBounds(50, 190, 710, 290);
 
         btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
         btnSalirMenu.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
@@ -166,18 +159,21 @@ public class Trivia3 extends javax.swing.JFrame {
         );
         pnlEnunciadoLayout.setVerticalGroup(
             pnlEnunciadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEnunciado, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+            .addComponent(lblEnunciado, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
         );
 
         pnlCompletar.add(pnlEnunciado);
-        pnlEnunciado.setBounds(50, 60, 710, 70);
+        pnlEnunciado.setBounds(50, 60, 710, 110);
 
         header.setBackground(new java.awt.Color(76, 84, 84));
         header.setLayout(null);
 
+        lblTitulo.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 15)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setPreferredSize(new java.awt.Dimension(250, 35));
         header.add(lblTitulo);
-        lblTitulo.setBounds(0, 0, 250, 35);
+        lblTitulo.setBounds(0, 0, 810, 40);
 
         pnlCompletar.add(header);
         header.setBounds(0, 0, 810, 40);
@@ -193,9 +189,14 @@ public class Trivia3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargarPreguntaRespuesta() {
+        String[] enunciado = base.getPregunta(triviaPRS[2].getCodigo_pregunta()).getPregunta().split("-");
         lblTitulo.setText(base.getTrivia(triviaPRS[2].getCodigo_trivia()).getNombre_trivia());
-        lblEnunciado.setText(base.getPregunta(triviaPRS[2].getCodigo_pregunta()).getPregunta());
-        jLabel2.setText(base.getRespuesta(triviaPRS[2].getCodigo_respuesta()).getRespuesta().substring(0, 5));//ver como hacer esto y separar expresion
+        if (enunciado.length == 4) {
+            lblEnunciado.setText(enunciado[0] + "___1___" + enunciado[1] + "___2___" + enunciado[2] + "___3___" + enunciado[3]);
+        } else {
+            lblEnunciado.setText(enunciado[0] + "___1___" + enunciado[1] + "___2___" + enunciado[2] + "___3___");
+        }
+        System.out.println("RT3 = " + base.getRespuesta(triviaPRS[2].getCodigo_respuesta()).getRespuesta());
     }
     
     private void setBotonPosicion() {
@@ -231,19 +232,20 @@ public class Trivia3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrincipalMouseExited
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
-        //if (botonSeleccionado) {
+        if (respuestasLlenas()) {
         if (btnPrincipal.getText().equals("Siguiente")) {
-            //respuestasTrivias[2] = (getRespuesta().equals(base.getRespuesta(triviaPRS[2].getCodigo_respuesta()).getRespuesta()));
+            String[] respuestas = base.getRespuesta(triviaPRS[2].getCodigo_respuesta()).getRespuesta().split(",");
+            respuestasTrivias[2] = respuestas[0].equalsIgnoreCase(txtR1.getText()) && respuestas[1].equalsIgnoreCase(txtR2.getText()) && respuestas[2].equalsIgnoreCase(txtR3.getText());
             mostrarVentanaRandom();
         } else {
-            TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo);
+            TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo, respuestasTrivias, triviaPRS);
             ventanaResultados.setVisible(true);
         }
         base.crearRealiza(new Realiza(triviaPRS[2].getCodigo_trivia(), usuarioActivo.getCedulaUsuario()));
         dispose();
-        //} else {
-            //JOptionPane.showMessageDialog(null, "Primer debe completar la frase");
-        //}
+        } else {
+            JOptionPane.showMessageDialog(null, "Primero debe llenar todos los espacios");
+        }
     }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void mostrarVentanaRandom() {
@@ -273,26 +275,25 @@ public class Trivia3 extends javax.swing.JFrame {
         return (int) (Math.random() * ((max - min) + 1) + min);
     }
     
-//    private String getRespuesta() {//validar y regresar que los Field esten bien todos
-//        return btnVerdadero.getBackground().equals(new java.awt.Color(30, 168, 150))?"Verdadero":"Falso";
-//    }
+    private boolean respuestasLlenas() {
+        return !txtR1.getText().isBlank() && !txtR2.getText().isBlank() && !txtR3.getText().isBlank();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JPanel header;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblEnunciado;
+    private javax.swing.JLabel lblR1;
+    private javax.swing.JLabel lblR2;
+    private javax.swing.JLabel lblR3;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTriviaFondo;
     private javax.swing.JPanel pnlCompletar;
     private javax.swing.JPanel pnlEnunciado;
     private javax.swing.JPanel pnlRespuestas;
+    private javax.swing.JTextField txtR1;
+    private javax.swing.JTextField txtR2;
+    private javax.swing.JTextField txtR3;
     // End of variables declaration//GEN-END:variables
 }

@@ -59,7 +59,7 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RP05", "Planetario"));
                 
                 preguntas.addElement(new Preguntas("PP06", "Este parque destinado al deporte tuvo como primer campeón olimpico a-y se le a honrado con un/una-dentro el parque, tambien se puede acceder a:"));
-                respuestas.addElement(new Respuestas("RP06", "Jefferson Pérez,Estatua,Planetario"));
+                respuestas.addElement(new Respuestas("RP06", "Jefferson Perez,Estatua,Planetario"));
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TP04").getCodigo_trivia(), "PP04", "RP04"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TP05").getCodigo_trivia(), "PP05", "RP05"));
@@ -72,8 +72,8 @@ public class BaseGeneracionTRIVIAPR {
                 preguntas.addElement(new Preguntas("PP08", "Este parque esta ubicado en el sector de:"));
                 respuestas.addElement(new Respuestas("RP08", "Gapal"));
                 
-                preguntas.addElement(new Preguntas("PP09", "El parque mas grande de Cuenca, fue inagurado el-de-se puede acceder de manera gratuita los-"));
-                respuestas.addElement(new Respuestas("RP09", "19 de marzo,2003,Lunes a Domingo"));
+                preguntas.addElement(new Preguntas("PP09", "El parque mas grande de Cuenca, fue inagurado el dia-de marzo del año-se puede acceder de manera gratuita de Lunes a-"));
+                respuestas.addElement(new Respuestas("RP09", "19,2003,Domingo"));
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TP07").getCodigo_trivia(), "PP07", "RP07"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TP08").getCodigo_trivia(), "PP08", "RP08"));
@@ -185,7 +185,7 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RM02", "Sala Etnográfica Nacional"));
                 
                 preguntas.addElement(new Preguntas("PM03", "El Museo y Parque Ancestral Pumapungo son parte del-que hace de Cuenca una ciudad llena de interesantes propuestas-.Es deber de todos-y respetarlos "));
-                respuestas.addElement(new Respuestas("RM03", "Patrimonio,Artístico-Culturales,Valorarlo"));
+                respuestas.addElement(new Respuestas("RM03", "Patrimonio,Artistico-Culturales,Valorarlo"));
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TM01").getCodigo_trivia(), "PM01", "RM01"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TM02").getCodigo_trivia(), "PM02", "RM02"));
@@ -227,7 +227,7 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RM11", "Sociedad"));
                 
                 preguntas.addElement(new Preguntas("PM12", "Constituye desde el 10 de abril del-un nuevo y original espacio que contribuye para ampliar los conocimientos acerca del mundo-, a través de la-cientifica"));
-                respuestas.addElement(new Respuestas("RM12", "2001,Investigación"));
+                respuestas.addElement(new Respuestas("RM12", "2001,Investigación")); //falta
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TM10").getCodigo_trivia(), "PM10", "RM10"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TM11").getCodigo_trivia(), "PM11", "RM11"));
@@ -241,7 +241,7 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RM14", "1972"));
                 
                 preguntas.addElement(new Preguntas("PM15", "Las Ruinas de Todos los Santos, constituye un sitio-.Aquí podemos encontrar-que fueron descubiertos durante los trabajos de-"));
-                respuestas.addElement(new Respuestas("RM15", "Arqueológico,Vestigios,Excavación"));
+                respuestas.addElement(new Respuestas("RM15", "Arqueologico,Vestigios,Excavacion"));
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TM13").getCodigo_trivia(), "PM13", "RM13"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TM14").getCodigo_trivia(), "PM14", "RM14"));
@@ -283,7 +283,7 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RE08", "1970"));
                 
                 preguntas.addElement(new Preguntas("PE09", "La Universidad Católica de Cuenca fue creada por gestiones personales del sacerdote-, quien había creado en-la escuela arzobispo Serrano, en 1962 el colegio normal católico-y después otros centros educativos."));
-                respuestas.addElement(new Respuestas("RE09", "César Cordero Moscoso,1955,Miguel Cordero Crespo"));
+                respuestas.addElement(new Respuestas("RE09", "Cesar Cordero Moscoso,1955,Miguel Cordero Crespo"));
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE07").getCodigo_trivia(), "PE07", "RE07"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE08").getCodigo_trivia(), "PE08", "RE08"));
@@ -294,10 +294,10 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RE10", "Falso"));
 
                 preguntas.addElement(new Preguntas("PE11", "¿Cuantos estudiantes se registraron en el año 2016 en el Ecuador?"));
-                respuestas.addElement(new Respuestas("RE11", "25.545"));
+                respuestas.addElement(new Respuestas("RE11", "25545"));
                 
                 preguntas.addElement(new Preguntas("PE12", "La Universidad Politécnica Salesiana del Ecuador es una obra de la-La UPS fue fundada el-de agosto de 1994 en la ciudad de Cuenca y tiene sedes en-y Guayaquil"));
-                respuestas.addElement(new Respuestas("RE12", "Congregación Salesiana,5,Quito"));
+                respuestas.addElement(new Respuestas("RE12", "Congregacion Salesiana,5,Quito"));
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE10").getCodigo_trivia(), "PE10", "RE10"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE11").getCodigo_trivia(), "PE11", "RE11"));
@@ -311,7 +311,7 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RE14", "Inclusión"));
                 
                 preguntas.addElement(new Preguntas("PE15", "El Instituto Superior Tecnológico del Azuay es una institución de-a nivel-, dedicada a formar-comprometidos éticamente con la sociedad"));
-                respuestas.addElement(new Respuestas("RE15", "Educación Superior,Técnico y tecnológico,Profesionales"));
+                respuestas.addElement(new Respuestas("RE15", "Educacion Superior,Tecnico y tecnologico,Profesionales"));
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE13").getCodigo_trivia(), "PE13", "RE13"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TE14").getCodigo_trivia(), "PE14", "RE14"));

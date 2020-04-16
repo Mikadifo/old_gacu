@@ -436,11 +436,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnParquesActionPerformed
 
     private void btnParquesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnParquesMouseExited
-        btnParques.setBackground(new java.awt.Color(240, 240, 240));
+        btnParques.setText("");
     }//GEN-LAST:event_btnParquesMouseExited
 
     private void btnParquesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnParquesMouseEntered
-        btnParques.setBackground(new java.awt.Color(30, 168, 150));
+        btnParques.setText(base.getCategoria("C1P").getNombre_categoria());
     }//GEN-LAST:event_btnParquesMouseEntered
 
     private void mostrarVentanaRandom() {

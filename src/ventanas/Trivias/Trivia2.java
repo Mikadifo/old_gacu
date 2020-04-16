@@ -1,16 +1,14 @@
 package ventanas.Trivias;
 
 import baseDatos.BaseGACU;
-import clases.OpcionesTrivia2;
-import clases.Realiza;
-import clases.Trivia_PR;
-import clases.Usuario;
+import clases.*;
+import javax.swing.JOptionPane;
 import ventanas.registro.MenuPrincipal;
 
 public class Trivia2 extends javax.swing.JFrame {
 
     private OpcionesTrivia2 opciones = new OpcionesTrivia2();
-    private BaseGACU base = new BaseGACU();
+    private final BaseGACU base = new BaseGACU();
     private Trivia_PR[] triviaPRS;
     private boolean[] respuestasTrivias;
     private Usuario usuarioActivo;
@@ -51,7 +49,6 @@ public class Trivia2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 810, 600));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(810, 600));
         setSize(new java.awt.Dimension(0, 500));
         getContentPane().setLayout(null);
 
@@ -66,12 +63,48 @@ public class Trivia2 extends javax.swing.JFrame {
         pnlRespuestas.setBackground(new java.awt.Color(102, 102, 102));
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.setLayout(null);
+
+        btn1.setBorder(null);
+        btn1.setBorderPainted(false);
+        btn1.setOpaque(true);
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
         pnlRespuestas.add(btn1);
         btn1.setBounds(10, 100, 350, 80);
+
+        btn4.setBorder(null);
+        btn4.setBorderPainted(false);
+        btn4.setOpaque(true);
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
         pnlRespuestas.add(btn4);
         btn4.setBounds(370, 10, 350, 80);
+
+        btn3.setBorder(null);
+        btn3.setBorderPainted(false);
+        btn3.setOpaque(true);
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
         pnlRespuestas.add(btn3);
         btn3.setBounds(370, 100, 350, 80);
+
+        btn2.setBorder(null);
+        btn2.setBorderPainted(false);
+        btn2.setOpaque(true);
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
         pnlRespuestas.add(btn2);
         btn2.setBounds(10, 10, 350, 80);
 
@@ -157,13 +190,14 @@ public class Trivia2 extends javax.swing.JFrame {
     private void cargarPreguntaRespuesta() {
         lblTitulo.setText(base.getTrivia(triviaPRS[1].getCodigo_trivia()).getNombre_trivia());
         lblEnunciado.setText(base.getPregunta(triviaPRS[1].getCodigo_pregunta()).getPregunta());
+        System.out.println("RT2 = " + base.getRespuesta(triviaPRS[1].getCodigo_respuesta()).getRespuesta());
         mezlcarOpcionesBotones();
     }
 
     private void mezlcarOpcionesBotones() {
         String respuesta = base.getRespuesta(triviaPRS[1].getCodigo_respuesta()).getRespuesta();
         String[] opcionesRespuesta = copiarArray(respuesta);
-        int[] posicionesRadnom = generarNumerosRandom(0, (opcionesRespuesta.length -1));
+        int[] posicionesRadnom = generarNumerosRandom(0, (opcionesRespuesta.length - 1));
         btn1.setText(opcionesRespuesta[posicionesRadnom[0]]);
         btn2.setText(opcionesRespuesta[posicionesRadnom[1]]);
         btn3.setText(opcionesRespuesta[posicionesRadnom[2]]);
@@ -211,41 +245,69 @@ public class Trivia2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrincipalMouseExited
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
-        //if (botonSeleccionado) {
-        if (btnPrincipal.getText().equals("Siguiente")) {
-            //respuestasTrivias[1] = (getRespuesta().equals(base.getRespuesta(triviaPRS[1].getCodigo_respuesta()).getRespuesta()));
-            mostrarVentanaRandom();
+        if (opcionSeleccionada()) {
+            if (btnPrincipal.getText().equals("Siguiente")) {
+                respuestasTrivias[1] = (getRespuesta().equals(base.getRespuesta(triviaPRS[1].getCodigo_respuesta()).getRespuesta()));
+                mostrarVentanaRandom();
+            } else {
+                TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo, respuestasTrivias, triviaPRS);
+                ventanaResultados.setVisible(true);
+            }
+            base.crearRealiza(new Realiza(triviaPRS[1].getCodigo_trivia(), usuarioActivo.getCedulaUsuario()));
+            dispose();
         } else {
-            TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo);
-            ventanaResultados.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Primer debe seleccionar una opcion");
         }
-        base.crearRealiza(new Realiza(triviaPRS[1].getCodigo_trivia(), usuarioActivo.getCedulaUsuario()));
-        dispose();
-        //} else {
-        //JOptionPane.showMessageDialog(null, "Primer debe seleccionar una opcion");
-        //}
     }//GEN-LAST:event_btnPrincipalActionPerformed
 
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        seleccionarBoton(btn2);
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        seleccionarBoton(btn4);
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        seleccionarBoton(btn1);
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        seleccionarBoton(btn3);
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void seleccionarBoton(javax.swing.JButton boton) {
+        btn1.setBackground(new java.awt.Color(238, 238, 238));
+        btn2.setBackground(new java.awt.Color(238, 238, 238));
+        btn3.setBackground(new java.awt.Color(238, 238, 238));
+        btn4.setBackground(new java.awt.Color(238, 238, 238));
+        boton.setBackground(new java.awt.Color(76, 84, 84));
+    }
+
     private void mostrarVentanaRandom() {
-        if (ventanaAnterior.equals("MENU")) {
-            switch (generarNumeroRandom(1, 2)) {
-                case 1:
-                    Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
-                    ventanaTrivia1.setVisible(true);
-                    break;
-                case 2:
-                    Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
-                    ventanaTrivia3.setVisible(true);
-                    break;
-                default:
-                    System.err.println("Numero fuera de rango (1-2)");
-            }
-        } else if (ventanaAnterior.equals("T1")) {
-            Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
-            ventanaTrivia3.setVisible(true);
-        } else {
-            Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
-            ventanaTrivia1.setVisible(true);
+        switch (ventanaAnterior) {
+            case "MENU":
+                switch (generarNumeroRandom(1, 2)) {
+                    case 1:
+                        Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
+                        ventanaTrivia1.setVisible(true);
+                        break;
+                    case 2:
+                        Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
+                        ventanaTrivia3.setVisible(true);
+                        break;
+                    default:
+                        System.err.println("Numero fuera de rango (1-2)");
+                }
+                break;
+            case "T1":
+                Trivia3 ventanaTrivia3 = new Trivia3(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
+                ventanaTrivia3.setVisible(true);
+                break;
+            default:
+                Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T2", triviaPRS, respuestasTrivias);
+                ventanaTrivia1.setVisible(true);
+                break;
         }
     }
 
@@ -268,7 +330,7 @@ public class Trivia2 extends javax.swing.JFrame {
         numsArray = nums.split(",");
         return toIntArray(numsArray);
     }
-    
+
     private int[] toIntArray(String[] stringArray) {
         int[] intArray = new int[stringArray.length];
         for (int i = 0; i < intArray.length; i++) {
@@ -277,9 +339,15 @@ public class Trivia2 extends javax.swing.JFrame {
         return intArray;
     }
 
-//    private String getRespuesta() {//validar y regresar que opcion esta seleccionada
-//        return btnVerdadero.getBackground().equals(new java.awt.Color(30, 168, 150))?"Verdadero":"Falso";
-//    }
+    private String getRespuesta() {
+        return btn1.getBackground().equals(new java.awt.Color(76, 84, 84))?btn1.getText()
+                :btn2.getBackground().equals(new java.awt.Color(76, 84, 84))?btn2.getText()
+                :btn3.getBackground().equals(new java.awt.Color(76, 84, 84))?btn3.getText():btn4.getText();
+    }
+    
+    private boolean opcionSeleccionada() {
+        return btn1.getBackground().equals(new java.awt.Color(76, 84, 84)) || btn2.getBackground().equals(new java.awt.Color(76, 84, 84)) || btn3.getBackground().equals(new java.awt.Color(76, 84, 84)) || btn4.getBackground().equals(new java.awt.Color(76, 84, 84));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
