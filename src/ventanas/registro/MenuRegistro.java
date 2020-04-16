@@ -23,7 +23,7 @@ public class MenuRegistro extends javax.swing.JFrame {
         btnCrearCuenta = new javax.swing.JButton();
         btnIniciarSesion = new javax.swing.JButton();
         btnGacu = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         panelDerecha = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -42,20 +42,30 @@ public class MenuRegistro extends javax.swing.JFrame {
         panelIzquierda.setBackground(new java.awt.Color(76, 84, 84));
         panelIzquierda.setMinimumSize(new java.awt.Dimension(275, 600));
         panelIzquierda.setPreferredSize(new java.awt.Dimension(275, 600));
+        panelIzquierda.setLayout(null);
 
         btnInvitado.setBackground(new java.awt.Color(76, 84, 84));
-        btnInvitado.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnInvitado.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnInvitado.setForeground(new java.awt.Color(255, 255, 255));
         btnInvitado.setText("INVITADO");
         btnInvitado.setBorderPainted(false);
         btnInvitado.setOpaque(true);
         btnInvitado.setPreferredSize(new java.awt.Dimension(257, 40));
         btnInvitado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInvitadoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnInvitadoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnInvitadoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnInvitadoMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnInvitadoMouseReleased(evt);
             }
         });
         btnInvitado.addActionListener(new java.awt.event.ActionListener() {
@@ -63,9 +73,11 @@ public class MenuRegistro extends javax.swing.JFrame {
                 btnInvitadoActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnInvitado);
+        btnInvitado.setBounds(0, 320, 270, 70);
 
         btnSalir.setBackground(new java.awt.Color(76, 84, 84));
-        btnSalir.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("SALIR");
         btnSalir.setBorderPainted(false);
@@ -78,15 +90,23 @@ public class MenuRegistro extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnSalirMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSalirMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnSalirMouseReleased(evt);
+            }
         });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnSalir);
+        btnSalir.setBounds(0, 530, 270, 70);
 
         btnCrearCuenta.setBackground(new java.awt.Color(76, 84, 84));
-        btnCrearCuenta.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnCrearCuenta.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearCuenta.setText("CREAR CUENTA");
         btnCrearCuenta.setBorder(null);
@@ -100,15 +120,23 @@ public class MenuRegistro extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCrearCuentaMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCrearCuentaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnCrearCuentaMouseReleased(evt);
+            }
         });
         btnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearCuentaActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnCrearCuenta);
+        btnCrearCuenta.setBounds(0, 460, 270, 70);
 
         btnIniciarSesion.setBackground(new java.awt.Color(76, 84, 84));
-        btnIniciarSesion.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnIniciarSesion.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciarSesion.setText("INICIAR SESION");
         btnIniciarSesion.setBorder(null);
@@ -122,15 +150,23 @@ public class MenuRegistro extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnIniciarSesionMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnIniciarSesionMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnIniciarSesionMouseReleased(evt);
+            }
         });
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnIniciarSesion);
+        btnIniciarSesion.setBounds(0, 390, 270, 70);
 
         btnGacu.setBackground(new java.awt.Color(76, 84, 84));
-        btnGacu.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnGacu.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnGacu.setForeground(new java.awt.Color(255, 255, 255));
         btnGacu.setText("GALERÍA CUENCA");
         btnGacu.setBorderPainted(false);
@@ -148,38 +184,12 @@ public class MenuRegistro extends javax.swing.JFrame {
                 btnGacuActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnGacu);
+        btnGacu.setBounds(0, 0, 270, 80);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/GACULOGO.jpeg"))); // NOI18N
-
-        javax.swing.GroupLayout panelIzquierdaLayout = new javax.swing.GroupLayout(panelIzquierda);
-        panelIzquierda.setLayout(panelIzquierdaLayout);
-        panelIzquierdaLayout.setHorizontalGroup(
-            panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-            .addComponent(btnCrearCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnInvitado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnGacu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelIzquierdaLayout.setVerticalGroup(
-            panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIzquierdaLayout.createSequentialGroup()
-                .addComponent(btnGacu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnInvitado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/GACULOGO.jpeg"))); // NOI18N
+        panelIzquierda.add(lblLogo);
+        lblLogo.setBounds(18, 98, 235, 191);
 
         pnlMenu.add(panelIzquierda);
         panelIzquierda.setBounds(0, 0, 270, 600);
@@ -222,7 +232,7 @@ public class MenuRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnInvitadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvitadoMouseEntered
-        btnInvitado.setBackground(new java.awt.Color(30, 168, 150));
+        btnInvitado.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnInvitadoMouseEntered
 
     private void btnInvitadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvitadoMouseExited
@@ -230,7 +240,7 @@ public class MenuRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInvitadoMouseExited
 
     private void btnCrearCuentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearCuentaMouseEntered
-        btnCrearCuenta.setBackground(new java.awt.Color(30, 168, 150));
+        btnCrearCuenta.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnCrearCuentaMouseEntered
 
     private void btnCrearCuentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearCuentaMouseExited
@@ -238,7 +248,7 @@ public class MenuRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearCuentaMouseExited
 
     private void btnIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseEntered
-        btnIniciarSesion.setBackground(new java.awt.Color(30, 168, 150));
+        btnIniciarSesion.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnIniciarSesionMouseEntered
 
     private void btnIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseExited
@@ -264,16 +274,52 @@ public class MenuRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInvitadoActionPerformed
 
     private void btnGacuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGacuMouseEntered
-        btnGacu.setBackground(new java.awt.Color(30, 168, 150));
+        
     }//GEN-LAST:event_btnGacuMouseEntered
 
     private void btnGacuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGacuMouseExited
-        btnGacu.setBackground(new java.awt.Color(76, 84, 84));
+        
     }//GEN-LAST:event_btnGacuMouseExited
 
     private void btnGacuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGacuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGacuActionPerformed
+
+    private void btnInvitadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvitadoMouseClicked
+
+    }//GEN-LAST:event_btnInvitadoMouseClicked
+
+    private void btnInvitadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvitadoMousePressed
+        btnInvitado.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnInvitadoMousePressed
+
+    private void btnInvitadoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvitadoMouseReleased
+        btnInvitado.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnInvitadoMouseReleased
+
+    private void btnIniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMousePressed
+        btnIniciarSesion.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnIniciarSesionMousePressed
+
+    private void btnIniciarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseReleased
+        btnIniciarSesion.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnIniciarSesionMouseReleased
+
+    private void btnCrearCuentaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearCuentaMousePressed
+        btnCrearCuenta.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnCrearCuentaMousePressed
+
+    private void btnCrearCuentaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearCuentaMouseReleased
+        btnCrearCuenta.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnCrearCuentaMouseReleased
+
+    private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
+        btnSalir.setBackground(new java.awt.Color(187,82,66));
+    }//GEN-LAST:event_btnSalirMousePressed
+
+    private void btnSalirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseReleased
+        btnCrearCuenta.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnSalirMouseReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCuenta;
@@ -281,8 +327,8 @@ public class MenuRegistro extends javax.swing.JFrame {
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnInvitado;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JPanel panelDerecha;
     private javax.swing.JPanel panelIzquierda;
     private javax.swing.JPanel pnlMenu;
