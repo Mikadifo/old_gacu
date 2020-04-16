@@ -39,7 +39,8 @@ public class Trivia1 extends javax.swing.JFrame {
         btnSalirMenu = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
         pnlEnunciado = new javax.swing.JPanel();
-        lblEnunciado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lblEnunciado = new javax.swing.JTextPane();
         header = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblTriviaFondo = new javax.swing.JLabel();
@@ -58,7 +59,7 @@ public class Trivia1 extends javax.swing.JFrame {
         pnlRespuestas.setLayout(null);
 
         btnFalso.setBackground(new java.awt.Color(76, 84, 84));
-        btnFalso.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnFalso.setFont(new java.awt.Font("Love Ya Like A Sister", 3, 20)); // NOI18N
         btnFalso.setForeground(new java.awt.Color(255, 255, 255));
         btnFalso.setText("FALSO");
         btnFalso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 113, 91), 5));
@@ -81,7 +82,7 @@ public class Trivia1 extends javax.swing.JFrame {
         btnFalso.setBounds(0, 90, 730, 90);
 
         btnVerdadero.setBackground(new java.awt.Color(76, 84, 84));
-        btnVerdadero.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnVerdadero.setFont(new java.awt.Font("Love Ya Like A Sister", 3, 20)); // NOI18N
         btnVerdadero.setForeground(new java.awt.Color(255, 255, 255));
         btnVerdadero.setText("VERDADERO");
         btnVerdadero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(30, 168, 150), 5));
@@ -107,7 +108,7 @@ public class Trivia1 extends javax.swing.JFrame {
         pnlRespuestas.setBounds(40, 280, 730, 180);
 
         btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
-        btnSalirMenu.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnSalirMenu.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnSalirMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnSalirMenu.setText("Salir al Menu");
         btnSalirMenu.setBorder(null);
@@ -135,7 +136,7 @@ public class Trivia1 extends javax.swing.JFrame {
         btnSalirMenu.setBounds(40, 510, 260, 80);
 
         btnPrincipal.setBackground(new java.awt.Color(76, 84, 84));
-        btnPrincipal.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnPrincipal.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnPrincipal.setText("Siguiente");
         btnPrincipal.setBorder(null);
@@ -166,18 +167,27 @@ public class Trivia1 extends javax.swing.JFrame {
         pnlEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlEnunciado.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
         pnlEnunciado.setLayout(null);
-        pnlEnunciado.add(lblEnunciado);
-        lblEnunciado.setBounds(0, 0, 650, 190);
+
+        lblEnunciado.setEditable(false);
+        lblEnunciado.setBackground(new java.awt.Color(255, 240, 240));
+        lblEnunciado.setFont(new java.awt.Font("Love Ya Like A Sister", 3, 20)); // NOI18N
+        jScrollPane1.setViewportView(lblEnunciado);
+
+        pnlEnunciado.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 0, 730, 190);
 
         pnlVoF.add(pnlEnunciado);
-        pnlEnunciado.setBounds(80, 70, 650, 190);
+        pnlEnunciado.setBounds(40, 70, 730, 190);
 
         header.setBackground(new java.awt.Color(76, 84, 84));
         header.setLayout(null);
 
+        lblTitulo.setFont(new java.awt.Font("Marion", 1, 15)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setPreferredSize(new java.awt.Dimension(250, 35));
         header.add(lblTitulo);
-        lblTitulo.setBounds(0, 0, 250, 35);
+        lblTitulo.setBounds(0, 0, 810, 40);
 
         pnlVoF.add(header);
         header.setBounds(0, 0, 810, 40);
@@ -197,7 +207,7 @@ public class Trivia1 extends javax.swing.JFrame {
 
     private void cargarPreguntaRespuesta() {
         lblTitulo.setText(base.getTrivia(triviaPRS[0].getCodigo_trivia()).getNombre_trivia());
-        lblEnunciado.setText(base.getPregunta(triviaPRS[0].getCodigo_pregunta()).getPregunta());
+        lblEnunciado.setText("  " + base.getPregunta(triviaPRS[0].getCodigo_pregunta()).getPregunta());
         System.out.println("RT1 = " + base.getRespuesta(triviaPRS[0].getCodigo_respuesta()).getRespuesta());
     }
 
@@ -222,12 +232,11 @@ public class Trivia1 extends javax.swing.JFrame {
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
         if (btnVerdadero.getBackground().equals((new java.awt.Color(30, 168, 150))) || btnFalso.getBackground().equals((new java.awt.Color(255, 113, 91)))) {
+            respuestasTrivias[0] = (getRespuesta().equals(base.getRespuesta(triviaPRS[0].getCodigo_respuesta()).getRespuesta()));
             if (btnPrincipal.getText().equals("Siguiente")) {
-                respuestasTrivias[0] = (getRespuesta().equals(base.getRespuesta(triviaPRS[0].getCodigo_respuesta()).getRespuesta()));
                 mostrarVentanaRandom();
             } else {
-                TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo, respuestasTrivias, triviaPRS);
-                ventanaResultados.setVisible(true);
+                new TriviaResultados(usuarioActivo, respuestasTrivias, triviaPRS).setVisible(true);
             }
             base.crearRealiza(new Realiza(triviaPRS[0].getCodigo_trivia(), usuarioActivo.getCedulaUsuario()));
             dispose();
@@ -237,8 +246,7 @@ public class Trivia1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
-        MenuPrincipal menu = new MenuPrincipal(usuarioActivo);
-        menu.setVisible(true);
+        new MenuPrincipal(usuarioActivo).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSalirMenuActionPerformed
 
@@ -313,7 +321,8 @@ public class Trivia1 extends javax.swing.JFrame {
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JButton btnVerdadero;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel lblEnunciado;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane lblEnunciado;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTriviaFondo;
     private javax.swing.JPanel pnlEnunciado;

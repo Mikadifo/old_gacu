@@ -306,24 +306,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTriviaMouseExited
 
     private void btnIglesiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIglesiasActionPerformed
-        Iglesias iglesias = new Iglesias(usuarioActivo);
-        iglesias.setVisible(true);
-        iglesias.setLocationRelativeTo(null);
+        new Iglesias(usuarioActivo).setVisible(true);
         dispose();
 
     }//GEN-LAST:event_btnIglesiasActionPerformed
 
     private void btnInstitutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstitutosActionPerformed
-        Institutos_ES institutos = new Institutos_ES(usuarioActivo);
-        institutos.setVisible(true);
-        institutos.setLocationRelativeTo(null);
+        new Institutos_ES(usuarioActivo).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnInstitutosActionPerformed
 
     private void btnMuseosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMuseosActionPerformed
-        Museos museos = new Museos(usuarioActivo);
-        museos.setVisible(true);
-        museos.setLocationRelativeTo(null);
+        new Museos(usuarioActivo).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnMuseosActionPerformed
 
@@ -349,7 +343,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIglesiasMouseEntered
 
     private void btnIglesiasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIglesiasMouseExited
-        btnIglesias.setBackground(new java.awt.Color(240, 240, 240));
+        btnIglesias.setBounds(440, 70, 240, 170);
     }//GEN-LAST:event_btnIglesiasMouseExited
 
     private void btnMuseosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMuseosMouseEntered
@@ -357,7 +351,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMuseosMouseEntered
 
     private void btnMuseosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMuseosMouseExited
-        btnMuseos.setBackground(new java.awt.Color(240, 240, 240));
+        btnMuseos.setBounds(130, 290, 240, 180);
     }//GEN-LAST:event_btnMuseosMouseExited
 
     private void btnInstitutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInstitutosMouseEntered
@@ -365,7 +359,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInstitutosMouseEntered
 
     private void btnInstitutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInstitutosMouseExited
-        btnInstitutos.setBackground(new java.awt.Color(240, 240, 240));
+        btnInstitutos.setBounds(440, 290, 240, 180);
     }//GEN-LAST:event_btnInstitutosMouseExited
 
     private void btnInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInfoMouseEntered
@@ -429,18 +423,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_iconImagenMousePressed
 
     private void btnParquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParquesActionPerformed
-        Parques parques = new Parques(usuarioActivo);
-        parques.setVisible(true);
-        parques.setLocationRelativeTo(null);
+        new Parques(usuarioActivo).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnParquesActionPerformed
 
     private void btnParquesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnParquesMouseExited
-        btnParques.setText("");
+        btnParques.setBounds(130, 70, 240, 170);
     }//GEN-LAST:event_btnParquesMouseExited
 
     private void btnParquesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnParquesMouseEntered
-        btnParques.setText(base.getCategoria("C1P").getNombre_categoria());
+        btnParques.setBounds(btnParques.getX() - 6, btnParques.getY() - 6, btnParques.getWidth() + 12, btnParques.getHeight() + 12);
     }//GEN-LAST:event_btnParquesMouseEntered
 
     private void mostrarVentanaRandom() {

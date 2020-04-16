@@ -43,7 +43,8 @@ public class Trivia3 extends javax.swing.JFrame {
         btnSalirMenu = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
         pnlEnunciado = new javax.swing.JPanel();
-        lblEnunciado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lblEnunciado = new javax.swing.JTextPane();
         header = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblTriviaFondo = new javax.swing.JLabel();
@@ -60,38 +61,50 @@ public class Trivia3 extends javax.swing.JFrame {
         pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlRespuestas.setLayout(null);
 
-        lblR1.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 15)); // NOI18N
+        lblR1.setBackground(new java.awt.Color(102, 102, 102));
+        lblR1.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 20)); // NOI18N
+        lblR1.setForeground(new java.awt.Color(255, 255, 255));
         lblR1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblR1.setText("1.-");
         lblR1.setOpaque(true);
         pnlRespuestas.add(lblR1);
         lblR1.setBounds(10, 50, 40, 30);
 
-        lblR2.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 15)); // NOI18N
+        lblR2.setBackground(new java.awt.Color(102, 102, 102));
+        lblR2.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 20)); // NOI18N
+        lblR2.setForeground(new java.awt.Color(255, 255, 255));
         lblR2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblR2.setText("2.-");
         lblR2.setOpaque(true);
         pnlRespuestas.add(lblR2);
         lblR2.setBounds(10, 130, 40, 30);
 
-        lblR3.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 15)); // NOI18N
+        lblR3.setBackground(new java.awt.Color(102, 102, 102));
+        lblR3.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 20)); // NOI18N
+        lblR3.setForeground(new java.awt.Color(255, 255, 255));
         lblR3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblR3.setText("3.-");
         lblR3.setOpaque(true);
         pnlRespuestas.add(lblR3);
         lblR3.setBounds(10, 210, 40, 30);
+
+        txtR3.setFont(new java.awt.Font("Love Ya Like A Sister", 3, 15)); // NOI18N
         pnlRespuestas.add(txtR3);
-        txtR3.setBounds(70, 210, 590, 26);
+        txtR3.setBounds(70, 210, 590, 29);
+
+        txtR2.setFont(new java.awt.Font("Love Ya Like A Sister", 3, 15)); // NOI18N
         pnlRespuestas.add(txtR2);
-        txtR2.setBounds(70, 130, 590, 26);
+        txtR2.setBounds(70, 130, 590, 29);
+
+        txtR1.setFont(new java.awt.Font("Love Ya Like A Sister", 3, 15)); // NOI18N
         pnlRespuestas.add(txtR1);
-        txtR1.setBounds(70, 50, 590, 26);
+        txtR1.setBounds(70, 50, 590, 29);
 
         pnlCompletar.add(pnlRespuestas);
         pnlRespuestas.setBounds(50, 190, 710, 290);
 
         btnSalirMenu.setBackground(new java.awt.Color(76, 84, 84));
-        btnSalirMenu.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnSalirMenu.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnSalirMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnSalirMenu.setText("Salir al Menu");
         btnSalirMenu.setBorder(null);
@@ -119,7 +132,7 @@ public class Trivia3 extends javax.swing.JFrame {
         btnSalirMenu.setBounds(50, 500, 260, 80);
 
         btnPrincipal.setBackground(new java.awt.Color(76, 84, 84));
-        btnPrincipal.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnPrincipal.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnPrincipal.setText("Terminar");
         btnPrincipal.setBorder(null);
@@ -150,17 +163,16 @@ public class Trivia3 extends javax.swing.JFrame {
         pnlEnunciado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlEnunciado.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
         pnlEnunciado.setPreferredSize(new java.awt.Dimension(710, 70));
+        pnlEnunciado.setLayout(null);
 
-        javax.swing.GroupLayout pnlEnunciadoLayout = new javax.swing.GroupLayout(pnlEnunciado);
-        pnlEnunciado.setLayout(pnlEnunciadoLayout);
-        pnlEnunciadoLayout.setHorizontalGroup(
-            pnlEnunciadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEnunciado, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
-        );
-        pnlEnunciadoLayout.setVerticalGroup(
-            pnlEnunciadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEnunciado, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-        );
+        lblEnunciado.setEditable(false);
+        lblEnunciado.setBackground(new java.awt.Color(255, 240, 240));
+        lblEnunciado.setBorder(null);
+        lblEnunciado.setFont(new java.awt.Font("Love Ya Like A Sister", 3, 20)); // NOI18N
+        jScrollPane1.setViewportView(lblEnunciado);
+
+        pnlEnunciado.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 0, 710, 110);
 
         pnlCompletar.add(pnlEnunciado);
         pnlEnunciado.setBounds(50, 60, 710, 110);
@@ -168,7 +180,7 @@ public class Trivia3 extends javax.swing.JFrame {
         header.setBackground(new java.awt.Color(76, 84, 84));
         header.setLayout(null);
 
-        lblTitulo.setFont(new java.awt.Font("Love Ya Like A Sister", 1, 15)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Marion", 1, 15)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setPreferredSize(new java.awt.Dimension(250, 35));
@@ -192,9 +204,9 @@ public class Trivia3 extends javax.swing.JFrame {
         String[] enunciado = base.getPregunta(triviaPRS[2].getCodigo_pregunta()).getPregunta().split("-");
         lblTitulo.setText(base.getTrivia(triviaPRS[2].getCodigo_trivia()).getNombre_trivia());
         if (enunciado.length == 4) {
-            lblEnunciado.setText(enunciado[0] + "___1___" + enunciado[1] + "___2___" + enunciado[2] + "___3___" + enunciado[3]);
+            lblEnunciado.setText("  " + enunciado[0] + " 1. <______>" + enunciado[1] + " 2. <______>" + enunciado[2] + " 3. <______>" + enunciado[3]);
         } else {
-            lblEnunciado.setText(enunciado[0] + "___1___" + enunciado[1] + "___2___" + enunciado[2] + "___3___");
+            lblEnunciado.setText("  " + enunciado[0] + " 1. <______>" + enunciado[1] + " 2. <______>" + enunciado[2] + " 3. <______>");
         }
         System.out.println("RT3 = " + base.getRespuesta(triviaPRS[2].getCodigo_respuesta()).getRespuesta());
     }
@@ -233,13 +245,12 @@ public class Trivia3 extends javax.swing.JFrame {
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
         if (respuestasLlenas()) {
-        if (btnPrincipal.getText().equals("Siguiente")) {
             String[] respuestas = base.getRespuesta(triviaPRS[2].getCodigo_respuesta()).getRespuesta().split(",");
             respuestasTrivias[2] = respuestas[0].equalsIgnoreCase(txtR1.getText()) && respuestas[1].equalsIgnoreCase(txtR2.getText()) && respuestas[2].equalsIgnoreCase(txtR3.getText());
+        if (btnPrincipal.getText().equals("Siguiente")) {
             mostrarVentanaRandom();
         } else {
-            TriviaResultados ventanaResultados = new TriviaResultados(usuarioActivo, respuestasTrivias, triviaPRS);
-            ventanaResultados.setVisible(true);
+            new TriviaResultados(usuarioActivo, respuestasTrivias, triviaPRS).setVisible(true);
         }
         base.crearRealiza(new Realiza(triviaPRS[2].getCodigo_trivia(), usuarioActivo.getCedulaUsuario()));
         dispose();
@@ -249,25 +260,28 @@ public class Trivia3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void mostrarVentanaRandom() {
-        if (ventanaAnterior.equals("MENU")) {
-            switch (generarNumeroRandom(1, 2)) {
-                case 1:
-                    Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T3", triviaPRS, respuestasTrivias);
-                    ventanaTrivia1.setVisible(true);
-                    break;
-                case 2:
-                    Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T3", triviaPRS, respuestasTrivias);
-                    ventanaTrivia2.setVisible(true);
-                    break;
-                default:
-                    System.err.println("Numero fuera de rango (1-2)");
-            }
-        } else if (ventanaAnterior.equals("T1")) {
-            Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T3", triviaPRS, respuestasTrivias);
-            ventanaTrivia2.setVisible(true);
-        } else {
-            Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T3", triviaPRS, respuestasTrivias);
-            ventanaTrivia1.setVisible(true);
+        switch (ventanaAnterior) {
+            case "MENU":
+                switch (generarNumeroRandom(1, 2)) {
+                    case 1:
+                        Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T3", triviaPRS, respuestasTrivias);
+                        ventanaTrivia1.setVisible(true);
+                        break;
+                    case 2:
+                        Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T3", triviaPRS, respuestasTrivias);
+                        ventanaTrivia2.setVisible(true);
+                        break;
+                    default:
+                        System.err.println("Numero fuera de rango (1-2)");
+                }   break;
+            case "T1":
+                Trivia2 ventanaTrivia2 = new Trivia2(usuarioActivo, ++numeroVentana, "T3", triviaPRS, respuestasTrivias);
+                ventanaTrivia2.setVisible(true);
+                break;
+            default:
+                Trivia1 ventanaTrivia1 = new Trivia1(usuarioActivo, ++numeroVentana, "T3", triviaPRS, respuestasTrivias);
+                ventanaTrivia1.setVisible(true);
+                break;
         }
     }
 
@@ -283,7 +297,8 @@ public class Trivia3 extends javax.swing.JFrame {
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel lblEnunciado;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane lblEnunciado;
     private javax.swing.JLabel lblR1;
     private javax.swing.JLabel lblR2;
     private javax.swing.JLabel lblR3;

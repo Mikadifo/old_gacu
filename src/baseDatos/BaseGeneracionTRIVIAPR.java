@@ -227,7 +227,7 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RM11", "Sociedad"));
                 
                 preguntas.addElement(new Preguntas("PM12", "Constituye desde el 10 de abril del-un nuevo y original espacio que contribuye para ampliar los conocimientos acerca del mundo-, a través de la-cientifica"));
-                respuestas.addElement(new Respuestas("RM12", "2001,Investigación")); //falta
+                respuestas.addElement(new Respuestas("RM12", "2001,Animal,Investigacion"));
                 
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TM10").getCodigo_trivia(), "PM10", "RM10"));
                 triviasPR_Lugares.add(crearGuardarTriviaPR(crearGuardarTrivia(codigoLugar, "TM11").getCodigo_trivia(), "PM11", "RM11"));
@@ -266,7 +266,7 @@ public class BaseGeneracionTRIVIAPR {
                 respuestas.addElement(new Respuestas("RE04", "Falso"));
 
                 preguntas.addElement(new Preguntas("PE05", "El primer director del Instituto fue"));
-                respuestas.addElement(new Respuestas("RE05", "Agustín López Conesa"));
+                respuestas.addElement(new Respuestas("RE05", "Agustin Lopez Conesa"));
                 
                 preguntas.addElement(new Preguntas("PE06", "UDA. Nació en el año-como una institución-y con la autorización de la-, sin embargo, la inauguración oficial de la institución se llevó a cabo el 2 de mayo de 1969."));
                 respuestas.addElement(new Respuestas("RE06", "1968,Filial,Santa Sede"));
@@ -324,12 +324,8 @@ public class BaseGeneracionTRIVIAPR {
     }
     
     public void guardarPreguntasRespuestas() {
-        preguntas.forEach((elemento) -> {
-            base.crearPregunta(elemento);
-        });
-        respuestas.forEach((elemento) -> {
-            base.crearRespuesta(elemento); 
-        });
+        preguntas.forEach((elemento) -> {base.crearPregunta(elemento);});
+        respuestas.forEach((elemento) -> {base.crearRespuesta(elemento);});
     }
     //Fin Metodos preguntas y respuestas
     
@@ -348,7 +344,6 @@ public class BaseGeneracionTRIVIAPR {
         return base.crearTrivia_PR(trivia_PR);
     }
     //FIN Metodos TRIVIA_PR
-
     public Vector<Trivia_PR> getTriviasPR_Lugares() {
         return triviasPR_Lugares;
     }

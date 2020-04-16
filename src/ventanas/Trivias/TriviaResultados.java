@@ -162,7 +162,7 @@ public class TriviaResultados extends javax.swing.JFrame {
         lblimgV2.setVisible(false);
         lblimgX3.setVisible(false);
         lblimgV3.setVisible(false);
-        
+
         if (respuestasTrivias[0]) {
             lblimgV1.setVisible(true);
         } else {

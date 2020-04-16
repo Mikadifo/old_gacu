@@ -4,7 +4,6 @@ import baseDatos.BaseGACU;
 import clases.*;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.*;
 import java.util.Vector;
 import javax.imageio.ImageIO;
@@ -24,8 +23,6 @@ public class Info_Lugar extends javax.swing.JFrame {
     private Lugar_img LugarImagen;
     private Vector<Lugar_img> lugaresImagenes = new Vector<>();
     private BaseGACU base = new BaseGACU();
-    private File carpetaImg;
-    private String rutaCarpeta;
     private String[] codigoImagenes;
 
     public Info_Lugar(String codigo_Categoria, String codigo_Lugar, String[] codigoImagenes) {
@@ -236,7 +233,7 @@ public class Info_Lugar extends javax.swing.JFrame {
         setImagenLabel(lblImagen3, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[2]).getCodigo_imagen()).getImagen());
         setImagenLabel(lblImagen4, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[3]).getCodigo_imagen()).getImagen());
         setImagenLabel(jlFondo, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[4]).getCodigo_imagen()).getImagen());
-        setImagenLabel(central, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[0]).getCodigo_imagen()).getImagen());
+        central.setIcon(lblImagen1.getIcon());
     }
 
     private void setImagenLabel(javax.swing.JLabel label, byte[] imagen) {
@@ -249,6 +246,7 @@ public class Info_Lugar extends javax.swing.JFrame {
             label.setIcon(imgBtn);
         } catch (IOException ex) {
             label.setText("NO IMAGE:" + label.getName());
+            System.err.println("ERROR " + ex.getMessage());
         }
     }
 

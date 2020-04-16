@@ -29,7 +29,7 @@ public final class OpcionesTrivia2 {
     }
     
     protected void llenarVectorPalabras() {
-        String palabras = "Una estatua,Un altar,Sillas,Moderno,Coloquial,Vulgar,San Martín,San Blas,San Pedro,Zoológico,Sala arquitectónica,Baños,Naturaleza,Vegetación,Religión,Picaso,Van Gogh,Da Vinci,Monay,Sayausi,Miraflores,Jefferson Pérez,Pista de atletismo,Cancha de basket,San Sebastián,San José,Sagrados corazones,Gil Ramírez Dávalos,Francisco Calderon,Octavio Cordero Palacios,Ing. William Trelles,Ing. Jessica Pinos,Ing. Jessica Herrera,José Félix Pintado,Raúl Vela Chiriboga,Juan Francisco Peláez,Pedro José Álvarez,Claudio Malo Gonzales,Carlos Pérez Agustino,Ganar dinero,Ganar prestigio,Ganar fama,Arte moderno,Arte contemporáneo,Actividades culturales";
+        String palabras = "Una estatua,Un altar,Sillas,Moderno,Coloquial,Vulgar,San Martín,San Blas,San Pedro,Zoológico,Sala arquitectónica,Baños,Naturaleza,Vegetación,Religión,Picaso,Van Gogh,Da Vinci,Monay,Sayausi,Miraflores,Jefferson Pérez,Pista de atletismo,Cancha de basket,San Sebastián,San José";
         opcionesTriviaPalabras = palabras.split(",");
     }
     

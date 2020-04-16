@@ -171,104 +171,40 @@ public class VentanaCarga extends javax.swing.JFrame implements Runnable {
         rutaCarpeta = carpetaImg.getAbsolutePath();
         signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
         
+        for (int i = 1; i <= 4; i++) {
+            cargarImagen("imgPC0" + i, "calderon" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgPP0" + i, "paraiso" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgPM0" + i, "madre" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgPB0" + i, "blas" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgPS0" + i, "sebastian" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+        }
+        
         cargarImagen("imgP05", "fondoParques.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgPC01", "calderon1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPC02", "calderon2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPC03", "calderon3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPC04", "calderon4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgPP01", "paraiso1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPP02", "paraiso2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPP03", "paraiso3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPP04", "paraiso4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgPM01", "madre1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPM02", "madre2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPM03", "madre3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPM04", "madre4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgPB01", "blas1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPB02", "blas2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPB03", "blas3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPB04", "blas4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgPS01", "sebastian1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPS02", "sebastian2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPS03", "sebastian3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgPS04", "sebastian4.jpg");
         jProgressBar1.setValue(++progreso);
         //MUSEOS
         carpetaImg = new File("Imagenes_Museo");
         rutaCarpeta = carpetaImg.getAbsolutePath();
         signoRuta = (rutaCarpeta.contains("/")) ? "/" : "\\";
+
+        for (int i = 1; i <= 4; i++) {
+            cargarImagen("imgMP0" + i, "pumapungo" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgMA0" + i, "aborigen" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgMM0" + i, "moderno" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgME0" + i, "esqueleto" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgMS0" + i, "santos" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+        }
         
         cargarImagen("imgM05", "fondoMuseo.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgMP01", "pumapungo1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMP02", "pumapungo2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMP03", "pumapungo3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMP04", "pumapungo4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgMA01", "aborigen1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMA02", "aborigen2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMA03", "aborigen3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMA04", "aborigen4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgMM01", "moderno1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMM02", "moderno2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMM03", "moderno3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMM04", "moderno4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgME01", "esqueleto1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgME02", "esqueleto2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgME03", "esqueleto3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgME04", "esqueleto4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgMS01", "santos1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMS02", "santos2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMS03", "santos3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgMS04", "santos4.jpg");
         jProgressBar1.setValue(++progreso);
         //E_SUPERIORES
         carpetaImg = new File("Imagenes_Institutos");
@@ -277,24 +213,15 @@ public class VentanaCarga extends javax.swing.JFrame implements Runnable {
         
         cargarImagen("imgE05", "fondoES.jpg");
         jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgEC01", "estatal1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEC02", "estatal2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEC03", "estatal3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEC04", "estatal4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgEA01", "uda1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEA02", "uda2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEA03", "uda3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEA04", "uda4.jpg");
-        jProgressBar1.setValue(++progreso);
+        
+        for (int i = 1; i <= 4; i++) {
+            cargarImagen("imgEC0" + i, "estatal" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgEA0" + i, "uda" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgEU0" + i, "ups" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+        }
 
         cargarImagen("imgET01", "catolica1.jpg");
         jProgressBar1.setValue(++progreso);
@@ -303,15 +230,6 @@ public class VentanaCarga extends javax.swing.JFrame implements Runnable {
         cargarImagen("imgET03", "catolica3.jpg");
         jProgressBar1.setValue(++progreso);
         cargarImagen("imgET04", "catolica4.PNG");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgEU01", "ups1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEU02", "ups2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEU03", "ups3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgEU04", "ups4.jpg");
         jProgressBar1.setValue(++progreso);
 
         cargarImagen("imgEI01", "ista1.jpg");
@@ -330,14 +248,16 @@ public class VentanaCarga extends javax.swing.JFrame implements Runnable {
         cargarImagen("imgI05", "fondoiglesia.jpg");
         jProgressBar1.setValue(++progreso);
 
-        cargarImagen("imgIS01", "sagrario1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIS02", "sagrario2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIS03", "sagrario3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIS04", "sagrario4.jpg");
-        jProgressBar1.setValue(++progreso);
+        for (int i = 1; i <= 4; i++) {
+            cargarImagen("imgIS0" + i, "sagrario" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgIA0" + i, "asuncion" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgIB0" + i, "blas" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+            cargarImagen("imgIT0" + i, "santos" + i + ".jpg");
+            jProgressBar1.setValue(++progreso);
+        }
 
         cargarImagen("imgII01", "inmaculada1.jpg");
         jProgressBar1.setValue(++progreso);
@@ -346,33 +266,6 @@ public class VentanaCarga extends javax.swing.JFrame implements Runnable {
         cargarImagen("imgII03", "inmaculada3.jpg");
         jProgressBar1.setValue(++progreso);
         cargarImagen("imgII04", "inmaculada4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgIA01", "asuncion1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIA02", "asuncion2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIA03", "asuncion3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIA04", "asuncion4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgIB01", "blas1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIB02", "blas2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIB03", "blas3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIB04", "blas4.jpg");
-        jProgressBar1.setValue(++progreso);
-
-        cargarImagen("imgIT01", "santos1.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIT02", "santos2.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIT03", "santos3.jpg");
-        jProgressBar1.setValue(++progreso);
-        cargarImagen("imgIT04", "santos4.jpg");
         jProgressBar1.setValue(++progreso);
     }
 
@@ -411,30 +304,12 @@ public class VentanaCarga extends javax.swing.JFrame implements Runnable {
     }
 
     public void crearCategoriasLugares() {
-        //PARQUES
-        setCategoriaLugar("C1P", "P01");
-        setCategoriaLugar("C1P", "P02");
-        setCategoriaLugar("C1P", "P03");
-        setCategoriaLugar("C1P", "P04");
-        setCategoriaLugar("C1P", "P05");
-        //MUSEOS
-        setCategoriaLugar("C4M", "M01");
-        setCategoriaLugar("C4M", "M02");
-        setCategoriaLugar("C4M", "M03");
-        setCategoriaLugar("C4M", "M04");
-        setCategoriaLugar("C4M", "M05");
-        //ESUPERIOR
-        setCategoriaLugar("C3E", "E01");
-        setCategoriaLugar("C3E", "E02");
-        setCategoriaLugar("C3E", "E03");
-        setCategoriaLugar("C3E", "E04");
-        setCategoriaLugar("C3E", "E05");
-        //IGLESIAS
-        setCategoriaLugar("C2I", "I01");
-        setCategoriaLugar("C2I", "I02");
-        setCategoriaLugar("C2I", "I03");
-        setCategoriaLugar("C2I", "I04");
-        setCategoriaLugar("C2I", "I05");
+        for (int i = 1; i <= 5; i++) {
+            setCategoriaLugar("C1P", "P0" + i);//PARQUES
+            setCategoriaLugar("C4M", "M0" + i);//MUSEOS
+            setCategoriaLugar("C3E", "E0" + i);//ESUPERIOR
+            setCategoriaLugar("C2I", "I0" + i);//IGLESIAS
+        }
     }
 
     public void setCategoriaLugar(String codigoCategoria, String codigoLugar) {
@@ -558,5 +433,4 @@ public class VentanaCarga extends javax.swing.JFrame implements Runnable {
         base.crearLugar(lugarGuardar);
     }
     //FIN LUGARES
-    
 }
