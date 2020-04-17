@@ -80,15 +80,16 @@ public class Info_Lugar extends javax.swing.JFrame {
         central.setBounds(160, 50, 630, 330);
 
         jtextInfo.setEditable(false);
-        jtextInfo.setBackground(new java.awt.Color(153, 153, 153));
-        jtextInfo.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jtextInfo.setBackground(new java.awt.Color(76, 84, 84));
+        jtextInfo.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        jtextInfo.setForeground(new java.awt.Color(255, 255, 255));
         Info_spn.setViewportView(jtextInfo);
 
         Info_pn.add(Info_spn);
         Info_spn.setBounds(160, 390, 630, 190);
 
         btnVolver.setBackground(new java.awt.Color(76, 84, 84));
-        btnVolver.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("VOLVER");
         btnVolver.setBorder(null);
@@ -151,12 +152,15 @@ public class Info_Lugar extends javax.swing.JFrame {
         Info_pn.add(lblImagen1);
         lblImagen1.setBounds(20, 410, 120, 90);
 
-        jlTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jlTitulo.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        jlTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Info_pn.add(jlTitulo);
-        jlTitulo.setBounds(300, 10, 190, 20);
+        jlTitulo.setBounds(0, 0, 810, 30);
 
+        jlFondo.setBackground(new java.awt.Color(255, 251, 251));
         jlFondo.setMaximumSize(new java.awt.Dimension(810, 600));
         jlFondo.setMinimumSize(new java.awt.Dimension(810, 600));
+        jlFondo.setOpaque(true);
         jlFondo.setPreferredSize(new java.awt.Dimension(810, 600));
         Info_pn.add(jlFondo);
         jlFondo.setBounds(0, 0, 810, 600);
@@ -168,7 +172,7 @@ public class Info_Lugar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
-        btnVolver.setBackground(new java.awt.Color(30, 168, 150));
+        btnVolver.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnVolverMouseEntered
 
     private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
@@ -233,7 +237,7 @@ public class Info_Lugar extends javax.swing.JFrame {
         setImagenLabel(lblImagen3, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[2]).getCodigo_imagen()).getImagen());
         setImagenLabel(lblImagen4, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[3]).getCodigo_imagen()).getImagen());
         setImagenLabel(jlFondo, base.getImagen(base.getLugar_img(codigoLugar, codigoImagenes[4]).getCodigo_imagen()).getImagen());
-        central.setIcon(lblImagen1.getIcon());
+        setImagenLabel(central, base.getImagen(codigoImagenes[0]).getImagen());
     }
 
     private void setImagenLabel(javax.swing.JLabel label, byte[] imagen) {

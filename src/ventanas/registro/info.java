@@ -20,7 +20,7 @@ public class info extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 129, 175));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("<html>Usted se encuentra en el menú principal de la aplicación. GACU le presenta cuatro opciones diferentes a elegir: PARQUES, IGLESIAS, MUSEOS e INSTITUCIONES DE EDUCACIÓN SUPERIOR. Cada sección cuenta con varios ejemplares, con fotografías e información correspondiente acerca de su historia, locación, importancia y ciertas curiosidades. Para finalizar, GACU dispone de una divertida Trivia para poner aprueba lo aprendido. <p>¡Escoja algún recuadro y descubramos juntos la maravillosa diversidad cultural que tiene Cuenca para ofrecer!<html>");
         jLabel1.setMinimumSize(new java.awt.Dimension(0, 0));

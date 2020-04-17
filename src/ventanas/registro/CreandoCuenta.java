@@ -68,17 +68,20 @@ public class CreandoCuenta extends javax.swing.JFrame {
         panelIzquierda.setBackground(new java.awt.Color(76, 84, 84));
         panelIzquierda.setMinimumSize(new java.awt.Dimension(275, 600));
         panelIzquierda.setPreferredSize(new java.awt.Dimension(275, 600));
+        panelIzquierda.setLayout(null);
 
         lblCedula.setBackground(new java.awt.Color(225, 225, 255));
-        lblCedula.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblCedula.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblCedula.setForeground(new java.awt.Color(255, 255, 255));
         lblCedula.setText("Cédula :");
         lblCedula.setMaximumSize(new java.awt.Dimension(101, 26));
         lblCedula.setMinimumSize(new java.awt.Dimension(101, 26));
         lblCedula.setPreferredSize(new java.awt.Dimension(101, 26));
+        panelIzquierda.add(lblCedula);
+        lblCedula.setBounds(6, 37, 101, 26);
 
-        btnAtras.setBackground(new java.awt.Color(255, 255, 255));
-        btnAtras.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
+        btnAtras.setBackground(new java.awt.Color(76, 84, 84));
+        btnAtras.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnAtras.setForeground(new java.awt.Color(255, 255, 255));
         btnAtras.setText("<<");
         btnAtras.setBorder(null);
@@ -87,6 +90,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         btnAtras.setFocusPainted(false);
         btnAtras.setMaximumSize(new java.awt.Dimension(33, 35));
         btnAtras.setMinimumSize(new java.awt.Dimension(33, 35));
+        btnAtras.setOpaque(true);
         btnAtras.setPreferredSize(new java.awt.Dimension(33, 25));
         btnAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -95,15 +99,23 @@ public class CreandoCuenta extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAtrasMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAtrasMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnAtrasMouseReleased(evt);
+            }
         });
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtrasActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnAtras);
+        btnAtras.setBounds(0, 560, 40, 46);
 
         btnCrear.setBackground(new java.awt.Color(76, 84, 84));
-        btnCrear.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnCrear.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnCrear.setForeground(new java.awt.Color(255, 255, 255));
         btnCrear.setText("CREAR");
         btnCrear.setBorder(null);
@@ -121,14 +133,22 @@ public class CreandoCuenta extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCrearMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCrearMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnCrearMouseReleased(evt);
+            }
         });
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnCrear);
+        btnCrear.setBounds(159, 554, 110, 46);
 
-        txtCedula.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        txtCedula.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtCedula.setForeground(new java.awt.Color(76, 84, 84));
         txtCedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtCedula.setMinimumSize(new java.awt.Dimension(200, 26));
@@ -144,16 +164,20 @@ public class CreandoCuenta extends javax.swing.JFrame {
                 txtCedulaKeyTyped(evt);
             }
         });
+        panelIzquierda.add(txtCedula);
+        txtCedula.setBounds(6, 75, 221, 25);
 
         lblUsuario.setBackground(new java.awt.Color(225, 225, 255));
-        lblUsuario.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Usuario :");
         lblUsuario.setMaximumSize(new java.awt.Dimension(101, 26));
         lblUsuario.setMinimumSize(new java.awt.Dimension(101, 26));
         lblUsuario.setPreferredSize(new java.awt.Dimension(101, 26));
+        panelIzquierda.add(lblUsuario);
+        lblUsuario.setBounds(6, 118, 101, 26);
 
-        txtUsuario.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(76, 84, 84));
         txtUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtUsuario.setMinimumSize(new java.awt.Dimension(200, 26));
@@ -170,24 +194,30 @@ public class CreandoCuenta extends javax.swing.JFrame {
                 txtUsuarioKeyTyped(evt);
             }
         });
+        panelIzquierda.add(txtUsuario);
+        txtUsuario.setBounds(6, 156, 221, 25);
 
         lblContrasena.setBackground(new java.awt.Color(225, 225, 255));
-        lblContrasena.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblContrasena.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblContrasena.setForeground(new java.awt.Color(255, 255, 255));
         lblContrasena.setText("Contraseña:");
         lblContrasena.setMaximumSize(new java.awt.Dimension(101, 26));
         lblContrasena.setMinimumSize(new java.awt.Dimension(101, 26));
         lblContrasena.setPreferredSize(new java.awt.Dimension(101, 26));
+        panelIzquierda.add(lblContrasena);
+        lblContrasena.setBounds(6, 199, 120, 26);
 
         lblCiudad1.setBackground(new java.awt.Color(225, 225, 255));
-        lblCiudad1.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblCiudad1.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblCiudad1.setForeground(new java.awt.Color(255, 255, 255));
         lblCiudad1.setText("Ciudad :");
         lblCiudad1.setMaximumSize(new java.awt.Dimension(101, 26));
         lblCiudad1.setMinimumSize(new java.awt.Dimension(101, 26));
         lblCiudad1.setPreferredSize(new java.awt.Dimension(101, 26));
+        panelIzquierda.add(lblCiudad1);
+        lblCiudad1.setBounds(6, 280, 101, 26);
 
-        txtContrasena.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        txtContrasena.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtContrasena.setForeground(new java.awt.Color(76, 84, 84));
         txtContrasena.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtContrasena.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -205,8 +235,10 @@ public class CreandoCuenta extends javax.swing.JFrame {
                 txtContrasenaKeyTyped(evt);
             }
         });
+        panelIzquierda.add(txtContrasena);
+        txtContrasena.setBounds(6, 237, 221, 25);
 
-        cmbxCiudad.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        cmbxCiudad.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         cmbxCiudad.setForeground(new java.awt.Color(76, 84, 84));
         cmbxCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cuenca", "Quito", "Guayaquil", "Ambato", "Manta", "Machalla", "Ibarra", "Loja", "Portoviejo", "Santo Domingo", "Latacunga", "Babahoyo", "Esmeraldas", "Puyo" }));
         cmbxCiudad.setAlignmentX(0.0F);
@@ -224,6 +256,8 @@ public class CreandoCuenta extends javax.swing.JFrame {
                 cmbxCiudadKeyPressed(evt);
             }
         });
+        panelIzquierda.add(cmbxCiudad);
+        cmbxCiudad.setBounds(6, 318, 221, 25);
 
         lbasterisco.setBackground(new java.awt.Color(225, 225, 255));
         lbasterisco.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -231,65 +265,8 @@ public class CreandoCuenta extends javax.swing.JFrame {
         lbasterisco.setMaximumSize(new java.awt.Dimension(101, 26));
         lbasterisco.setMinimumSize(new java.awt.Dimension(101, 26));
         lbasterisco.setPreferredSize(new java.awt.Dimension(101, 26));
-
-        javax.swing.GroupLayout panelIzquierdaLayout = new javax.swing.GroupLayout(panelIzquierda);
-        panelIzquierda.setLayout(panelIzquierdaLayout);
-        panelIzquierdaLayout.setHorizontalGroup(
-            panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIzquierdaLayout.createSequentialGroup()
-                        .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelIzquierdaLayout.createSequentialGroup()
-                                .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelIzquierdaLayout.createSequentialGroup()
-                                .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                                    .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtContrasena, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblContrasena, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCiudad1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbxCiudad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 21, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18))
-                    .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                        .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                        .addComponent(lbasterisco, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        panelIzquierdaLayout.setVerticalGroup(
-            panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIzquierdaLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblCiudad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbxCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbasterisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
-                .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCrear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAtras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        panelIzquierda.add(lbasterisco);
+        lbasterisco.setBounds(6, 361, 221, 26);
 
         pnlCreandoCuenta.add(panelIzquierda);
         panelIzquierda.setBounds(0, 0, 270, 600);
@@ -300,7 +277,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         pnlHeader.setVerifyInputWhenFocusTarget(false);
         pnlHeader.setLayout(null);
 
-        btX.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btX.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btX.setForeground(new java.awt.Color(255, 113, 91));
         btX.setText("X");
         btX.setAutoscrolls(true);
@@ -327,7 +304,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         pnlHeader.add(btX);
         btX.setBounds(760, 0, 50, 35);
 
-        lblCreandoCuenta.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblCreandoCuenta.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblCreandoCuenta.setForeground(new java.awt.Color(255, 255, 255));
         lblCreandoCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCreandoCuenta.setText("CREANDO CUENTA");
@@ -335,7 +312,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         lblCreandoCuenta.setMinimumSize(new java.awt.Dimension(250, 35));
         lblCreandoCuenta.setPreferredSize(new java.awt.Dimension(250, 35));
         pnlHeader.add(lblCreandoCuenta);
-        lblCreandoCuenta.setBounds(310, 0, 190, 35);
+        lblCreandoCuenta.setBounds(50, 0, 720, 35);
 
         pnlCreandoCuenta.add(pnlHeader);
         pnlHeader.setBounds(0, 0, 810, 35);
@@ -344,8 +321,6 @@ public class CreandoCuenta extends javax.swing.JFrame {
         panelDerecha.setPreferredSize(new java.awt.Dimension(540, 600));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoREGISTRO.jpeg"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(561, 601));
-        jLabel1.setMinimumSize(new java.awt.Dimension(561, 601));
 
         javax.swing.GroupLayout panelDerechaLayout = new javax.swing.GroupLayout(panelDerecha);
         panelDerecha.setLayout(panelDerechaLayout);
@@ -409,15 +384,15 @@ public class CreandoCuenta extends javax.swing.JFrame {
         return nombreUsuario.matches("^\\w(\\s|\\S)+\\w$");
     }
     private void btnAtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMouseEntered
-        btnAtras.setForeground(new java.awt.Color(30, 168, 150));
+        btnAtras.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnAtrasMouseEntered
 
     private void btnAtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMouseExited
-        btnAtras.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtras.setBackground(new java.awt.Color(76, 84, 84));
     }//GEN-LAST:event_btnAtrasMouseExited
 
     private void btnCrearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseEntered
-        btnCrear.setBackground(new java.awt.Color(30, 168, 150));
+        btnCrear.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnCrearMouseEntered
 
     private void btnCrearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseExited
@@ -447,7 +422,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
         usuario.setContrasenaUsuario(new String(txtContrasena.getPassword()));
         usuario.setCiudadUsuario((String) cmbxCiudad.getSelectedItem());
     }
-    
+
     private void accionarBotonCrear() {
         if (datosValidos()) {
             usuario = new Usuario();
@@ -468,7 +443,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
             }
         }
     }
-    
+
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         accionarBotonCrear();
     }//GEN-LAST:event_btnCrearActionPerformed
@@ -507,7 +482,7 @@ public class CreandoCuenta extends javax.swing.JFrame {
 
     private void txtContrasenaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyTyped
         char con = evt.getKeyChar();
-        String contra = new String (txtContrasena.getPassword());
+        String contra = new String(txtContrasena.getPassword());
         if (((con < 'a' || con > 'z') && (con < 'A' || con > 'Z') && (con < '0' || con > '9') && (con < ' ')) || (contra.length() > 25)) {
             evt.consume();
         }
@@ -540,6 +515,23 @@ public class CreandoCuenta extends javax.swing.JFrame {
             accionarBotonCrear();
         }
     }//GEN-LAST:event_cmbxCiudadKeyPressed
+
+    private void btnCrearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMousePressed
+        btnCrear.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnCrearMousePressed
+
+    private void btnCrearMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseReleased
+        btnCrear.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnCrearMouseReleased
+
+    private void btnAtrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMousePressed
+        btnAtras.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnAtrasMousePressed
+
+    private void btnAtrasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMouseReleased
+        btnAtras.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnAtrasMouseReleased
+
     private boolean validarCedula(String cedula) {
         int digitos[] = new int[10];
         int digitoVerificador = 0;

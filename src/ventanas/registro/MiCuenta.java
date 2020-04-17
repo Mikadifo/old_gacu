@@ -17,11 +17,7 @@ public class MiCuenta extends javax.swing.JFrame {
         this.setSize(810,600);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        btnGuardarCambios.setVisible(false);
-        lblContra.setVisible(false);
-        lblContraN.setVisible(false);
-        txtContrasenaA.setVisible(false);
-        txtContrasenaN.setVisible(false);
+        deshabilitarBotones();
         deshabilitarCampos();
     }
 
@@ -33,11 +29,8 @@ public class MiCuenta extends javax.swing.JFrame {
         thisVentana = this;
         this.ventanaAtras = ventanaAtras;
         this.usuarioActivo = usuarioActivo;
-        btnGuardarCambios.setVisible(false);
-        lblContra.setVisible(false);
-        lblContraN.setVisible(false);
-        txtContrasenaA.setVisible(false);
-        txtContrasenaN.setVisible(false);
+        deshabilitarBotones();
+        
         llenarCamposUsuario(usuarioActivo);
         deshabilitarCampos();
     }
@@ -48,7 +41,7 @@ public class MiCuenta extends javax.swing.JFrame {
 
         PanelMiCuenta = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         btX = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -83,13 +76,17 @@ public class MiCuenta extends javax.swing.JFrame {
         PanelMiCuenta.setLayout(null);
 
         header.setBackground(new java.awt.Color(76, 84, 84));
+        header.setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("MI CUENTA");
+        lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("MI CUENTA");
+        header.add(lblTitulo);
+        lblTitulo.setBounds(40, 0, 730, 30);
 
-        btX.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btX.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btX.setForeground(new java.awt.Color(255, 113, 91));
         btX.setText("X");
         btX.setAutoscrolls(true);
@@ -113,25 +110,8 @@ public class MiCuenta extends javax.swing.JFrame {
                 btXActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap(342, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(312, 312, 312)
-                .addComponent(btX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btX, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
-                .addContainerGap())
-        );
+        header.add(btX);
+        btX.setBounds(760, 0, 50, 28);
 
         PanelMiCuenta.add(header);
         header.setBounds(0, 0, 810, 30);
@@ -159,11 +139,15 @@ public class MiCuenta extends javax.swing.JFrame {
 
         panelIzquierda.setBackground(new java.awt.Color(76, 84, 84));
         panelIzquierda.setToolTipText("");
+        panelIzquierda.setLayout(null);
 
-        lblCedula.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblCedula.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblCedula.setForeground(new java.awt.Color(255, 255, 255));
         lblCedula.setText("CEDULA:");
+        panelIzquierda.add(lblCedula);
+        lblCedula.setBounds(20, 31, 111, 21);
 
+        txtCedula.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtCedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtCedula.setEnabled(false);
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
@@ -179,11 +163,16 @@ public class MiCuenta extends javax.swing.JFrame {
                 txtCedulaKeyTyped(evt);
             }
         });
+        panelIzquierda.add(txtCedula);
+        txtCedula.setBounds(20, 58, 180, 20);
 
-        lblNombre.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("NOMBRE USUARIO:");
+        panelIzquierda.add(lblNombre);
+        lblNombre.setBounds(20, 96, 210, 21);
 
+        txtNombreU.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtNombreU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtNombreU.setEnabled(false);
         txtNombreU.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -194,12 +183,16 @@ public class MiCuenta extends javax.swing.JFrame {
                 txtNombreUKeyTyped(evt);
             }
         });
+        panelIzquierda.add(txtNombreU);
+        txtNombreU.setBounds(20, 123, 180, 20);
 
-        lblCiudad.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblCiudad.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblCiudad.setForeground(new java.awt.Color(255, 255, 255));
         lblCiudad.setText("CIUDAD:");
+        panelIzquierda.add(lblCiudad);
+        lblCiudad.setBounds(20, 161, 90, 21);
 
-        cmbxCiudad.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        cmbxCiudad.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         cmbxCiudad.setForeground(new java.awt.Color(76, 84, 84));
         cmbxCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cuenca", "Quito", "Guayaquil", "Ambato", "Manta", "Machalla", "Ibarra", "Loja", "Portoviejo", "Santo Domingo", "Latacunga", "Babahoyo", "Esmeraldas", "Puyo" }));
         cmbxCiudad.setAlignmentX(0.0F);
@@ -212,12 +205,16 @@ public class MiCuenta extends javax.swing.JFrame {
                 cmbxCiudadItemStateChanged(evt);
             }
         });
+        panelIzquierda.add(cmbxCiudad);
+        cmbxCiudad.setBounds(20, 188, 180, 20);
 
-        lblContra.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblContra.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblContra.setForeground(new java.awt.Color(255, 255, 255));
         lblContra.setText("CONTRASEÑA ACTUAL:");
+        panelIzquierda.add(lblContra);
+        lblContra.setBounds(20, 226, 253, 21);
 
-        txtContrasenaA.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        txtContrasenaA.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtContrasenaA.setForeground(new java.awt.Color(76, 84, 84));
         txtContrasenaA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtContrasenaA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -232,12 +229,16 @@ public class MiCuenta extends javax.swing.JFrame {
                 txtContrasenaAKeyTyped(evt);
             }
         });
+        panelIzquierda.add(txtContrasenaA);
+        txtContrasenaA.setBounds(20, 253, 180, 20);
 
-        lblContraN.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        lblContraN.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblContraN.setForeground(new java.awt.Color(255, 255, 255));
         lblContraN.setText("CONTRASEÑA NUEVA:");
+        panelIzquierda.add(lblContraN);
+        lblContraN.setBounds(20, 291, 233, 21);
 
-        txtContrasenaN.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        txtContrasenaN.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtContrasenaN.setForeground(new java.awt.Color(76, 84, 84));
         txtContrasenaN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtContrasenaN.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -252,13 +253,18 @@ public class MiCuenta extends javax.swing.JFrame {
                 txtContrasenaNKeyTyped(evt);
             }
         });
+        panelIzquierda.add(txtContrasenaN);
+        txtContrasenaN.setBounds(20, 318, 180, 20);
 
         jSeparator1.setForeground(new java.awt.Color(76, 84, 84));
+        panelIzquierda.add(jSeparator1);
+        jSeparator1.setBounds(6, 394, 247, 2);
 
         btnCerrarSeccion.setBackground(new java.awt.Color(76, 84, 84));
-        btnCerrarSeccion.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnCerrarSeccion.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnCerrarSeccion.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrarSeccion.setText("CERRAR SESION");
+        btnCerrarSeccion.setBorder(null);
         btnCerrarSeccion.setBorderPainted(false);
         btnCerrarSeccion.setContentAreaFilled(false);
         btnCerrarSeccion.setFocusPainted(false);
@@ -273,15 +279,23 @@ public class MiCuenta extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCerrarSeccionMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCerrarSeccionMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnCerrarSeccionMouseReleased(evt);
+            }
         });
         btnCerrarSeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarSeccionActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnCerrarSeccion);
+        btnCerrarSeccion.setBounds(0, 560, 273, 40);
 
         btnEliminarCuenta.setBackground(new java.awt.Color(76, 84, 84));
-        btnEliminarCuenta.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnEliminarCuenta.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnEliminarCuenta.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarCuenta.setText("ELIMINAR CUENTA");
         btnEliminarCuenta.setBorder(null);
@@ -299,15 +313,23 @@ public class MiCuenta extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnEliminarCuentaMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminarCuentaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEliminarCuentaMouseReleased(evt);
+            }
         });
         btnEliminarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarCuentaActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnEliminarCuenta);
+        btnEliminarCuenta.setBounds(0, 520, 273, 40);
 
         btnEditarCuenta.setBackground(new java.awt.Color(76, 84, 84));
-        btnEditarCuenta.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnEditarCuenta.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnEditarCuenta.setForeground(new java.awt.Color(255, 255, 255));
         btnEditarCuenta.setText("EDITAR CUENTA");
         btnEditarCuenta.setBorder(null);
@@ -325,15 +347,23 @@ public class MiCuenta extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnEditarCuentaMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEditarCuentaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEditarCuentaMouseReleased(evt);
+            }
         });
         btnEditarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarCuentaActionPerformed(evt);
             }
         });
+        panelIzquierda.add(btnEditarCuenta);
+        btnEditarCuenta.setBounds(0, 480, 273, 40);
 
         btnGuardarCambios.setBackground(new java.awt.Color(76, 84, 84));
-        btnGuardarCambios.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnGuardarCambios.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnGuardarCambios.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarCambios.setText("GUARDAR CAMBIOS");
         btnGuardarCambios.setBorder(null);
@@ -351,78 +381,20 @@ public class MiCuenta extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnGuardarCambiosMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnGuardarCambiosMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnGuardarCambiosMouseReleased(evt);
+            }
         });
         btnGuardarCambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarCambiosActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelIzquierdaLayout = new javax.swing.GroupLayout(panelIzquierda);
-        panelIzquierda.setLayout(panelIzquierdaLayout);
-        panelIzquierdaLayout.setHorizontalGroup(
-            panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCerrarSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                    .addComponent(btnEliminarCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardarCambios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEditarCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreU, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbxCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblContra, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtContrasenaA, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblContraN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtContrasenaN, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
-        panelIzquierdaLayout.setVerticalGroup(
-            panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(lblCedula)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblNombre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNombreU, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblCiudad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbxCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblContra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtContrasenaA, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblContraN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtContrasenaN, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCerrarSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        panelIzquierda.add(btnGuardarCambios);
+        btnGuardarCambios.setBounds(0, 440, 273, 40);
 
         PanelMiCuenta.add(panelIzquierda);
         panelIzquierda.setBounds(0, 0, 270, 600);
@@ -443,6 +415,14 @@ public class MiCuenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void deshabilitarBotones() {
+        btnGuardarCambios.setVisible(false);
+        lblContra.setVisible(false);
+        lblContraN.setVisible(false);
+        txtContrasenaA.setVisible(false);
+        txtContrasenaN.setVisible(false);
+    }
+    
     private void llenarCamposUsuario(Usuario usuario) {
         txtCedula.setText(usuario.getCedulaUsuario());
         txtNombreU.setText(usuario.getNombreUsuario());
@@ -562,7 +542,7 @@ public class MiCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btXActionPerformed
 
     private void btnGuardarCambiosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarCambiosMouseEntered
-        btnGuardarCambios.setBackground(new java.awt.Color(30, 168, 150));
+        btnGuardarCambios.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnGuardarCambiosMouseEntered
 
     private void btnGuardarCambiosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarCambiosMouseExited
@@ -596,7 +576,7 @@ public class MiCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarCambiosActionPerformed
 
     private void btnEditarCuentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarCuentaMouseEntered
-        btnEditarCuenta.setBackground(new java.awt.Color(30, 168, 150));
+        btnEditarCuenta.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnEditarCuentaMouseEntered
 
     private void btnEditarCuentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarCuentaMouseExited
@@ -705,6 +685,38 @@ public class MiCuenta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNombreUKeyTyped
 
+    private void btnGuardarCambiosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarCambiosMousePressed
+        btnGuardarCambios.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnGuardarCambiosMousePressed
+
+    private void btnGuardarCambiosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarCambiosMouseReleased
+        btnGuardarCambios.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnGuardarCambiosMouseReleased
+
+    private void btnEditarCuentaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarCuentaMousePressed
+        btnEditarCuenta.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnEditarCuentaMousePressed
+
+    private void btnEditarCuentaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarCuentaMouseReleased
+        btnEditarCuenta.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnEditarCuentaMouseReleased
+
+    private void btnEliminarCuentaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarCuentaMousePressed
+        btnEliminarCuenta.setBackground(new java.awt.Color(187,82,66));
+    }//GEN-LAST:event_btnEliminarCuentaMousePressed
+
+    private void btnEliminarCuentaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarCuentaMouseReleased
+        btnEliminarCuenta.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnEliminarCuentaMouseReleased
+
+    private void btnCerrarSeccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSeccionMousePressed
+        btnCerrarSeccion.setBackground(new java.awt.Color(187,82,66));
+    }//GEN-LAST:event_btnCerrarSeccionMousePressed
+
+    private void btnCerrarSeccionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSeccionMouseReleased
+        btnCerrarSeccion.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnCerrarSeccionMouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelMiCuenta;
@@ -715,7 +727,6 @@ public class MiCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardarCambios;
     private javax.swing.JComboBox<String> cmbxCiudad;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
@@ -724,6 +735,7 @@ public class MiCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel lblContra;
     private javax.swing.JLabel lblContraN;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panelIzquierda;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JPasswordField txtContrasenaA;

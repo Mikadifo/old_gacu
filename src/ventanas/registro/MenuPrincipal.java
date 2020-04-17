@@ -41,19 +41,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlGeneral = new javax.swing.JPanel();
-        iconImagen = new javax.swing.JLabel();
+        lblParques = new javax.swing.JLabel();
+        lblParques1 = new javax.swing.JLabel();
+        lblParques2 = new javax.swing.JLabel();
+        lblParques3 = new javax.swing.JLabel();
         btnInfo = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btX = new javax.swing.JButton();
-        lbinfo = new javax.swing.JLabel();
         btnCuenta = new javax.swing.JButton();
+        Header = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        btX = new javax.swing.JButton();
+        lblCuenta = new javax.swing.JButton();
         btnIglesias = new javax.swing.JButton();
         btnTrivia = new javax.swing.JButton();
         btnInstitutos = new javax.swing.JButton();
         btnParques = new javax.swing.JButton();
         btnMuseos = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -61,15 +64,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         pnlGeneral.setLayout(null);
 
-        iconImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/Uuario.png"))); // NOI18N
-        iconImagen.setPreferredSize(new java.awt.Dimension(35, 30));
-        iconImagen.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                iconImagenMousePressed(evt);
-            }
-        });
-        pnlGeneral.add(iconImagen);
-        iconImagen.setBounds(770, 40, 35, 30);
+        lblParques.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblParques.setForeground(new java.awt.Color(255, 255, 255));
+        lblParques.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblParques.setText("PARQUES");
+        pnlGeneral.add(lblParques);
+        lblParques.setBounds(130, 240, 240, 30);
+
+        lblParques1.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblParques1.setForeground(new java.awt.Color(255, 255, 255));
+        lblParques1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblParques1.setText("IGLESIAS");
+        pnlGeneral.add(lblParques1);
+        lblParques1.setBounds(440, 240, 240, 30);
+
+        lblParques2.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblParques2.setForeground(new java.awt.Color(255, 255, 255));
+        lblParques2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblParques2.setText("EDUCACIÓN SUPERIOR");
+        pnlGeneral.add(lblParques2);
+        lblParques2.setBounds(430, 470, 260, 30);
+
+        lblParques3.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblParques3.setForeground(new java.awt.Color(255, 255, 255));
+        lblParques3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblParques3.setText("MUSEOS");
+        pnlGeneral.add(lblParques3);
+        lblParques3.setBounds(130, 470, 240, 30);
 
         btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/Informacion.png"))); // NOI18N
         btnInfo.setBorder(null);
@@ -92,18 +113,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pnlGeneral.add(btnInfo);
         btnInfo.setBounds(760, 560, 35, 30);
 
-        jPanel1.setBackground(new java.awt.Color(76, 84, 84));
-        jPanel1.setPreferredSize(new java.awt.Dimension(810, 35));
-        jPanel1.setLayout(null);
+        btnCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Usuario/Uuario.png"))); // NOI18N
+        btnCuenta.setBorder(null);
+        btnCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCuentaActionPerformed(evt);
+            }
+        });
+        pnlGeneral.add(btnCuenta);
+        btnCuenta.setBounds(760, 40, 40, 32);
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel2.setText("           Menu Principal");
-        jLabel2.setPreferredSize(new java.awt.Dimension(225, 26));
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(270, 10, 225, 26);
+        Header.setBackground(new java.awt.Color(76, 84, 84));
+        Header.setPreferredSize(new java.awt.Dimension(810, 35));
+        Header.setLayout(null);
 
-        btX.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(240, 240, 240));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("Menu Principal");
+        lblTitulo.setPreferredSize(new java.awt.Dimension(225, 26));
+        Header.add(lblTitulo);
+        lblTitulo.setBounds(40, 0, 730, 30);
+
+        btX.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btX.setForeground(new java.awt.Color(255, 113, 91));
         btX.setText("X");
         btX.setAutoscrolls(true);
@@ -127,32 +159,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btXActionPerformed(evt);
             }
         });
-        jPanel1.add(btX);
+        Header.add(btX);
         btX.setBounds(760, 0, 50, 35);
 
-        lbinfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lbinfo.setEnabled(false);
-        jPanel1.add(lbinfo);
-        lbinfo.setBounds(40, 530, 740, 50);
+        pnlGeneral.add(Header);
+        Header.setBounds(0, 0, 810, 35);
 
-        pnlGeneral.add(jPanel1);
-        jPanel1.setBounds(0, 0, 810, 35);
-
-        btnCuenta.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        btnCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        btnCuenta.setText("Cuenta");
-        btnCuenta.setBorder(null);
-        btnCuenta.setBorderPainted(false);
-        btnCuenta.setContentAreaFilled(false);
-        btnCuenta.addActionListener(new java.awt.event.ActionListener() {
+        lblCuenta.setFont(new java.awt.Font("Marion", 1, 15)); // NOI18N
+        lblCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        lblCuenta.setText("Cuenta");
+        lblCuenta.setBorder(null);
+        lblCuenta.setBorderPainted(false);
+        lblCuenta.setContentAreaFilled(false);
+        lblCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCuentaActionPerformed(evt);
+                lblCuentaActionPerformed(evt);
             }
         });
-        pnlGeneral.add(btnCuenta);
-        btnCuenta.setBounds(760, 70, 50, 23);
+        pnlGeneral.add(lblCuenta);
+        lblCuenta.setBounds(750, 70, 60, 23);
 
         btnIglesias.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnIglesias.setBorder(null);
         btnIglesias.setOpaque(true);
         btnIglesias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -171,7 +199,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnIglesias.setBounds(440, 70, 240, 170);
 
         btnTrivia.setBackground(new java.awt.Color(76, 84, 84));
-        btnTrivia.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnTrivia.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnTrivia.setForeground(new java.awt.Color(255, 255, 255));
         btnTrivia.setText("TRIVIA");
         btnTrivia.setBorder(null);
@@ -189,6 +217,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnTriviaMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTriviaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnTriviaMouseReleased(evt);
+            }
         });
         btnTrivia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,6 +233,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnTrivia.setBounds(300, 540, 210, 50);
 
         btnInstitutos.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnInstitutos.setBorder(null);
         btnInstitutos.setOpaque(true);
         btnInstitutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -217,6 +252,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnInstitutos.setBounds(440, 290, 240, 180);
 
         btnParques.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnParques.setBorder(null);
         btnParques.setOpaque(true);
         btnParques.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -235,6 +271,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnParques.setBounds(130, 70, 240, 170);
 
         btnMuseos.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnMuseos.setBorder(null);
         btnMuseos.setOpaque(true);
         btnMuseos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -252,9 +289,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pnlGeneral.add(btnMuseos);
         btnMuseos.setBounds(130, 290, 240, 180);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondo.jpg"))); // NOI18N
-        pnlGeneral.add(jLabel1);
-        jLabel1.setBounds(-8, 30, 820, 570);
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondo.jpg"))); // NOI18N
+        pnlGeneral.add(lblFondo);
+        lblFondo.setBounds(-8, 30, 820, 570);
 
         getContentPane().add(pnlGeneral);
         pnlGeneral.setBounds(0, 0, 810, 600);
@@ -276,7 +313,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             InputStream in = new ByteArrayInputStream(imagen);
             image = ImageIO.read(in);
             ImageIcon imgI = new ImageIcon(image);
-            //Icon imgBtn = new ImageIcon(imgI.getImage().getScaledInstance(boton.getWidth(), boton.getHeight(), Image.SCALE_DEFAULT));
             boton.setIcon(imgI);
         } catch (IOException ex) {
             boton.setText("NO IMAGE:" + boton.getName());
@@ -298,7 +334,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btXActionPerformed
 
     private void btnTriviaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTriviaMouseEntered
-        btnTrivia.setBackground(new java.awt.Color(30, 168, 150));
+        btnTrivia.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnTriviaMouseEntered
 
     private void btnTriviaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTriviaMouseExited
@@ -339,7 +375,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTriviaActionPerformed
 
     private void btnIglesiasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIglesiasMouseEntered
-        btnIglesias.setBackground(new java.awt.Color(30, 168, 150));
+        btnIglesias.setBounds(btnIglesias.getX() - 6, btnIglesias.getY() - 6, btnIglesias.getWidth() + 12, btnIglesias.getHeight() + 12);
     }//GEN-LAST:event_btnIglesiasMouseEntered
 
     private void btnIglesiasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIglesiasMouseExited
@@ -347,7 +383,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIglesiasMouseExited
 
     private void btnMuseosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMuseosMouseEntered
-        btnMuseos.setBackground(new java.awt.Color(30, 168, 150));
+        btnMuseos.setBounds(btnMuseos.getX() - 6, btnMuseos.getY() - 6, btnMuseos.getWidth() + 12, btnMuseos.getHeight() + 12);
     }//GEN-LAST:event_btnMuseosMouseEntered
 
     private void btnMuseosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMuseosMouseExited
@@ -355,7 +391,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMuseosMouseExited
 
     private void btnInstitutosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInstitutosMouseEntered
-        btnInstitutos.setBackground(new java.awt.Color(30, 168, 150));
+        btnInstitutos.setBounds(btnInstitutos.getX() - 6, btnInstitutos.getY() - 6, btnInstitutos.getWidth() + 12, btnInstitutos.getHeight() + 12);
     }//GEN-LAST:event_btnInstitutosMouseEntered
 
     private void btnInstitutosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInstitutosMouseExited
@@ -392,35 +428,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnInfo.setVisible(false);
     }
 
-    private void btnCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaActionPerformed
-        if (usuarioActivo == null) {
-            if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
-                MenuRegistro ventanaMenu = new MenuRegistro();
-                dispose();
-                ventanaMenu.setVisible(true);
-            }
-        } else {
-            MiCuenta micuenta = new MiCuenta(usuarioActivo, thisVentana);
-            micuenta.setAlwaysOnTop(true);
-            micuenta.setVisible(true);
-            deshabilitarPanelPrincipal();
-        }
-    }//GEN-LAST:event_btnCuentaActionPerformed
-
-    private void iconImagenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconImagenMousePressed
-        if (usuarioActivo == null) {
-            if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
-                MenuRegistro ventanaMenu = new MenuRegistro();
-                dispose();
-                ventanaMenu.setVisible(true);
-            }
-        } else {
-            MiCuenta micuenta = new MiCuenta(usuarioActivo, thisVentana);
-            micuenta.setAlwaysOnTop(true);
-            micuenta.setVisible(true);
-            deshabilitarPanelPrincipal();
-        }
-    }//GEN-LAST:event_iconImagenMousePressed
+    private void lblCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblCuentaActionPerformed
+        accionCuenta();
+    }//GEN-LAST:event_lblCuentaActionPerformed
 
     private void btnParquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParquesActionPerformed
         new Parques(usuarioActivo).setVisible(true);
@@ -435,6 +445,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnParques.setBounds(btnParques.getX() - 6, btnParques.getY() - 6, btnParques.getWidth() + 12, btnParques.getHeight() + 12);
     }//GEN-LAST:event_btnParquesMouseEntered
 
+    private void btnTriviaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTriviaMousePressed
+        btnTrivia.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnTriviaMousePressed
+
+    private void btnTriviaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTriviaMouseReleased
+        btnTrivia.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnTriviaMouseReleased
+
+    private void btnCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaActionPerformed
+        accionCuenta();
+    }//GEN-LAST:event_btnCuentaActionPerformed
+
+    private void accionCuenta() {
+        if (usuarioActivo == null) {
+            if (JOptionPane.showConfirmDialog(null, "Debe iniciar sesion para usar esta funcion\n¿Desea ir al menu de registro?") == JOptionPane.YES_OPTION) {
+                MenuRegistro ventanaMenu = new MenuRegistro();
+                dispose();
+                ventanaMenu.setVisible(true);
+            }
+        } else {
+            MiCuenta micuenta = new MiCuenta(usuarioActivo, thisVentana);
+            micuenta.setAlwaysOnTop(true);
+            micuenta.setVisible(true);
+            deshabilitarPanelPrincipal();
+        }
+    }
+    
     private void mostrarVentanaRandom() {
         switch (generarNumeroRandom(1, 3)) {
             case 1:
@@ -479,6 +516,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Header;
     private javax.swing.JButton btX;
     private javax.swing.JButton btnCuenta;
     private javax.swing.JButton btnIglesias;
@@ -487,11 +525,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnMuseos;
     private javax.swing.JButton btnParques;
     private javax.swing.JButton btnTrivia;
-    private javax.swing.JLabel iconImagen;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbinfo;
+    private javax.swing.JButton lblCuenta;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblParques;
+    private javax.swing.JLabel lblParques1;
+    private javax.swing.JLabel lblParques2;
+    private javax.swing.JLabel lblParques3;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlGeneral;
     // End of variables declaration//GEN-END:variables
 }

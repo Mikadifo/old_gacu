@@ -38,40 +38,53 @@ public class Institutos_ES extends javax.swing.JFrame {
         btnIsta = new javax.swing.JButton();
         btnCuenca = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        btnAzuay.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnAzuay.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnAzuay.setBorder(null);
+        btnAzuay.setBorderPainted(false);
+        btnAzuay.setOpaque(true);
         btnAzuay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAzuayActionPerformed(evt);
             }
         });
         getContentPane().add(btnAzuay);
-        btnAzuay.setBounds(60, 110, 590, 40);
+        btnAzuay.setBounds(60, 130, 590, 40);
 
-        btnCatolica.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnCatolica.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnCatolica.setBorder(null);
+        btnCatolica.setBorderPainted(false);
+        btnCatolica.setOpaque(true);
         btnCatolica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCatolicaActionPerformed(evt);
             }
         });
         getContentPane().add(btnCatolica);
-        btnCatolica.setBounds(60, 190, 590, 40);
+        btnCatolica.setBounds(60, 210, 590, 40);
 
-        btnUps.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnUps.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnUps.setBorder(null);
+        btnUps.setBorderPainted(false);
+        btnUps.setOpaque(true);
         btnUps.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpsActionPerformed(evt);
             }
         });
         getContentPane().add(btnUps);
-        btnUps.setBounds(60, 270, 590, 40);
+        btnUps.setBounds(60, 280, 590, 40);
 
-        btnIsta.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnIsta.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnIsta.setBorder(null);
+        btnIsta.setBorderPainted(false);
+        btnIsta.setOpaque(true);
         btnIsta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIstaActionPerformed(evt);
@@ -80,17 +93,20 @@ public class Institutos_ES extends javax.swing.JFrame {
         getContentPane().add(btnIsta);
         btnIsta.setBounds(60, 350, 590, 40);
 
-        btnCuenca.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnCuenca.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnCuenca.setBorder(null);
+        btnCuenca.setBorderPainted(false);
+        btnCuenca.setOpaque(true);
         btnCuenca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCuencaActionPerformed(evt);
             }
         });
         getContentPane().add(btnCuenca);
-        btnCuenca.setBounds(60, 30, 590, 40);
+        btnCuenca.setBounds(60, 50, 590, 40);
 
         btnVolver.setBackground(new java.awt.Color(76, 84, 84));
-        btnVolver.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("VOLVER");
         btnVolver.setBorder(null);
@@ -117,15 +133,22 @@ public class Institutos_ES extends javax.swing.JFrame {
         getContentPane().add(btnVolver);
         btnVolver.setBounds(300, 420, 100, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoESuperior.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 700, 500);
+        lblTitulo.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("EDUCACIÓN SUPERIOR");
+        getContentPane().add(lblTitulo);
+        lblTitulo.setBounds(0, 0, 700, 30);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoESuperior.jpg"))); // NOI18N
+        getContentPane().add(lblFondo);
+        lblFondo.setBounds(0, 0, 700, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
-        btnVolver.setBackground(new java.awt.Color(30, 168, 150));
+        btnVolver.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnVolverMouseEntered
 
     private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
@@ -194,7 +217,8 @@ public class Institutos_ES extends javax.swing.JFrame {
     private javax.swing.JButton btnIsta;
     private javax.swing.JButton btnUps;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 
     public void setLugarBoton(javax.swing.JButton boton, Lugares lugarMostrar) {

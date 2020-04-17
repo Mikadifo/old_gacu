@@ -38,13 +38,17 @@ public class Museos extends javax.swing.JFrame {
         btnModerno = new javax.swing.JButton();
         btnPumapungo = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        btnSantos.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnSantos.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnSantos.setBorder(null);
+        btnSantos.setBorderPainted(false);
+        btnSantos.setOpaque(true);
         btnSantos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSantosActionPerformed(evt);
@@ -53,44 +57,56 @@ public class Museos extends javax.swing.JFrame {
         getContentPane().add(btnSantos);
         btnSantos.setBounds(60, 350, 590, 40);
 
-        btnAborigenes.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnAborigenes.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnAborigenes.setBorder(null);
+        btnAborigenes.setBorderPainted(false);
+        btnAborigenes.setOpaque(true);
         btnAborigenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAborigenesActionPerformed(evt);
             }
         });
         getContentPane().add(btnAborigenes);
-        btnAborigenes.setBounds(60, 110, 590, 40);
+        btnAborigenes.setBounds(60, 120, 590, 40);
 
-        btnEsqueletologia.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnEsqueletologia.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnEsqueletologia.setBorder(null);
+        btnEsqueletologia.setBorderPainted(false);
+        btnEsqueletologia.setOpaque(true);
         btnEsqueletologia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEsqueletologiaActionPerformed(evt);
             }
         });
         getContentPane().add(btnEsqueletologia);
-        btnEsqueletologia.setBounds(60, 260, 590, 40);
+        btnEsqueletologia.setBounds(60, 270, 590, 40);
 
-        btnModerno.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnModerno.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnModerno.setBorder(null);
+        btnModerno.setBorderPainted(false);
+        btnModerno.setOpaque(true);
         btnModerno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModernoActionPerformed(evt);
             }
         });
         getContentPane().add(btnModerno);
-        btnModerno.setBounds(60, 180, 590, 40);
+        btnModerno.setBounds(60, 190, 590, 40);
 
-        btnPumapungo.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnPumapungo.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnPumapungo.setBorder(null);
+        btnPumapungo.setBorderPainted(false);
+        btnPumapungo.setOpaque(true);
         btnPumapungo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPumapungoActionPerformed(evt);
             }
         });
         getContentPane().add(btnPumapungo);
-        btnPumapungo.setBounds(60, 40, 590, 40);
+        btnPumapungo.setBounds(60, 50, 590, 40);
 
         btnVolver.setBackground(new java.awt.Color(76, 84, 84));
-        btnVolver.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("VOLVER");
         btnVolver.setBorder(null);
@@ -117,15 +133,22 @@ public class Museos extends javax.swing.JFrame {
         getContentPane().add(btnVolver);
         btnVolver.setBounds(310, 420, 100, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoMuseos.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 700, 500);
+        lblTitulo.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("MUSEOS");
+        getContentPane().add(lblTitulo);
+        lblTitulo.setBounds(0, 0, 700, 30);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoMuseos.jpg"))); // NOI18N
+        getContentPane().add(lblFondo);
+        lblFondo.setBounds(0, 0, 700, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
-        btnVolver.setBackground(new java.awt.Color(30, 168, 150));
+        btnVolver.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnVolverMouseEntered
 
     private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
@@ -206,7 +229,8 @@ public class Museos extends javax.swing.JFrame {
     private javax.swing.JButton btnPumapungo;
     private javax.swing.JButton btnSantos;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 
 }

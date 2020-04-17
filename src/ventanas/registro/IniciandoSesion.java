@@ -92,15 +92,15 @@ public class IniciandoSesion extends javax.swing.JFrame {
         pnlHeader.setMinimumSize(new java.awt.Dimension(810, 35));
         pnlHeader.setLayout(null);
 
-        lblInicioSesion.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblInicioSesion.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
         lblInicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInicioSesion.setText("INICIANDO SESION");
         lblInicioSesion.setPreferredSize(new java.awt.Dimension(150, 35));
         pnlHeader.add(lblInicioSesion);
-        lblInicioSesion.setBounds(320, 0, 180, 35);
+        lblInicioSesion.setBounds(40, 0, 730, 35);
 
-        btnX.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnX.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnX.setForeground(new java.awt.Color(255, 113, 91));
         btnX.setText("X");
         btnX.setBorder(null);
@@ -128,15 +128,20 @@ public class IniciandoSesion extends javax.swing.JFrame {
         pnlHeader.setBounds(0, 0, 810, 35);
 
         panelIzquierda.setBackground(new java.awt.Color(76, 84, 84));
+        panelIzquierda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                panelIzquierdaKeyPressed(evt);
+            }
+        });
 
         lblContrasena.setBackground(new java.awt.Color(255, 255, 255));
-        lblContrasena.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblContrasena.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblContrasena.setForeground(new java.awt.Color(255, 255, 255));
         lblContrasena.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblContrasena.setText("Contraseña:");
         lblContrasena.setPreferredSize(new java.awt.Dimension(101, 26));
 
-        txtCedula.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        txtCedula.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtCedula.setForeground(new java.awt.Color(75, 84, 84));
         txtCedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtCedula.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -158,19 +163,20 @@ public class IniciandoSesion extends javax.swing.JFrame {
         });
 
         lblCedula.setBackground(new java.awt.Color(255, 255, 255));
-        lblCedula.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        lblCedula.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         lblCedula.setForeground(new java.awt.Color(255, 255, 255));
         lblCedula.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCedula.setText("Cédula:");
         lblCedula.setPreferredSize(new java.awt.Dimension(101, 26));
 
-        btAtras.setBackground(new java.awt.Color(255, 255, 255));
-        btAtras.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btAtras.setBackground(new java.awt.Color(76, 84, 84));
+        btAtras.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btAtras.setForeground(new java.awt.Color(255, 255, 255));
         btAtras.setText("<<");
         btAtras.setBorder(null);
         btAtras.setBorderPainted(false);
         btAtras.setContentAreaFilled(false);
+        btAtras.setOpaque(true);
         btAtras.setPreferredSize(new java.awt.Dimension(33, 35));
         btAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -179,6 +185,12 @@ public class IniciandoSesion extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btAtrasMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btAtrasMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btAtrasMouseReleased(evt);
+            }
         });
         btAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,8 +198,8 @@ public class IniciandoSesion extends javax.swing.JFrame {
             }
         });
 
-        btnIngresar.setBackground(new java.awt.Color(75, 84, 84));
-        btnIngresar.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnIngresar.setBackground(new java.awt.Color(76, 84, 84));
+        btnIngresar.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setMnemonic('I');
         btnIngresar.setText("INGRESAR");
@@ -202,6 +214,12 @@ public class IniciandoSesion extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnIngresarMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnIngresarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseReleased(evt);
+            }
         });
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +227,7 @@ public class IniciandoSesion extends javax.swing.JFrame {
             }
         });
 
-        txtContrasena.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        txtContrasena.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         txtContrasena.setForeground(new java.awt.Color(75, 84, 84));
         txtContrasena.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 84, 84)));
         txtContrasena.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -240,30 +258,25 @@ public class IniciandoSesion extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                        .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                                .addComponent(btAtras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                                .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 23, Short.MAX_VALUE)))
-                        .addGap(26, 26, 26))
-                    .addGroup(panelIzquierdaLayout.createSequentialGroup()
                         .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(lblContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 10, Short.MAX_VALUE))
+                    .addGroup(panelIzquierdaLayout.createSequentialGroup()
+                        .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(panelIzquierdaLayout.createSequentialGroup()
+                .addComponent(btAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelIzquierdaLayout.setVerticalGroup(
             panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIzquierdaLayout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addContainerGap(92, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(lblContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,11 +286,10 @@ public class IniciandoSesion extends javax.swing.JFrame {
                 .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(76, 76, 76)
                 .addGroup(panelIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAtras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(btAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pnlniciandoSesion.add(panelIzquierda);
@@ -330,7 +342,7 @@ public class IniciandoSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXActionPerformed
 
     private void btnIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseEntered
-        btnIngresar.setBackground(new java.awt.Color(30, 168, 150));
+        btnIngresar.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnIngresarMouseEntered
 
     private void btnIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseExited
@@ -338,11 +350,11 @@ public class IniciandoSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarMouseExited
 
     private void btAtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAtrasMouseEntered
-        btAtras.setForeground(new java.awt.Color(30, 168, 150));
+        btAtras.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btAtrasMouseEntered
 
     private void btAtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAtrasMouseExited
-        btAtras.setForeground(new java.awt.Color(255, 255, 255));
+        btAtras.setBackground(new java.awt.Color(76, 84, 84));
     }//GEN-LAST:event_btAtrasMouseExited
 
     private void btnXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXMouseEntered
@@ -398,8 +410,26 @@ public class IniciandoSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContrasenaKeyPressed
 
     private void pnlniciandoSesionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pnlniciandoSesionKeyPressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_pnlniciandoSesionKeyPressed
+
+    private void btAtrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAtrasMousePressed
+        btAtras.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btAtrasMousePressed
+
+    private void btnIngresarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMousePressed
+        btnIngresar.setBackground(new java.awt.Color(0, 58, 78));
+    }//GEN-LAST:event_btnIngresarMousePressed
+
+    private void btnIngresarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseReleased
+        btnIngresar.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btnIngresarMouseReleased
+
+    private void btAtrasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAtrasMouseReleased
+        btnIngresar.setBackground(new java.awt.Color(76, 84, 84));
+    }//GEN-LAST:event_btAtrasMouseReleased
+
+    private void panelIzquierdaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelIzquierdaKeyPressed
+    }//GEN-LAST:event_panelIzquierdaKeyPressed
     
     private void accionarBotonIngresar() {
         if (datosValidos()) {

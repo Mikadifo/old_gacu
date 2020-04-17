@@ -38,40 +38,53 @@ public class Iglesias extends javax.swing.JFrame {
         btnSantos = new javax.swing.JButton();
         btnSagrario = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        btnInmaculada.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnInmaculada.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnInmaculada.setBorder(null);
+        btnInmaculada.setBorderPainted(false);
+        btnInmaculada.setOpaque(true);
         btnInmaculada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInmaculadaActionPerformed(evt);
             }
         });
         getContentPane().add(btnInmaculada);
-        btnInmaculada.setBounds(60, 100, 590, 40);
+        btnInmaculada.setBounds(60, 110, 590, 40);
 
-        btnAsuncion.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnAsuncion.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnAsuncion.setBorder(null);
+        btnAsuncion.setBorderPainted(false);
+        btnAsuncion.setOpaque(true);
         btnAsuncion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAsuncionActionPerformed(evt);
             }
         });
         getContentPane().add(btnAsuncion);
-        btnAsuncion.setBounds(60, 180, 590, 40);
+        btnAsuncion.setBounds(60, 190, 590, 40);
 
-        btnBlas.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnBlas.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnBlas.setBorder(null);
+        btnBlas.setBorderPainted(false);
+        btnBlas.setOpaque(true);
         btnBlas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBlasActionPerformed(evt);
             }
         });
         getContentPane().add(btnBlas);
-        btnBlas.setBounds(60, 260, 590, 40);
+        btnBlas.setBounds(60, 270, 590, 40);
 
-        btnSantos.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnSantos.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnSantos.setBorder(null);
+        btnSantos.setBorderPainted(false);
+        btnSantos.setOpaque(true);
         btnSantos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSantosActionPerformed(evt);
@@ -80,17 +93,20 @@ public class Iglesias extends javax.swing.JFrame {
         getContentPane().add(btnSantos);
         btnSantos.setBounds(60, 350, 590, 40);
 
-        btnSagrario.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnSagrario.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnSagrario.setBorder(null);
+        btnSagrario.setBorderPainted(false);
+        btnSagrario.setOpaque(true);
         btnSagrario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSagrarioActionPerformed(evt);
             }
         });
         getContentPane().add(btnSagrario);
-        btnSagrario.setBounds(60, 20, 590, 40);
+        btnSagrario.setBounds(60, 40, 590, 40);
 
         btnVolver.setBackground(new java.awt.Color(76, 84, 84));
-        btnVolver.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("VOLVER");
         btnVolver.setBorder(null);
@@ -117,18 +133,25 @@ public class Iglesias extends javax.swing.JFrame {
         getContentPane().add(btnVolver);
         btnVolver.setBounds(300, 420, 100, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoIglesias.jpg"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(800, 500));
-        jLabel2.setMinimumSize(new java.awt.Dimension(800, 500));
-        jLabel2.setPreferredSize(new java.awt.Dimension(800, 500));
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 700, 500);
+        jLabel1.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("IGLESIAS");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 700, 30);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondoIglesias.jpg"))); // NOI18N
+        lblFondo.setMaximumSize(new java.awt.Dimension(800, 500));
+        lblFondo.setMinimumSize(new java.awt.Dimension(800, 500));
+        lblFondo.setPreferredSize(new java.awt.Dimension(800, 500));
+        getContentPane().add(lblFondo);
+        lblFondo.setBounds(0, 0, 700, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
-        btnVolver.setBackground(new java.awt.Color(30, 168, 150));
+        btnVolver.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnVolverMouseEntered
 
     private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
@@ -209,7 +232,8 @@ public class Iglesias extends javax.swing.JFrame {
     private javax.swing.JButton btnSagrario;
     private javax.swing.JButton btnSantos;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblFondo;
     // End of variables declaration//GEN-END:variables
 
 }

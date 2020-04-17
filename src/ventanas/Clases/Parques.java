@@ -38,59 +38,75 @@ public class Parques extends javax.swing.JFrame {
         btnMadre = new javax.swing.JButton();
         btnBlas = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        btnSebastian.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnSebastian.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnSebastian.setBorder(null);
+        btnSebastian.setBorderPainted(false);
+        btnSebastian.setOpaque(true);
         btnSebastian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSebastianActionPerformed(evt);
             }
         });
         getContentPane().add(btnSebastian);
-        btnSebastian.setBounds(60, 360, 590, 40);
+        btnSebastian.setBounds(60, 350, 590, 40);
 
-        btnCalderon.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnCalderon.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnCalderon.setBorder(null);
+        btnCalderon.setBorderPainted(false);
+        btnCalderon.setOpaque(true);
         btnCalderon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalderonActionPerformed(evt);
             }
         });
         getContentPane().add(btnCalderon);
-        btnCalderon.setBounds(60, 30, 590, 40);
+        btnCalderon.setBounds(60, 50, 590, 40);
 
-        btnParaiso.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnParaiso.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnParaiso.setBorder(null);
+        btnParaiso.setBorderPainted(false);
+        btnParaiso.setOpaque(true);
         btnParaiso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnParaisoActionPerformed(evt);
             }
         });
         getContentPane().add(btnParaiso);
-        btnParaiso.setBounds(60, 110, 590, 40);
+        btnParaiso.setBounds(60, 130, 590, 40);
 
-        btnMadre.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnMadre.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnMadre.setBorder(null);
+        btnMadre.setBorderPainted(false);
+        btnMadre.setOpaque(true);
         btnMadre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMadreActionPerformed(evt);
             }
         });
         getContentPane().add(btnMadre);
-        btnMadre.setBounds(60, 190, 590, 40);
+        btnMadre.setBounds(60, 210, 590, 40);
 
-        btnBlas.setFont(new java.awt.Font("Arial Black", 0, 15)); // NOI18N
+        btnBlas.setFont(new java.awt.Font("Marion", 2, 20)); // NOI18N
+        btnBlas.setBorder(null);
+        btnBlas.setBorderPainted(false);
+        btnBlas.setOpaque(true);
         btnBlas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBlasActionPerformed(evt);
             }
         });
         getContentPane().add(btnBlas);
-        btnBlas.setBounds(60, 270, 590, 40);
+        btnBlas.setBounds(60, 280, 590, 40);
 
         btnVolver.setBackground(new java.awt.Color(76, 84, 84));
-        btnVolver.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("VOLVER");
         btnVolver.setBorder(null);
@@ -117,6 +133,13 @@ public class Parques extends javax.swing.JFrame {
         getContentPane().add(btnVolver);
         btnVolver.setBounds(310, 430, 100, 40);
 
+        lblTitulo.setFont(new java.awt.Font("Marion", 1, 20)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("PARQUES");
+        getContentPane().add(lblTitulo);
+        lblTitulo.setBounds(-5, 0, 710, 30);
+
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_Principal/fondosParques.jpg"))); // NOI18N
         getContentPane().add(lblFondo);
         lblFondo.setBounds(0, 0, 700, 500);
@@ -137,7 +160,7 @@ public class Parques extends javax.swing.JFrame {
     }
 
     private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
-        btnVolver.setBackground(new java.awt.Color(30, 168, 150));
+        btnVolver.setBackground(new java.awt.Color(0, 129, 175));
     }//GEN-LAST:event_btnVolverMouseEntered
 
     private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
@@ -207,5 +230,6 @@ public class Parques extends javax.swing.JFrame {
     private javax.swing.JButton btnSebastian;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }
