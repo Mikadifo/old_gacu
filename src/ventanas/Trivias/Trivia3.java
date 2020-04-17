@@ -208,7 +208,7 @@ public class Trivia3 extends javax.swing.JFrame {
         } else {
             lblEnunciado.setText("  " + enunciado[0] + " 1. <______>" + enunciado[1] + " 2. <______>" + enunciado[2] + " 3. <______>");
         }
-        System.out.println("RT3 = " + base.getRespuesta(triviaPRS[2].getCodigo_respuesta()).getRespuesta());
+        //System.out.println("RT3 = " + base.getRespuesta(triviaPRS[2].getCodigo_respuesta()).getRespuesta());
     }
     
     private void setBotonPosicion() {

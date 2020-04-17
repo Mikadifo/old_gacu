@@ -208,7 +208,7 @@ public class Trivia1 extends javax.swing.JFrame {
     private void cargarPreguntaRespuesta() {
         lblTitulo.setText(base.getTrivia(triviaPRS[0].getCodigo_trivia()).getNombre_trivia());
         lblEnunciado.setText("  " + base.getPregunta(triviaPRS[0].getCodigo_pregunta()).getPregunta());
-        System.out.println("RT1 = " + base.getRespuesta(triviaPRS[0].getCodigo_respuesta()).getRespuesta());
+        //System.out.println("RT1 = " + base.getRespuesta(triviaPRS[0].getCodigo_respuesta()).getRespuesta());
     }
 
     private void setBotonPosicion() {
