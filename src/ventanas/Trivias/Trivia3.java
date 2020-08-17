@@ -290,7 +290,7 @@ public class Trivia3 extends javax.swing.JFrame {
     }
     
     private boolean respuestasLlenas() {
-        return !txtR1.getText().isBlank() && !txtR2.getText().isBlank() && !txtR3.getText().isBlank();
+        return !txtR1.getText().isEmpty() && !txtR2.getText().isEmpty() && !txtR3.getText().isEmpty();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
